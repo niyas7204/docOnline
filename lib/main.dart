@@ -1,10 +1,14 @@
+import 'package:doc_online/signin/application/bloc/login_bloc.dart';
+import 'package:doc_online/signin/core/di/injection.dart';
 import 'package:flutter/material.dart';
-import 'package:doc_online/presentation/login/screens/log_in.dart';
+import 'package:doc_online/signin/presentation/login/screens/log_in.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:doc_online/core/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main(List<String> args) {
-  runApp(MyApp());
+Future<void> main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,13 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: (BuildContext context, Widget? child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: Login(),
-        );
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<LoginBloc>(),
+        ),
+      ],
+      child: ScreenUtilInit(
+        builder: (BuildContext context, Widget? child) {
+          return const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: Login(),
+          );
+        },
+      ),
     );
   }
 }

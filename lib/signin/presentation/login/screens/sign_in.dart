@@ -1,6 +1,6 @@
-import 'package:doc_online/core/constants.dart';
-import 'package:doc_online/core/logo.dart';
-import 'package:doc_online/presentation/login/screens/verify_email.dart';
+import 'package:doc_online/signin/core/constants.dart';
+import 'package:doc_online/signin/core/logo.dart';
+import 'package:doc_online/signin/presentation/login/screens/verify_email.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {

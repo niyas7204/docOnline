@@ -1,6 +1,6 @@
-import 'package:doc_online/core/constants.dart';
-import 'package:doc_online/core/logo.dart';
-import 'package:doc_online/presentation/login/screens/log_in.dart';
+import 'package:doc_online/signin/core/constants.dart';
+import 'package:doc_online/signin/core/logo.dart';
+import 'package:doc_online/signin/presentation/login/screens/log_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';

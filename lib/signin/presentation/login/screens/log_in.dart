@@ -1,10 +1,10 @@
-import 'package:doc_online/core/constants.dart';
-import 'package:doc_online/core/logo.dart';
-import 'package:doc_online/infrastructure/login/login.dart';
-import 'package:doc_online/presentation/login/screens/forgot_password.dart';
-import 'package:doc_online/presentation/login/screens/sign_in.dart';
-import 'package:doc_online/presentation/login/screens/verify_email.dart';
+import 'package:doc_online/signin/application/bloc/login_bloc.dart';
+import 'package:doc_online/signin/core/constants.dart';
+import 'package:doc_online/signin/core/logo.dart';
+import 'package:doc_online/signin/presentation/login/screens/sign_in.dart';
+import 'package:doc_online/signin/presentation/login/screens/verify_email.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -33,7 +33,8 @@ class Login extends StatelessWidget {
                   space1(),
                   TextButton(
                       onPressed: () async {
-                        await userLog();
+                        BlocProvider.of<LoginBloc>(context)
+                            .add(const LoginEvent.authLogIn());
                       },
                       child: const Text(
                         "Forgot password",
