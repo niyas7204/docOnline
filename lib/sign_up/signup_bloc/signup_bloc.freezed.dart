@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_bloc.dart';
+part of 'signup_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,52 +15,52 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$LoginEvent {
+mixin _$SignupEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() authLogIn,
+    required TResult Function() getSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? authLogIn,
+    TResult? Function()? getSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? authLogIn,
+    TResult Function()? getSignUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AuthLogIn value) authLogIn,
+    required TResult Function(_getSignUph value) getSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AuthLogIn value)? authLogIn,
+    TResult? Function(_getSignUph value)? getSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AuthLogIn value)? authLogIn,
+    TResult Function(_getSignUph value)? getSignUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginEventCopyWith<$Res> {
-  factory $LoginEventCopyWith(
-          LoginEvent value, $Res Function(LoginEvent) then) =
-      _$LoginEventCopyWithImpl<$Res, LoginEvent>;
+abstract class $SignupEventCopyWith<$Res> {
+  factory $SignupEventCopyWith(
+          SignupEvent value, $Res Function(SignupEvent) then) =
+      _$SignupEventCopyWithImpl<$Res, SignupEvent>;
 }
 
 /// @nodoc
-class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
-    implements $LoginEventCopyWith<$Res> {
-  _$LoginEventCopyWithImpl(this._value, this._then);
+class _$SignupEventCopyWithImpl<$Res, $Val extends SignupEvent>
+    implements $SignupEventCopyWith<$Res> {
+  _$SignupEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,35 +69,35 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
 }
 
 /// @nodoc
-abstract class _$$_AuthLogInCopyWith<$Res> {
-  factory _$$_AuthLogInCopyWith(
-          _$_AuthLogIn value, $Res Function(_$_AuthLogIn) then) =
-      __$$_AuthLogInCopyWithImpl<$Res>;
+abstract class _$$_getSignUphCopyWith<$Res> {
+  factory _$$_getSignUphCopyWith(
+          _$_getSignUph value, $Res Function(_$_getSignUph) then) =
+      __$$_getSignUphCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AuthLogInCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$_AuthLogIn>
-    implements _$$_AuthLogInCopyWith<$Res> {
-  __$$_AuthLogInCopyWithImpl(
-      _$_AuthLogIn _value, $Res Function(_$_AuthLogIn) _then)
+class __$$_getSignUphCopyWithImpl<$Res>
+    extends _$SignupEventCopyWithImpl<$Res, _$_getSignUph>
+    implements _$$_getSignUphCopyWith<$Res> {
+  __$$_getSignUphCopyWithImpl(
+      _$_getSignUph _value, $Res Function(_$_getSignUph) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AuthLogIn implements _AuthLogIn {
-  const _$_AuthLogIn();
+class _$_getSignUph implements _getSignUph {
+  const _$_getSignUph();
 
   @override
   String toString() {
-    return 'LoginEvent.authLogIn()';
+    return 'SignupEvent.getSignUp()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AuthLogIn);
+        (other.runtimeType == runtimeType && other is _$_getSignUph);
   }
 
   @override
@@ -106,27 +106,27 @@ class _$_AuthLogIn implements _AuthLogIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() authLogIn,
+    required TResult Function() getSignUp,
   }) {
-    return authLogIn();
+    return getSignUp();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? authLogIn,
+    TResult? Function()? getSignUp,
   }) {
-    return authLogIn?.call();
+    return getSignUp?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? authLogIn,
+    TResult Function()? getSignUp,
     required TResult orElse(),
   }) {
-    if (authLogIn != null) {
-      return authLogIn();
+    if (getSignUp != null) {
+      return getSignUp();
     }
     return orElse();
   }
@@ -134,64 +134,64 @@ class _$_AuthLogIn implements _AuthLogIn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AuthLogIn value) authLogIn,
+    required TResult Function(_getSignUph value) getSignUp,
   }) {
-    return authLogIn(this);
+    return getSignUp(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AuthLogIn value)? authLogIn,
+    TResult? Function(_getSignUph value)? getSignUp,
   }) {
-    return authLogIn?.call(this);
+    return getSignUp?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AuthLogIn value)? authLogIn,
+    TResult Function(_getSignUph value)? getSignUp,
     required TResult orElse(),
   }) {
-    if (authLogIn != null) {
-      return authLogIn(this);
+    if (getSignUp != null) {
+      return getSignUp(this);
     }
     return orElse();
   }
 }
 
-abstract class _AuthLogIn implements LoginEvent {
-  const factory _AuthLogIn() = _$_AuthLogIn;
+abstract class _getSignUph implements SignupEvent {
+  const factory _getSignUph() = _$_getSignUph;
 }
 
 /// @nodoc
-mixin _$LoginState {
-  bool get isloading => throw _privateConstructorUsedError;
-  LogInfo? get logResponse => throw _privateConstructorUsedError;
+mixin _$SignupState {
+  bool get isLoading => throw _privateConstructorUsedError;
+  LogInfo? get signUpResponse => throw _privateConstructorUsedError;
   Option<Either<MainFailure, LogInfo>> get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginStateCopyWith<LoginState> get copyWith =>
+  $SignupStateCopyWith<SignupState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginStateCopyWith<$Res> {
-  factory $LoginStateCopyWith(
-          LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res, LoginState>;
+abstract class $SignupStateCopyWith<$Res> {
+  factory $SignupStateCopyWith(
+          SignupState value, $Res Function(SignupState) then) =
+      _$SignupStateCopyWithImpl<$Res, SignupState>;
   @useResult
   $Res call(
-      {bool isloading,
-      LogInfo? logResponse,
+      {bool isLoading,
+      LogInfo? signUpResponse,
       Option<Either<MainFailure, LogInfo>> failureOrSuccess});
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
-    implements $LoginStateCopyWith<$Res> {
-  _$LoginStateCopyWithImpl(this._value, this._then);
+class _$SignupStateCopyWithImpl<$Res, $Val extends SignupState>
+    implements $SignupStateCopyWith<$Res> {
+  _$SignupStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -201,18 +201,18 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isloading = null,
-    Object? logResponse = freezed,
+    Object? isLoading = null,
+    Object? signUpResponse = freezed,
     Object? failureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
-      isloading: null == isloading
-          ? _value.isloading
-          : isloading // ignore: cast_nullable_to_non_nullable
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      logResponse: freezed == logResponse
-          ? _value.logResponse
-          : logResponse // ignore: cast_nullable_to_non_nullable
+      signUpResponse: freezed == signUpResponse
+          ? _value.signUpResponse
+          : signUpResponse // ignore: cast_nullable_to_non_nullable
               as LogInfo?,
       failureOrSuccess: null == failureOrSuccess
           ? _value.failureOrSuccess
@@ -223,42 +223,42 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
 }
 
 /// @nodoc
-abstract class _$$_LoginStateCopyWith<$Res>
-    implements $LoginStateCopyWith<$Res> {
-  factory _$$_LoginStateCopyWith(
-          _$_LoginState value, $Res Function(_$_LoginState) then) =
-      __$$_LoginStateCopyWithImpl<$Res>;
+abstract class _$$_SignupStateCopyWith<$Res>
+    implements $SignupStateCopyWith<$Res> {
+  factory _$$_SignupStateCopyWith(
+          _$_SignupState value, $Res Function(_$_SignupState) then) =
+      __$$_SignupStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {bool isloading,
-      LogInfo? logResponse,
+      {bool isLoading,
+      LogInfo? signUpResponse,
       Option<Either<MainFailure, LogInfo>> failureOrSuccess});
 }
 
 /// @nodoc
-class __$$_LoginStateCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_LoginState>
-    implements _$$_LoginStateCopyWith<$Res> {
-  __$$_LoginStateCopyWithImpl(
-      _$_LoginState _value, $Res Function(_$_LoginState) _then)
+class __$$_SignupStateCopyWithImpl<$Res>
+    extends _$SignupStateCopyWithImpl<$Res, _$_SignupState>
+    implements _$$_SignupStateCopyWith<$Res> {
+  __$$_SignupStateCopyWithImpl(
+      _$_SignupState _value, $Res Function(_$_SignupState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isloading = null,
-    Object? logResponse = freezed,
+    Object? isLoading = null,
+    Object? signUpResponse = freezed,
     Object? failureOrSuccess = null,
   }) {
-    return _then(_$_LoginState(
-      isloading: null == isloading
-          ? _value.isloading
-          : isloading // ignore: cast_nullable_to_non_nullable
+    return _then(_$_SignupState(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      logResponse: freezed == logResponse
-          ? _value.logResponse
-          : logResponse // ignore: cast_nullable_to_non_nullable
+      signUpResponse: freezed == signUpResponse
+          ? _value.signUpResponse
+          : signUpResponse // ignore: cast_nullable_to_non_nullable
               as LogInfo?,
       failureOrSuccess: null == failureOrSuccess
           ? _value.failureOrSuccess
@@ -270,63 +270,63 @@ class __$$_LoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoginState implements _LoginState {
-  const _$_LoginState(
-      {required this.isloading,
-      this.logResponse,
+class _$_SignupState implements _SignupState {
+  const _$_SignupState(
+      {required this.isLoading,
+      this.signUpResponse,
       required this.failureOrSuccess});
 
   @override
-  final bool isloading;
+  final bool isLoading;
   @override
-  final LogInfo? logResponse;
+  final LogInfo? signUpResponse;
   @override
   final Option<Either<MainFailure, LogInfo>> failureOrSuccess;
 
   @override
   String toString() {
-    return 'LoginState(isloading: $isloading, logResponse: $logResponse, failureOrSuccess: $failureOrSuccess)';
+    return 'SignupState(isLoading: $isLoading, signUpResponse: $signUpResponse, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoginState &&
-            (identical(other.isloading, isloading) ||
-                other.isloading == isloading) &&
-            (identical(other.logResponse, logResponse) ||
-                other.logResponse == logResponse) &&
+            other is _$_SignupState &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.signUpResponse, signUpResponse) ||
+                other.signUpResponse == signUpResponse) &&
             (identical(other.failureOrSuccess, failureOrSuccess) ||
                 other.failureOrSuccess == failureOrSuccess));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, isloading, logResponse, failureOrSuccess);
+      Object.hash(runtimeType, isLoading, signUpResponse, failureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
-      __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
+  _$$_SignupStateCopyWith<_$_SignupState> get copyWith =>
+      __$$_SignupStateCopyWithImpl<_$_SignupState>(this, _$identity);
 }
 
-abstract class _LoginState implements LoginState {
-  const factory _LoginState(
-      {required final bool isloading,
-      final LogInfo? logResponse,
+abstract class _SignupState implements SignupState {
+  const factory _SignupState(
+      {required final bool isLoading,
+      final LogInfo? signUpResponse,
       required final Option<Either<MainFailure, LogInfo>>
-          failureOrSuccess}) = _$_LoginState;
+          failureOrSuccess}) = _$_SignupState;
 
   @override
-  bool get isloading;
+  bool get isLoading;
   @override
-  LogInfo? get logResponse;
+  LogInfo? get signUpResponse;
   @override
   Option<Either<MainFailure, LogInfo>> get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
+  _$$_SignupStateCopyWith<_$_SignupState> get copyWith =>
       throw _privateConstructorUsedError;
 }

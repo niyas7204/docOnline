@@ -1,4 +1,4 @@
-import 'package:doc_online/signin/core/constants.dart';
+import 'package:doc_online/signin/core/widgets.dart';
 import 'package:doc_online/signin/core/logo.dart';
 import 'package:doc_online/signin/presentation/login/screens/log_in.dart';
 import 'package:doc_online/signin/presentation/login/screens/new_password.dart';
@@ -11,6 +11,7 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailcontroller = TextEditingController();
     return Scaffold(
       body: SafeArea(
           child: Stack(
@@ -22,7 +23,7 @@ class ForgotPassword extends StatelessWidget {
               children: [
                 header1('Forgot Password'),
                 const Text('Enter the Email adress'),
-                textField('Email'),
+                textField('Email', emailcontroller),
                 space1(),
                 cButton('Next', const NewPassword(), context)
               ],

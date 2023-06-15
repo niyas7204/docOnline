@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/signin/login_service.dart';
 import 'package:doc_online/signin/core/url.dart';
-import 'package:doc_online/signin/domain/model/login_model.dart';
+import 'package:doc_online/domain/model/login.dart';
 import 'package:doc_online/domain/failure/failure.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -12,23 +12,25 @@ import 'package:injectable/injectable.dart';
 class LogInImplimentation implements LogInService {
   @override
   Future<Either<MainFailure, LogInfo>> authLogIn() async {
-    const url = '$baseUrl/user/auth/register';
+    const url = '$baseUrl/user/auth/login';
     final requestBody = {
       'email': 'mohammadniyas7204@gmail.com',
       'password': '123',
     };
     try {
-      final respone = await Dio().post(url, data: requestBody);
-      log('data is${respone.data}');
+      final respone = await Dio().post(url, data: requestBody,);
+      log(respone.toString());
       if (respone.data['err'] == false) {
-        return right(respone.data);
+        final data = LogInfo.fromJson(respone.data);
+
+        return right(data);
       } else {
         log('serverfailure');
-        return left(MainFailure.serverFailure());
+        return left(const MainFailure.serverFailure());
       }
     } catch (e) {
       log(e.toString());
-      return left(MainFailure.clientFailure());
+      return left(const MainFailure.clientFailure());
     }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:doc_online/signin/core/constants.dart';
+import 'package:doc_online/signin/core/widgets.dart';
 import 'package:doc_online/signin/core/logo.dart';
 import 'package:doc_online/signin/presentation/login/screens/log_in.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +8,8 @@ class NewPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController restcontroller = TextEditingController();
+    TextEditingController confirmcontroller = TextEditingController();
     return Scaffold(
       body: SafeArea(
           child: Stack(
@@ -19,9 +21,9 @@ class NewPassword extends StatelessWidget {
               children: [
                 header1('Reset Password'),
                 space1(),
-                textField('New Password'),
+                textField('New Password', restcontroller),
                 space1(),
-                textField('Confirm Password'),
+                textField('Confirm Password', confirmcontroller),
                 space1(),
                 cButton('Continue', const Login(), context)
               ],

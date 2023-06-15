@@ -1,7 +1,7 @@
 import 'package:doc_online/signin/login_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:doc_online/signin/domain/model/login_model.dart';
+import 'package:doc_online/domain/model/login.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:doc_online/domain/failure/failure.dart';

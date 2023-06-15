@@ -10,16 +10,20 @@ header1(String th) => Text(
 space1() => const SizedBox(
       height: 10,
     );
-textField(String hint) => Container(
-    decoration: BoxDecoration(
-        border: Border.all(width: 1), borderRadius: BorderRadius.circular(7)),
-    height: 40.h,
-    width: 300.w,
-    child: TextFormField(
-      textAlign: TextAlign.left,
-      decoration: InputDecoration(
-          contentPadding: const EdgeInsets.only(left: 20), hintText: hint),
-    ));
+textField(String hint, TextEditingController txtCntrlr) {
+  return Container(
+      decoration: BoxDecoration(
+          border: Border.all(width: 1), borderRadius: BorderRadius.circular(7)),
+      height: 40.h,
+      width: 300.w,
+      child: TextFormField(
+        controller: txtCntrlr,
+        textAlign: TextAlign.left,
+        decoration: InputDecoration(
+            contentPadding: const EdgeInsets.only(left: 20), hintText: hint),
+      ));
+}
+
 cButton(String buttonText, Widget navwid, context) => SizedBox(
       width: 160.w,
       height: 35.h,
