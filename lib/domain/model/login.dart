@@ -7,6 +7,8 @@ class LogInfo {
   bool? error;
   @JsonKey(name: 'tempToken')
   String? token;
+  @JsonKey(name: 'message')
+  String? message;
   LogInfo({this.error, this.token});
   factory LogInfo.fromJson(Map<String, dynamic> json) =>
       _$LogInfoFromJson(json);

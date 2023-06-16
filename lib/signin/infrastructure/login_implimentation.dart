@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:doc_online/domain/authentication/email_auth.dart';
 import 'package:doc_online/signin/login_service.dart';
 import 'package:doc_online/signin/core/url.dart';
 import 'package:doc_online/domain/model/login.dart';
@@ -18,10 +19,14 @@ class LogInImplimentation implements LogInService {
       'password': '123',
     };
     try {
-      final respone = await Dio().post(url, data: requestBody,);
+      final respone = await Dio().post(
+        url,
+        data: requestBody,
+      );
       log(respone.toString());
       if (respone.data['err'] == false) {
         final data = LogInfo.fromJson(respone.data);
+        log(data.toString());
 
         return right(data);
       } else {

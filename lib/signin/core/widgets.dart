@@ -42,3 +42,25 @@ cButton(String buttonText, Widget navwid, context) => SizedBox(
         ),
       ),
     );
+errorText(String text) {
+  return Text(
+    text,
+    style: const TextStyle(
+        fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),
+  );
+}
+
+Future<dynamic> showdiologue(BuildContext context, String? errorText) {
+  return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+            content: Text(errorText!),
+            actions: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('close'))
+            ],
+          ));
+}

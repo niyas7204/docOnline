@@ -1,5 +1,8 @@
 import 'dart:developer';
-
+import 'package:dartz/dartz.dart';
+import 'package:doc_online/domain/failure/failure.dart';
+import 'package:doc_online/domain/model/login.dart';
+import 'package:flutter/material.dart';
 import 'package:doc_online/domain/authentication/email_auth.dart';
 import 'package:doc_online/sign_up/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/sign_up/get_all_data.dart';
@@ -23,7 +26,7 @@ class SignUp extends StatelessWidget {
       body: SafeArea(
           child: Stack(
         children: [
-          Positioned(top: 40, left: 16, child: logo()),
+          Positioned(left: 16, child: logo()),
           Padding(
               padding: const EdgeInsets.all(10),
               child: BlocBuilder<SignupBloc, SignupState>(
@@ -46,38 +49,53 @@ class SignUp extends StatelessWidget {
                           width: 160.w,
                           height: 35.h,
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: baseColor,
-                            ),
-                            onPressed: () async {
-                              GetAllData.email = emailcontroller.text;
-                              GetAllData.userName = usernamecontroller.text;
-                              GetAllData.password = passwordcontroller.text;
-                              bool isValid = isValidEmail(GetAllData.email!);
-                              if (isValid) {
-                                if (GetAllData.password ==
-                                        confirmPasswordcontroller.text &&
-                                    GetAllData.email != null &&
-                                    GetAllData.userName != null) {
-                                  BlocProvider.of<SignupBloc>(context)
-                                      .add(const SignupEvent.getSignUp());
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: baseColor,
+                              ),
+                              onPressed: () async {
+                                GetAllData.email = emailcontroller.text;
+                                GetAllData.userName = usernamecontroller.text;
+                                GetAllData.password = passwordcontroller.text;
+
+                                if (GetAllData.password!.isNotEmpty &&
+                                    confirmPasswordcontroller.text.isNotEmpty &&
+                                    GetAllData.email!.isNotEmpty &&
+                                    GetAllData.userName!.isNotEmpty) {
+                                  if (GetAllData.password ==
+                                      confirmPasswordcontroller.text) {
+                                    BlocProvider.of<SignupBloc>(context)
+                                        .add(const SignupEvent.getSignUp());
+                                    if (state.failureOrSuccess ==
+                                        some(left(const MainFailure
+                                            .clientFailure()))) {
+                                      showdiologue(context, 'network failure');
+                                    } else if (state.failureOrSuccess ==
+                                        some(left(const MainFailure
+                                            .serverFailure()))) {
+                                      showdiologue(
+                                          context, 'user already exist');
+                                    } else if (state.signUpResponse!.error ==
+                                        false) {
+                                      Navigator.of(context)
+                                          .pushReplacement(MaterialPageRoute(
                                         builder: (context) =>
                                             const VerifyEmail(),
                                       ));
+                                    }
+                                  } else {
+                                    showdiologue(
+                                        context, 'password shouldnot match');
+                                  }
                                 } else {
-                                  log('not valid');
+                                  showdiologue(
+                                      context, 'fields mustnot be empty');
                                 }
-                              }
-                            },
-                            child: const Text(
-                              'SignUp',
-                              style:
-                                  TextStyle(fontSize: 24, color: Colors.white),
-                            ),
-                          ),
+                              },
+                              child: const Text(
+                                'SignUp',
+                                style: TextStyle(
+                                    fontSize: 24, color: Colors.white),
+                              )),
                         )
                       ],
                     ),

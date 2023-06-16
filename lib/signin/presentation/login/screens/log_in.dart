@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/domain/failure/failure.dart';
+import 'package:doc_online/sign_up/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/signin/application/bloc/login_bloc.dart';
 import 'package:doc_online/signin/core/widgets.dart';
 import 'package:doc_online/signin/core/logo.dart';
 import 'package:doc_online/signin/presentation/login/screens/sign_up.dart';
 import 'package:doc_online/signin/presentation/login/screens/verify_email.dart';
+import 'package:doc_online/user/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,7 +33,6 @@ class Login extends StatelessWidget {
                       )
                     : const SizedBox(),
                 Positioned(
-                  top: 40.0,
                   left: 16.0,
                   child: logo(),
                 ),
@@ -45,23 +46,26 @@ class Login extends StatelessWidget {
                       textField('Username', emailcontroller),
                       space1(),
                       textField('Password', passwordcontroller),
-                      TextButton(
-                          onPressed: () async {},
-                          child: const Text(
-                            "Forgot password",
-                            style: TextStyle(color: Colors.blue),
-                          )),
                       Builder(
                         builder: (context) {
                           if (state.failureOrSuccess == none()) {
                             return space1();
                           } else if (state.failureOrSuccess ==
                               some(left(const MainFailure.serverFailure()))) {
-                            return const Text('no user found');
+                            return errorText('no user found');
                           }
-                          return const Text('network failure');
+                          return errorText('network failure');
                         },
                       ),
+                      TextButton(
+                          onPressed: () async {
+                            BlocProvider.of<SignupBloc>(context)
+                                .add(const SignupEvent.getSignUp());
+                          },
+                          child: const Text(
+                            "Forgot password",
+                            style: TextStyle(color: Colors.blue),
+                          )),
                       SizedBox(
                         width: 160.w,
                         height: 35.h,
@@ -70,8 +74,19 @@ class Login extends StatelessWidget {
                             backgroundColor: baseColor,
                           ),
                           onPressed: () {
-                            BlocProvider.of<LoginBloc>(context)
-                                .add(const LoginEvent.authLogIn());
+                            if (emailcontroller.text.isNotEmpty &&
+                                passwordcontroller.text.isNotEmpty) {
+                              BlocProvider.of<LoginBloc>(context)
+                                  .add(const LoginEvent.authLogIn());
+                              if (state.logResponse!.error!) {
+                                Navigator.of(context)
+                                    .pushReplacement(MaterialPageRoute(
+                                  builder: (context) => const HomeSc(),
+                                ));
+                              }
+                            } else {
+                              showdiologue(context, 'fields mustnot be empty');
+                            }
                           },
                           child: const Text(
                             'Login',
@@ -88,8 +103,6 @@ class Login extends StatelessWidget {
                             builder: (context, state) {
                               return TextButton(
                                   onPressed: () {
-                                    print(state.logResponse!.token);
-
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
                                       builder: (context) => const SignUp(),

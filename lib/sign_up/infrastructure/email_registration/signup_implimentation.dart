@@ -14,8 +14,9 @@ class SignUpImplimentation implements SignUpService {
   @override
   Future<Either<MainFailure, LogInfo>> getSignUp() async {
     const url = '$baseUrl/user/auth/register';
-    print(GetAllData.email);
+
     final requestBody = {'email': GetAllData.email};
+    print(GetAllData.email);
     try {
       final response = await Dio().post(url, data: requestBody);
       log(response.toString());
@@ -24,7 +25,7 @@ class SignUpImplimentation implements SignUpService {
       } else {
         final data = LogInfo.fromJson(response.data);
         GetAllData.tempToken = data.token;
-
+        log(data.toString());
         return right(data);
       }
     } catch (e) {

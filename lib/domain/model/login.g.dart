@@ -9,9 +9,10 @@ part of 'login.dart';
 LogInfo _$LogInfoFromJson(Map<String, dynamic> json) => LogInfo(
       error: json['err'] as bool?,
       token: json['tempToken'] as String?,
-    );
+    )..message = json['message'] as String?;
 
 Map<String, dynamic> _$LogInfoToJson(LogInfo instance) => <String, dynamic>{
       'err': instance.error,
       'tempToken': instance.token,
+      'message': instance.message,
     };

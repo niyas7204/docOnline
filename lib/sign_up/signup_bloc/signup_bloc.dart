@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:doc_online/domain/authentication/email_auth.dart';
+import 'package:doc_online/sign_up/get_all_data.dart';
 import 'package:doc_online/sign_up/sign_up_service.dart';
 import 'package:doc_online/signin/application/bloc/login_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,10 +20,12 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   final SignUpService signUpService;
 
   SignupBloc(this.signUpService) : super(SignupState.intial()) {
+    log('init');
     on<_getSignUph>((event, emit) async {
       emit(state.copyWith(isLoading: true, failureOrSuccess: none()));
       final Either<MainFailure, LogInfo> response =
           await signUpService.getSignUp();
+
       emit(response.fold(
           (failure) => state.copyWith(
               isLoading: false, failureOrSuccess: some(left(failure))),

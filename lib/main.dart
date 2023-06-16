@@ -4,6 +4,7 @@ import 'package:doc_online/signin/application/bloc/login_bloc.dart';
 import 'package:doc_online/signin/core/di/injection.dart';
 import 'package:doc_online/signin/presentation/login/screens/log_in.dart';
 import 'package:doc_online/signin/presentation/login/screens/sign_up.dart';
+import 'package:doc_online/user/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';

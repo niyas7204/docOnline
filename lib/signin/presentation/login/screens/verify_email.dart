@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:dartz/dartz.dart';
+import 'package:doc_online/domain/failure/failure.dart';
 import 'package:doc_online/sign_up/verifyotpbloc/verifyotp_bloc.dart';
 import 'package:doc_online/signin/core/widgets.dart';
 import 'package:doc_online/signin/core/logo.dart';
@@ -18,33 +22,52 @@ class VerifyEmail extends StatelessWidget {
           child: Stack(
         children: [
           Positioned(top: 40, left: 16, child: logo()),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                header1('Verify Email'),
-                const Text('Enter the otp sent to \n abcd@gmail.com'),
-                textField('OTP', otpcontroller),
-                space1(),
-                SizedBox(
-                  width: 160.w,
-                  height: 35.h,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: baseColor,
+          BlocBuilder<VerifyotpBloc, VerifyotpState>(
+            builder: (context, state) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    header1('Verify Email'),
+                    const Text('Enter the otp sent to \n abcd@gmail.com'),
+                    textField('OTP', otpcontroller),
+                    space1(),
+                    Builder(
+                      builder: (context) {
+                        if (state.failureOrSuccess ==
+                            some(left(const MainFailure.clientFailure()))) {
+                          return errorText('invalid otp');
+                        }
+                        return SizedBox();
+                      },
                     ),
-                    onPressed: () {
-                      BlocProvider.of<VerifyotpBloc>(context)
-                          .add(VerifyotpEvent.checkOtp(otpcontroller.text));
-                    },
-                    child: const Text(
-                      'confirm',
-                      style: TextStyle(fontSize: 24, color: Colors.white),
-                    ),
-                  ),
-                )
-              ],
-            ),
+                    SizedBox(
+                      width: 160.w,
+                      height: 35.h,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: baseColor,
+                        ),
+                        onPressed: () {
+                          BlocProvider.of<VerifyotpBloc>(context)
+                              .add(VerifyotpEvent.checkOtp(otpcontroller.text));
+                          if (!state.signUpResponse!.error!) {
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) => const Login(),
+                            ));
+                          }
+                        },
+                        child: const Text(
+                          'confirm',
+                          style: TextStyle(fontSize: 24, color: Colors.white),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
           )
         ],
       )),
