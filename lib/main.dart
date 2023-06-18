@@ -1,14 +1,15 @@
-import 'package:doc_online/sign_up/signup_bloc/signup_bloc.dart';
-import 'package:doc_online/sign_up/verifyotpbloc/verifyotp_bloc.dart';
-import 'package:doc_online/signin/application/bloc/login_bloc.dart';
-import 'package:doc_online/signin/core/di/injection.dart';
-import 'package:doc_online/signin/presentation/login/screens/log_in.dart';
-import 'package:doc_online/signin/presentation/login/screens/sign_up.dart';
+import 'package:doc_online/account_auth/sign_up/signup_bloc/signup_bloc.dart';
+import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dart';
+import 'package:doc_online/account_auth/signin/application/bloc/login_bloc.dart';
+import 'package:doc_online/account_auth/signin/core/di/injection.dart';
+import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+
 import 'package:doc_online/user/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,12 +36,28 @@ class MyApp extends StatelessWidget {
       ],
       child: ScreenUtilInit(
         builder: (BuildContext context, Widget? child) {
-          return const MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: Login(),
-          );
+          return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: FutureBuilder<bool>(
+                  future: isLoggedIn(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    } else {
+                      if (snapshot.hasData && snapshot.data!) {
+                        return const HomeSc();
+                      } else {
+                        return const Login();
+                      }
+                    }
+                  }));
         },
       ),
     );
+  }
+
+  Future<bool> isLoggedIn() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isLoggedIn') ?? false;
   }
 }

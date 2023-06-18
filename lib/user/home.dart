@@ -1,7 +1,9 @@
-import 'package:doc_online/signin/core/logo.dart';
-import 'package:doc_online/signin/core/widgets.dart';
+import 'package:doc_online/account_auth/domain/authentication/email_auth.dart';
+import 'package:doc_online/account_auth/signin/core/logo.dart';
+import 'package:doc_online/account_auth/signin/core/widgets.dart';
 import 'package:doc_online/user/core/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,6 +35,14 @@ class HomeSc extends StatelessWidget {
                       ),
                     ),
                     Positioned(left: 16, top: 10, child: logo()),
+                    Positioned(
+                        right: 16,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              updateshredPreference('', false);
+                              SystemNavigator.pop();
+                            },
+                            child: const Text('Log out'))),
                     const Positioned(
                       top: 60,
                       right: 20,
