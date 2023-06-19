@@ -3,8 +3,9 @@ import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dar
 import 'package:doc_online/account_auth/signin/application/bloc/login_bloc.dart';
 import 'package:doc_online/account_auth/signin/core/di/injection.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+import 'package:doc_online/user/presentation/doctor_details.dart';
 
-import 'package:doc_online/user/home.dart';
+import 'package:doc_online/user/presentation/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
                       return const CircularProgressIndicator();
                     } else {
                       if (snapshot.hasData && snapshot.data!) {
-                        return const HomeSc();
+                        return const DoctorDetails();
                       } else {
                         return const Login();
                       }

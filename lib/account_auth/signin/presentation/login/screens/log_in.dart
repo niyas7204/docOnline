@@ -6,7 +6,7 @@ import 'package:doc_online/account_auth/signin/core/widgets.dart';
 import 'package:doc_online/account_auth/signin/core/logo.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/sign_up.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/verify_email.dart';
-import 'package:doc_online/user/home.dart';
+import 'package:doc_online/user/presentation/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

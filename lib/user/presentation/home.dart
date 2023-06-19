@@ -2,6 +2,7 @@ import 'package:doc_online/account_auth/domain/authentication/email_auth.dart';
 import 'package:doc_online/account_auth/signin/core/logo.dart';
 import 'package:doc_online/account_auth/signin/core/widgets.dart';
 import 'package:doc_online/user/core/widgets.dart';
+import 'package:doc_online/user/presentation/by_department.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -122,7 +123,14 @@ class HomeSc extends StatelessWidget {
                         Expanded(
                             child: Wrap(
                           children: [
-                            hospitalCard(),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const ByDepartment(),
+                                ));
+                              },
+                              child: hospitalCard(),
+                            ),
                             hospitalCard(),
                             hospitalCard(),
                             hospitalCard(),
