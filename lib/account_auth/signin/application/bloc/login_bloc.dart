@@ -22,6 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(isloading: true, failureOrSuccess: none()));
       final Either<MainFailure, LogInfo> response = await loginservice
           .authLogIn(email: event.email, password: event.password);
+      log('abcd${response.toString()}');
       emit(response.fold(
           (failure) => state.copyWith(
               isloading: false, failureOrSuccess: some(left(failure))),

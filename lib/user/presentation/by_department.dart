@@ -1,5 +1,6 @@
 import 'package:doc_online/account_auth/signin/core/widgets.dart';
-import 'package:doc_online/user/core/widgets.dart';
+import 'package:doc_online/user/core/widgets/common_widgets.dart';
+import 'dart:js';
 import 'package:flutter/material.dart';
 
 class ByDepartment extends StatelessWidget {

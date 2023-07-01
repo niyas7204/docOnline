@@ -1,41 +1,52 @@
+import 'dart:js';
+
+import 'package:doc_online/account_auth/signin/core/widgets.dart';
+import 'package:doc_online/user/core/bloc/userside_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-departmentCard(String dpName) {
-  return Card(
-    child: SizedBox(
-      width: 105.w,
-      height: 200.h,
-      child: Column(
-        children: [
-          Image.asset('assets/image/stethoscope-icon-2316460_1280.png'),
-          Center(
-            child: SizedBox(
-              width: 100.w,
-              child: Text(
-                dpName,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+departmentCard(String dpName, String id, context) {
+  return GestureDetector(
+    onTap: () {
+      //BlocProvider.of<UsersideBloc>(context)
+      //   .add(UsersideEvent.getDoctors(id: id));
+    },
+    child: Card(
+      child: SizedBox(
+        width: 105.w,
+        height: 200.h,
+        child: Column(
+          children: [
+            Image.asset('assets/image/stethoscope-icon-2316460_1280.png'),
+            Center(
+              child: SizedBox(
+                width: 100.w,
+                child: Text(
+                  dpName,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  textAlign: TextAlign.center,
                 ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                textAlign: TextAlign.center,
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
 }
 
-hospitalCard() {
+hospitalCard(String name, String url, String adress) {
   return Card(
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15))),
     child: SizedBox(
-      height: 200.h,
+      height: 220.h,
       width: 166.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,26 +54,27 @@ hospitalCard() {
           ClipRRect(
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-            child: Image.asset(
-              'assets/image/images.jpeg',
+            child: Image.network(
+              url,
               fit: BoxFit.cover,
               width: 166.w,
               height: 120.h,
             ),
           ),
+          space1(),
           Padding(
             padding: const EdgeInsets.only(left: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'hospital name',
-                  style: TextStyle(
+                Text(
+                  name,
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                  maxLines: 2,
                 ),
                 Row(
                   children: const [
@@ -73,14 +85,14 @@ hospitalCard() {
                     Icon(Icons.star)
                   ],
                 ),
-                const Text(
-                  'hospital adress',
-                  style: TextStyle(
+                Text(
+                  adress,
+                  style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                  maxLines: 3,
                 ),
               ],
             ),
@@ -142,6 +154,26 @@ doctersCard() {
           ),
         )
       ],
+    ),
+  );
+}
+
+Container timeTable() {
+  return Container(
+    height: 40.h,
+    width: 100.w,
+    decoration: BoxDecoration(
+        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 2),
+        borderRadius: BorderRadius.circular(12)),
+    child: const Center(
+      child: Text(
+        '26/05/2023',
+        style: TextStyle(
+          color: Color.fromARGB(255, 0, 0, 0),
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     ),
   );
 }

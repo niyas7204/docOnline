@@ -1,5 +1,7 @@
 import 'package:doc_online/account_auth/signin/core/widgets.dart';
-import 'package:doc_online/user/core/widgets.dart';
+import 'package:doc_online/user/core/widgets/book_diologue.dart';
+import 'package:doc_online/user/core/widgets/common_widgets.dart';
+import 'package:doc_online/user/infrastrusture/hospital_impimentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -119,6 +121,25 @@ class DoctorDetails extends StatelessWidget {
                 ]),
               ),
             ),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Padding(
+                padding: const EdgeInsets.all(14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Rating and Review',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ]))
           ],
         ),
       ),
@@ -159,7 +180,9 @@ class DoctorDetails extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 164, 198, 226),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showBookingDiologue(context);
+                    },
                     child: const Text(
                       'Book Now',
                       style: TextStyle(
@@ -170,26 +193,6 @@ class DoctorDetails extends StatelessWidget {
                     )),
               )
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Container timeTable() {
-    return Container(
-      height: 40.h,
-      width: 100.w,
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.blue),
-          borderRadius: BorderRadius.circular(12)),
-      child: const Center(
-        child: Text(
-          '26/05/2023',
-          style: TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),

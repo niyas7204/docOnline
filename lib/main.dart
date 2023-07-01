@@ -3,6 +3,8 @@ import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dar
 import 'package:doc_online/account_auth/signin/application/bloc/login_bloc.dart';
 import 'package:doc_online/account_auth/signin/core/di/injection.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+import 'package:doc_online/user/core/bloc/userside_bloc.dart';
+import 'package:doc_online/user/presentation/book_now.dart';
 import 'package:doc_online/user/presentation/doctor_details.dart';
 
 import 'package:doc_online/user/presentation/home.dart';
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<VerifyotpBloc>(),
         ),
+        BlocProvider(
+          create: (context) => getIt<UsersideBloc>(),
+        )
       ],
       child: ScreenUtilInit(
         builder: (BuildContext context, Widget? child) {
@@ -46,7 +51,7 @@ class MyApp extends StatelessWidget {
                       return const CircularProgressIndicator();
                     } else {
                       if (snapshot.hasData && snapshot.data!) {
-                        return const DoctorDetails();
+                        return const HomeSc();
                       } else {
                         return const Login();
                       }

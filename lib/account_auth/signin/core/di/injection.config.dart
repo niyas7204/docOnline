@@ -17,12 +17,16 @@ import 'package:doc_online/account_auth/sign_up/sign_up_service.dart' as _i6;
 import 'package:doc_online/account_auth/sign_up/signup_bloc/signup_bloc.dart'
     as _i9;
 import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dart'
-    as _i10;
+    as _i13;
 import 'package:doc_online/account_auth/signin/application/bloc/login_bloc.dart'
     as _i5;
 import 'package:doc_online/account_auth/signin/infrastructure/login_implimentation.dart'
     as _i4;
 import 'package:doc_online/account_auth/signin/login_service.dart' as _i3;
+import 'package:doc_online/user/core/bloc/userside_bloc.dart' as _i12;
+import 'package:doc_online/user/infrastrusture/data_service.dart' as _i10;
+import 'package:doc_online/user/infrastrusture/hospital_impimentation.dart'
+    as _i11;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -42,8 +46,11 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i6.OtpService>(() => _i7.OtpImplimentation());
     gh.lazySingleton<_i6.SignUpService>(() => _i8.SignUpImplimentation());
     gh.factory<_i9.SignupBloc>(() => _i9.SignupBloc(gh<_i6.SignUpService>()));
-    gh.factory<_i10.VerifyotpBloc>(
-        () => _i10.VerifyotpBloc(gh<_i6.OtpService>()));
+    gh.lazySingleton<_i10.UserSideService>(() => _i11.UserSideImplimentation());
+    gh.factory<_i12.UsersideBloc>(
+        () => _i12.UsersideBloc(gh<_i10.UserSideService>()));
+    gh.factory<_i13.VerifyotpBloc>(
+        () => _i13.VerifyotpBloc(gh<_i6.OtpService>()));
     return this;
   }
 }

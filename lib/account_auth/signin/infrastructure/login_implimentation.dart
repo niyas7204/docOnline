@@ -21,12 +21,13 @@ class LogInImplimentation implements LogInService {
       'email': email,
       'password': password,
     };
+    log('$email$password');
     try {
       final respone = await Dio().post(
         url,
         data: requestBody,
       );
-
+      log('imp$respone');
       if (respone.data['err'] == false) {
         final data = LogInfo.fromJson(respone.data);
         updateshredPreference(respone.data['token'], true);
@@ -42,12 +43,14 @@ class LogInImplimentation implements LogInService {
     }
   }
 
+  @override
   Future<Either<MainFailure, LogInfo>> getSignUp() async {
     const url = '$baseUrl/user/auth/register';
 
     final requestBody = {'email': GetAllData.email};
     print(GetAllData.email);
     try {
+      log('12345');
       final response = await Dio().post(url, data: requestBody);
       log(response.toString());
       if (response.data['err']) {
