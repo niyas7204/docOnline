@@ -1,13 +1,12 @@
 import 'package:doc_online/account_auth/sign_up/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dart';
 import 'package:doc_online/account_auth/signin/application/bloc/login_bloc.dart';
-import 'package:doc_online/account_auth/signin/core/di/injection.dart';
+import 'package:doc_online/repository/di/injection.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
-import 'package:doc_online/user/core/bloc/userside_bloc.dart';
-import 'package:doc_online/user/presentation/book_now.dart';
-import 'package:doc_online/user/presentation/doctor_details.dart';
 
-import 'package:doc_online/user/presentation/home.dart';
+import 'package:doc_online/bloc/user_side/userside_bloc.dart';
+
+import 'package:doc_online/ui/user/presentation/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,6 +43,12 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return MaterialApp(
               debugShowCheckedModeBanner: false,
+              builder: (context, child) {
+                return ScrollConfiguration(
+                  behavior: MyBehavior(),
+                  child: child!,
+                );
+              },
               home: FutureBuilder<bool>(
                   future: isLoggedIn(),
                   builder: (context, snapshot) {
@@ -65,5 +70,16 @@ class MyApp extends StatelessWidget {
   Future<bool> isLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getBool('isLoggedIn') ?? false;
+  }
+}
+
+class MyBehavior extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
+    return child;
   }
 }

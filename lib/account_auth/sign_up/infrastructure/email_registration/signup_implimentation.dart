@@ -7,7 +7,7 @@ import 'package:dartz/dartz.dart';
 import 'package:doc_online/account_auth/domain/model/signup_model.dart';
 import 'package:doc_online/account_auth/sign_up/get_all_data.dart';
 import 'package:doc_online/account_auth/sign_up/sign_up_service.dart';
-import 'package:doc_online/account_auth/signin/core/url.dart';
+import 'package:doc_online/ui/core/url.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: SignUpService)
@@ -17,7 +17,7 @@ class SignUpImplimentation implements SignUpService {
     const url = '$baseUrl/user/auth/register';
 
     final requestBody = {'email': GetAllData.email};
-    print(GetAllData.email);
+
     try {
       final response = await Dio().post(url, data: requestBody);
       log(response.toString());

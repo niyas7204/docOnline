@@ -1,5 +1,5 @@
-import 'package:doc_online/account_auth/signin/core/widgets.dart';
-import 'package:doc_online/account_auth/signin/core/logo.dart';
+import 'package:doc_online/ui/core/widgets.dart';
+import 'package:doc_online/ui/core/logo.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,5 @@
 import 'dart:developer';
 
-import 'package:doc_online/account_auth/domain/model/signup_model.dart';
-import 'package:doc_online/account_auth/sign_up/sign_up_service.dart';
 import 'package:doc_online/account_auth/signin/login_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

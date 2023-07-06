@@ -49,6 +49,8 @@ dependencies:
   cookie_jar: ^4.0.3
   email_validator: ^2.1.17
   shared_preferences: ^2.1.2
+  intl: ^0.18.1
+  tuple: ^2.0.2
   
 
 dev_dependencies:

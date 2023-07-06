@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:doc_online/account_auth/domain/authentication/email_auth.dart';
 import 'package:doc_online/account_auth/domain/model/signup_model.dart';
 import 'package:doc_online/account_auth/signin/login_service.dart';
-import 'package:doc_online/account_auth/signin/core/url.dart';
+import 'package:doc_online/ui/core/url.dart';
 import 'package:doc_online/account_auth/domain/model/login.dart';
 import 'package:doc_online/account_auth/sign_up/get_all_data.dart';
 import 'package:doc_online/account_auth/domain/failure/failure.dart';
@@ -48,7 +48,7 @@ class LogInImplimentation implements LogInService {
     const url = '$baseUrl/user/auth/register';
 
     final requestBody = {'email': GetAllData.email};
-    print(GetAllData.email);
+
     try {
       log('12345');
       final response = await Dio().post(url, data: requestBody);
