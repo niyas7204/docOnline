@@ -1,0 +1,1 @@
+enum SearchCategory { doctors, hospitals }

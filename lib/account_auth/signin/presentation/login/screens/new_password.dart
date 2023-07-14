@@ -1,7 +1,9 @@
-import 'package:doc_online/ui/core/widgets.dart';
-import 'package:doc_online/ui/core/logo.dart';
-import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/doctorside/presentation/core/logo.dart';
+
 import 'package:flutter/material.dart';
+
+import 'log_in.dart';
 
 class NewPassword extends StatelessWidget {
   const NewPassword({super.key});
@@ -20,11 +22,11 @@ class NewPassword extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 header1('Reset Password'),
-                space1(),
+                space1h(),
                 textField('New Password', restcontroller),
-                space1(),
+                space1h(),
                 textField('Confirm Password', confirmcontroller),
-                space1(),
+                space1h(),
                 cButton('Continue', const Login(), context)
               ],
             ),

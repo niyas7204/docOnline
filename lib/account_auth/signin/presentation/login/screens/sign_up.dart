@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 
 import 'package:doc_online/account_auth/sign_up/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/account_auth/sign_up/get_all_data.dart';
-import 'package:doc_online/ui/core/widgets.dart';
-import 'package:doc_online/ui/core/logo.dart';
-import 'package:doc_online/account_auth/signin/presentation/login/screens/verify_email.dart';
+import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../userside/presentation/screens/login/screens/verify_email.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -35,15 +36,15 @@ class SignUp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         header1('Sign In'),
-                        space1(),
+                        space1h(),
                         textField('Email', emailcontroller),
-                        space1(),
+                        space1h(),
                         textField('Username', usernamecontroller),
-                        space1(),
+                        space1h(),
                         textField('Password', passwordcontroller),
-                        space1(),
+                        space1h(),
                         textField('confirmPassword', confirmPasswordcontroller),
-                        space1(),
+                        space1h(),
                         SizedBox(
                           width: 160.w,
                           height: 35.h,

@@ -1,21 +1,34 @@
+import 'dart:developer';
+
+import 'package:doc_online/account_auth/sign_up/infrastructure/email_registration/signup_implimentation.dart';
 import 'package:doc_online/account_auth/sign_up/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dart';
-import 'package:doc_online/account_auth/signin/application/bloc/login_bloc.dart';
-import 'package:doc_online/repository/di/injection.dart';
-import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
 
-import 'package:doc_online/bloc/user_side/userside_bloc.dart';
+import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
+import 'package:doc_online/doctorside/data/data/data_providers/doctor_side/doctorvie_implimentation.dart';
+import 'package:doc_online/doctorside/presentation/home.dart';
+import 'package:doc_online/userside/presentation/screens/home.dart';
+import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
 
-import 'package:doc_online/ui/user/presentation/home.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'account_auth/sign_up/infrastructure/otp_verification/verify_email_implimentation.dart';
+
+import 'account_auth/signin/application/bloc/login_bloc.dart';
+import 'account_auth/signin/infrastructure/login_implimentation.dart';
+import 'account_auth/signin/presentation/login/screens/log_in.dart';
+import 'doctorside/data/data/data_providers/doctor_side/doctor_repo_implimentation.dart';
+import 'userside/data/dataprovider/hospital_impimentation.dart';
+
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureInjection();
+
   runApp(const MyApp());
 }
 
@@ -27,16 +40,22 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<LoginBloc>(),
+          create: (context) => LoginBloc(LogInImplimentation()),
         ),
         BlocProvider(
-          create: (context) => getIt<SignupBloc>(),
+          create: (context) => SignupBloc(SignUpImplimentation()),
         ),
         BlocProvider(
-          create: (context) => getIt<VerifyotpBloc>(),
+          create: (context) => VerifyotpBloc(OtpImplimentation()),
         ),
         BlocProvider(
-          create: (context) => getIt<UsersideBloc>(),
+          create: (context) => UsersideBloc(UserSideImplimentation()),
+        ),
+        BlocProvider(
+          create: (context) => DoctorBloc(DoctorRepoImplimentation()),
+        ),
+        BlocProvider(
+          create: (context) => BookingsBloc(DoctorViewImplimentation()),
         )
       ],
       child: ScreenUtilInit(
@@ -49,14 +68,20 @@ class MyApp extends StatelessWidget {
                   child: child!,
                 );
               },
-              home: FutureBuilder<bool>(
+              home: FutureBuilder<String>(
                   future: isLoggedIn(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const CircularProgressIndicator();
                     } else {
-                      if (snapshot.hasData && snapshot.data!) {
-                        return const HomeSc();
+                      if (snapshot.hasData) {
+                        if (snapshot.data == 'user') {
+                          return const HomeSc();
+                        } else if (snapshot.data == 'Doctor') {
+                          return const DoctorHomeSc();
+                        } else {
+                          return const Login();
+                        }
                       } else {
                         return const Login();
                       }
@@ -67,9 +92,17 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Future<bool> isLoggedIn() async {
+  Future<String> isLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isLoggedIn') ?? false;
+    prefs.getBool('isLoggedIn') ?? false;
+    prefs.getBool('DocterLogin') ?? false;
+    String logInPerson = prefs.getBool('isLoggedIn')!
+        ? 'user'
+        : prefs.getBool('DocterLogin')!
+            ? 'Doctor'
+            : ' noLogin';
+    log(logInPerson);
+    return logInPerson;
   }
 }
 

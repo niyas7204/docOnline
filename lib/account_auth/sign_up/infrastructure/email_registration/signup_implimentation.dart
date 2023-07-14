@@ -1,13 +1,13 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:doc_online/account_auth/domain/model/login.dart';
+
 import 'package:doc_online/account_auth/domain/failure/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/account_auth/domain/model/signup_model.dart';
 import 'package:doc_online/account_auth/sign_up/get_all_data.dart';
 import 'package:doc_online/account_auth/sign_up/sign_up_service.dart';
-import 'package:doc_online/ui/core/url.dart';
+import 'package:doc_online/doctorside/presentation/core/url.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: SignUpService)

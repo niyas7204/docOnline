@@ -1,8 +1,9 @@
-import 'package:doc_online/ui/core/widgets.dart';
-import 'package:doc_online/ui/core/logo.dart';
+import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
-import 'package:doc_online/account_auth/signin/presentation/login/screens/new_password.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../userside/presentation/screens/login/screens/new_password.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -22,7 +23,7 @@ class ForgotPassword extends StatelessWidget {
                 header1('Forgot Password'),
                 const Text('Enter the Email adress'),
                 textField('Email', emailcontroller),
-                space1(),
+                space1h(),
                 cButton('Next', const NewPassword(), context)
               ],
             ),

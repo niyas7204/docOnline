@@ -5,8 +5,15 @@ bool isValidEmail(String email) {
   return EmailValidator.validate(email);
 }
 
-void updateshredPreference(String token, bool log) async {
+Future<void> updateshredPreference(
+  String token,
+  bool log,
+  bool dLog,
+) async {
   SharedPreferences sPref = await SharedPreferences.getInstance();
+
   sPref.setString('token', token);
+  sPref.setBool('DocterLogin', dLog);
+
   sPref.setBool('isLoggedIn', log);
 }

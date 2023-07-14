@@ -9,7 +9,7 @@ import 'package:doc_online/account_auth/sign_up/get_all_data.dart';
 import 'package:doc_online/account_auth/sign_up/sign_up_service.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:doc_online/ui/core/url.dart';
+import 'package:doc_online/doctorside/presentation/core/url.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: OtpService)
