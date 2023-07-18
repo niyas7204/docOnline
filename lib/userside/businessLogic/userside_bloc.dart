@@ -80,13 +80,11 @@ class UsersideBloc extends Bloc<UsersideEvent, UsersideState> {
       final response = await userSideService.getDoctor(event.dId);
 
       emit(response.fold((failure) {
-        log('failure$failure');
         return state.copyWith(
             isLoading: false,
             doctorDetails: state.doctorDetails,
             isError: true);
       }, (succes) {
-        log('success$succes');
         return state.copyWith(
             isLoading: false,
             schedule: state.schedule,
@@ -101,7 +99,6 @@ class UsersideBloc extends Bloc<UsersideEvent, UsersideState> {
       final response = await userSideService.getDoctorSchedule(event.dId);
 
       emit(response.fold((failure) {
-        log('failure$failure');
         return state.copyWith(
             isLoading: false,
             doctorDetails: state.doctorDetails,
@@ -124,27 +121,11 @@ class UsersideBloc extends Bloc<UsersideEvent, UsersideState> {
           await userSideService.getHospitalDetails(event.hospitalId);
 
       emit(response.fold((failure) {
-        log('failure$failure');
         return state.copyWith(
             isLoading: false, hospitalDetails: null, isError: true);
       }, (succes) {
-        log('success$succes');
         return state.copyWith(
             isLoading: false, hospitalDetails: succes, isError: false);
-      }));
-    });
-    on<_getDoctors>((event, emit) async {
-      emit(state.copyWith(isLoading: true, doctors: null, isError: false));
-
-      final response = await userSideService.getDoctors();
-
-      emit(response.fold((failure) {
-        log('failure$failure');
-        return state.copyWith(isLoading: false, doctors: null, isError: true);
-      }, (succes) {
-        log('success$succes');
-        return state.copyWith(
-            isLoading: false, doctors: succes, isError: false);
       }));
     });
   }

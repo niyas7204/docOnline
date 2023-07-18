@@ -1,0 +1,1 @@
+enum SearchSelection { doctors, hospitals }

@@ -1,4 +1,6 @@
 import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/businessLogic/bloc/booking_bloc.dart';
+
 import 'package:doc_online/userside/presentation/core/wisgets/book_diologue.dart';
 
 import 'package:doc_online/userside/presentation/core/wisgets/doctor_details.dart';
@@ -9,6 +11,7 @@ import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
 import 'package:tuple/tuple.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class DoctorDetails extends StatelessWidget {
   final String doctorId;
   const DoctorDetails({super.key, required this.doctorId});
@@ -169,7 +172,10 @@ class DoctorDetails extends StatelessWidget {
                                 const Color.fromARGB(255, 164, 198, 226),
                           ),
                           onPressed: () {
-                            showBookingDiologue(context);
+                            BlocProvider.of<PatientBookingBloc>(context).add(
+                                PatientBookingEvent.checkSlot(state: state));
+                            showBookingDiologue(
+                                context, state.doctorDetails!.doctor!.fees!);
                           },
                           child: cText1('BookNow')),
                     )

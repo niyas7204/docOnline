@@ -1,29 +1,28 @@
 import 'dart:developer';
-
 import 'package:doc_online/account_auth/sign_up/infrastructure/email_registration/signup_implimentation.dart';
 import 'package:doc_online/account_auth/sign_up/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/account_auth/sign_up/verifyotpbloc/verifyotp_bloc.dart';
+import 'package:doc_online/doctorside/bloc/bloc/doctor_profile_bloc.dart';
 import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
-
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
 import 'package:doc_online/doctorside/data/data/data_providers/doctor_side/doctorvie_implimentation.dart';
 import 'package:doc_online/doctorside/presentation/home.dart';
+import 'package:doc_online/userside/businessLogic/bloc/booking_bloc.dart';
+
+import 'package:doc_online/userside/data/dataprovider/booking_impl.dart';
+import 'package:doc_online/userside/data/dataprovider/search_impl.dart';
 import 'package:doc_online/userside/presentation/screens/home.dart';
 import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
-
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'account_auth/sign_up/infrastructure/otp_verification/verify_email_implimentation.dart';
-
 import 'account_auth/signin/application/bloc/login_bloc.dart';
 import 'account_auth/signin/infrastructure/login_implimentation.dart';
 import 'account_auth/signin/presentation/login/screens/log_in.dart';
 import 'doctorside/data/data/data_providers/doctor_side/doctor_repo_implimentation.dart';
+import 'userside/businessLogic/search/search_bloc.dart';
 import 'userside/data/dataprovider/hospital_impimentation.dart';
 
 Future<void> main(List<String> args) async {
@@ -56,7 +55,16 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => BookingsBloc(DoctorViewImplimentation()),
-        )
+        ),
+        BlocProvider(
+          create: (context) => DoctorProfileBloc(DoctorViewImplimentation()),
+        ),
+        BlocProvider(
+          create: (context) => SearchBloc(SearchImplimentation()),
+        ),
+        BlocProvider(
+          create: (context) => PatientBookingBloc(BookingImplimentation()),
+        ),
       ],
       child: ScreenUtilInit(
         builder: (BuildContext context, Widget? child) {

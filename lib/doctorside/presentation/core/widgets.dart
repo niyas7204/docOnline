@@ -1,3 +1,4 @@
+import 'package:doc_online/doctorside/presentation/doctorprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -87,14 +88,21 @@ Future<dynamic> showdiologue(BuildContext context, String? errorText) {
           ));
 }
 
-profile() {
-  return const CircleAvatar(
-    backgroundColor: Color.fromRGBO(217, 217, 217, 1),
-    radius: 20,
-    child: Center(
-      child: Icon(
-        Icons.person_2_sharp,
-        color: Color.fromRGBO(56, 86, 59, 1),
+profile(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const DoctorProfile(),
+      ));
+    },
+    child: const CircleAvatar(
+      backgroundColor: Color.fromRGBO(217, 217, 217, 1),
+      radius: 20,
+      child: Center(
+        child: Icon(
+          Icons.person_2_sharp,
+          color: Color.fromRGBO(56, 86, 59, 1),
+        ),
       ),
     ),
   );

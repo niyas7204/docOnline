@@ -1,15 +1,17 @@
 import 'dart:developer';
 
 import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/businessLogic/bloc/booking_bloc.dart';
+import 'package:doc_online/userside/data/model/doctors/doctors.dart';
+
 import 'package:doc_online/userside/presentation/screens/doctor_by_department.dart';
 import 'package:doc_online/userside/presentation/screens/doctor_details.dart';
 import 'package:doc_online/userside/presentation/screens/hospital_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart' as prefix;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../data/model/doctors/doctors.dart';
 
 departmentCard(String dpName, String id, context) {
   return GestureDetector(
@@ -183,23 +185,34 @@ doctersCard(List<Doctors> bstate, int index, BuildContext context) {
   );
 }
 
-Container timeTable() {
-  return Container(
-    height: 40.h,
-    width: 100.w,
-    decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 2),
-        borderRadius: BorderRadius.circular(12)),
-    child: const Center(
-      child: Text(
-        '26/05/2023',
-        style: TextStyle(
-          color: Color.fromARGB(255, 0, 0, 0),
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
+timeTable(DateTime day, int index) {
+  return BlocBuilder<PatientBookingBloc, PatientBookingState>(
+    builder: (context, state) {
+      return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: state.selectedDateIndex == null
+              ? Colors.white
+              : state.selectedDateIndex == index
+                  ? const Color.fromARGB(255, 52, 150, 230)
+                  : Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
-      ),
-    ),
+        onPressed: () {
+          BlocProvider.of<PatientBookingBloc>(context)
+              .add(PatientBookingEvent.checkDateselection(index: index));
+        },
+        child: Text(
+          "${day.day}/${day.month}/${day.year}",
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 13,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+    },
   );
 }
 

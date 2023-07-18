@@ -134,7 +134,7 @@ class UserSideImplimentation implements UserSideService {
       final response = await Dio().get(url,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-      log(response.data.toString());
+
       if (!response.data['err']) {
         final data = doctorScheduleFromJson(response.data);
 
@@ -164,31 +164,6 @@ class UserSideImplimentation implements UserSideService {
 
       if (!response.data['err']) {
         final data = singleHospitalFromJson(response.data);
-
-        return right(data);
-      } else {
-        return left(const MainFailure.serverFailure());
-      }
-    } catch (e) {
-      log('error $e');
-      return left(const MainFailure.clientFailure());
-    }
-  }
-
-  @override
-  Future<Either<MainFailure, DoctorByDepartment>> getDoctors() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    dio.interceptors.add(CookieManager(cookieJar));
-    Cookie cookie = Cookie('token', prefs.getString('token')!);
-    const url = '$baseUrl/user/doctors';
-    try {
-      final response = await Dio().get(url,
-          options:
-              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-
-      if (!response.data['err']) {
-        final data = doctorByDepartmentFromJson(response.data);
 
         return right(data);
       } else {

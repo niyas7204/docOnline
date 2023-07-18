@@ -1,67 +1,73 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:doc_online/doctorside/data/data/model/bookingsModel.dart';
+import 'package:doc_online/doctorside/presentation/core/url.dart';
+import 'package:doc_online/userside/data/model/doctors/doctors.dart';
 import 'package:doc_online/account_auth/domain/failure/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:doc_online/doctorside/data/data/model/doctorprofilemodel.dart';
-import 'package:doc_online/doctorside/data/data/repository/doctor/docrorview_service.dart';
-import 'package:doc_online/doctorside/presentation/core/url.dart';
+import 'package:doc_online/userside/data/model/hopital/hospital_model.dart';
+import 'package:doc_online/userside/data/repository/data_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class DoctorViewImplimentation implements DoctorviewSevice {
+class SearchImplimentation implements SearchService {
   Dio dio = Dio();
   CookieJar cookieJar = CookieJar();
-  //doctor booking detatils
   @override
-  Future<Either<MainFailure, BookingsModel>> getBookings() async {
+  Future<Either<MainFailure, DoctorByDepartment>> getDoctors() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     dio.interceptors.add(CookieManager(cookieJar));
-    Cookie cookie = Cookie('doctorToken', prefs.getString('token')!);
-    const url = '$baseUrl/doctor/bookings';
+    Cookie cookie = Cookie('token', prefs.getString('token')!);
+    const url = '$baseUrl/user/doctors';
     try {
-      final response = await dio.get(url,
+      final response = await Dio().get(url,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
 
       if (!response.data['err']) {
-        final data = bookingsModelFromJson(response.data);
+        final data = doctorByDepartmentFromJson(response.data);
+
         return right(data);
       } else {
-        log('failure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
   }
 
-//get Doctor profile
   @override
-  Future<Either<MainFailure, DoctorProfileModel>> getDoctorProfile() async {
+  Future<Either<MainFailure, HospitalData>> getHospitals() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     dio.interceptors.add(CookieManager(cookieJar));
-    Cookie cookie = Cookie('doctorToken', prefs.getString('token')!);
-    const url = '$baseUrl/doctor/profile';
+    Cookie cookie = Cookie('token', prefs.getString('token')!);
+    const url = '$baseUrl/user/hospitals';
     try {
-      final response = await dio.get(url,
+      final response = await Dio().get(url,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
 
       if (!response.data['err']) {
-        final data = doctorProfileModelFromJson(response.data);
+        final data = HospitalData.fromJson(response.data);
         return right(data);
       } else {
-        log('failure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
+  }
+
+  @override
+  List<Doctors>? onDoctorSearch(
+      {required List<Doctors> doctors, required String query}) {
+    List<Doctors> result = doctors
+        .where((element) =>
+            element.name!.trim().toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    return result;
   }
 }

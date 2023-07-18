@@ -1,4 +1,4 @@
-import 'package:doc_online/doctorside/data/data/model/doctor_side/bookingsModel.dart';
+import 'package:doc_online/doctorside/data/data/model/bookingsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
 import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
 import 'package:doc_online/doctorside/data/data/data_providers/response/status.dart';
@@ -40,7 +38,7 @@ class DoctorHomeSc extends StatelessWidget {
                           ));
                         },
                         child: const Text('logout')),
-                    profile()
+                    profile(context)
                   ],
                 ),
                 space1h(),
@@ -48,7 +46,6 @@ class DoctorHomeSc extends StatelessWidget {
                 heading('Todays Appointments'),
                 Builder(
                   builder: (context) {
-                    log(state.bookings.status.toString());
                     switch (state.bookings.status) {
                       case Status.loading:
                         return const CircularProgressIndicator();

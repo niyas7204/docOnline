@@ -1,12 +1,11 @@
 import 'dart:developer';
 
 import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
+import 'package:doc_online/userside/data/model/schedule/doctor_schedule.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-
 
 apiCall(String id, BuildContext context) {
   return WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -19,8 +18,8 @@ apiCall(String id, BuildContext context) {
   });
 }
 
-Tuple2<List, List> scheduleList(UsersideState state) {
-  List schedule = [
+Tuple2<List, List<List<Mon?>>> scheduleList(UsersideState state) {
+  List<List<Mon>> schedule = [
     state.schedule!.schedule!.sun!,
     state.schedule!.schedule!.mon!,
     state.schedule!.schedule!.tue!,

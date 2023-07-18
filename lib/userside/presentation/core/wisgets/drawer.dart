@@ -1,7 +1,7 @@
 import 'package:doc_online/account_auth/domain/authentication/email_auth.dart';
 import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+import 'package:doc_online/userside/data/dataprovider/onsearch_impl.dart';
 import 'package:flutter/material.dart';
-
 
 homeDrawer(BuildContext context) {
   return Drawer(
@@ -22,7 +22,7 @@ homeDrawer(BuildContext context) {
         ListTile(
           leading: const Icon(Icons.edit),
           title: const Text('edit profile'),
-          onTap: () => {Navigator.of(context).pop()},
+          onTap: () => {},
         ),
         ListTile(
           leading: const Icon(Icons.exit_to_app),

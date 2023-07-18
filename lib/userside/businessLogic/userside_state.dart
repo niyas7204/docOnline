@@ -11,12 +11,10 @@ class UsersideState with _$UsersideState {
       required SingleHospital? hospitalDetails,
       required bool isError,
       required DoctorSchedule? schedule,
-      required DoctorByDepartment? doctors,
       required List<Doctors> searchResult}) = _UsersideState;
 
   factory UsersideState.initial() => const UsersideState(
       searchResult: [],
-      doctors: null,
       hospitalDetails: null,
       schedule: null,
       isLoading: false,

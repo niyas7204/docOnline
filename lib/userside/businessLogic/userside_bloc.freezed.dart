@@ -24,7 +24,6 @@ mixin _$UsersideEvent {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,7 +34,6 @@ mixin _$UsersideEvent {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +44,6 @@ mixin _$UsersideEvent {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,7 +56,6 @@ mixin _$UsersideEvent {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,7 +66,6 @@ mixin _$UsersideEvent {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,7 +76,6 @@ mixin _$UsersideEvent {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,7 +143,6 @@ class _$_getDepartmentdata implements _getDepartmentdata {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) {
     return getDepartmentdata();
   }
@@ -163,7 +156,6 @@ class _$_getDepartmentdata implements _getDepartmentdata {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) {
     return getDepartmentdata?.call();
   }
@@ -177,7 +169,6 @@ class _$_getDepartmentdata implements _getDepartmentdata {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) {
     if (getDepartmentdata != null) {
@@ -196,7 +187,6 @@ class _$_getDepartmentdata implements _getDepartmentdata {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) {
     return getDepartmentdata(this);
   }
@@ -210,7 +200,6 @@ class _$_getDepartmentdata implements _getDepartmentdata {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) {
     return getDepartmentdata?.call(this);
   }
@@ -224,7 +213,6 @@ class _$_getDepartmentdata implements _getDepartmentdata {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) {
     if (getDepartmentdata != null) {
@@ -282,7 +270,6 @@ class _$_getHospitalData implements _getHospitalData {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) {
     return getHospitalData();
   }
@@ -296,7 +283,6 @@ class _$_getHospitalData implements _getHospitalData {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) {
     return getHospitalData?.call();
   }
@@ -310,7 +296,6 @@ class _$_getHospitalData implements _getHospitalData {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) {
     if (getHospitalData != null) {
@@ -329,7 +314,6 @@ class _$_getHospitalData implements _getHospitalData {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) {
     return getHospitalData(this);
   }
@@ -343,7 +327,6 @@ class _$_getHospitalData implements _getHospitalData {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) {
     return getHospitalData?.call(this);
   }
@@ -357,7 +340,6 @@ class _$_getHospitalData implements _getHospitalData {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) {
     if (getHospitalData != null) {
@@ -442,7 +424,6 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) {
     return getByDepartmentDoctors(id);
   }
@@ -456,7 +437,6 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) {
     return getByDepartmentDoctors?.call(id);
   }
@@ -470,7 +450,6 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) {
     if (getByDepartmentDoctors != null) {
@@ -489,7 +468,6 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) {
     return getByDepartmentDoctors(this);
   }
@@ -503,7 +481,6 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) {
     return getByDepartmentDoctors?.call(this);
   }
@@ -517,7 +494,6 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) {
     if (getByDepartmentDoctors != null) {
@@ -607,7 +583,6 @@ class _$_getDoctor implements _getDoctor {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) {
     return getDoctor(dId);
   }
@@ -621,7 +596,6 @@ class _$_getDoctor implements _getDoctor {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) {
     return getDoctor?.call(dId);
   }
@@ -635,7 +609,6 @@ class _$_getDoctor implements _getDoctor {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) {
     if (getDoctor != null) {
@@ -654,7 +627,6 @@ class _$_getDoctor implements _getDoctor {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) {
     return getDoctor(this);
   }
@@ -668,7 +640,6 @@ class _$_getDoctor implements _getDoctor {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) {
     return getDoctor?.call(this);
   }
@@ -682,7 +653,6 @@ class _$_getDoctor implements _getDoctor {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) {
     if (getDoctor != null) {
@@ -772,7 +742,6 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) {
     return getDoctorSchedule(dId);
   }
@@ -786,7 +755,6 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) {
     return getDoctorSchedule?.call(dId);
   }
@@ -800,7 +768,6 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) {
     if (getDoctorSchedule != null) {
@@ -819,7 +786,6 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) {
     return getDoctorSchedule(this);
   }
@@ -833,7 +799,6 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) {
     return getDoctorSchedule?.call(this);
   }
@@ -847,7 +812,6 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) {
     if (getDoctorSchedule != null) {
@@ -939,7 +903,6 @@ class _$_getHospitalDetails implements _getHospitalDetails {
     required TResult Function(String dId) getDoctor,
     required TResult Function(String dId) getDoctorSchedule,
     required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
   }) {
     return getHospitalDetails(hospitalId);
   }
@@ -953,7 +916,6 @@ class _$_getHospitalDetails implements _getHospitalDetails {
     TResult? Function(String dId)? getDoctor,
     TResult? Function(String dId)? getDoctorSchedule,
     TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
   }) {
     return getHospitalDetails?.call(hospitalId);
   }
@@ -967,7 +929,6 @@ class _$_getHospitalDetails implements _getHospitalDetails {
     TResult Function(String dId)? getDoctor,
     TResult Function(String dId)? getDoctorSchedule,
     TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
     required TResult orElse(),
   }) {
     if (getHospitalDetails != null) {
@@ -986,7 +947,6 @@ class _$_getHospitalDetails implements _getHospitalDetails {
     required TResult Function(_getDoctor value) getDoctor,
     required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
     required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
   }) {
     return getHospitalDetails(this);
   }
@@ -1000,7 +960,6 @@ class _$_getHospitalDetails implements _getHospitalDetails {
     TResult? Function(_getDoctor value)? getDoctor,
     TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
   }) {
     return getHospitalDetails?.call(this);
   }
@@ -1014,7 +973,6 @@ class _$_getHospitalDetails implements _getHospitalDetails {
     TResult Function(_getDoctor value)? getDoctor,
     TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
     TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
     required TResult orElse(),
   }) {
     if (getHospitalDetails != null) {
@@ -1035,139 +993,6 @@ abstract class _getHospitalDetails implements UsersideEvent {
 }
 
 /// @nodoc
-abstract class _$$_getDoctorsCopyWith<$Res> {
-  factory _$$_getDoctorsCopyWith(
-          _$_getDoctors value, $Res Function(_$_getDoctors) then) =
-      __$$_getDoctorsCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_getDoctorsCopyWithImpl<$Res>
-    extends _$UsersideEventCopyWithImpl<$Res, _$_getDoctors>
-    implements _$$_getDoctorsCopyWith<$Res> {
-  __$$_getDoctorsCopyWithImpl(
-      _$_getDoctors _value, $Res Function(_$_getDoctors) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_getDoctors implements _getDoctors {
-  const _$_getDoctors();
-
-  @override
-  String toString() {
-    return 'UsersideEvent.getDoctors()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getDoctors);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getDepartmentdata,
-    required TResult Function() getHospitalData,
-    required TResult Function(String id) getByDepartmentDoctors,
-    required TResult Function(String dId) getDoctor,
-    required TResult Function(String dId) getDoctorSchedule,
-    required TResult Function(String hospitalId) getHospitalDetails,
-    required TResult Function() getDoctors,
-  }) {
-    return getDoctors();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getDepartmentdata,
-    TResult? Function()? getHospitalData,
-    TResult? Function(String id)? getByDepartmentDoctors,
-    TResult? Function(String dId)? getDoctor,
-    TResult? Function(String dId)? getDoctorSchedule,
-    TResult? Function(String hospitalId)? getHospitalDetails,
-    TResult? Function()? getDoctors,
-  }) {
-    return getDoctors?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getDepartmentdata,
-    TResult Function()? getHospitalData,
-    TResult Function(String id)? getByDepartmentDoctors,
-    TResult Function(String dId)? getDoctor,
-    TResult Function(String dId)? getDoctorSchedule,
-    TResult Function(String hospitalId)? getHospitalDetails,
-    TResult Function()? getDoctors,
-    required TResult orElse(),
-  }) {
-    if (getDoctors != null) {
-      return getDoctors();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_getDepartmentdata value) getDepartmentdata,
-    required TResult Function(_getHospitalData value) getHospitalData,
-    required TResult Function(_getByDepartmentDoctors value)
-        getByDepartmentDoctors,
-    required TResult Function(_getDoctor value) getDoctor,
-    required TResult Function(_getDoctorSchedule value) getDoctorSchedule,
-    required TResult Function(_getHospitalDetails value) getHospitalDetails,
-    required TResult Function(_getDoctors value) getDoctors,
-  }) {
-    return getDoctors(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getDepartmentdata value)? getDepartmentdata,
-    TResult? Function(_getHospitalData value)? getHospitalData,
-    TResult? Function(_getByDepartmentDoctors value)? getByDepartmentDoctors,
-    TResult? Function(_getDoctor value)? getDoctor,
-    TResult? Function(_getDoctorSchedule value)? getDoctorSchedule,
-    TResult? Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult? Function(_getDoctors value)? getDoctors,
-  }) {
-    return getDoctors?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getDepartmentdata value)? getDepartmentdata,
-    TResult Function(_getHospitalData value)? getHospitalData,
-    TResult Function(_getByDepartmentDoctors value)? getByDepartmentDoctors,
-    TResult Function(_getDoctor value)? getDoctor,
-    TResult Function(_getDoctorSchedule value)? getDoctorSchedule,
-    TResult Function(_getHospitalDetails value)? getHospitalDetails,
-    TResult Function(_getDoctors value)? getDoctors,
-    required TResult orElse(),
-  }) {
-    if (getDoctors != null) {
-      return getDoctors(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _getDoctors implements UsersideEvent {
-  const factory _getDoctors() = _$_getDoctors;
-}
-
-/// @nodoc
 mixin _$UsersideState {
   bool get isLoading => throw _privateConstructorUsedError;
   DepartmentsInfo? get departmentData => throw _privateConstructorUsedError;
@@ -1177,7 +1002,6 @@ mixin _$UsersideState {
   SingleHospital? get hospitalDetails => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   DoctorSchedule? get schedule => throw _privateConstructorUsedError;
-  DoctorByDepartment? get doctors => throw _privateConstructorUsedError;
   List<Doctors> get searchResult => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1200,7 +1024,6 @@ abstract class $UsersideStateCopyWith<$Res> {
       SingleHospital? hospitalDetails,
       bool isError,
       DoctorSchedule? schedule,
-      DoctorByDepartment? doctors,
       List<Doctors> searchResult});
 }
 
@@ -1225,7 +1048,6 @@ class _$UsersideStateCopyWithImpl<$Res, $Val extends UsersideState>
     Object? hospitalDetails = freezed,
     Object? isError = null,
     Object? schedule = freezed,
-    Object? doctors = freezed,
     Object? searchResult = null,
   }) {
     return _then(_value.copyWith(
@@ -1261,10 +1083,6 @@ class _$UsersideStateCopyWithImpl<$Res, $Val extends UsersideState>
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
               as DoctorSchedule?,
-      doctors: freezed == doctors
-          ? _value.doctors
-          : doctors // ignore: cast_nullable_to_non_nullable
-              as DoctorByDepartment?,
       searchResult: null == searchResult
           ? _value.searchResult
           : searchResult // ignore: cast_nullable_to_non_nullable
@@ -1290,7 +1108,6 @@ abstract class _$$_UsersideStateCopyWith<$Res>
       SingleHospital? hospitalDetails,
       bool isError,
       DoctorSchedule? schedule,
-      DoctorByDepartment? doctors,
       List<Doctors> searchResult});
 }
 
@@ -1313,7 +1130,6 @@ class __$$_UsersideStateCopyWithImpl<$Res>
     Object? hospitalDetails = freezed,
     Object? isError = null,
     Object? schedule = freezed,
-    Object? doctors = freezed,
     Object? searchResult = null,
   }) {
     return _then(_$_UsersideState(
@@ -1349,10 +1165,6 @@ class __$$_UsersideStateCopyWithImpl<$Res>
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
               as DoctorSchedule?,
-      doctors: freezed == doctors
-          ? _value.doctors
-          : doctors // ignore: cast_nullable_to_non_nullable
-              as DoctorByDepartment?,
       searchResult: null == searchResult
           ? _value._searchResult
           : searchResult // ignore: cast_nullable_to_non_nullable
@@ -1373,7 +1185,6 @@ class _$_UsersideState implements _UsersideState {
       required this.hospitalDetails,
       required this.isError,
       required this.schedule,
-      required this.doctors,
       required final List<Doctors> searchResult})
       : _searchResult = searchResult;
 
@@ -1393,8 +1204,6 @@ class _$_UsersideState implements _UsersideState {
   final bool isError;
   @override
   final DoctorSchedule? schedule;
-  @override
-  final DoctorByDepartment? doctors;
   final List<Doctors> _searchResult;
   @override
   List<Doctors> get searchResult {
@@ -1405,7 +1214,7 @@ class _$_UsersideState implements _UsersideState {
 
   @override
   String toString() {
-    return 'UsersideState(isLoading: $isLoading, departmentData: $departmentData, hospitalData: $hospitalData, doctorData: $doctorData, doctorDetails: $doctorDetails, hospitalDetails: $hospitalDetails, isError: $isError, schedule: $schedule, doctors: $doctors, searchResult: $searchResult)';
+    return 'UsersideState(isLoading: $isLoading, departmentData: $departmentData, hospitalData: $hospitalData, doctorData: $doctorData, doctorDetails: $doctorDetails, hospitalDetails: $hospitalDetails, isError: $isError, schedule: $schedule, searchResult: $searchResult)';
   }
 
   @override
@@ -1428,7 +1237,6 @@ class _$_UsersideState implements _UsersideState {
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.schedule, schedule) ||
                 other.schedule == schedule) &&
-            (identical(other.doctors, doctors) || other.doctors == doctors) &&
             const DeepCollectionEquality()
                 .equals(other._searchResult, _searchResult));
   }
@@ -1444,7 +1252,6 @@ class _$_UsersideState implements _UsersideState {
       hospitalDetails,
       isError,
       schedule,
-      doctors,
       const DeepCollectionEquality().hash(_searchResult));
 
   @JsonKey(ignore: true)
@@ -1464,7 +1271,6 @@ abstract class _UsersideState implements UsersideState {
       required final SingleHospital? hospitalDetails,
       required final bool isError,
       required final DoctorSchedule? schedule,
-      required final DoctorByDepartment? doctors,
       required final List<Doctors> searchResult}) = _$_UsersideState;
 
   @override
@@ -1483,8 +1289,6 @@ abstract class _UsersideState implements UsersideState {
   bool get isError;
   @override
   DoctorSchedule? get schedule;
-  @override
-  DoctorByDepartment? get doctors;
   @override
   List<Doctors> get searchResult;
   @override

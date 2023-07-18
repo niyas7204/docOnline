@@ -11,5 +11,4 @@ class UsersideEvent with _$UsersideEvent {
       _getDoctorSchedule;
   const factory UsersideEvent.getHospitalDetails({required String hospitalId}) =
       _getHospitalDetails;
-  const factory UsersideEvent.getDoctors() = _getDoctors;
 }
