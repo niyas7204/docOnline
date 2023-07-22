@@ -1,4 +1,4 @@
-
+import 'package:doc_online/userside/businessLogic/bloc/user_profile_bloc.dart';
 import 'package:doc_online/userside/presentation/core/wisgets/drawer.dart';
 import 'package:doc_online/userside/presentation/core/wisgets/common_widget.dart';
 import 'package:doc_online/userside/presentation/screens/all_doctor.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../doctorside/presentation/core/logo.dart';
-import '../../../doctorside/presentation/core/widgets.dart';
+import '../core/widgets.dart';
 
 class HomeSc extends StatelessWidget {
   const HomeSc({super.key});
@@ -21,8 +21,11 @@ class HomeSc extends StatelessWidget {
       final userBloc = BlocProvider.of<UsersideBloc>(context);
       userBloc.add(const UsersideEvent.getDepartmentdata());
       userBloc.add(const UsersideEvent.getHospitalData());
+      BlocProvider.of<UserProfileBloc>(context)
+          .add(const UserProfileEvent.getUserprofile());
     });
     return Scaffold(
+      
       endDrawer: homeDrawer(context),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -64,13 +67,21 @@ class HomeSc extends StatelessWidget {
                               Positioned(
                                   top: 60,
                                   right: 20,
-                                  child:
-                                      header1('We Care About \nYour Health')),
+                                  child: Text(
+                                    'We Care About \nYour Health',
+                                    style: TextStyle(
+                                        color: Colors.blueGrey.withOpacity(.5),
+                                        fontSize: 30),
+                                  )),
                               Positioned(
                                   top: 150,
                                   right: 50,
-                                  child: header1(
-                                      'specialized docters all\n over the country')),
+                                  child: Text(
+                                    'specialized docters all\n over the country',
+                                    style: TextStyle(
+                                        color: Colors.blueGrey.withOpacity(.5),
+                                        fontSize: 25),
+                                  )),
                               Positioned(
                                   top: 220,
                                   right: 50,

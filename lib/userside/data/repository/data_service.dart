@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:doc_online/account_auth/domain/failure/failure.dart';
+import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
-import 'package:doc_online/userside/data/model/check_time_model.dart';
+import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
+import 'package:doc_online/userside/data/model/booking/orderresponse.dart';
+import 'package:doc_online/userside/data/model/userprofile/userprofile_model.dart';
 
 import '../model/department/department_model.dart';
 import '../model/doctors/doctors.dart';
@@ -26,9 +28,17 @@ abstract class SearchService {
   Future<Either<MainFailure, HospitalData>> getHospitals();
   List<Doctors>? onDoctorSearch(
       {required List<Doctors> doctors, required String query});
+  List<HospitalDeatails>? onHospitalSearch(
+      {required List<HospitalDeatails> hospitals, required String query});
 }
 
 abstract class BookingService {
   Future<Either<MainFailure, List<Result>>> checkTimeslot(
       {required UsersideState state});
+  Future<Either<MainFailure, OrderResponseModel>> getOrder({required int fee});
+  Future<Either<MainFailure, bool>> paymentVerify({required requestBody});
+}
+
+abstract class UserProfileService {
+  Future<Either<MainFailure, UserProfileModel>> getUserprofile();
 }

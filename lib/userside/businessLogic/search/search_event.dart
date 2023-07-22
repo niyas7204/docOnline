@@ -7,6 +7,7 @@ class SearchEvent with _$SearchEvent {
   const factory SearchEvent.onDoctorSearch(
       {required List<Doctors> doctorList,
       required String query}) = OnDoctorSearch;
-  const factory SearchEvent.onHospitalSearch({required List hospitalList}) =
-      OnHospitalSearch;
+  const factory SearchEvent.onHospitalSearch(
+      {required List<HospitalDeatails> hospitalList,
+      required String query}) = OnHospitalSearch;
 }

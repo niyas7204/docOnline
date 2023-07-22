@@ -1,13 +1,11 @@
 import 'dart:developer';
 
-import 'package:doc_online/account_auth/domain/failure/failure.dart';
-import 'package:doc_online/doctorside/data/data/repository/doctor/doctor_repo.dart';
+import 'package:doc_online/core/failure/failure.dart';
+import 'package:doc_online/doctorside/data/repository/doctor/doctor_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-
 
 part 'doctor_event.dart';
 part 'doctor_state.dart';

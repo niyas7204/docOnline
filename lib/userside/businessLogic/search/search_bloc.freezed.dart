@@ -22,7 +22,8 @@ mixin _$SearchEvent {
     required TResult Function() hospitalSearch,
     required TResult Function(List<Doctors> doctorList, String query)
         onDoctorSearch,
-    required TResult Function(List<dynamic> hospitalList) onHospitalSearch,
+    required TResult Function(List<HospitalDeatails> hospitalList, String query)
+        onHospitalSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +31,8 @@ mixin _$SearchEvent {
     TResult? Function()? doctorSearch,
     TResult? Function()? hospitalSearch,
     TResult? Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult? Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult? Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +40,8 @@ mixin _$SearchEvent {
     TResult Function()? doctorSearch,
     TResult Function()? hospitalSearch,
     TResult Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,7 +132,8 @@ class _$DoctorSearch implements DoctorSearch {
     required TResult Function() hospitalSearch,
     required TResult Function(List<Doctors> doctorList, String query)
         onDoctorSearch,
-    required TResult Function(List<dynamic> hospitalList) onHospitalSearch,
+    required TResult Function(List<HospitalDeatails> hospitalList, String query)
+        onHospitalSearch,
   }) {
     return doctorSearch();
   }
@@ -140,7 +144,8 @@ class _$DoctorSearch implements DoctorSearch {
     TResult? Function()? doctorSearch,
     TResult? Function()? hospitalSearch,
     TResult? Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult? Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult? Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
   }) {
     return doctorSearch?.call();
   }
@@ -151,7 +156,8 @@ class _$DoctorSearch implements DoctorSearch {
     TResult Function()? doctorSearch,
     TResult Function()? hospitalSearch,
     TResult Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
     required TResult orElse(),
   }) {
     if (doctorSearch != null) {
@@ -244,7 +250,8 @@ class _$HospitalSearch implements HospitalSearch {
     required TResult Function() hospitalSearch,
     required TResult Function(List<Doctors> doctorList, String query)
         onDoctorSearch,
-    required TResult Function(List<dynamic> hospitalList) onHospitalSearch,
+    required TResult Function(List<HospitalDeatails> hospitalList, String query)
+        onHospitalSearch,
   }) {
     return hospitalSearch();
   }
@@ -255,7 +262,8 @@ class _$HospitalSearch implements HospitalSearch {
     TResult? Function()? doctorSearch,
     TResult? Function()? hospitalSearch,
     TResult? Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult? Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult? Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
   }) {
     return hospitalSearch?.call();
   }
@@ -266,7 +274,8 @@ class _$HospitalSearch implements HospitalSearch {
     TResult Function()? doctorSearch,
     TResult Function()? hospitalSearch,
     TResult Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
     required TResult orElse(),
   }) {
     if (hospitalSearch != null) {
@@ -403,7 +412,8 @@ class _$OnDoctorSearch implements OnDoctorSearch {
     required TResult Function() hospitalSearch,
     required TResult Function(List<Doctors> doctorList, String query)
         onDoctorSearch,
-    required TResult Function(List<dynamic> hospitalList) onHospitalSearch,
+    required TResult Function(List<HospitalDeatails> hospitalList, String query)
+        onHospitalSearch,
   }) {
     return onDoctorSearch(doctorList, query);
   }
@@ -414,7 +424,8 @@ class _$OnDoctorSearch implements OnDoctorSearch {
     TResult? Function()? doctorSearch,
     TResult? Function()? hospitalSearch,
     TResult? Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult? Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult? Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
   }) {
     return onDoctorSearch?.call(doctorList, query);
   }
@@ -425,7 +436,8 @@ class _$OnDoctorSearch implements OnDoctorSearch {
     TResult Function()? doctorSearch,
     TResult Function()? hospitalSearch,
     TResult Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
     required TResult orElse(),
   }) {
     if (onDoctorSearch != null) {
@@ -490,7 +502,7 @@ abstract class _$$OnHospitalSearchCopyWith<$Res> {
           _$OnHospitalSearch value, $Res Function(_$OnHospitalSearch) then) =
       __$$OnHospitalSearchCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<dynamic> hospitalList});
+  $Res call({List<HospitalDeatails> hospitalList, String query});
 }
 
 /// @nodoc
@@ -505,12 +517,17 @@ class __$$OnHospitalSearchCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hospitalList = null,
+    Object? query = null,
   }) {
     return _then(_$OnHospitalSearch(
       hospitalList: null == hospitalList
           ? _value._hospitalList
           : hospitalList // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<HospitalDeatails>,
+      query: null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -518,20 +535,24 @@ class __$$OnHospitalSearchCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OnHospitalSearch implements OnHospitalSearch {
-  const _$OnHospitalSearch({required final List<dynamic> hospitalList})
+  const _$OnHospitalSearch(
+      {required final List<HospitalDeatails> hospitalList, required this.query})
       : _hospitalList = hospitalList;
 
-  final List<dynamic> _hospitalList;
+  final List<HospitalDeatails> _hospitalList;
   @override
-  List<dynamic> get hospitalList {
+  List<HospitalDeatails> get hospitalList {
     if (_hospitalList is EqualUnmodifiableListView) return _hospitalList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hospitalList);
   }
 
   @override
+  final String query;
+
+  @override
   String toString() {
-    return 'SearchEvent.onHospitalSearch(hospitalList: $hospitalList)';
+    return 'SearchEvent.onHospitalSearch(hospitalList: $hospitalList, query: $query)';
   }
 
   @override
@@ -540,12 +561,13 @@ class _$OnHospitalSearch implements OnHospitalSearch {
         (other.runtimeType == runtimeType &&
             other is _$OnHospitalSearch &&
             const DeepCollectionEquality()
-                .equals(other._hospitalList, _hospitalList));
+                .equals(other._hospitalList, _hospitalList) &&
+            (identical(other.query, query) || other.query == query));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_hospitalList));
+      runtimeType, const DeepCollectionEquality().hash(_hospitalList), query);
 
   @JsonKey(ignore: true)
   @override
@@ -560,9 +582,10 @@ class _$OnHospitalSearch implements OnHospitalSearch {
     required TResult Function() hospitalSearch,
     required TResult Function(List<Doctors> doctorList, String query)
         onDoctorSearch,
-    required TResult Function(List<dynamic> hospitalList) onHospitalSearch,
+    required TResult Function(List<HospitalDeatails> hospitalList, String query)
+        onHospitalSearch,
   }) {
-    return onHospitalSearch(hospitalList);
+    return onHospitalSearch(hospitalList, query);
   }
 
   @override
@@ -571,9 +594,10 @@ class _$OnHospitalSearch implements OnHospitalSearch {
     TResult? Function()? doctorSearch,
     TResult? Function()? hospitalSearch,
     TResult? Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult? Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult? Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
   }) {
-    return onHospitalSearch?.call(hospitalList);
+    return onHospitalSearch?.call(hospitalList, query);
   }
 
   @override
@@ -582,11 +606,12 @@ class _$OnHospitalSearch implements OnHospitalSearch {
     TResult Function()? doctorSearch,
     TResult Function()? hospitalSearch,
     TResult Function(List<Doctors> doctorList, String query)? onDoctorSearch,
-    TResult Function(List<dynamic> hospitalList)? onHospitalSearch,
+    TResult Function(List<HospitalDeatails> hospitalList, String query)?
+        onHospitalSearch,
     required TResult orElse(),
   }) {
     if (onHospitalSearch != null) {
-      return onHospitalSearch(hospitalList);
+      return onHospitalSearch(hospitalList, query);
     }
     return orElse();
   }
@@ -630,10 +655,12 @@ class _$OnHospitalSearch implements OnHospitalSearch {
 }
 
 abstract class OnHospitalSearch implements SearchEvent {
-  const factory OnHospitalSearch({required final List<dynamic> hospitalList}) =
-      _$OnHospitalSearch;
+  const factory OnHospitalSearch(
+      {required final List<HospitalDeatails> hospitalList,
+      required final String query}) = _$OnHospitalSearch;
 
-  List<dynamic> get hospitalList;
+  List<HospitalDeatails> get hospitalList;
+  String get query;
   @JsonKey(ignore: true)
   _$$OnHospitalSearchCopyWith<_$OnHospitalSearch> get copyWith =>
       throw _privateConstructorUsedError;
@@ -647,8 +674,10 @@ mixin _$SearchState {
   ApiResponse<HospitalData>? get hospitalList =>
       throw _privateConstructorUsedError;
   bool get isSearch => throw _privateConstructorUsedError;
-  List<Doctors>? get doctorResult => throw _privateConstructorUsedError;
-  List<Hospital>? get hospitalResult => throw _privateConstructorUsedError;
+  ApiResponse<List<Doctors>>? get doctorResult =>
+      throw _privateConstructorUsedError;
+  ApiResponse<List<HospitalDeatails>>? get hospitalResult =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchStateCopyWith<SearchState> get copyWith =>
@@ -666,8 +695,8 @@ abstract class $SearchStateCopyWith<$Res> {
       ApiResponse<DoctorByDepartment>? doctorsList,
       ApiResponse<HospitalData>? hospitalList,
       bool isSearch,
-      List<Doctors>? doctorResult,
-      List<Hospital>? hospitalResult});
+      ApiResponse<List<Doctors>>? doctorResult,
+      ApiResponse<List<HospitalDeatails>>? hospitalResult});
 }
 
 /// @nodoc
@@ -710,11 +739,11 @@ class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
       doctorResult: freezed == doctorResult
           ? _value.doctorResult
           : doctorResult // ignore: cast_nullable_to_non_nullable
-              as List<Doctors>?,
+              as ApiResponse<List<Doctors>>?,
       hospitalResult: freezed == hospitalResult
           ? _value.hospitalResult
           : hospitalResult // ignore: cast_nullable_to_non_nullable
-              as List<Hospital>?,
+              as ApiResponse<List<HospitalDeatails>>?,
     ) as $Val);
   }
 }
@@ -732,8 +761,8 @@ abstract class _$$searchStateCopyWith<$Res>
       ApiResponse<DoctorByDepartment>? doctorsList,
       ApiResponse<HospitalData>? hospitalList,
       bool isSearch,
-      List<Doctors>? doctorResult,
-      List<Hospital>? hospitalResult});
+      ApiResponse<List<Doctors>>? doctorResult,
+      ApiResponse<List<HospitalDeatails>>? hospitalResult});
 }
 
 /// @nodoc
@@ -772,13 +801,13 @@ class __$$searchStateCopyWithImpl<$Res>
           : isSearch // ignore: cast_nullable_to_non_nullable
               as bool,
       doctorResult: freezed == doctorResult
-          ? _value._doctorResult
+          ? _value.doctorResult
           : doctorResult // ignore: cast_nullable_to_non_nullable
-              as List<Doctors>?,
+              as ApiResponse<List<Doctors>>?,
       hospitalResult: freezed == hospitalResult
-          ? _value._hospitalResult
+          ? _value.hospitalResult
           : hospitalResult // ignore: cast_nullable_to_non_nullable
-              as List<Hospital>?,
+              as ApiResponse<List<HospitalDeatails>>?,
     ));
   }
 }
@@ -791,10 +820,8 @@ class _$searchState implements searchState {
       required this.doctorsList,
       required this.hospitalList,
       required this.isSearch,
-      required final List<Doctors>? doctorResult,
-      required final List<Hospital>? hospitalResult})
-      : _doctorResult = doctorResult,
-        _hospitalResult = hospitalResult;
+      required this.doctorResult,
+      required this.hospitalResult});
 
   @override
   final SearchSelection searchSelection;
@@ -804,25 +831,10 @@ class _$searchState implements searchState {
   final ApiResponse<HospitalData>? hospitalList;
   @override
   final bool isSearch;
-  final List<Doctors>? _doctorResult;
   @override
-  List<Doctors>? get doctorResult {
-    final value = _doctorResult;
-    if (value == null) return null;
-    if (_doctorResult is EqualUnmodifiableListView) return _doctorResult;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Hospital>? _hospitalResult;
+  final ApiResponse<List<Doctors>>? doctorResult;
   @override
-  List<Hospital>? get hospitalResult {
-    final value = _hospitalResult;
-    if (value == null) return null;
-    if (_hospitalResult is EqualUnmodifiableListView) return _hospitalResult;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final ApiResponse<List<HospitalDeatails>>? hospitalResult;
 
   @override
   String toString() {
@@ -842,21 +854,15 @@ class _$searchState implements searchState {
                 other.hospitalList == hospitalList) &&
             (identical(other.isSearch, isSearch) ||
                 other.isSearch == isSearch) &&
-            const DeepCollectionEquality()
-                .equals(other._doctorResult, _doctorResult) &&
-            const DeepCollectionEquality()
-                .equals(other._hospitalResult, _hospitalResult));
+            (identical(other.doctorResult, doctorResult) ||
+                other.doctorResult == doctorResult) &&
+            (identical(other.hospitalResult, hospitalResult) ||
+                other.hospitalResult == hospitalResult));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      searchSelection,
-      doctorsList,
-      hospitalList,
-      isSearch,
-      const DeepCollectionEquality().hash(_doctorResult),
-      const DeepCollectionEquality().hash(_hospitalResult));
+  int get hashCode => Object.hash(runtimeType, searchSelection, doctorsList,
+      hospitalList, isSearch, doctorResult, hospitalResult);
 
   @JsonKey(ignore: true)
   @override
@@ -867,12 +873,13 @@ class _$searchState implements searchState {
 
 abstract class searchState implements SearchState {
   factory searchState(
-      {required final SearchSelection searchSelection,
-      required final ApiResponse<DoctorByDepartment>? doctorsList,
-      required final ApiResponse<HospitalData>? hospitalList,
-      required final bool isSearch,
-      required final List<Doctors>? doctorResult,
-      required final List<Hospital>? hospitalResult}) = _$searchState;
+          {required final SearchSelection searchSelection,
+          required final ApiResponse<DoctorByDepartment>? doctorsList,
+          required final ApiResponse<HospitalData>? hospitalList,
+          required final bool isSearch,
+          required final ApiResponse<List<Doctors>>? doctorResult,
+          required final ApiResponse<List<HospitalDeatails>>? hospitalResult}) =
+      _$searchState;
 
   @override
   SearchSelection get searchSelection;
@@ -883,9 +890,9 @@ abstract class searchState implements SearchState {
   @override
   bool get isSearch;
   @override
-  List<Doctors>? get doctorResult;
+  ApiResponse<List<Doctors>>? get doctorResult;
   @override
-  List<Hospital>? get hospitalResult;
+  ApiResponse<List<HospitalDeatails>>? get hospitalResult;
   @override
   @JsonKey(ignore: true)
   _$$searchStateCopyWith<_$searchState> get copyWith =>

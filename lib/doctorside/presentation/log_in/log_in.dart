@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
-import 'package:doc_online/account_auth/domain/failure/failure.dart';
+import 'package:doc_online/account_auth/businesslogic/application/bloc/login_bloc.dart';
+import 'package:doc_online/core/failure/failure.dart';
 
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
 
-import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
 import 'package:doc_online/doctorside/presentation/home.dart';
@@ -14,8 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../account_auth/signin/application/bloc/login_bloc.dart';
 
 class DoctorLogin extends StatelessWidget {
   const DoctorLogin({super.key});

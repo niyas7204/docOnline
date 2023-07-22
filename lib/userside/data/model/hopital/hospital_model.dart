@@ -8,13 +8,15 @@ HospitalData hospitalDataFromJson(Map<String, dynamic> str) =>
     HospitalData.fromJson(str);
 
 String hospitalDataToJson(HospitalData data) => json.encode(data.toJson());
-Hospital hospitalFromJson(Map<String, dynamic> str) => Hospital.fromJson(str);
+HospitalDeatails hospitalFromJson(Map<String, dynamic> str) =>
+    HospitalDeatails.fromJson(str);
 
-String hospitalToJson(HospitalData data) => json.encode(data.toJson());
+String hospitalDeatailsToJson(HospitalDeatails data) =>
+    json.encode(data.toJson());
 
 class HospitalData {
   bool? err;
-  List<Hospital>? hospitals;
+  List<HospitalDeatails>? hospitals;
   Map<String, double>? rating;
 
   HospitalData({
@@ -27,8 +29,8 @@ class HospitalData {
         err: json["err"],
         hospitals: json["hospitals"] == null
             ? []
-            : List<Hospital>.from(
-                json["hospitals"]!.map((x) => Hospital.fromJson(x))),
+            : List<HospitalDeatails>.from(
+                json["hospitals"]!.map((x) => HospitalDeatails.fromJson(x))),
         rating: Map.from(json["rating"]!)
             .map((k, v) => MapEntry<String, double>(k, v?.toDouble())),
       );
@@ -45,7 +47,7 @@ class HospitalData {
       };
 }
 
-class Hospital {
+class HospitalDeatails {
   String? id;
   String? name;
   String? email;
@@ -63,7 +65,7 @@ class Hospital {
   bool? rejected;
   String? rejectedMessage;
 
-  Hospital({
+  HospitalDeatails({
     this.id,
     this.name,
     this.email,
@@ -82,7 +84,8 @@ class Hospital {
     this.rejectedMessage,
   });
 
-  factory Hospital.fromJson(Map<String, dynamic> json) => Hospital(
+  factory HospitalDeatails.fromJson(Map<String, dynamic> json) =>
+      HospitalDeatails(
         id: json["_id"],
         name: json["name"],
         email: json["email"],

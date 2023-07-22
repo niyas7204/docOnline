@@ -1,5 +1,5 @@
-import 'package:doc_online/doctorside/presentation/core/widgets.dart';
-import 'package:doc_online/userside/businessLogic/bloc/booking_bloc.dart';
+import 'package:doc_online/userside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/businessLogic/booking/booking_bloc.dart';
 
 import 'package:doc_online/userside/presentation/core/wisgets/book_diologue.dart';
 
@@ -175,7 +175,9 @@ class DoctorDetails extends StatelessWidget {
                             BlocProvider.of<PatientBookingBloc>(context).add(
                                 PatientBookingEvent.checkSlot(state: state));
                             showBookingDiologue(
-                                context, state.doctorDetails!.doctor!.fees!);
+                                context,
+                                state.doctorDetails!.doctor!.fees!,
+                                state.doctorDetails!.doctor!.id!);
                           },
                           child: cText1('BookNow')),
                     )

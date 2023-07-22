@@ -1,7 +1,8 @@
 import 'dart:developer';
 
-import 'package:doc_online/doctorside/presentation/core/widgets.dart';
-import 'package:doc_online/userside/businessLogic/bloc/booking_bloc.dart';
+import 'package:doc_online/userside/presentation/core/widgets.dart';
+
+import 'package:doc_online/userside/businessLogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/data/model/doctors/doctors.dart';
 
 import 'package:doc_online/userside/presentation/screens/doctor_by_department.dart';

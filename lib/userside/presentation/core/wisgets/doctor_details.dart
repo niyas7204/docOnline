@@ -1,4 +1,4 @@
-import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/userside/presentation/core/wisgets/common_widget.dart';
 
 import 'package:flutter/material.dart';

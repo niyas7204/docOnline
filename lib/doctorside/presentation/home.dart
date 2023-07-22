@@ -1,12 +1,12 @@
-import 'package:doc_online/account_auth/signin/presentation/login/screens/log_in.dart';
+import 'package:doc_online/account_auth/presentaion/log_in.dart';
 import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
-import 'package:doc_online/doctorside/data/data/data_providers/response/status.dart';
+import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
-import 'package:doc_online/doctorside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/doctorside/presentation/widgets/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../account_auth/domain/authentication/email_auth.dart';
+import '../../core/authentication/email_auth.dart';
 
 class DoctorHomeSc extends StatelessWidget {
   const DoctorHomeSc({super.key});
@@ -27,19 +27,7 @@ class DoctorHomeSc extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    logo(),
-                    TextButton(
-                        onPressed: () {
-                          updateshredPreference('', false, false);
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
-                            builder: (context) => const Login(),
-                          ));
-                        },
-                        child: const Text('logout')),
-                    profile(context)
-                  ],
+                  children: [logo(), profile(context)],
                 ),
                 space1h(),
                 space1h(),

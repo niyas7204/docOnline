@@ -1,8 +1,11 @@
-import 'package:doc_online/doctorside/data/data/data_providers/response/status.dart';
-import 'package:doc_online/doctorside/presentation/core/widgets.dart';
-import 'package:doc_online/userside/businessLogic/bloc/booking_bloc.dart';
+import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
+import 'package:doc_online/userside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/businessLogic/booking/booking_bloc.dart';
+import 'package:doc_online/userside/businessLogic/paymet/payment_bloc.dart';
 
-import 'package:doc_online/userside/data/model/check_time_model.dart';
+import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
+
+import 'package:doc_online/userside/data/repository/payment_handler.dart';
 
 import 'package:doc_online/userside/presentation/core/wisgets/common_widget.dart';
 
@@ -10,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-showBookingDiologue(BuildContext context, int fees) {
+showBookingDiologue(BuildContext context, int fees, String doctorId) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -28,8 +31,13 @@ showBookingDiologue(BuildContext context, int fees) {
                 ),
               );
             case Status.complete:
-              return diologue(state.scheduleList!.data!,
-                  state.selectedDateIndex, state.selectedTimeIndex, fees);
+              return diologue(
+                  state.scheduleList!.data!,
+                  state.selectedDateIndex,
+                  state.selectedTimeIndex,
+                  fees,
+                  context,
+                  doctorId);
             default:
               return SizedBox(
                 child: Center(
@@ -43,8 +51,11 @@ showBookingDiologue(BuildContext context, int fees) {
   );
 }
 
-diologue(
-    List<Result>? state, int? isdateSeleted, int? istimeSelected, int fee) {
+diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
+    int fee, context, String doctorId) {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  bool isPaymentCall = false;
   return Dialog(
     backgroundColor: const Color.fromARGB(255, 101, 131, 146).withOpacity(.9),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -82,14 +93,14 @@ diologue(
               flex: 1,
               child: GridView.builder(
                 shrinkWrap: true,
-                itemCount: state!.length,
+                itemCount: scheduleList!.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 6 / 3,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 10),
                 itemBuilder: (context, index) =>
-                    timeTable(state[index].date!, index),
+                    timeTable(scheduleList[index].date!, index),
               ),
             ),
             space1h(),
@@ -106,10 +117,9 @@ diologue(
             space1h(),
             isdateSeleted != null
                 ? Flexible(
-                    flex: 1,
                     child: GridView.builder(
                       shrinkWrap: true,
-                      itemCount: state[isdateSeleted].schedule!.length,
+                      itemCount: scheduleList[isdateSeleted].schedule!.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
@@ -117,7 +127,7 @@ diologue(
                               crossAxisSpacing: 5,
                               mainAxisSpacing: 10),
                       itemBuilder: (context, index) => timeSchedule(
-                        state[index].schedule![index],
+                        scheduleList[isdateSeleted].schedule![index],
                         istimeSelected,
                         index,
                       ),
@@ -151,6 +161,7 @@ diologue(
                 height: 40.h,
                 width: 300.w,
                 child: TextFormField(
+                  controller: nameController,
                   style: const TextStyle(fontSize: 20),
                   textAlign: TextAlign.left,
                   decoration: const InputDecoration(
@@ -166,6 +177,7 @@ diologue(
                 height: 40.h,
                 width: 300.w,
                 child: TextFormField(
+                  controller: ageController,
                   style: const TextStyle(fontSize: 20),
                   textAlign: TextAlign.left,
                   decoration: const InputDecoration(
@@ -176,18 +188,91 @@ diologue(
             const SizedBox(
               height: 20,
             ),
-            Center(
-              child: SizedBox(
-                height: 45,
-                width: 160,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 164, 198, 226),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Center(
+                  child: SizedBox(
+                    height: 45,
+                    width: 140,
+                    child: BlocListener<PaymentBloc, PaymentState>(
+                      listener: (context, state) async {
+                        if (state.orderResponse!.status == Status.complete &&
+                            !isPaymentCall) {
+                          isPaymentCall = true;
+
+                          return await getRazorPay(
+                              context,
+                              fee,
+                              state.orderResponse!.data!.order!,
+                              nameController.text,
+                              int.parse(ageController.text),
+                              scheduleList,
+                              isdateSeleted!,
+                              istimeSelected!,
+                              doctorId);
+                        }
+                      },
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 164, 198, 226),
+                          ),
+                          onPressed: () {
+                            if (isdateSeleted != null &&
+                                istimeSelected != null) {
+                              if (nameController.text.isNotEmpty &&
+                                  ageController.text.isNotEmpty) {
+                                BlocProvider.of<PaymentBloc>(context)
+                                    .add(PaymentEvent.getOrderOption(fee: fee));
+                              } else {
+                                showdiologue(context, 'name and age must fill');
+                              }
+                            } else {
+                              showdiologue(
+                                  context, 'date and time should be selected');
+                            }
+                          },
+                          child: cText1('BookNow')),
                     ),
-                    onPressed: () {},
-                    child: cText1('BookNow')),
-              ),
-            )
+                  ),
+                ),
+                Center(
+                  child: SizedBox(
+                    height: 45,
+                    width: 140,
+                    child: BlocListener<PaymentBloc, PaymentState>(
+                      listener: (context, state) async {
+                        if (state.orderResponse!.status == Status.complete &&
+                            !isPaymentCall) {
+                          isPaymentCall = true;
+
+                          return await getRazorPay(
+                              context,
+                              fee,
+                              state.orderResponse!.data!.order!,
+                              nameController.text,
+                              int.parse(ageController.text),
+                              scheduleList,
+                              isdateSeleted!,
+                              istimeSelected!,
+                              doctorId);
+                        }
+                      },
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 164, 198, 226),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: cText1('cancel')),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),
@@ -210,7 +295,10 @@ timeSchedule(Schedule time, int? timeSelected, int index) {
             borderRadius: BorderRadius.circular(10.0),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          BlocProvider.of<PatientBookingBloc>(context)
+              .add(PatientBookingEvent.checkTimeselection(timeindex: index));
+        },
         child: Row(
           children: [
             Text(
@@ -236,4 +324,8 @@ timeSchedule(Schedule time, int? timeSelected, int index) {
       );
     },
   );
+}
+
+void popPage(BuildContext context) {
+  Navigator.of(context).pop();
 }

@@ -3,7 +3,7 @@ import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../doctorside/presentation/core/widgets.dart';
+import '../core/widgets.dart';
 
 class ByDepartment extends StatelessWidget {
   final String id;

@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
-import 'package:doc_online/account_auth/domain/failure/failure.dart';
+import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';
 import 'package:doc_online/doctorside/presentation/core/url.dart';
 import 'package:doc_online/userside/data/repository/data_service.dart';
