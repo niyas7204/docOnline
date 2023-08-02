@@ -12,7 +12,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerifyEmail extends StatelessWidget {
-  const VerifyEmail({super.key});
+ final bool isSignup;
+const VerifyEmail({super.key,required this.isSignup});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:doc_online/doctorside/data/data_providers/response/api_response.dart';
+import 'package:doc_online/core/responsehandler/api_response.dart';
 import 'package:doc_online/userside/data/model/booking/orderresponse.dart';
 import 'package:doc_online/userside/data/repository/data_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

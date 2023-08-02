@@ -1,5 +1,6 @@
-import 'package:doc_online/doctorside/data/data_providers/response/api_response.dart';
+import 'package:doc_online/core/responsehandler/api_response.dart';
 import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
+import 'package:doc_online/userside/data/model/booking/bookingsmodel.dart';
 import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
 import 'package:doc_online/userside/data/repository/data_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +27,14 @@ class PatientBookingBloc
     });
     on<_checkTimeselection>((event, emit) async {
       emit(state.copyWith(selectedTimeIndex: event.timeindex));
+    });
+    on<_getBookings>((event, emit) async {
+      emit(state.copyWith(
+        bookings: ApiResponse.loading(),
+      ));
+      final response = await bookingService.getUserBookings();
+      emit(response.fold((l) => state.copyWith(bookings: ApiResponse.error(l)),
+          (r) => state.copyWith(bookings: ApiResponse.complete(r))));
     });
   }
 }

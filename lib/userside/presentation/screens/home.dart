@@ -25,7 +25,6 @@ class HomeSc extends StatelessWidget {
           .add(const UserProfileEvent.getUserprofile());
     });
     return Scaffold(
-      
       endDrawer: homeDrawer(context),
       body: SafeArea(
         child: SingleChildScrollView(

@@ -10,3 +10,8 @@ abstract class SignUpService {
 abstract class OtpService {
   Future<Either<MainFailure, LogInfo>> checkOtp(String otp);
 }
+
+abstract class ForgotPasswordService {
+  Future<Either<MainFailure, LogInfo>> changePassword({required String email});
+  Future<Either<MainFailure, bool>> verifyOtp({required String otp});
+}

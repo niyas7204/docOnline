@@ -1,8 +1,6 @@
 import 'dart:developer';
 
-import 'package:dartz/dartz.dart';
-import 'package:doc_online/account_auth/businesslogic/application/bloc/login_bloc.dart';
-import 'package:doc_online/core/failure/failure.dart';
+import 'package:doc_online/account_auth/businesslogic/login/login_bloc.dart';
 
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
 
@@ -29,14 +27,12 @@ class DoctorLogin extends StatelessWidget {
           builder: (context, state) {
             return Stack(
               children: [
-                state.isloading
-                    ? Container(
-                        color: const Color.fromARGB(209, 49, 49, 49),
-                        child: const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                    : const SizedBox(),
+                Container(
+                  color: const Color.fromARGB(209, 49, 49, 49),
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
                 Positioned(
                   left: 16.0,
                   child: logo(),
@@ -51,20 +47,6 @@ class DoctorLogin extends StatelessWidget {
                       textField('Username', emailcontroller),
                       space1h(),
                       textField('Password', passwordcontroller),
-                      Builder(
-                        builder: (context) {
-                          if (state.failureOrSuccess == none()) {
-                            return space1h();
-                          } else if (state.failureOrSuccess ==
-                              some(left(const MainFailure.serverFailure()))) {
-                            return errorText('no user found');
-                          } else if (state.failureOrSuccess ==
-                              some(left(const MainFailure.clientFailure()))) {
-                            return errorText('data failure');
-                          }
-                          return errorText('network failure');
-                        },
-                      ),
                       SizedBox(
                         width: 160.w,
                         height: 35.h,

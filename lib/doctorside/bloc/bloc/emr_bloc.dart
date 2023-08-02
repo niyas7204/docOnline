@@ -1,8 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
-import 'package:doc_online/doctorside/data/data_providers/response/api_response.dart';
+import 'package:doc_online/core/responsehandler/api_response.dart';
 import 'package:doc_online/doctorside/data/model/emr_model.dart';
 import 'package:doc_online/doctorside/data/repository/doctor/docrorview_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'emr_event.dart';

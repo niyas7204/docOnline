@@ -2,6 +2,7 @@ part of 'booking_bloc.dart';
 
 @freezed
 class PatientBookingEvent with _$PatientBookingEvent {
+  const factory PatientBookingEvent.getBookings() = _getBookings;
   const factory PatientBookingEvent.checkSlot({required UsersideState state}) =
       _checkSlot;
   const factory PatientBookingEvent.checkDateselection({required int? index}) =

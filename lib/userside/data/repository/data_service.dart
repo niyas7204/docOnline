@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
+import 'package:doc_online/userside/data/model/booking/bookingsmodel.dart';
 import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
 import 'package:doc_online/userside/data/model/booking/orderresponse.dart';
 import 'package:doc_online/userside/data/model/userprofile/userprofile_model.dart';
@@ -33,6 +34,7 @@ abstract class SearchService {
 }
 
 abstract class BookingService {
+  Future<Either<MainFailure, UserBookingsModel>> getUserBookings();
   Future<Either<MainFailure, List<Result>>> checkTimeslot(
       {required UsersideState state});
   Future<Either<MainFailure, OrderResponseModel>> getOrder({required int fee});

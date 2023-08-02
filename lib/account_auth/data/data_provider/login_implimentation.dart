@@ -29,17 +29,23 @@ class LogInImplimentation implements LogInService {
         data: requestBody,
       );
       log('imp$respone');
-      if (respone.data['err'] == false) {
-        final data = LogInfo.fromJson(respone.data);
-        await updateshredPreference(respone.data['token'], true, false);
+      if (respone.statusCode == 200 || respone.statusCode == 201) {
+        if (respone.data['err'] == false) {
+          final data = LogInfo.fromJson(respone.data);
+          await updateshredPreference(respone.data['token'], true, false);
 
-        return right(data);
+          return right(data);
+        } else {
+          log(respone.statusCode.toString());
+          final data = LogInfo.fromJson(respone.data);
+
+          return right(data);
+        }
       } else {
-        log('serverfailure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log(e.toString());
+      log("error $e");
       return left(const MainFailure.clientFailure());
     }
   }
@@ -51,7 +57,6 @@ class LogInImplimentation implements LogInService {
     final requestBody = {'email': GetAllData.email};
 
     try {
-      log('12345');
       final response = await Dio().post(url, data: requestBody);
       log(response.toString());
       if (response.data['err']) {

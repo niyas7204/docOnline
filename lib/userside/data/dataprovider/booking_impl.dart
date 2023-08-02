@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:doc_online/core/failure/failure.dart';
 
 import 'package:doc_online/doctorside/presentation/core/url.dart';
+import 'package:doc_online/userside/data/model/booking/bookingsmodel.dart';
 
 import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
 import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
@@ -103,6 +104,34 @@ class BookingImplimentation implements BookingService {
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
 
       return right(response.data['err']);
+    } catch (e) {
+      log('errr $e');
+      return left(const MainFailure.clientFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, UserBookingsModel>> getUserBookings() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    Cookie cookie = Cookie('token', prefs.getString('token')!);
+    const url = '$baseUrl/user/booking';
+
+    try {
+      log('enter imp');
+      final response = await dio.get(url,
+          options:
+              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
+      log(response.data.toString());
+      if (!response.data['err']) {
+        log('ef');
+
+        final data = userBookingsModelFromJson(response.data);
+        log('ad');
+        return right(data);
+      } else {
+        return left(const MainFailure.serverFailure());
+      }
     } catch (e) {
       log('errr $e');
       return left(const MainFailure.clientFailure());

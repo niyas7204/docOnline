@@ -1,4 +1,5 @@
-import 'package:doc_online/account_auth/presentaion/new_password.dart';
+import 'package:doc_online/account_auth/presentaion/verify_email.dart';
+import 'package:doc_online/core/get_all_data.dart';
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
@@ -21,9 +22,21 @@ class ForgotPassword extends StatelessWidget {
               children: [
                 header1('Forgot Password'),
                 const Text('Enter the Email adress'),
+                labelText('Email'),
                 textField('Email', emailcontroller),
                 space1h(),
-                cButton('Next', const NewPassword(), context)
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: baseColor,
+                    ),
+                    onPressed: () {
+                      GetAllData.email = emailcontroller.text;
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) =>
+                            const VerifyEmail(isSignup: false),
+                      ));
+                    },
+                    child: labelText('Next'))
               ],
             ),
           )

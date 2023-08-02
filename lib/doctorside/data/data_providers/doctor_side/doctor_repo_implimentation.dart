@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:doc_online/core/authentication/email_auth.dart';
 import 'package:doc_online/core/failure/failure.dart';
@@ -30,7 +28,6 @@ class DoctorRepoImplimentation implements DoctorService {
         final tokenRegExp = RegExp(r'(?<=doctorToken=)[^;]+');
         final match = tokenRegExp.firstMatch(headSTr);
         final token = match!.group(0);
-       
 
         await updateshredPreference(token!, false, true);
 

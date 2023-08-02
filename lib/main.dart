@@ -1,5 +1,4 @@
-import 'dart:developer';
-import 'package:doc_online/account_auth/businesslogic/application/bloc/login_bloc.dart';
+import 'package:doc_online/account_auth/businesslogic/login/login_bloc.dart';
 import 'package:doc_online/account_auth/businesslogic/sign_up/verifyotpbloc/verifyotp_bloc.dart';
 import 'package:doc_online/account_auth/businesslogic/signup_bloc/signup_bloc.dart';
 import 'package:doc_online/account_auth/data/data_provider/signup_implimentation.dart';
@@ -122,7 +121,7 @@ class MyApp extends StatelessWidget {
         : prefs.getBool('DocterLogin')!
             ? 'Doctor'
             : ' noLogin';
-   
+
     return logInPerson;
   }
 }

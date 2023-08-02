@@ -1,7 +1,7 @@
 import 'package:doc_online/account_auth/presentaion/log_in.dart';
 import 'package:doc_online/core/authentication/email_auth.dart';
 import 'package:doc_online/doctorside/bloc/profile/doctorprofileresponse_bloc.dart';
-import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
+import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/userside/presentation/core/wisgets/doctor_details.dart';
 import 'package:flutter/material.dart';
@@ -35,11 +35,11 @@ class DoctorProfile extends StatelessWidget {
       body: BlocBuilder<DoctorprofileresponseBloc, DoctorprofileresponseState>(
         builder: (context, state) {
           switch (state.profile.status) {
-            case Status.loading:
+            case ApiStatus.loading:
               return const Center(child: CircularProgressIndicator());
-            case Status.error:
+            case ApiStatus.error:
               return const SizedBox();
-            case Status.complete:
+            case ApiStatus.complete:
               return SingleChildScrollView(
                 child: Container(
                   padding: const EdgeInsets.all(10),

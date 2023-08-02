@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:doc_online/core/debouncer.dart';
-import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
+import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 
@@ -96,13 +96,13 @@ class SearchScreen extends StatelessWidget {
                         return Builder(
                           builder: (context) {
                             switch (state.doctorsList!.status) {
-                              case Status.loading:
+                              case ApiStatus.loading:
                                 return const Center(
                                   child: CircularProgressIndicator(),
                                 );
-                              case Status.error:
+                              case ApiStatus.error:
                                 return const SizedBox();
-                              case Status.complete:
+                              case ApiStatus.complete:
                                 return doctors(state);
                               default:
                                 return const SizedBox();
@@ -113,13 +113,13 @@ class SearchScreen extends StatelessWidget {
                         return Builder(
                           builder: (context) {
                             switch (state.hospitalList!.status) {
-                              case Status.loading:
+                              case ApiStatus.loading:
                                 return const Center(
                                   child: CircularProgressIndicator(),
                                 );
-                              case Status.error:
+                              case ApiStatus.error:
                                 return const SizedBox();
-                              case Status.complete:
+                              case ApiStatus.complete:
                                 return hospitals(state);
                               default:
                                 return const SizedBox();

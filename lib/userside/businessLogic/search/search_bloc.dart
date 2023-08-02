@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:doc_online/doctorside/data/data_providers/response/api_response.dart';
+import 'package:doc_online/core/responsehandler/api_response.dart';
 import 'package:doc_online/userside/data/model/doctors/doctors.dart';
 import 'package:doc_online/userside/data/model/hopital/hospital_model.dart';
 import 'package:doc_online/userside/data/repository/data_service.dart';

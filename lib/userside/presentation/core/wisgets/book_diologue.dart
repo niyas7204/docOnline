@@ -1,4 +1,4 @@
-import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
+import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/userside/businessLogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/businessLogic/paymet/payment_bloc.dart';
@@ -20,17 +20,17 @@ showBookingDiologue(BuildContext context, int fees, String doctorId) {
       return BlocBuilder<PatientBookingBloc, PatientBookingState>(
         builder: (context, state) {
           switch (state.scheduleList!.status) {
-            case Status.loading:
+            case ApiStatus.loading:
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            case Status.error:
+            case ApiStatus.error:
               return SizedBox(
                 child: Center(
                   child: text20('error'),
                 ),
               );
-            case Status.complete:
+            case ApiStatus.complete:
               return diologue(
                   state.scheduleList!.data!,
                   state.selectedDateIndex,
@@ -197,7 +197,7 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                     width: 140,
                     child: BlocListener<PaymentBloc, PaymentState>(
                       listener: (context, state) async {
-                        if (state.orderResponse!.status == Status.complete &&
+                        if (state.orderResponse!.status == ApiStatus.complete &&
                             !isPaymentCall) {
                           isPaymentCall = true;
 
@@ -243,7 +243,7 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                     width: 140,
                     child: BlocListener<PaymentBloc, PaymentState>(
                       listener: (context, state) async {
-                        if (state.orderResponse!.status == Status.complete &&
+                        if (state.orderResponse!.status == ApiStatus.complete &&
                             !isPaymentCall) {
                           isPaymentCall = true;
 

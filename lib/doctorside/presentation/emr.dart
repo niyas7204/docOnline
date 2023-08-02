@@ -1,5 +1,5 @@
 import 'package:doc_online/doctorside/bloc/bloc/emr_bloc.dart';
-import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
+import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -17,13 +17,13 @@ class EmrScreen extends StatelessWidget {
       body: BlocBuilder<EmrBloc, EmrState>(
         builder: (context, state) {
           switch (state.emrDetails.status) {
-            case Status.loading:
+            case ApiStatus.loading:
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            case Status.error:
+            case ApiStatus.error:
               return const SizedBox();
-            case Status.complete:
+            case ApiStatus.complete:
               return state.emrDetails.data!.emr != null
                   ? Scaffold(
                       body: SafeArea(

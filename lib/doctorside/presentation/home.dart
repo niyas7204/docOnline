@@ -1,12 +1,10 @@
-import 'package:doc_online/account_auth/presentaion/log_in.dart';
 import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
-import 'package:doc_online/doctorside/data/data_providers/response/status.dart';
+import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 import 'package:doc_online/doctorside/presentation/widgets/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../core/authentication/email_auth.dart';
 
 class DoctorHomeSc extends StatelessWidget {
   const DoctorHomeSc({super.key});
@@ -35,13 +33,13 @@ class DoctorHomeSc extends StatelessWidget {
                 Builder(
                   builder: (context) {
                     switch (state.bookings.status) {
-                      case Status.loading:
+                      case ApiStatus.loading:
                         return const CircularProgressIndicator();
 
-                      case Status.error:
+                      case ApiStatus.error:
                         return const SizedBox();
 
-                      case Status.complete:
+                      case ApiStatus.complete:
                         return Expanded(
                             child: ListView.separated(
                                 itemBuilder: (context, index) => patientCard(

@@ -323,10 +323,7 @@ abstract class _getSignUph implements LoginEvent {
 
 /// @nodoc
 mixin _$LoginState {
-  bool get isloading => throw _privateConstructorUsedError;
-  LogInfo? get logResponse => throw _privateConstructorUsedError;
-  Option<Either<MainFailure, LogInfo>> get failureOrSuccess =>
-      throw _privateConstructorUsedError;
+  ApiResponse<LogInfo> get loginData => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -339,10 +336,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call(
-      {bool isloading,
-      LogInfo? logResponse,
-      Option<Either<MainFailure, LogInfo>> failureOrSuccess});
+  $Res call({ApiResponse<LogInfo> loginData});
 }
 
 /// @nodoc
@@ -358,23 +352,13 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isloading = null,
-    Object? logResponse = freezed,
-    Object? failureOrSuccess = null,
+    Object? loginData = null,
   }) {
     return _then(_value.copyWith(
-      isloading: null == isloading
-          ? _value.isloading
-          : isloading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      logResponse: freezed == logResponse
-          ? _value.logResponse
-          : logResponse // ignore: cast_nullable_to_non_nullable
-              as LogInfo?,
-      failureOrSuccess: null == failureOrSuccess
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<MainFailure, LogInfo>>,
+      loginData: null == loginData
+          ? _value.loginData
+          : loginData // ignore: cast_nullable_to_non_nullable
+              as ApiResponse<LogInfo>,
     ) as $Val);
   }
 }
@@ -387,10 +371,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
       __$$_LoginStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isloading,
-      LogInfo? logResponse,
-      Option<Either<MainFailure, LogInfo>> failureOrSuccess});
+  $Res call({ApiResponse<LogInfo> loginData});
 }
 
 /// @nodoc
@@ -404,23 +385,13 @@ class __$$_LoginStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isloading = null,
-    Object? logResponse = freezed,
-    Object? failureOrSuccess = null,
+    Object? loginData = null,
   }) {
     return _then(_$_LoginState(
-      isloading: null == isloading
-          ? _value.isloading
-          : isloading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      logResponse: freezed == logResponse
-          ? _value.logResponse
-          : logResponse // ignore: cast_nullable_to_non_nullable
-              as LogInfo?,
-      failureOrSuccess: null == failureOrSuccess
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<MainFailure, LogInfo>>,
+      loginData: null == loginData
+          ? _value.loginData
+          : loginData // ignore: cast_nullable_to_non_nullable
+              as ApiResponse<LogInfo>,
     ));
   }
 }
@@ -428,21 +399,14 @@ class __$$_LoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoginState implements _LoginState {
-  const _$_LoginState(
-      {required this.isloading,
-      this.logResponse,
-      required this.failureOrSuccess});
+  const _$_LoginState({required this.loginData});
 
   @override
-  final bool isloading;
-  @override
-  final LogInfo? logResponse;
-  @override
-  final Option<Either<MainFailure, LogInfo>> failureOrSuccess;
+  final ApiResponse<LogInfo> loginData;
 
   @override
   String toString() {
-    return 'LoginState(isloading: $isloading, logResponse: $logResponse, failureOrSuccess: $failureOrSuccess)';
+    return 'LoginState(loginData: $loginData)';
   }
 
   @override
@@ -450,17 +414,12 @@ class _$_LoginState implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginState &&
-            (identical(other.isloading, isloading) ||
-                other.isloading == isloading) &&
-            (identical(other.logResponse, logResponse) ||
-                other.logResponse == logResponse) &&
-            (identical(other.failureOrSuccess, failureOrSuccess) ||
-                other.failureOrSuccess == failureOrSuccess));
+            (identical(other.loginData, loginData) ||
+                other.loginData == loginData));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isloading, logResponse, failureOrSuccess);
+  int get hashCode => Object.hash(runtimeType, loginData);
 
   @JsonKey(ignore: true)
   @override
@@ -470,18 +429,11 @@ class _$_LoginState implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  const factory _LoginState(
-      {required final bool isloading,
-      final LogInfo? logResponse,
-      required final Option<Either<MainFailure, LogInfo>>
-          failureOrSuccess}) = _$_LoginState;
+  const factory _LoginState({required final ApiResponse<LogInfo> loginData}) =
+      _$_LoginState;
 
   @override
-  bool get isloading;
-  @override
-  LogInfo? get logResponse;
-  @override
-  Option<Either<MainFailure, LogInfo>> get failureOrSuccess;
+  ApiResponse<LogInfo> get loginData;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>

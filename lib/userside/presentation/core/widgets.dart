@@ -13,6 +13,11 @@ header1(String text) => Text(
       style: const TextStyle(
           fontSize: 30, fontWeight: FontWeight.w600, color: baseColor),
     );
+labelText(String text) => Text(
+      text,
+      style: const TextStyle(
+          fontSize: 20, fontWeight: FontWeight.w600, color: baseColor),
+    );
 cText1(String text) => Text(
       text,
       style: const TextStyle(

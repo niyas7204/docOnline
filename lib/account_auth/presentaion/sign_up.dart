@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/account_auth/businesslogic/signup_bloc/signup_bloc.dart';
+import 'package:doc_online/account_auth/presentaion/helpers/formfieldvalidation.dart';
 import 'package:doc_online/account_auth/presentaion/verify_email.dart';
+import 'package:doc_online/account_auth/presentaion/widgets/formfield.dart';
 
 import 'package:doc_online/core/failure/failure.dart';
 
@@ -21,6 +23,13 @@ class SignUp extends StatelessWidget {
     TextEditingController usernamecontroller = TextEditingController();
     TextEditingController passwordcontroller = TextEditingController();
     TextEditingController confirmPasswordcontroller = TextEditingController();
+    List<TextEditingController> controllers = [
+      usernamecontroller,
+      emailcontroller,
+      passwordcontroller,
+      confirmPasswordcontroller
+    ];
+    var labels = ['UserName', 'Email', ' password', 'confirm password'];
     return Scaffold(
       body: SafeArea(
           child: Stack(
@@ -35,14 +44,12 @@ class SignUp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         header1('SignUp'),
-                        space1h(),
-                        textField('Email', emailcontroller),
-                        space1h(),
-                        textField('Username', usernamecontroller),
-                        space1h(),
-                        textField('Password', passwordcontroller),
-                        space1h(),
-                        textField('confirmPassword', confirmPasswordcontroller),
+                        ListView.separated(
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => textEditField(
+                                labels[index], controllers[index]),
+                            separatorBuilder: (context, index) => space1h(),
+                            itemCount: labels.length),
                         space1h(),
                         SizedBox(
                           width: 160.w,
@@ -55,11 +62,9 @@ class SignUp extends StatelessWidget {
                                 GetAllData.email = emailcontroller.text;
                                 GetAllData.userName = usernamecontroller.text;
                                 GetAllData.password = passwordcontroller.text;
-
-                                if (GetAllData.password!.isNotEmpty &&
-                                    confirmPasswordcontroller.text.isNotEmpty &&
-                                    GetAllData.email!.isNotEmpty &&
-                                    GetAllData.userName!.isNotEmpty) {
+                                bool valid = validateFieldEdit(
+                                    controllers, labels, context);
+                                if (valid) {
                                   if (GetAllData.password ==
                                       confirmPasswordcontroller.text) {
                                     BlocProvider.of<SignupBloc>(context)
@@ -78,16 +83,13 @@ class SignUp extends StatelessWidget {
                                       Navigator.of(context)
                                           .pushReplacement(MaterialPageRoute(
                                         builder: (context) =>
-                                            const VerifyEmail(),
+                                            const VerifyEmail(isSignup: true,),
                                       ));
                                     }
                                   } else {
                                     showdiologue(
                                         context, 'password shouldnot match');
                                   }
-                                } else {
-                                  showdiologue(
-                                      context, 'fields mustnot be empty');
                                 }
                               },
                               child: const Text(

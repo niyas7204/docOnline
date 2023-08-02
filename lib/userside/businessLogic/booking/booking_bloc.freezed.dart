@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PatientBookingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getBookings,
     required TResult Function(UsersideState state) checkSlot,
     required TResult Function(int? index) checkDateselection,
     required TResult Function(int? timeindex) checkTimeselection,
@@ -25,6 +26,7 @@ mixin _$PatientBookingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getBookings,
     TResult? Function(UsersideState state)? checkSlot,
     TResult? Function(int? index)? checkDateselection,
     TResult? Function(int? timeindex)? checkTimeselection,
@@ -32,6 +34,7 @@ mixin _$PatientBookingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getBookings,
     TResult Function(UsersideState state)? checkSlot,
     TResult Function(int? index)? checkDateselection,
     TResult Function(int? timeindex)? checkTimeselection,
@@ -40,6 +43,7 @@ mixin _$PatientBookingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getBookings value) getBookings,
     required TResult Function(_checkSlot value) checkSlot,
     required TResult Function(_checkDateselection value) checkDateselection,
     required TResult Function(_checkTimeselection value) checkTimeselection,
@@ -47,6 +51,7 @@ mixin _$PatientBookingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getBookings value)? getBookings,
     TResult? Function(_checkSlot value)? checkSlot,
     TResult? Function(_checkDateselection value)? checkDateselection,
     TResult? Function(_checkTimeselection value)? checkTimeselection,
@@ -54,6 +59,7 @@ mixin _$PatientBookingEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getBookings value)? getBookings,
     TResult Function(_checkSlot value)? checkSlot,
     TResult Function(_checkDateselection value)? checkDateselection,
     TResult Function(_checkTimeselection value)? checkTimeselection,
@@ -78,6 +84,120 @@ class _$PatientBookingEventCopyWithImpl<$Res, $Val extends PatientBookingEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_getBookingsCopyWith<$Res> {
+  factory _$$_getBookingsCopyWith(
+          _$_getBookings value, $Res Function(_$_getBookings) then) =
+      __$$_getBookingsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_getBookingsCopyWithImpl<$Res>
+    extends _$PatientBookingEventCopyWithImpl<$Res, _$_getBookings>
+    implements _$$_getBookingsCopyWith<$Res> {
+  __$$_getBookingsCopyWithImpl(
+      _$_getBookings _value, $Res Function(_$_getBookings) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_getBookings implements _getBookings {
+  const _$_getBookings();
+
+  @override
+  String toString() {
+    return 'PatientBookingEvent.getBookings()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_getBookings);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getBookings,
+    required TResult Function(UsersideState state) checkSlot,
+    required TResult Function(int? index) checkDateselection,
+    required TResult Function(int? timeindex) checkTimeselection,
+  }) {
+    return getBookings();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getBookings,
+    TResult? Function(UsersideState state)? checkSlot,
+    TResult? Function(int? index)? checkDateselection,
+    TResult? Function(int? timeindex)? checkTimeselection,
+  }) {
+    return getBookings?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getBookings,
+    TResult Function(UsersideState state)? checkSlot,
+    TResult Function(int? index)? checkDateselection,
+    TResult Function(int? timeindex)? checkTimeselection,
+    required TResult orElse(),
+  }) {
+    if (getBookings != null) {
+      return getBookings();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getBookings value) getBookings,
+    required TResult Function(_checkSlot value) checkSlot,
+    required TResult Function(_checkDateselection value) checkDateselection,
+    required TResult Function(_checkTimeselection value) checkTimeselection,
+  }) {
+    return getBookings(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getBookings value)? getBookings,
+    TResult? Function(_checkSlot value)? checkSlot,
+    TResult? Function(_checkDateselection value)? checkDateselection,
+    TResult? Function(_checkTimeselection value)? checkTimeselection,
+  }) {
+    return getBookings?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getBookings value)? getBookings,
+    TResult Function(_checkSlot value)? checkSlot,
+    TResult Function(_checkDateselection value)? checkDateselection,
+    TResult Function(_checkTimeselection value)? checkTimeselection,
+    required TResult orElse(),
+  }) {
+    if (getBookings != null) {
+      return getBookings(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getBookings implements PatientBookingEvent {
+  const factory _getBookings() = _$_getBookings;
 }
 
 /// @nodoc
@@ -154,6 +274,7 @@ class _$_checkSlot implements _checkSlot {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getBookings,
     required TResult Function(UsersideState state) checkSlot,
     required TResult Function(int? index) checkDateselection,
     required TResult Function(int? timeindex) checkTimeselection,
@@ -164,6 +285,7 @@ class _$_checkSlot implements _checkSlot {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getBookings,
     TResult? Function(UsersideState state)? checkSlot,
     TResult? Function(int? index)? checkDateselection,
     TResult? Function(int? timeindex)? checkTimeselection,
@@ -174,6 +296,7 @@ class _$_checkSlot implements _checkSlot {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getBookings,
     TResult Function(UsersideState state)? checkSlot,
     TResult Function(int? index)? checkDateselection,
     TResult Function(int? timeindex)? checkTimeselection,
@@ -188,6 +311,7 @@ class _$_checkSlot implements _checkSlot {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getBookings value) getBookings,
     required TResult Function(_checkSlot value) checkSlot,
     required TResult Function(_checkDateselection value) checkDateselection,
     required TResult Function(_checkTimeselection value) checkTimeselection,
@@ -198,6 +322,7 @@ class _$_checkSlot implements _checkSlot {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getBookings value)? getBookings,
     TResult? Function(_checkSlot value)? checkSlot,
     TResult? Function(_checkDateselection value)? checkDateselection,
     TResult? Function(_checkTimeselection value)? checkTimeselection,
@@ -208,6 +333,7 @@ class _$_checkSlot implements _checkSlot {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getBookings value)? getBookings,
     TResult Function(_checkSlot value)? checkSlot,
     TResult Function(_checkDateselection value)? checkDateselection,
     TResult Function(_checkTimeselection value)? checkTimeselection,
@@ -294,6 +420,7 @@ class _$_checkDateselection implements _checkDateselection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getBookings,
     required TResult Function(UsersideState state) checkSlot,
     required TResult Function(int? index) checkDateselection,
     required TResult Function(int? timeindex) checkTimeselection,
@@ -304,6 +431,7 @@ class _$_checkDateselection implements _checkDateselection {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getBookings,
     TResult? Function(UsersideState state)? checkSlot,
     TResult? Function(int? index)? checkDateselection,
     TResult? Function(int? timeindex)? checkTimeselection,
@@ -314,6 +442,7 @@ class _$_checkDateselection implements _checkDateselection {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getBookings,
     TResult Function(UsersideState state)? checkSlot,
     TResult Function(int? index)? checkDateselection,
     TResult Function(int? timeindex)? checkTimeselection,
@@ -328,6 +457,7 @@ class _$_checkDateselection implements _checkDateselection {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getBookings value) getBookings,
     required TResult Function(_checkSlot value) checkSlot,
     required TResult Function(_checkDateselection value) checkDateselection,
     required TResult Function(_checkTimeselection value) checkTimeselection,
@@ -338,6 +468,7 @@ class _$_checkDateselection implements _checkDateselection {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getBookings value)? getBookings,
     TResult? Function(_checkSlot value)? checkSlot,
     TResult? Function(_checkDateselection value)? checkDateselection,
     TResult? Function(_checkTimeselection value)? checkTimeselection,
@@ -348,6 +479,7 @@ class _$_checkDateselection implements _checkDateselection {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getBookings value)? getBookings,
     TResult Function(_checkSlot value)? checkSlot,
     TResult Function(_checkDateselection value)? checkDateselection,
     TResult Function(_checkTimeselection value)? checkTimeselection,
@@ -436,6 +568,7 @@ class _$_checkTimeselection implements _checkTimeselection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getBookings,
     required TResult Function(UsersideState state) checkSlot,
     required TResult Function(int? index) checkDateselection,
     required TResult Function(int? timeindex) checkTimeselection,
@@ -446,6 +579,7 @@ class _$_checkTimeselection implements _checkTimeselection {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getBookings,
     TResult? Function(UsersideState state)? checkSlot,
     TResult? Function(int? index)? checkDateselection,
     TResult? Function(int? timeindex)? checkTimeselection,
@@ -456,6 +590,7 @@ class _$_checkTimeselection implements _checkTimeselection {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getBookings,
     TResult Function(UsersideState state)? checkSlot,
     TResult Function(int? index)? checkDateselection,
     TResult Function(int? timeindex)? checkTimeselection,
@@ -470,6 +605,7 @@ class _$_checkTimeselection implements _checkTimeselection {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getBookings value) getBookings,
     required TResult Function(_checkSlot value) checkSlot,
     required TResult Function(_checkDateselection value) checkDateselection,
     required TResult Function(_checkTimeselection value) checkTimeselection,
@@ -480,6 +616,7 @@ class _$_checkTimeselection implements _checkTimeselection {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getBookings value)? getBookings,
     TResult? Function(_checkSlot value)? checkSlot,
     TResult? Function(_checkDateselection value)? checkDateselection,
     TResult? Function(_checkTimeselection value)? checkTimeselection,
@@ -490,6 +627,7 @@ class _$_checkTimeselection implements _checkTimeselection {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getBookings value)? getBookings,
     TResult Function(_checkSlot value)? checkSlot,
     TResult Function(_checkDateselection value)? checkDateselection,
     TResult Function(_checkTimeselection value)? checkTimeselection,
@@ -514,6 +652,8 @@ abstract class _checkTimeselection implements PatientBookingEvent {
 
 /// @nodoc
 mixin _$PatientBookingState {
+  ApiResponse<UserBookingsModel> get bookings =>
+      throw _privateConstructorUsedError;
   ApiResponse<List<Result>>? get scheduleList =>
       throw _privateConstructorUsedError;
   int? get selectedDateIndex => throw _privateConstructorUsedError;
@@ -531,7 +671,8 @@ abstract class $PatientBookingStateCopyWith<$Res> {
       _$PatientBookingStateCopyWithImpl<$Res, PatientBookingState>;
   @useResult
   $Res call(
-      {ApiResponse<List<Result>>? scheduleList,
+      {ApiResponse<UserBookingsModel> bookings,
+      ApiResponse<List<Result>>? scheduleList,
       int? selectedDateIndex,
       int? selectedTimeIndex});
 }
@@ -549,11 +690,16 @@ class _$PatientBookingStateCopyWithImpl<$Res, $Val extends PatientBookingState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? bookings = null,
     Object? scheduleList = freezed,
     Object? selectedDateIndex = freezed,
     Object? selectedTimeIndex = freezed,
   }) {
     return _then(_value.copyWith(
+      bookings: null == bookings
+          ? _value.bookings
+          : bookings // ignore: cast_nullable_to_non_nullable
+              as ApiResponse<UserBookingsModel>,
       scheduleList: freezed == scheduleList
           ? _value.scheduleList
           : scheduleList // ignore: cast_nullable_to_non_nullable
@@ -579,7 +725,8 @@ abstract class _$$_patientbookingStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ApiResponse<List<Result>>? scheduleList,
+      {ApiResponse<UserBookingsModel> bookings,
+      ApiResponse<List<Result>>? scheduleList,
       int? selectedDateIndex,
       int? selectedTimeIndex});
 }
@@ -595,11 +742,16 @@ class __$$_patientbookingStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? bookings = null,
     Object? scheduleList = freezed,
     Object? selectedDateIndex = freezed,
     Object? selectedTimeIndex = freezed,
   }) {
     return _then(_$_patientbookingState(
+      bookings: null == bookings
+          ? _value.bookings
+          : bookings // ignore: cast_nullable_to_non_nullable
+              as ApiResponse<UserBookingsModel>,
       scheduleList: freezed == scheduleList
           ? _value.scheduleList
           : scheduleList // ignore: cast_nullable_to_non_nullable
@@ -620,10 +772,13 @@ class __$$_patientbookingStateCopyWithImpl<$Res>
 
 class _$_patientbookingState implements _patientbookingState {
   const _$_patientbookingState(
-      {required this.scheduleList,
+      {required this.bookings,
+      required this.scheduleList,
       required this.selectedDateIndex,
       required this.selectedTimeIndex});
 
+  @override
+  final ApiResponse<UserBookingsModel> bookings;
   @override
   final ApiResponse<List<Result>>? scheduleList;
   @override
@@ -633,7 +788,7 @@ class _$_patientbookingState implements _patientbookingState {
 
   @override
   String toString() {
-    return 'PatientBookingState(scheduleList: $scheduleList, selectedDateIndex: $selectedDateIndex, selectedTimeIndex: $selectedTimeIndex)';
+    return 'PatientBookingState(bookings: $bookings, scheduleList: $scheduleList, selectedDateIndex: $selectedDateIndex, selectedTimeIndex: $selectedTimeIndex)';
   }
 
   @override
@@ -641,6 +796,8 @@ class _$_patientbookingState implements _patientbookingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_patientbookingState &&
+            (identical(other.bookings, bookings) ||
+                other.bookings == bookings) &&
             (identical(other.scheduleList, scheduleList) ||
                 other.scheduleList == scheduleList) &&
             (identical(other.selectedDateIndex, selectedDateIndex) ||
@@ -650,8 +807,8 @@ class _$_patientbookingState implements _patientbookingState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, scheduleList, selectedDateIndex, selectedTimeIndex);
+  int get hashCode => Object.hash(runtimeType, bookings, scheduleList,
+      selectedDateIndex, selectedTimeIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -663,10 +820,13 @@ class _$_patientbookingState implements _patientbookingState {
 
 abstract class _patientbookingState implements PatientBookingState {
   const factory _patientbookingState(
-      {required final ApiResponse<List<Result>>? scheduleList,
+      {required final ApiResponse<UserBookingsModel> bookings,
+      required final ApiResponse<List<Result>>? scheduleList,
       required final int? selectedDateIndex,
       required final int? selectedTimeIndex}) = _$_patientbookingState;
 
+  @override
+  ApiResponse<UserBookingsModel> get bookings;
   @override
   ApiResponse<List<Result>>? get scheduleList;
   @override
