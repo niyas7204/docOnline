@@ -5,11 +5,15 @@ Widget textEditField(
   String label,
   TextEditingController controller,
 ) {
+  bool password = label == 'Password' || label == 'Confirm password';
+
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      text20(label),
+      labelText(label),
       TextFormField(
+        keyboardType: password ? TextInputType.number : TextInputType.text,
+        obscureText: password,
         controller: controller,
         decoration: InputDecoration(
           border: OutlineInputBorder(

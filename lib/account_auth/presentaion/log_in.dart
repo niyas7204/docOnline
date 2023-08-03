@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:doc_online/account_auth/businesslogic/login/login_bloc.dart';
 
 import 'package:doc_online/account_auth/presentaion/forgot_password.dart';
+import 'package:doc_online/account_auth/presentaion/helpers/formfieldvalidation.dart';
 
 import 'package:doc_online/account_auth/presentaion/sign_up.dart';
+import 'package:doc_online/account_auth/presentaion/widgets/formfield.dart';
 
 import 'package:doc_online/core/responsehandler/status.dart';
 
@@ -26,10 +28,15 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailcontroller = TextEditingController();
     TextEditingController passwordcontroller = TextEditingController();
+    List<String> labels = ['Email', 'Password'];
+    List<TextEditingController> controllers = [
+      emailcontroller,
+      passwordcontroller
+    ];
     return Scaffold(
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
-          if (!state.loginData.data!.error!) {
+          if (state.loginData.status == ApiStatus.complete) {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => const HomeSc(),
             ));
@@ -67,16 +74,21 @@ class Login extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         header1('Login'),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            space1h(),
-                            labelText('Email'),
-                            textField('Email', emailcontroller),
-                            space1h(),
-                            labelText('Password'),
-                            textField('Password', passwordcontroller),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ListView.separated(
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) =>
+                                      textEditField(
+                                          labels[index], controllers[index]),
+                                  separatorBuilder: (context, index) =>
+                                      space1h(),
+                                  itemCount: labels.length),
+                            ],
+                          ),
                         ),
                         TextButton(
                             onPressed: () async {
@@ -96,8 +108,14 @@ class Login extends StatelessWidget {
                               backgroundColor: baseColor,
                             ),
                             onPressed: () async {
-                              onPress(context, emailcontroller.text,
-                                  passwordcontroller.text);
+                              bool valid = validateFieldEdit(
+                                  controllers, labels, context);
+                              if (valid) {
+                                BlocProvider.of<LoginBloc>(context).add(
+                                    LoginEvent.authLogIn(
+                                        email: emailcontroller.text,
+                                        password: passwordcontroller.text));
+                              }
                             },
                             child: const Text(
                               'Login',
@@ -106,10 +124,8 @@ class Login extends StatelessWidget {
                             ),
                           ),
                         ),
-                        state.loginData.data != null
-                            ? state.loginData.data!.error!
-                                ? errorText(state.loginData.data!.message!)
-                                : const SizedBox()
+                        state.loginData.status == ApiStatus.error
+                            ? errorText('Email and password not match!.')
                             : const SizedBox(),
                         space1h(),
                         Row(
@@ -143,17 +159,5 @@ class Login extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-onPress(BuildContext context, String email, String password) async {
-  log('on');
-
-  if (email.isNotEmpty && password.isNotEmpty) {
-    log('on press');
-    BlocProvider.of<LoginBloc>(context)
-        .add(LoginEvent.authLogIn(email: email, password: password));
-  } else {
-    showdiologue(context, 'fields mustnot be empty');
   }
 }

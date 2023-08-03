@@ -226,10 +226,11 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                                 BlocProvider.of<PaymentBloc>(context)
                                     .add(PaymentEvent.getOrderOption(fee: fee));
                               } else {
-                                showdiologue(context, 'name and age must fill');
+                                showAlertdiolog(
+                                    context, 'name and age must fill');
                               }
                             } else {
-                              showdiologue(
+                              showAlertdiolog(
                                   context, 'date and time should be selected');
                             }
                           },

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:doc_online/userside/data/model/hopital/hospital_model.dart';
 import 'package:doc_online/userside/presentation/core/widgets.dart';
 
 import 'package:doc_online/userside/businessLogic/booking/booking_bloc.dart';
@@ -32,7 +33,7 @@ departmentCard(String dpName, String id, context) {
               child: SizedBox(
                 width: 100.w,
                 child: Text(
-                  dpName,
+                  dpName[0].toUpperCase() + dpName.substring(1),
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -50,13 +51,12 @@ departmentCard(String dpName, String id, context) {
   );
 }
 
-hospitalCard(
-    String name, String url, String adress, BuildContext context, String id) {
+hospitalCard(HospitalDeatails hospitalData, int rating, BuildContext context) {
   return GestureDetector(
     onTap: () {
       Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HospitalDetails(
-                hospitalId: id,
+          builder: (context) => HospitalDetailsScreen(
+                hospitalId: hospitalData.id!,
               )));
     },
     child: Card(
@@ -72,7 +72,7 @@ hospitalCard(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15), topRight: Radius.circular(15)),
               child: prefix.Image.network(
-                url,
+                hospitalData.image!.secureUrl!,
                 fit: BoxFit.cover,
                 width: 166.w,
                 height: 120.h,
@@ -85,7 +85,7 @@ hospitalCard(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    hospitalData.name!,
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -93,17 +93,9 @@ hospitalCard(
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
-                  Row(
-                    children: const [
-                      Icon(Icons.star),
-                      Icon(Icons.star),
-                      Icon(Icons.star),
-                      Icon(Icons.star),
-                      Icon(Icons.star)
-                    ],
-                  ),
+                  starRating(rating),
                   Text(
-                    adress,
+                    hospitalData.address!,
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -220,21 +212,19 @@ timeTable(DateTime day, int index) {
 starRating(int rating) {
   return SizedBox(
     height: 20,
-    child: Expanded(
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        itemCount: 5,
-        itemBuilder: (context, index) => index <= rating
-            ? const Icon(
-                Icons.star,
-                color: Colors.amber,
-              )
-            : const Icon(
-                Icons.star,
-                color: Color.fromARGB(255, 179, 178, 175),
-              ),
-      ),
+    child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemCount: 5,
+      itemBuilder: (context, index) => index < rating
+          ? const Icon(
+              Icons.star,
+              color: Colors.amber,
+            )
+          : const Icon(
+              Icons.star,
+              color: Color.fromARGB(255, 179, 178, 175),
+            ),
     ),
   );
 }

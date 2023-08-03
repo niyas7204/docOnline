@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:doc_online/account_auth/businesslogic/signup_bloc/signup_bloc.dart';
+import 'package:doc_online/account_auth/businesslogic/signup/signup_bloc.dart';
 import 'package:doc_online/account_auth/presentaion/helpers/formfieldvalidation.dart';
 import 'package:doc_online/account_auth/presentaion/verify_email.dart';
 import 'package:doc_online/account_auth/presentaion/widgets/formfield.dart';
@@ -29,7 +29,7 @@ class SignUp extends StatelessWidget {
       passwordcontroller,
       confirmPasswordcontroller
     ];
-    var labels = ['UserName', 'Email', ' password', 'confirm password'];
+    var labels = ['UserName', 'Email', 'Password', 'Confirm password'];
     return Scaffold(
       body: SafeArea(
           child: Stack(
@@ -43,7 +43,7 @@ class SignUp extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        header1('SignUp'),
+                        header1('Sign Up'),
                         ListView.separated(
                             shrinkWrap: true,
                             itemBuilder: (context, index) => textEditField(
@@ -72,28 +72,30 @@ class SignUp extends StatelessWidget {
                                     if (state.failureOrSuccess ==
                                         some(left(const MainFailure
                                             .clientFailure()))) {
-                                      showdiologue(context, 'network failure');
+                                      showAlertdiolog(
+                                          context, 'network failure');
                                     } else if (state.failureOrSuccess ==
                                         some(left(const MainFailure
                                             .serverFailure()))) {
-                                      showdiologue(
+                                      showAlertdiolog(
                                           context, 'user already exist');
                                     } else if (state.signUpResponse!.error ==
                                         false) {
                                       Navigator.of(context)
                                           .pushReplacement(MaterialPageRoute(
-                                        builder: (context) =>
-                                            const VerifyEmail(isSignup: true,),
+                                        builder: (context) => const VerifyEmail(
+                                          isSignup: true,
+                                        ),
                                       ));
                                     }
                                   } else {
-                                    showdiologue(
+                                    showAlertdiolog(
                                         context, 'password shouldnot match');
                                   }
                                 }
                               },
                               child: const Text(
-                                'SignUp',
+                                'Sign Up',
                                 style: TextStyle(
                                     fontSize: 24, color: Colors.white),
                               )),

@@ -96,6 +96,6 @@ onPress(BuildContext context, String email, String password) async {
       }
     });
   } else {
-    showdiologue(context, 'fields mustnot be empty');
+    showAlertdiolog(context, 'fields mustnot be empty');
   }
 }

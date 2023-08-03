@@ -221,10 +221,7 @@ abstract class _checkOtp implements VerifyotpEvent {
 
 /// @nodoc
 mixin _$VerifyotpState {
-  bool get isLoading => throw _privateConstructorUsedError;
-  LogInfo? get signUpResponse => throw _privateConstructorUsedError;
-  Option<Either<MainFailure, LogInfo>> get failureOrSuccess =>
-      throw _privateConstructorUsedError;
+  ApiResponse<LogInfo> get verify => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VerifyotpStateCopyWith<VerifyotpState> get copyWith =>
@@ -237,10 +234,7 @@ abstract class $VerifyotpStateCopyWith<$Res> {
           VerifyotpState value, $Res Function(VerifyotpState) then) =
       _$VerifyotpStateCopyWithImpl<$Res, VerifyotpState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      LogInfo? signUpResponse,
-      Option<Either<MainFailure, LogInfo>> failureOrSuccess});
+  $Res call({ApiResponse<LogInfo> verify});
 }
 
 /// @nodoc
@@ -256,23 +250,13 @@ class _$VerifyotpStateCopyWithImpl<$Res, $Val extends VerifyotpState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
-    Object? signUpResponse = freezed,
-    Object? failureOrSuccess = null,
+    Object? verify = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      signUpResponse: freezed == signUpResponse
-          ? _value.signUpResponse
-          : signUpResponse // ignore: cast_nullable_to_non_nullable
-              as LogInfo?,
-      failureOrSuccess: null == failureOrSuccess
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<MainFailure, LogInfo>>,
+      verify: null == verify
+          ? _value.verify
+          : verify // ignore: cast_nullable_to_non_nullable
+              as ApiResponse<LogInfo>,
     ) as $Val);
   }
 }
@@ -285,10 +269,7 @@ abstract class _$$_VerifyotpStateCopyWith<$Res>
       __$$_VerifyotpStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      LogInfo? signUpResponse,
-      Option<Either<MainFailure, LogInfo>> failureOrSuccess});
+  $Res call({ApiResponse<LogInfo> verify});
 }
 
 /// @nodoc
@@ -302,23 +283,13 @@ class __$$_VerifyotpStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
-    Object? signUpResponse = freezed,
-    Object? failureOrSuccess = null,
+    Object? verify = null,
   }) {
     return _then(_$_VerifyotpState(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      signUpResponse: freezed == signUpResponse
-          ? _value.signUpResponse
-          : signUpResponse // ignore: cast_nullable_to_non_nullable
-              as LogInfo?,
-      failureOrSuccess: null == failureOrSuccess
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<MainFailure, LogInfo>>,
+      verify: null == verify
+          ? _value.verify
+          : verify // ignore: cast_nullable_to_non_nullable
+              as ApiResponse<LogInfo>,
     ));
   }
 }
@@ -326,21 +297,14 @@ class __$$_VerifyotpStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_VerifyotpState implements _VerifyotpState {
-  const _$_VerifyotpState(
-      {required this.isLoading,
-      this.signUpResponse,
-      required this.failureOrSuccess});
+  const _$_VerifyotpState({required this.verify});
 
   @override
-  final bool isLoading;
-  @override
-  final LogInfo? signUpResponse;
-  @override
-  final Option<Either<MainFailure, LogInfo>> failureOrSuccess;
+  final ApiResponse<LogInfo> verify;
 
   @override
   String toString() {
-    return 'VerifyotpState(isLoading: $isLoading, signUpResponse: $signUpResponse, failureOrSuccess: $failureOrSuccess)';
+    return 'VerifyotpState(verify: $verify)';
   }
 
   @override
@@ -348,17 +312,11 @@ class _$_VerifyotpState implements _VerifyotpState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_VerifyotpState &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.signUpResponse, signUpResponse) ||
-                other.signUpResponse == signUpResponse) &&
-            (identical(other.failureOrSuccess, failureOrSuccess) ||
-                other.failureOrSuccess == failureOrSuccess));
+            (identical(other.verify, verify) || other.verify == verify));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLoading, signUpResponse, failureOrSuccess);
+  int get hashCode => Object.hash(runtimeType, verify);
 
   @JsonKey(ignore: true)
   @override
@@ -368,18 +326,11 @@ class _$_VerifyotpState implements _VerifyotpState {
 }
 
 abstract class _VerifyotpState implements VerifyotpState {
-  const factory _VerifyotpState(
-      {required final bool isLoading,
-      final LogInfo? signUpResponse,
-      required final Option<Either<MainFailure, LogInfo>>
-          failureOrSuccess}) = _$_VerifyotpState;
+  const factory _VerifyotpState({required final ApiResponse<LogInfo> verify}) =
+      _$_VerifyotpState;
 
   @override
-  bool get isLoading;
-  @override
-  LogInfo? get signUpResponse;
-  @override
-  Option<Either<MainFailure, LogInfo>> get failureOrSuccess;
+  ApiResponse<LogInfo> get verify;
   @override
   @JsonKey(ignore: true)
   _$$_VerifyotpStateCopyWith<_$_VerifyotpState> get copyWith =>

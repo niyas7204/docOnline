@@ -1,7 +1,7 @@
 import 'package:doc_online/core/authentication/email_auth.dart';
 import 'package:doc_online/account_auth/presentaion/log_in.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
-import 'package:doc_online/userside/businessLogic/bloc/user_profile_bloc.dart';
+import 'package:doc_online/userside/businessLogic/userprofile/user_profile_bloc.dart';
 import 'package:doc_online/userside/presentation/screens/bokkings.dart';
 
 import 'package:flutter/material.dart';

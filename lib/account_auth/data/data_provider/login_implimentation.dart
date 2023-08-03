@@ -36,10 +36,7 @@ class LogInImplimentation implements LogInService {
 
           return right(data);
         } else {
-          log(respone.statusCode.toString());
-          final data = LogInfo.fromJson(respone.data);
-
-          return right(data);
+          return left(const MainFailure.serverFailure());
         }
       } else {
         return left(const MainFailure.serverFailure());

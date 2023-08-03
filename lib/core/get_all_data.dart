@@ -3,4 +3,5 @@ class GetAllData {
   static String? email;
   static String? password;
   static String? tempToken;
+  static String? otp;
 }

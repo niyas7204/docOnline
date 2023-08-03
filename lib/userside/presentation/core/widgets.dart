@@ -78,7 +78,7 @@ errorText(String text) {
   );
 }
 
-Future<dynamic> showdiologue(BuildContext context, String? errorText) {
+Future<dynamic> showAlertdiolog(BuildContext context, String? errorText) {
   return showDialog(
       context: context,
       builder: (context) => AlertDialog(

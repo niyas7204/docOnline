@@ -170,19 +170,18 @@ class SearchScreen extends StatelessWidget {
             ? state.hospitalResult!.data!.length
             : state.hospitalList!.data!.hospitals!.length,
         itemBuilder: (context, index) => hospitalCard(
-            state.isSearch
-                ? state.hospitalResult!.data![index].name!
-                : state.hospitalList!.data!.hospitals![index].name!,
-            state.isSearch
-                ? state.hospitalResult!.data![index].image!.secureUrl!
-                : state.hospitalList!.data!.hospitals![index].image!.secureUrl!,
-            state.isSearch
-                ? state.hospitalResult!.data![index].address!
-                : state.hospitalList!.data!.hospitals![index].address!,
-            context,
-            state.isSearch
-                ? state.hospitalResult!.data![index].address!
-                : state.hospitalList!.data!.hospitals![index].id!),
+          state.isSearch
+              ? state.hospitalList!.data!.hospitals![index]
+              : state.hospitalResult!.data![index],
+          state.isSearch
+              ? state.hospitalList!.data!
+                  .rating!['${state.hospitalList!.data!.hospitals![index].id}']!
+                  .round()
+              : state.hospitalList!.data!
+                  .rating!['${state.hospitalResult!.data![index].id}']!
+                  .round(),
+          context,
+        ),
       ),
     );
   }
