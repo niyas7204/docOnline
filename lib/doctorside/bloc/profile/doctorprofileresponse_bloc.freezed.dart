@@ -19,32 +19,38 @@ mixin _$DoctorprofileresponseEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDoctorProfile,
+    required TResult Function(String image) addDoctorProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDoctorProfile,
+    TResult? Function(String image)? addDoctorProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDoctorProfile,
+    TResult Function(String image)? addDoctorProfile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDoctorProfile value) getDoctorProfile,
+    required TResult Function(_addDoctorProfile value) addDoctorProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDoctorProfile value)? getDoctorProfile,
+    TResult? Function(_addDoctorProfile value)? addDoctorProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDoctorProfile value)? getDoctorProfile,
+    TResult Function(_addDoctorProfile value)? addDoctorProfile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +115,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDoctorProfile,
+    required TResult Function(String image) addDoctorProfile,
   }) {
     return getDoctorProfile();
   }
@@ -117,6 +124,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDoctorProfile,
+    TResult? Function(String image)? addDoctorProfile,
   }) {
     return getDoctorProfile?.call();
   }
@@ -125,6 +133,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDoctorProfile,
+    TResult Function(String image)? addDoctorProfile,
     required TResult orElse(),
   }) {
     if (getDoctorProfile != null) {
@@ -137,6 +146,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDoctorProfile value) getDoctorProfile,
+    required TResult Function(_addDoctorProfile value) addDoctorProfile,
   }) {
     return getDoctorProfile(this);
   }
@@ -145,6 +155,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDoctorProfile value)? getDoctorProfile,
+    TResult? Function(_addDoctorProfile value)? addDoctorProfile,
   }) {
     return getDoctorProfile?.call(this);
   }
@@ -153,6 +164,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDoctorProfile value)? getDoctorProfile,
+    TResult Function(_addDoctorProfile value)? addDoctorProfile,
     required TResult orElse(),
   }) {
     if (getDoctorProfile != null) {
@@ -164,6 +176,140 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
 
 abstract class _GetDoctorProfile implements DoctorprofileresponseEvent {
   const factory _GetDoctorProfile() = _$_GetDoctorProfile;
+}
+
+/// @nodoc
+abstract class _$$_addDoctorProfileCopyWith<$Res> {
+  factory _$$_addDoctorProfileCopyWith(
+          _$_addDoctorProfile value, $Res Function(_$_addDoctorProfile) then) =
+      __$$_addDoctorProfileCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String image});
+}
+
+/// @nodoc
+class __$$_addDoctorProfileCopyWithImpl<$Res>
+    extends _$DoctorprofileresponseEventCopyWithImpl<$Res, _$_addDoctorProfile>
+    implements _$$_addDoctorProfileCopyWith<$Res> {
+  __$$_addDoctorProfileCopyWithImpl(
+      _$_addDoctorProfile _value, $Res Function(_$_addDoctorProfile) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+  }) {
+    return _then(_$_addDoctorProfile(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_addDoctorProfile implements _addDoctorProfile {
+  const _$_addDoctorProfile({required this.image});
+
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'DoctorprofileresponseEvent.addDoctorProfile(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_addDoctorProfile &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_addDoctorProfileCopyWith<_$_addDoctorProfile> get copyWith =>
+      __$$_addDoctorProfileCopyWithImpl<_$_addDoctorProfile>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getDoctorProfile,
+    required TResult Function(String image) addDoctorProfile,
+  }) {
+    return addDoctorProfile(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getDoctorProfile,
+    TResult? Function(String image)? addDoctorProfile,
+  }) {
+    return addDoctorProfile?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getDoctorProfile,
+    TResult Function(String image)? addDoctorProfile,
+    required TResult orElse(),
+  }) {
+    if (addDoctorProfile != null) {
+      return addDoctorProfile(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetDoctorProfile value) getDoctorProfile,
+    required TResult Function(_addDoctorProfile value) addDoctorProfile,
+  }) {
+    return addDoctorProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetDoctorProfile value)? getDoctorProfile,
+    TResult? Function(_addDoctorProfile value)? addDoctorProfile,
+  }) {
+    return addDoctorProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetDoctorProfile value)? getDoctorProfile,
+    TResult Function(_addDoctorProfile value)? addDoctorProfile,
+    required TResult orElse(),
+  }) {
+    if (addDoctorProfile != null) {
+      return addDoctorProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _addDoctorProfile implements DoctorprofileresponseEvent {
+  const factory _addDoctorProfile({required final String image}) =
+      _$_addDoctorProfile;
+
+  String get image;
+  @JsonKey(ignore: true)
+  _$$_addDoctorProfileCopyWith<_$_addDoctorProfile> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

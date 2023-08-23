@@ -54,7 +54,7 @@ class SearchImplimentation implements SearchService {
       if (!response.data['err']) {
         log('rsp');
         final data = hospitalDataFromJson(response.data);
-        log('dta');
+        log('${data.hospitals}');
         return right(data);
       } else {
         return left(const MainFailure.serverFailure());
@@ -78,6 +78,7 @@ class SearchImplimentation implements SearchService {
   @override
   List<HospitalDeatails>? onHospitalSearch(
       {required List<HospitalDeatails> hospitals, required String query}) {
+    log('on search');
     List<HospitalDeatails> result = hospitals
         .where((element) =>
             element.name!.trim().toLowerCase().contains(query.toLowerCase()))

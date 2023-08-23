@@ -1,14 +1,16 @@
+import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
 import 'package:doc_online/doctorside/presentation/emr.dart';
-import 'package:doc_online/userside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-patientCard(List<Booking> state, int index, BuildContext context) {
+patientCard(List<Booking> state, int index, BuildContext context,
+    AppointmentSelection selection) {
   return GestureDetector(
     onTap: () async {},
     child: Container(
-      height: 125,
+      height: 160,
       width: 340.w,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -23,27 +25,31 @@ patientCard(List<Booking> state, int index, BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "PatientName :${state[index].patientName!}",
+                  "PatientName :${state[index].patientName![0].toUpperCase() + state[index].patientName!.substring(1)}",
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          EmrScreen(bookingid: state[index].id!),
-                    ));
-                  },
-                  child: const Text(
-                    "EMR",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: baseColor),
-                  ),
-                ),
+                selection != AppointmentSelection.upcoming
+                    ? TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => EmrScreen(
+                              booking: state[index],
+                              selection: selection,
+                            ),
+                          ));
+                        },
+                        child: const Text(
+                          "EMR",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: baseColor),
+                        ),
+                      )
+                    : const SizedBox(),
               ],
             ),
             Text(
@@ -54,14 +60,14 @@ patientCard(List<Booking> state, int index, BuildContext context) {
               ),
             ),
             Text(
-              "Time :${state[index].time!.hour}:${state[index].time!.minute}",
+              "Date  :${state[index].date!.day}/${state[index].date!.month}/${state[index].date!.year}",
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              state[index].status!,
+              "Time :${state[index].time!.hour}:${state[index].time!.minute}",
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,

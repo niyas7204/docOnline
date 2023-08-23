@@ -1,8 +1,9 @@
 import 'package:doc_online/core/responsehandler/status.dart';
-import 'package:doc_online/userside/businessLogic/booking/booking_bloc.dart';
 
-import 'package:doc_online/userside/presentation/core/widgets.dart';
-import 'package:doc_online/userside/presentation/core/wisgets/cards.dart';
+import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
+
+import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/widgets/cards.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,6 +49,11 @@ class BookingDetails extends StatelessWidget {
                   children: [
                     header1('Bookings'),
                     space1h(),
+                    state.bookings.data!.bookings!.isEmpty
+                        ? Center(
+                            child: errorText('No bookings found'),
+                          )
+                        : const SizedBox(),
                     Expanded(
                       child: ListView.separated(
                           itemBuilder: (context, index) => bookingCard(

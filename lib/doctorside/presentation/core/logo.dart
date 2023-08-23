@@ -1,4 +1,4 @@
-import 'package:doc_online/userside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

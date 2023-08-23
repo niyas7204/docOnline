@@ -240,10 +240,7 @@ abstract class _getDoctorLogIn implements DoctorEvent {
 
 /// @nodoc
 mixin _$DoctorState {
-  bool get isloading => throw _privateConstructorUsedError;
-  bool? get logResponse => throw _privateConstructorUsedError;
-  Option<Either<MainFailure, bool>> get failureOrSuccess =>
-      throw _privateConstructorUsedError;
+  ApiResponse<bool>? get logResponse => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DoctorStateCopyWith<DoctorState> get copyWith =>
@@ -256,10 +253,7 @@ abstract class $DoctorStateCopyWith<$Res> {
           DoctorState value, $Res Function(DoctorState) then) =
       _$DoctorStateCopyWithImpl<$Res, DoctorState>;
   @useResult
-  $Res call(
-      {bool isloading,
-      bool? logResponse,
-      Option<Either<MainFailure, bool>> failureOrSuccess});
+  $Res call({ApiResponse<bool>? logResponse});
 }
 
 /// @nodoc
@@ -275,23 +269,13 @@ class _$DoctorStateCopyWithImpl<$Res, $Val extends DoctorState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isloading = null,
     Object? logResponse = freezed,
-    Object? failureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
-      isloading: null == isloading
-          ? _value.isloading
-          : isloading // ignore: cast_nullable_to_non_nullable
-              as bool,
       logResponse: freezed == logResponse
           ? _value.logResponse
           : logResponse // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      failureOrSuccess: null == failureOrSuccess
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<MainFailure, bool>>,
+              as ApiResponse<bool>?,
     ) as $Val);
   }
 }
@@ -304,10 +288,7 @@ abstract class _$$_DoctorStateCopyWith<$Res>
       __$$_DoctorStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isloading,
-      bool? logResponse,
-      Option<Either<MainFailure, bool>> failureOrSuccess});
+  $Res call({ApiResponse<bool>? logResponse});
 }
 
 /// @nodoc
@@ -321,23 +302,13 @@ class __$$_DoctorStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isloading = null,
     Object? logResponse = freezed,
-    Object? failureOrSuccess = null,
   }) {
     return _then(_$_DoctorState(
-      isloading: null == isloading
-          ? _value.isloading
-          : isloading // ignore: cast_nullable_to_non_nullable
-              as bool,
       logResponse: freezed == logResponse
           ? _value.logResponse
           : logResponse // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      failureOrSuccess: null == failureOrSuccess
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<MainFailure, bool>>,
+              as ApiResponse<bool>?,
     ));
   }
 }
@@ -345,21 +316,14 @@ class __$$_DoctorStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DoctorState implements _DoctorState {
-  const _$_DoctorState(
-      {required this.isloading,
-      this.logResponse,
-      required this.failureOrSuccess});
+  const _$_DoctorState({this.logResponse});
 
   @override
-  final bool isloading;
-  @override
-  final bool? logResponse;
-  @override
-  final Option<Either<MainFailure, bool>> failureOrSuccess;
+  final ApiResponse<bool>? logResponse;
 
   @override
   String toString() {
-    return 'DoctorState(isloading: $isloading, logResponse: $logResponse, failureOrSuccess: $failureOrSuccess)';
+    return 'DoctorState(logResponse: $logResponse)';
   }
 
   @override
@@ -367,17 +331,12 @@ class _$_DoctorState implements _DoctorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DoctorState &&
-            (identical(other.isloading, isloading) ||
-                other.isloading == isloading) &&
             (identical(other.logResponse, logResponse) ||
-                other.logResponse == logResponse) &&
-            (identical(other.failureOrSuccess, failureOrSuccess) ||
-                other.failureOrSuccess == failureOrSuccess));
+                other.logResponse == logResponse));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isloading, logResponse, failureOrSuccess);
+  int get hashCode => Object.hash(runtimeType, logResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -387,18 +346,11 @@ class _$_DoctorState implements _DoctorState {
 }
 
 abstract class _DoctorState implements DoctorState {
-  const factory _DoctorState(
-          {required final bool isloading,
-          final bool? logResponse,
-          required final Option<Either<MainFailure, bool>> failureOrSuccess}) =
+  const factory _DoctorState({final ApiResponse<bool>? logResponse}) =
       _$_DoctorState;
 
   @override
-  bool get isloading;
-  @override
-  bool? get logResponse;
-  @override
-  Option<Either<MainFailure, bool>> get failureOrSuccess;
+  ApiResponse<bool>? get logResponse;
   @override
   @JsonKey(ignore: true)
   _$$_DoctorStateCopyWith<_$_DoctorState> get copyWith =>

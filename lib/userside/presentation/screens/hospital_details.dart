@@ -1,11 +1,12 @@
 import 'package:doc_online/core/responsehandler/status.dart';
-import 'package:doc_online/userside/businessLogic/hospital/hospital_bloc.dart';
-import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';
-import 'package:doc_online/userside/presentation/core/widgets.dart';
-import 'package:doc_online/userside/presentation/core/wisgets/common_widget.dart';
 
-import 'package:doc_online/userside/presentation/core/wisgets/doctor_details.dart';
-import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
+import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
+
+import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/widgets/addrating.dart';
+import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
+
+import 'package:doc_online/userside/presentation/widgets/doctor_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -90,6 +91,15 @@ class HospitalDetailsScreen extends StatelessWidget {
                         ),
                         Column(
                           children: [
+                            state.hospitalDetails.data!.review != null
+                                ? addRating(
+                                    state.hospitalDetails.data!.rating,
+                                    context,
+                                    state.hospitalDetails.data!.review!
+                                        .hospitalId!,
+                                    state.hospitalDetails.data!.review!.review!,
+                                    EditType.hospital)
+                                : const SizedBox(),
                             state.hospitalDetails.data!.reviews!.isNotEmpty
                                 ? ListView.separated(
                                     physics: const ScrollPhysics(),

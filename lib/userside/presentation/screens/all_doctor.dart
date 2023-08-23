@@ -1,14 +1,15 @@
 import 'dart:developer';
 
 import 'package:doc_online/core/debouncer.dart';
+import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 
-import 'package:doc_online/userside/presentation/core/widgets.dart';
+import 'package:doc_online/userside/bussinesslogic/search/search_bloc.dart';
 
-import 'package:doc_online/userside/businessLogic/search/search_bloc.dart';
-import 'package:doc_online/userside/presentation/core/wisgets/common_widget.dart';
+import 'package:doc_online/userside/presentation/widgets/widgets.dart';
 
-import 'package:doc_online/userside/presentation/functions/enum.dart';
+import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
+
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -21,13 +22,15 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final debouncer = Debouncer(milliseconds: 1000);
     BlocProvider.of<SearchBloc>(context).add(const SearchEvent.doctorSearch());
+    BlocProvider.of<SearchBloc>(context)
+        .add(const SearchEvent.hospitalSearch());
 
     return BlocBuilder<SearchBloc, SearchState>(
       builder: (context, state) {
-        return Scaffold(
-            body: SafeArea(child: BlocBuilder<SearchBloc, SearchState>(
+        return Scaffold(body: BlocBuilder<SearchBloc, SearchState>(
           builder: (context, state) {
-            return Column(
+            return SafeArea(
+                child: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -114,12 +117,15 @@ class SearchScreen extends StatelessWidget {
                           builder: (context) {
                             switch (state.hospitalList!.status) {
                               case ApiStatus.loading:
+                                log('loading');
                                 return const Center(
                                   child: CircularProgressIndicator(),
                                 );
                               case ApiStatus.error:
+                                log('error');
                                 return const SizedBox();
                               case ApiStatus.complete:
+                                log(state.toString());
                                 return hospitals(state);
                               default:
                                 return const SizedBox();
@@ -132,9 +138,9 @@ class SearchScreen extends StatelessWidget {
                   },
                 ),
               ],
-            );
+            ));
           },
-        )));
+        ));
       },
     );
   }
@@ -162,27 +168,29 @@ class SearchScreen extends StatelessWidget {
   hospitals(SearchState state) {
     return Expanded(
       child: GridView.builder(
-        shrinkWrap: true,
-        physics: const ScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: (50 / 80)),
-        itemCount: state.isSearch
-            ? state.hospitalResult!.data!.length
-            : state.hospitalList!.data!.hospitals!.length,
-        itemBuilder: (context, index) => hospitalCard(
-          state.isSearch
-              ? state.hospitalList!.data!.hospitals![index]
-              : state.hospitalResult!.data![index],
-          state.isSearch
-              ? state.hospitalList!.data!
-                  .rating!['${state.hospitalList!.data!.hospitals![index].id}']!
-                  .round()
-              : state.hospitalList!.data!
-                  .rating!['${state.hospitalResult!.data![index].id}']!
-                  .round(),
-          context,
-        ),
-      ),
+          shrinkWrap: true,
+          physics: const ScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: (50 / 80)),
+          itemCount: state.isSearch
+              ? state.hospitalResult!.data!.length
+              : state.hospitalList!.data!.hospitals!.length,
+          itemBuilder: (context, index) {
+            var hospitalData = state.isSearch
+                ? state.hospitalResult!.data![index]
+                : state.hospitalList!.data!.hospitals![index];
+            var rating = state.isSearch
+                ? state.hospitalList!.data!
+                    .rating!['${state.hospitalResult!.data![index].id}']
+                : state.hospitalList!.data!.rating![
+                    '${state.hospitalList!.data!.hospitals![index].id}'];
+            int roundedRating = rating?.round() ?? 0;
+            return hospitalCard(
+              hospitalData,
+              roundedRating,
+              context,
+            );
+          }),
     );
   }
 }

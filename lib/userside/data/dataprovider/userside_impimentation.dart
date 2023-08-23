@@ -5,70 +5,19 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:doc_online/core/failure/failure.dart';
-import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';
+import 'package:doc_online/userside/data/model/doctors/single_doctor.dart';
+
 import 'package:doc_online/doctorside/presentation/core/url.dart';
 import 'package:doc_online/userside/data/repository/data_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../model/department/department_model.dart';
+
 import '../model/doctors/doctors.dart';
-import '../model/doctors/single_doctor.dart';
-import '../model/hopital/hospital_model.dart';
+
 import '../model/schedule/doctor_schedule.dart';
 
 class UserSideImplimentation implements UserSideService {
   Dio dio = Dio();
   CookieJar cookieJar = CookieJar();
-  //get departments
-  @override
-  Future<Either<MainFailure, DepartmentsInfo>> getDepartmentdata() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    Cookie cookie = Cookie('token', prefs.getString('token')!);
-
-    const url = '$baseUrl/user/departments';
-    try {
-      final response = await dio.get(url,
-          options:
-              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-
-      if (!response.data['err']) {
-        final data = departmentsInfoFromJson(response.data);
-
-        return right(data);
-      } else {
-        return left(const MainFailure.serverFailure());
-      }
-    } catch (e) {
-      log('error d$e');
-      return left(const MainFailure.clientFailure());
-    }
-  }
-
-//get hospitals
-  @override
-  Future<Either<MainFailure, HospitalData>> getHospitalData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    dio.interceptors.add(CookieManager(cookieJar));
-    Cookie cookie = Cookie('token', prefs.getString('token')!);
-    const url = '$baseUrl/user/hospitals/top';
-    try {
-      final response = await Dio().get(url,
-          options:
-              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-
-      if (!response.data['err']) {
-        final data = hospitalDataFromJson(response.data);
-
-        return right(data);
-      } else {
-        return left(const MainFailure.serverFailure());
-      }
-    } catch (e) {
-      log('error h$e');
-      return left(const MainFailure.clientFailure());
-    }
-  }
 
 //get doctors
   @override
@@ -148,29 +97,34 @@ class UserSideImplimentation implements UserSideService {
     }
   }
 
-  // hospital details
   @override
-  Future<Either<MainFailure, SingleHospital>> getHospitalDetails(
-      String hospitalId) async {
+  Future<Either<MainFailure, bool>> addRating(
+      {required int rating,
+      required String doctorId,
+      required String review}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     dio.interceptors.add(CookieManager(cookieJar));
     Cookie cookie = Cookie('token', prefs.getString('token')!);
-    final url = '$baseUrl/user/hospital/$hospitalId';
+    const url = '$baseUrl/user/feedback/doctor';
+    final requestBody = {
+      'doctorId': doctorId,
+      'rating': rating,
+      'review': review
+    };
     try {
-      final response = await Dio().get(url,
+      final response = await Dio().post(url,
+          data: requestBody,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
 
       if (!response.data['err']) {
-        final data = singleHospitalFromJson(response.data);
-
-        return right(data);
+        return right(response.data['err']);
       } else {
+       
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
+      log('errot feed $e');
       return left(const MainFailure.clientFailure());
     }
   }

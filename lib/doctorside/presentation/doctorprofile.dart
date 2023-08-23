@@ -1,11 +1,15 @@
-import 'package:doc_online/account_auth/presentaion/log_in.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:doc_online/core/authentication/email_auth.dart';
 import 'package:doc_online/doctorside/bloc/profile/doctorprofileresponse_bloc.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
-import 'package:doc_online/userside/presentation/core/widgets.dart';
-import 'package:doc_online/userside/presentation/core/wisgets/doctor_details.dart';
+import 'package:doc_online/userside/account_auth/presentaion/log_in.dart';
+import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/widgets/doctor_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class DoctorProfile extends StatelessWidget {
   const DoctorProfile({super.key});
@@ -29,7 +33,7 @@ class DoctorProfile extends StatelessWidget {
                 },
                 child: const Text(
                   'logout',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 )),
           ]),
       body: BlocBuilder<DoctorprofileresponseBloc, DoctorprofileresponseState>(
@@ -45,34 +49,44 @@ class DoctorProfile extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        radius: 70,
-                        backgroundImage: NetworkImage(
-                            state.profile.data!.doctor!.image!.secureUrl!),
+                      Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 70,
+                            backgroundImage: NetworkImage(
+                                state.profile.data!.doctor!.image!.secureUrl!),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: IconButton(
+                              onPressed: () async {
+                                var uri = await pickProfile();
+                                BlocProvider.of<DoctorprofileresponseBloc>(
+                                        context)
+                                    .add(DoctorprofileresponseEvent
+                                        .addDoctorProfile(image: uri));
+                              },
+                              icon: const Icon(
+                                Icons.camera_alt_sharp,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-
-                      /// -- IMAGE
 
                       const SizedBox(height: 10),
                       text20(state.profile.data!.doctor!.name),
                       text20(state.profile.data!.doctor!.qualification),
+
                       const SizedBox(height: 20),
 
-                      /// -- BUTTON
-                      SizedBox(
-                        width: 200,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: baseColor,
-                              side: BorderSide.none,
-                              shape: const StadiumBorder()),
-                          child: const Text('EditProfile',
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
                       const SizedBox(height: 30),
-
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: heading('Rating and Reviews'),
+                      ),
                       const SizedBox(height: 10),
                       ListView.separated(
                           physics: const ScrollPhysics(),
@@ -99,4 +113,13 @@ class DoctorProfile extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<String> pickProfile() async {
+  XFile? pickedFile =
+      await ImagePicker().pickImage(source: ImageSource.gallery);
+  Uint8List imageBytes = await pickedFile!.readAsBytes();
+  String baseImage = base64Encode(imageBytes);
+  String imageUri = 'data:image/png;base64,$baseImage';
+  return imageUri;
 }

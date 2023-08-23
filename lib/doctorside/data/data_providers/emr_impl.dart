@@ -36,4 +36,56 @@ class EmrImplimentation implements EmrService {
       return left(const MainFailure.clientFailure());
     }
   }
+
+  @override
+  Future<Either<MainFailure, EmrResponseModel>> addEmr(
+      {required String userId,
+      required String bookingId,
+      required String prescription,
+      required String patientName,
+      required int age,
+      required int weight,
+      required String gender}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    Cookie cookie = Cookie('doctorToken', prefs.getString('token')!);
+    const url = '$baseUrl/doctor/emr';
+    final getUrl = '$baseUrl/doctor/emr/$bookingId';
+    final requestBody = {
+      'userId': userId,
+      'bookingId': bookingId,
+      'prescription': prescription,
+      'age': age,
+      'weight': weight,
+      'gender': gender
+    };
+
+    try {
+      final postResponse = await dio.post(url,
+          data: requestBody,
+          options:
+              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
+      log('${postResponse.data}');
+      if (!postResponse.data['err']) {
+        log('false');
+      } else {
+        log('true');
+      }
+      final response = await dio.get(getUrl,
+          options:
+              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
+
+      if (!response.data['err']) {
+        final data = emrResponseModelFromJson(response.data);
+
+        return right(data);
+      } else {
+        log('server');
+        return left(const MainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('emr err: $e');
+      return left(const MainFailure.clientFailure());
+    }
+  }
 }

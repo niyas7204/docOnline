@@ -1,15 +1,18 @@
 import 'dart:developer';
 import 'dart:io';
-
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:cookie_jar/cookie_jar.dart';
+
 import 'package:dio/dio.dart';
-import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/doctorside/data/model/doctorprofilemodel.dart';
 import 'package:doc_online/doctorside/data/repository/doctor/docrorview_service.dart';
 import 'package:doc_online/doctorside/presentation/core/url.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DoctorViewImplimentation implements DoctorviewSevice {
@@ -19,7 +22,7 @@ class DoctorViewImplimentation implements DoctorviewSevice {
   @override
   Future<Either<MainFailure, BookingsModel>> getBookings() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    dio.interceptors.add(CookieManager(cookieJar));
+
     Cookie cookie = Cookie('doctorToken', prefs.getString('token')!);
     const url = '$baseUrl/doctor/bookings';
     try {
@@ -54,6 +57,59 @@ class DoctorViewImplimentation implements DoctorviewSevice {
 
       if (!response.data['err']) {
         final data = doctorProfileModelFromJson(response.data);
+        return right(data);
+      } else {
+        log('failure');
+        return left(const MainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e');
+      return left(const MainFailure.clientFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> addProfile({required String image}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    Cookie cookie = Cookie('doctorToken', prefs.getString('token')!);
+    const url = '$baseUrl/doctor/profile';
+
+    final requestBody = {'image': image};
+    try {
+      await dio.patch(url,
+          data: requestBody,
+          options:
+              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
+      final response = await dio.get(url,
+          options:
+              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
+
+      if (!response.data['err']) {
+        return right(response.data['err']);
+      } else {
+        log('failure');
+        return left(const MainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e');
+      return left(const MainFailure.clientFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, BookingsModel>> getTodaysBookings() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    Cookie cookie = Cookie('doctorToken', prefs.getString('token')!);
+    const url = '$baseUrl/doctor/booking/today';
+    try {
+      final response = await dio.get(url,
+          options:
+              Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
+
+      if (!response.data['err']) {
+        final data = bookingsModelFromJson(response.data);
         return right(data);
       } else {
         log('failure');

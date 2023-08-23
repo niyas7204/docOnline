@@ -1,9 +1,3 @@
-import 'package:doc_online/account_auth/businesslogic/bloc/forgotpassword_bloc.dart';
-import 'package:doc_online/account_auth/businesslogic/login/login_bloc.dart';
-import 'package:doc_online/account_auth/businesslogic/signup/signup_bloc.dart';
-import 'package:doc_online/account_auth/businesslogic/verifyotpbloc/verifyotp_bloc.dart';
-import 'package:doc_online/account_auth/data/data_provider/forgotpassword_implimentation.dart';
-import 'package:doc_online/account_auth/data/data_provider/signup_implimentation.dart';
 import 'package:doc_online/doctorside/bloc/bloc/emr_bloc.dart';
 import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
@@ -12,24 +6,34 @@ import 'package:doc_online/doctorside/data/data_providers/doctor_side/doctor_rep
 import 'package:doc_online/doctorside/data/data_providers/doctorvie_implimentation.dart';
 import 'package:doc_online/doctorside/data/data_providers/emr_impl.dart';
 import 'package:doc_online/doctorside/presentation/home.dart';
-import 'package:doc_online/userside/businessLogic/hospital/hospital_bloc.dart';
-import 'package:doc_online/userside/businessLogic/paymet/payment_bloc.dart';
+import 'package:doc_online/userside/account_auth/businesslogic/bloc/forgotpassword_bloc.dart';
+import 'package:doc_online/userside/account_auth/businesslogic/verifyotpbloc/verifyotp_bloc.dart';
+import 'package:doc_online/userside/account_auth/data/data_provider/forgotpassword_implimentation.dart';
+import 'package:doc_online/userside/account_auth/data/data_provider/login_implimentation.dart';
+import 'package:doc_online/userside/account_auth/data/data_provider/signup_implimentation.dart';
+import 'package:doc_online/userside/account_auth/presentaion/log_in.dart';
+import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
+import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
+import 'package:doc_online/userside/bussinesslogic/paymet/payment_bloc.dart';
+import 'package:doc_online/userside/bussinesslogic/userprofile/user_profile_bloc.dart';
 import 'package:doc_online/userside/data/dataprovider/booking_impl.dart';
 import 'package:doc_online/userside/data/dataprovider/search_impl.dart';
 import 'package:doc_online/userside/data/dataprovider/userprofile_implimentation.dart';
 import 'package:doc_online/userside/presentation/screens/home.dart';
-import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'account_auth/data/data_provider/verify_email_implimentation.dart';
-import 'account_auth/data/data_provider/login_implimentation.dart';
-import 'account_auth/presentaion/log_in.dart';
-import 'userside/businessLogic/booking/booking_bloc.dart';
-import 'userside/businessLogic/departments/departments_bloc.dart';
-import 'userside/businessLogic/search/search_bloc.dart';
-import 'userside/businessLogic/userprofile/user_profile_bloc.dart';
+
+import 'userside/account_auth/businesslogic/login/login_bloc.dart';
+import 'userside/account_auth/businesslogic/signup/signup_bloc.dart';
+import 'userside/account_auth/data/data_provider/verify_email_implimentation.dart';
+import 'userside/bussinesslogic/departments/departments_bloc.dart';
+import 'userside/bussinesslogic/doctor/userside_bloc.dart';
+import 'userside/bussinesslogic/search/search_bloc.dart';
+import 'userside/data/dataprovider/department_implimentation.dart';
+import 'userside/data/dataprovider/hospital_implimentation.dart';
 import 'userside/data/dataprovider/userside_impimentation.dart';
 
 Future<void> main(List<String> args) async {
@@ -62,7 +66,7 @@ class MyApp extends StatelessWidget {
           create: (context) => UsersideBloc(UserSideImplimentation()),
         ),
         BlocProvider(
-          create: (context) => DepartmentsBloc(UserSideImplimentation()),
+          create: (context) => DepartmentsBloc(DepartmentImplimentation()),
         ),
         BlocProvider(
           create: (context) => DoctorBloc(DoctorRepoImplimentation()),
@@ -87,11 +91,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => UserProfileBloc(UserProfileImplimentation())),
         BlocProvider(
-            create: (context) => HospitalBloc(UserSideImplimentation())),
+            create: (context) => HospitalBloc(HospitalImplimentation())),
       ],
       child: ScreenUtilInit(
         builder: (BuildContext context, Widget? child) {
           return MaterialApp(
+              theme: ThemeData(useMaterial3: true),
               debugShowCheckedModeBanner: false,
               builder: (context, child) {
                 return ScrollConfiguration(

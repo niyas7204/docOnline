@@ -4,10 +4,11 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import 'package:doc_online/doctorside/presentation/core/url.dart';
-import 'package:doc_online/userside/businessLogic/userside_bloc.dart';
+import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
+
 import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
 
-import 'package:doc_online/userside/presentation/functions/user_seide.dart';
+import 'package:doc_online/core/helpers/user_seide.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 checkTime(UsersideState state) async {
