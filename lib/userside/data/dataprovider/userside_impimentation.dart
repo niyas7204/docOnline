@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -120,7 +120,6 @@ class UserSideImplimentation implements UserSideService {
       if (!response.data['err']) {
         return right(response.data['err']);
       } else {
-       
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {

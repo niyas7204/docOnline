@@ -1,7 +1,6 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
-import 'package:doc_online/userside/presentation/components/card_components/doctor_card.dart';
-import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/components/card_components/doctor_card.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 
@@ -49,7 +48,7 @@ class ByDepartment extends StatelessWidget {
                           ? Expanded(
                               child: ListView.separated(
                                   separatorBuilder: (context, index) =>
-                                      SpaceSized.space1h(),
+                                      SpaceSized.space1h,
                                   itemCount: doctorstate.data!.doctors!.length,
                                   itemBuilder: (context, index) => DoctorCard(
                                       doctors: doctorstate.data!.doctors!,

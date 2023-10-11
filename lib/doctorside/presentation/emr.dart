@@ -4,7 +4,6 @@ import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/doctorside/bloc/bloc/emr_bloc.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
-import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -54,24 +53,27 @@ class EmrScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SpaceSized.space1h(),
-                              CustomTexts.text20('Patient Name:${booking.patientName!}'),
-                              SpaceSized.space1h(),
+                              SpaceSized.space1h,
+                              CustomTexts.text20(
+                                  'Patient Name:${booking.patientName!}'),
+                              SpaceSized.space1h,
                               CustomTexts.text20('Age:${booking.age!}'),
-                              SpaceSized.space1h(),
+                              SpaceSized.space1h,
                               CustomTexts.text20(
                                   'Date:${booking.date!.day}/${booking.date!.month}/${booking.date!.year}'),
-                              SpaceSized.space1h(),
+                              SpaceSized.space1h,
                               state.emrDetails.data!.emr != null
                                   ? state.emrDetails.data!.emr!.prescription!
                                           .isEmpty
-                                      ? CustomTexts.errorText('Prescription not added.')
+                                      ? CustomTexts.errorText(
+                                          'Prescription not added.')
                                       : buildTextField('Medication Details',
                                           context, selection,
                                           maxLines: 10,
                                           readOnly: !state.editEmr,
                                           controller: prescriptionController)
-                                  : CustomTexts.errorText('Prescription not added.'),
+                                  : CustomTexts.errorText(
+                                      'Prescription not added.'),
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: selection == AppointmentSelection.today

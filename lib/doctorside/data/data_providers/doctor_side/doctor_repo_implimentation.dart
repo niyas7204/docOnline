@@ -1,9 +1,10 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:doc_online/core/authentication/email_auth.dart';
+
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:doc_online/core/shared_preferences.dart';
 import 'package:doc_online/doctorside/data/repository/doctor/doctor_repo.dart';
 import 'package:doc_online/doctorside/presentation/core/url.dart';
 

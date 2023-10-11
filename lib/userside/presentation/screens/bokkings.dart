@@ -1,7 +1,7 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
-import 'package:doc_online/userside/presentation/components/card_components/booking_card.dart';
+import 'package:doc_online/components/card_components/booking_card.dart';
 
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
@@ -47,7 +47,7 @@ class BookingDetails extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTexts.header1('Bookings'),
-                    SpaceSized.space1h(),
+                    SpaceSized.space1h,
                     state.bookings.data!.bookings!.isEmpty
                         ? Center(
                             child: CustomTexts.errorText('No bookings found'),
@@ -58,7 +58,7 @@ class BookingDetails extends StatelessWidget {
                           itemBuilder: (context, index) => BookingCard(
                               bookings: state.bookings.data!.bookings![index]),
                           separatorBuilder: (context, index) =>
-                              SpaceSized.space1h(),
+                              SpaceSized.space1h,
                           itemCount: state.bookings.data!.bookings!.length),
                     ),
                   ],

@@ -5,7 +5,6 @@ import 'package:doc_online/doctorside/core/helpers/create_booking_list.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 import 'package:doc_online/doctorside/presentation/widgets/profile_icon.dart';
-import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/widgets/common_widgets.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
@@ -56,10 +55,10 @@ class DoctorHomeSc extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [logo(),const ProfileIcon()],
+                          children: [logo(), const ProfileIcon()],
                         ),
-                        SpaceSized.space1h(),
-                        SpaceSized.space1h(),
+                        SpaceSized.space1h,
+                        SpaceSized.space1h,
                         CustomTexts.header1('Appoinments'),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,10 +111,11 @@ class DoctorHomeSc extends StatelessWidget {
                                         patientCard(bookingsList, index,
                                             context, state.selection),
                                     separatorBuilder: (context, index) =>
-                                        SpaceSized.space1h(),
+                                        SpaceSized.space1h,
                                     itemCount: bookingsList.length))
                             : Center(
-                                child: CustomTexts.errorText('No appointment available'),
+                                child: CustomTexts.errorText(
+                                    'No appointment available'),
                               ),
                       ],
                     ),

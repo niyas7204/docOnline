@@ -4,10 +4,10 @@ import 'package:doc_online/doctorside/presentation/core/logo.dart';
 import 'package:doc_online/userside/bussinesslogic/departments/departments_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/userprofile/user_profile_bloc.dart';
-import 'package:doc_online/userside/presentation/components/card_components/department_card.dart';
-import 'package:doc_online/userside/presentation/components/card_components/hospital_card.dart';
-import 'package:doc_online/userside/presentation/components/drawer.dart';
-import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/components/card_components/department_card.dart';
+import 'package:doc_online/components/card_components/hospital_card.dart';
+import 'package:doc_online/components/drawer.dart';
+
 import 'package:doc_online/userside/presentation/screens/search.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
@@ -79,14 +79,14 @@ class HomeSc extends StatelessWidget {
                   ],
                 ),
               ),
-              SpaceSized.space1h(),
+              SpaceSized.space1h,
               Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: CustomTexts.commonText1(
                   'Search by Department',
                 ),
               ),
-              SpaceSized.space1h(),
+              SpaceSized.space1h,
               BlocBuilder<DepartmentsBloc, DepartmentsState>(
                 builder: (context, state) {
                   switch (state.departmentData.status) {
@@ -118,7 +118,7 @@ class HomeSc extends StatelessWidget {
                   }
                 },
               ),
-              SpaceSized.space1h(),
+              SpaceSized.space1h,
               Container(
                 color: const Color.fromARGB(162, 176, 197, 193),
                 child: Padding(
@@ -132,7 +132,7 @@ class HomeSc extends StatelessWidget {
                           'Top Hospital',
                         ),
                       ),
-                      SpaceSized.space1h(),
+                      SpaceSized.space1h,
                       BlocBuilder<HospitalBloc, HospitalState>(
                         builder: (context, state) {
                           switch (state.hospitalData.status) {

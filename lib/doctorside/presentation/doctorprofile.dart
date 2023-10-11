@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:doc_online/core/authentication/email_auth.dart';
+import 'package:doc_online/authentication/user/presentaion/log_in.dart';
+import 'package:doc_online/core/shared_preferences.dart';
 import 'package:doc_online/doctorside/bloc/profile/doctorprofileresponse_bloc.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
-import 'package:doc_online/userside/account_auth/presentaion/log_in.dart';
-import 'package:doc_online/userside/presentation/components/rating_review.dart/review.dart';
+
+import 'package:doc_online/components/rating_review.dart/review.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,7 @@ class DoctorProfile extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: state.profile.data!.reviews!.length,
                           separatorBuilder: (context, index) =>
-                              SpaceSized.space1h(),
+                              SpaceSized.space1h,
                           itemBuilder: (context, index) => ViewReview(
                               profile: profile.reviews![index].userId!.name!,
                               rating: profile.reviews![index].rating!,

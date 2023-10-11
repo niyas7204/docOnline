@@ -1,9 +1,8 @@
 import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
 import 'package:doc_online/doctorside/presentation/emr.dart';
-import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/components/widgets.dart';
 import 'package:flutter/material.dart';
- 
 
 patientCard(List<Booking> state, int index, BuildContext context,
     AppointmentSelection selection) {

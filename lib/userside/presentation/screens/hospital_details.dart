@@ -3,12 +3,12 @@ import 'package:doc_online/doctorside/data/model/doctorprofilemodel.dart';
 
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
 import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';
-import 'package:doc_online/userside/presentation/components/card_components/department_card.dart';
+import 'package:doc_online/components/card_components/department_card.dart';
 
-import 'package:doc_online/userside/presentation/components/rating_review.dart/addrating.dart';
+import 'package:doc_online/components/rating_review.dart/addrating.dart';
 
-import 'package:doc_online/userside/presentation/components/doctor_details.dart';
-import 'package:doc_online/userside/presentation/components/rating_review.dart/review.dart';
+import 'package:doc_online/components/doctor_details.dart';
+import 'package:doc_online/components/rating_review.dart/review.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +46,10 @@ class HospitalDetailsScreen extends StatelessWidget {
                   sliver: SliverList(
                     delegate: SliverChildListDelegate(
                       [
-                        SpaceSized.space1h(),
+                        SpaceSized.space1h,
                         CustomTexts.commonText1(
                             hospitalDetails.hospital!.name!),
-                        SpaceSized.space1h(),
+                        SpaceSized.space1h,
                         CustomTexts.labelText('Place'),
                         CustomTexts.commonText1(
                           hospitalDetails.hospital!.place!,
@@ -109,7 +109,7 @@ class HospitalDetailsScreen extends StatelessWidget {
                                     itemCount: state
                                         .hospitalDetails.data!.reviews!.length,
                                     separatorBuilder: (context, index) =>
-                                        SpaceSized.space1h(),
+                                        SpaceSized.space1h,
                                     itemBuilder: (context, index) => ViewReview(
                                         profile: hospitalDetails
                                             .reviews![index].userId!.name!,

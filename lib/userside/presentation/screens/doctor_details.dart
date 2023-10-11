@@ -1,14 +1,13 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
-import 'package:doc_online/userside/presentation/components/rating_review.dart/review.dart';
+import 'package:doc_online/components/rating_review.dart/review.dart';
 
-import 'package:doc_online/userside/presentation/components/widgets.dart';
-import 'package:doc_online/userside/presentation/components/rating_review.dart/addrating.dart';
+import 'package:doc_online/components/rating_review.dart/addrating.dart';
 
-import 'package:doc_online/userside/presentation/components/book_diologue.dart';
+import 'package:doc_online/components/book_diologue.dart';
 
-import 'package:doc_online/userside/presentation/components/doctor_details.dart';
+import 'package:doc_online/components/doctor_details.dart';
 import 'package:doc_online/core/helpers/user_seide.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
@@ -51,7 +50,7 @@ class DoctorDetails extends StatelessWidget {
                       sliver: SliverList(
                         delegate: SliverChildListDelegate(
                           [
-                            SpaceSized.space1h(),
+                            SpaceSized.space1h,
                             CustomTexts.commonText1(
                                 doctorDetails.doctor!.name!),
                             CustomTexts.commonText1(state
@@ -102,7 +101,7 @@ class DoctorDetails extends StatelessWidget {
                                     )
                                   : ListView.separated(
                                       separatorBuilder: (context, index) =>
-                                          SpaceSized.space1h(),
+                                          SpaceSized.space1h,
                                       physics: const ScrollPhysics(),
                                       shrinkWrap: true,
                                       itemCount: days.length,
@@ -134,7 +133,7 @@ class DoctorDetails extends StatelessWidget {
                                         itemCount: state.doctorDetails.data!
                                             .reviews!.length,
                                         separatorBuilder: (context, index) =>
-                                            SpaceSized.space1h(),
+                                            SpaceSized.space1h,
                                         itemBuilder:
                                             (context, index) =>
                                                 ViewReview(

@@ -5,12 +5,9 @@ import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/bussinesslogic/search/search_bloc.dart';
-import 'package:doc_online/userside/presentation/components/card_components/doctor_card.dart';
-import 'package:doc_online/userside/presentation/components/card_components/hospital_card.dart';
+import 'package:doc_online/components/card_components/doctor_card.dart';
+import 'package:doc_online/components/card_components/hospital_card.dart';
 
-import 'package:doc_online/userside/presentation/components/widgets.dart';
-
-import 'package:doc_online/userside/presentation/components/common_widget.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 
@@ -163,7 +160,7 @@ class SearchScreen extends StatelessWidget {
                     ? state.doctorResult!.data!
                     : state.doctorsList!.data!.doctors!,
                 index: index),
-            separatorBuilder: (context, index) => SpaceSized.space1h(),
+            separatorBuilder: (context, index) => SpaceSized.space1h,
             itemCount: state.isSearch
                 ? state.doctorResult!.data!.length
                 : state.doctorsList!.data!.doctors!.length),
