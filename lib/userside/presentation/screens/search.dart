@@ -5,6 +5,8 @@ import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/bussinesslogic/search/search_bloc.dart';
+import 'package:doc_online/userside/presentation/components/card_components/doctor_card.dart';
+import 'package:doc_online/userside/presentation/components/card_components/hospital_card.dart';
 
 import 'package:doc_online/userside/presentation/components/widgets.dart';
 
@@ -24,11 +26,11 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final debouncer = Debouncer(milliseconds: 1000);
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-       BlocProvider.of<SearchBloc>(context).add(const SearchEvent.doctorSearch());
-    BlocProvider.of<SearchBloc>(context)
-        .add(const SearchEvent.hospitalSearch());
-     });
-   
+      BlocProvider.of<SearchBloc>(context)
+          .add(const SearchEvent.doctorSearch());
+      BlocProvider.of<SearchBloc>(context)
+          .add(const SearchEvent.hospitalSearch());
+    });
 
     return BlocBuilder<SearchBloc, SearchState>(
       builder: (context, state) {
@@ -40,7 +42,6 @@ class SearchScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CupertinoSearchTextField(
-                    
                     backgroundColor: Colors.grey.withOpacity(.4),
                     prefixIcon: const Icon(
                       Icons.search,
@@ -157,12 +158,11 @@ class SearchScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.separated(
-            itemBuilder: (context, index) => doctersCard(
-                state.isSearch
+            itemBuilder: (context, index) => DoctorCard(
+                doctors: state.isSearch
                     ? state.doctorResult!.data!
                     : state.doctorsList!.data!.doctors!,
-                index,
-                context),
+                index: index),
             separatorBuilder: (context, index) => SpaceSized.space1h(),
             itemCount: state.isSearch
                 ? state.doctorResult!.data!.length
@@ -191,11 +191,8 @@ class SearchScreen extends StatelessWidget {
                 : state.hospitalList!.data!.rating![
                     '${state.hospitalList!.data!.hospitals![index].id}'];
             int roundedRating = rating?.round() ?? 0;
-            return hospitalCard(
-              hospitalData,
-              roundedRating,
-              context,
-            );
+            return HospitalCard(
+                hospitalData: hospitalData, rating: roundedRating);
           }),
     );
   }

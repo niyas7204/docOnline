@@ -12,20 +12,20 @@ class ForgotpasswordBloc
   final ForgotPasswordService forgotPasswordService;
   ForgotpasswordBloc(this.forgotPasswordService)
       : super(ForgotpasswordState.initial()) {
-    on<_$_getOtp>((event, emit) async {
+    on<_getOtp>((event, emit) async {
       emit(state.copyWith(forgot: ApiResponse.loading()));
       final response =
           await forgotPasswordService.changePassword(email: event.email);
       emit(response.fold((l) => state.copyWith(forgot: ApiResponse.error(l)),
           (r) => state.copyWith(forgot: ApiResponse.complete(r.error))));
     });
-    on<_$_getVerifyRegister>((event, emit) async {
+    on<_getVerifyRegister>((event, emit) async {
       emit(state.copyWith(forgot: ApiResponse.loading()));
       final response = await forgotPasswordService.verifyOtp(otp: event.otp);
       emit(response.fold((l) => state.copyWith(forgot: ApiResponse.error(l)),
           (r) => state.copyWith(forgot: ApiResponse.complete(r))));
     });
-    on<_$_getRegister>((event, emit) async {
+    on<_getRegister>((event, emit) async {
       emit(state.copyWith(forgot: ApiResponse.loading()));
       final response = await forgotPasswordService.registerPassword(
           password: event.password);

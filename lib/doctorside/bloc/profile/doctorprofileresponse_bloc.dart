@@ -1,6 +1,7 @@
 import 'package:doc_online/core/responsehandler/api_response.dart';
 import 'package:doc_online/doctorside/data/model/doctorprofilemodel.dart';
 import 'package:doc_online/doctorside/data/repository/doctor/docrorview_service.dart';
+import 'package:doc_online/doctorside/presentation/doctorprofile.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -22,7 +23,9 @@ class DoctorprofileresponseBloc
     });
     on<_addDoctorProfile>((event, emit) async {
       emit(state.copyWith(profile: ApiResponse.loading()));
-      await doctorviewSevice.addProfile(image: event.image);
+      var uri = await pickProfile();
+      await doctorviewSevice.addProfile(image: uri);
+
       final response = await doctorviewSevice.getDoctorProfile();
       emit(response.fold(
           (l) => state.copyWith(profile: ApiResponse.error(l)),

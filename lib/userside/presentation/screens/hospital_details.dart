@@ -1,14 +1,14 @@
 import 'package:doc_online/core/responsehandler/status.dart';
+import 'package:doc_online/doctorside/data/model/doctorprofilemodel.dart';
 
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
 import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';
 import 'package:doc_online/userside/presentation/components/card_components/department_card.dart';
 
-import 'package:doc_online/userside/presentation/components/widgets.dart';
-import 'package:doc_online/userside/presentation/components/addrating.dart';
-import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/userside/presentation/components/rating_review.dart/addrating.dart';
 
 import 'package:doc_online/userside/presentation/components/doctor_details.dart';
+import 'package:doc_online/userside/presentation/components/rating_review.dart/review.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -76,10 +76,9 @@ class HospitalDetailsScreen extends StatelessWidget {
                                       .departments!.length,
                                   itemBuilder: (context, index) =>
                                       DepartmentCard(
-                                    dpName: state.hospitalDetails.data!
+                                    dpName: hospitalDetails
                                         .departments![index].name!,
-                                    id: state.hospitalDetails.data!
-                                        .departments![index].id!,
+                                    id: hospitalDetails.departments![index].id!,
                                   ),
                                 ),
                               ),
@@ -98,7 +97,7 @@ class HospitalDetailsScreen extends StatelessWidget {
                           children: [
                             hospitalDetails.review != null
                                 ? AddRating(
-                                    rating: hospitalDetails.rating!,
+                                    rating: hospitalDetails.rating!.toInt(),
                                     id: hospitalDetails.review!.hospitalId!,
                                     review: hospitalDetails.review!.review!,
                                     fieldtype: EditType.hospital)
@@ -111,12 +110,12 @@ class HospitalDetailsScreen extends StatelessWidget {
                                         .hospitalDetails.data!.reviews!.length,
                                     separatorBuilder: (context, index) =>
                                         SpaceSized.space1h(),
-                                    itemBuilder: (context, index) => review(
-                                        state.hospitalDetails.data!
+                                    itemBuilder: (context, index) => ViewReview(
+                                        profile: hospitalDetails
                                             .reviews![index].userId!.name!,
-                                        state.hospitalDetails.data!
+                                        rating: hospitalDetails
                                             .reviews![index].rating!,
-                                        state.hospitalDetails.data!
+                                        review: hospitalDetails
                                             .reviews![index].review!))
                                 : CustomTexts.header1('no review')
                           ],

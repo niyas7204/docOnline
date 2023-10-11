@@ -1,7 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-import 'dart:convert';
-import 'dart:typed_data';
 import 'package:cookie_jar/cookie_jar.dart';
 
 import 'package:dio/dio.dart';
@@ -12,7 +10,6 @@ import 'package:dartz/dartz.dart';
 import 'package:doc_online/doctorside/data/model/doctorprofilemodel.dart';
 import 'package:doc_online/doctorside/data/repository/doctor/docrorview_service.dart';
 import 'package:doc_online/doctorside/presentation/core/url.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DoctorViewImplimentation implements DoctorviewSevice {

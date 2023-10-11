@@ -1,9 +1,10 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
+import 'package:doc_online/userside/presentation/components/rating_review.dart/review.dart';
 
 import 'package:doc_online/userside/presentation/components/widgets.dart';
-import 'package:doc_online/userside/presentation/components/addrating.dart';
+import 'package:doc_online/userside/presentation/components/rating_review.dart/addrating.dart';
 
 import 'package:doc_online/userside/presentation/components/book_diologue.dart';
 
@@ -134,13 +135,19 @@ class DoctorDetails extends StatelessWidget {
                                             .reviews!.length,
                                         separatorBuilder: (context, index) =>
                                             SpaceSized.space1h(),
-                                        itemBuilder: (context, index) => review(
-                                            state.doctorDetails.data!
-                                                .reviews![index].userId!.name!,
-                                            state.doctorDetails.data!
-                                                .reviews![index].rating!,
-                                            state.doctorDetails.data!
-                                                .reviews![index].review!))
+                                        itemBuilder:
+                                            (context, index) =>
+                                                ViewReview(
+                                                    profile: doctorDetails
+                                                        .reviews![index]
+                                                        .userId!
+                                                        .name!,
+                                                    rating: doctorDetails
+                                                        .reviews![index]
+                                                        .rating!,
+                                                    review: doctorDetails
+                                                        .reviews![index]
+                                                        .review!))
                                     : const Center(
                                         child: Text(
                                           'No Review',

@@ -1,5 +1,6 @@
 import 'package:doc_online/userside/data/model/hopital/hospital_model.dart';
 import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/userside/presentation/components/rating_review.dart/star_rating.dart';
 import 'package:doc_online/userside/presentation/screens/hospital_details.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class HospitalCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
-                    starRating(rating),
+                    StarRating(rating: rating),
                     Text(
                       hospitalData.address!,
                       style: const TextStyle(

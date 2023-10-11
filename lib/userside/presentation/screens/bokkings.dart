@@ -3,8 +3,6 @@ import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/presentation/components/card_components/booking_card.dart';
 
-import 'package:doc_online/userside/presentation/components/widgets.dart';
-import 'package:doc_online/userside/presentation/components/cards.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 

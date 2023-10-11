@@ -7,7 +7,6 @@ import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../components/widgets.dart';
 
 class ByDepartment extends StatelessWidget {
   final String id;
@@ -21,7 +20,7 @@ class ByDepartment extends StatelessWidget {
     });
     return BlocBuilder<UsersideBloc, UsersideState>(
       builder: (context, state) {
-        final bstate = state.doctorData;
+        final doctorstate = state.doctorData;
         switch (state.doctorData.status) {
           case ApiStatus.loading:
             return const Center(
@@ -46,14 +45,14 @@ class ByDepartment extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
-                      bstate.data!.doctors!.isNotEmpty
+                      doctorstate.data!.doctors!.isNotEmpty
                           ? Expanded(
                               child: ListView.separated(
                                   separatorBuilder: (context, index) =>
                                       SpaceSized.space1h(),
-                                  itemCount: bstate.data!.doctors!.length,
+                                  itemCount: doctorstate.data!.doctors!.length,
                                   itemBuilder: (context, index) => DoctorCard(
-                                      doctors: bstate.data!.doctors!,
+                                      doctors: doctorstate.data!.doctors!,
                                       index: index)))
                           : Center(
                               child: CustomTexts.errorText("No doctors found"),

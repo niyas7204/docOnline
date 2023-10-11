@@ -1,16 +1,14 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/paymet/payment_bloc.dart';
-import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/userside/presentation/components/schedule_components.dart/time_slots.dart';
 import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
 import 'package:doc_online/userside/data/repository/payment_handler.dart';
-import 'package:doc_online/userside/presentation/components/common_widget.dart';
 import 'package:doc_online/utils/alert_diologe.dart';
 import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 showBookingDiologue(BuildContext context, int fees, String doctorId) {
   return showDialog(
@@ -93,16 +91,16 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
               Flexible(
                 flex: 1,
                 child: GridView.builder(
-                  shrinkWrap: true,
-                  itemCount: scheduleList!.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio: 6 / 3,
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 10),
-                  itemBuilder: (context, index) =>
-                      timeTable(scheduleList[index].date!, index),
-                ),
+                    shrinkWrap: true,
+                    itemCount: scheduleList!.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            childAspectRatio: 6 / 3,
+                            crossAxisSpacing: 5,
+                            mainAxisSpacing: 10),
+                    itemBuilder: (context, index) => DateAndTime(
+                        day: scheduleList[index].date!, index: index)),
               ),
               SpaceSized.space1h(),
               isdateSeleted == null
@@ -220,7 +218,7 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                               break;
                             case ApiStatus.complete:
                               isPaymentCall = true;
-    
+
                               return await getRazorPay(
                                   context,
                                   fee,
@@ -245,15 +243,15 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                                   istimeSelected != null) {
                                 if (nameController.text.isNotEmpty &&
                                     ageController.text.isNotEmpty) {
-                                  BlocProvider.of<PaymentBloc>(context)
-                                      .add(PaymentEvent.getOrderOption(fee: fee));
+                                  BlocProvider.of<PaymentBloc>(context).add(
+                                      PaymentEvent.getOrderOption(fee: fee));
                                 } else {
                                   CustomAlertDiologe.showAlertdiolog(
                                       context, 'name and age must fill');
                                 }
                               } else {
-                                CustomAlertDiologe.showAlertdiolog(
-                                    context, 'date and time should be selected');
+                                CustomAlertDiologe.showAlertdiolog(context,
+                                    'date and time should be selected');
                               }
                             },
                             child: CustomTexts.commonText1('BookNow')),
