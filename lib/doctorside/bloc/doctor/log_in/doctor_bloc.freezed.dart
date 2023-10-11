@@ -95,22 +95,22 @@ class _$DoctorEventCopyWithImpl<$Res, $Val extends DoctorEvent>
 }
 
 /// @nodoc
-abstract class _$$_getDoctorLogInCopyWith<$Res>
+abstract class _$$getDoctorLogInImplCopyWith<$Res>
     implements $DoctorEventCopyWith<$Res> {
-  factory _$$_getDoctorLogInCopyWith(
-          _$_getDoctorLogIn value, $Res Function(_$_getDoctorLogIn) then) =
-      __$$_getDoctorLogInCopyWithImpl<$Res>;
+  factory _$$getDoctorLogInImplCopyWith(_$getDoctorLogInImpl value,
+          $Res Function(_$getDoctorLogInImpl) then) =
+      __$$getDoctorLogInImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$_getDoctorLogInCopyWithImpl<$Res>
-    extends _$DoctorEventCopyWithImpl<$Res, _$_getDoctorLogIn>
-    implements _$$_getDoctorLogInCopyWith<$Res> {
-  __$$_getDoctorLogInCopyWithImpl(
-      _$_getDoctorLogIn _value, $Res Function(_$_getDoctorLogIn) _then)
+class __$$getDoctorLogInImplCopyWithImpl<$Res>
+    extends _$DoctorEventCopyWithImpl<$Res, _$getDoctorLogInImpl>
+    implements _$$getDoctorLogInImplCopyWith<$Res> {
+  __$$getDoctorLogInImplCopyWithImpl(
+      _$getDoctorLogInImpl _value, $Res Function(_$getDoctorLogInImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_getDoctorLogInCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$_getDoctorLogIn(
+    return _then(_$getDoctorLogInImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -134,8 +134,8 @@ class __$$_getDoctorLogInCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getDoctorLogIn implements _getDoctorLogIn {
-  const _$_getDoctorLogIn({required this.email, required this.password});
+class _$getDoctorLogInImpl implements _getDoctorLogIn {
+  const _$getDoctorLogInImpl({required this.email, required this.password});
 
   @override
   final String email;
@@ -151,7 +151,7 @@ class _$_getDoctorLogIn implements _getDoctorLogIn {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getDoctorLogIn &&
+            other is _$getDoctorLogInImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -163,8 +163,9 @@ class _$_getDoctorLogIn implements _getDoctorLogIn {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getDoctorLogInCopyWith<_$_getDoctorLogIn> get copyWith =>
-      __$$_getDoctorLogInCopyWithImpl<_$_getDoctorLogIn>(this, _$identity);
+  _$$getDoctorLogInImplCopyWith<_$getDoctorLogInImpl> get copyWith =>
+      __$$getDoctorLogInImplCopyWithImpl<_$getDoctorLogInImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,7 +227,7 @@ class _$_getDoctorLogIn implements _getDoctorLogIn {
 abstract class _getDoctorLogIn implements DoctorEvent {
   const factory _getDoctorLogIn(
       {required final String email,
-      required final String password}) = _$_getDoctorLogIn;
+      required final String password}) = _$getDoctorLogInImpl;
 
   @override
   String get email;
@@ -234,7 +235,7 @@ abstract class _getDoctorLogIn implements DoctorEvent {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$_getDoctorLogInCopyWith<_$_getDoctorLogIn> get copyWith =>
+  _$$getDoctorLogInImplCopyWith<_$getDoctorLogInImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -281,22 +282,22 @@ class _$DoctorStateCopyWithImpl<$Res, $Val extends DoctorState>
 }
 
 /// @nodoc
-abstract class _$$_DoctorStateCopyWith<$Res>
+abstract class _$$DoctorStateImplCopyWith<$Res>
     implements $DoctorStateCopyWith<$Res> {
-  factory _$$_DoctorStateCopyWith(
-          _$_DoctorState value, $Res Function(_$_DoctorState) then) =
-      __$$_DoctorStateCopyWithImpl<$Res>;
+  factory _$$DoctorStateImplCopyWith(
+          _$DoctorStateImpl value, $Res Function(_$DoctorStateImpl) then) =
+      __$$DoctorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<bool>? logResponse});
 }
 
 /// @nodoc
-class __$$_DoctorStateCopyWithImpl<$Res>
-    extends _$DoctorStateCopyWithImpl<$Res, _$_DoctorState>
-    implements _$$_DoctorStateCopyWith<$Res> {
-  __$$_DoctorStateCopyWithImpl(
-      _$_DoctorState _value, $Res Function(_$_DoctorState) _then)
+class __$$DoctorStateImplCopyWithImpl<$Res>
+    extends _$DoctorStateCopyWithImpl<$Res, _$DoctorStateImpl>
+    implements _$$DoctorStateImplCopyWith<$Res> {
+  __$$DoctorStateImplCopyWithImpl(
+      _$DoctorStateImpl _value, $Res Function(_$DoctorStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -304,7 +305,7 @@ class __$$_DoctorStateCopyWithImpl<$Res>
   $Res call({
     Object? logResponse = freezed,
   }) {
-    return _then(_$_DoctorState(
+    return _then(_$DoctorStateImpl(
       logResponse: freezed == logResponse
           ? _value.logResponse
           : logResponse // ignore: cast_nullable_to_non_nullable
@@ -315,8 +316,8 @@ class __$$_DoctorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DoctorState implements _DoctorState {
-  const _$_DoctorState({this.logResponse});
+class _$DoctorStateImpl implements _DoctorState {
+  const _$DoctorStateImpl({this.logResponse});
 
   @override
   final ApiResponse<bool>? logResponse;
@@ -330,7 +331,7 @@ class _$_DoctorState implements _DoctorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoctorState &&
+            other is _$DoctorStateImpl &&
             (identical(other.logResponse, logResponse) ||
                 other.logResponse == logResponse));
   }
@@ -341,18 +342,18 @@ class _$_DoctorState implements _DoctorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoctorStateCopyWith<_$_DoctorState> get copyWith =>
-      __$$_DoctorStateCopyWithImpl<_$_DoctorState>(this, _$identity);
+  _$$DoctorStateImplCopyWith<_$DoctorStateImpl> get copyWith =>
+      __$$DoctorStateImplCopyWithImpl<_$DoctorStateImpl>(this, _$identity);
 }
 
 abstract class _DoctorState implements DoctorState {
   const factory _DoctorState({final ApiResponse<bool>? logResponse}) =
-      _$_DoctorState;
+      _$DoctorStateImpl;
 
   @override
   ApiResponse<bool>? get logResponse;
   @override
   @JsonKey(ignore: true)
-  _$$_DoctorStateCopyWith<_$_DoctorState> get copyWith =>
+  _$$DoctorStateImplCopyWith<_$DoctorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

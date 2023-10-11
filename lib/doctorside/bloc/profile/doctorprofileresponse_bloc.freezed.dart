@@ -77,25 +77,26 @@ class _$DoctorprofileresponseEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GetDoctorProfileCopyWith<$Res> {
-  factory _$$_GetDoctorProfileCopyWith(
-          _$_GetDoctorProfile value, $Res Function(_$_GetDoctorProfile) then) =
-      __$$_GetDoctorProfileCopyWithImpl<$Res>;
+abstract class _$$GetDoctorProfileImplCopyWith<$Res> {
+  factory _$$GetDoctorProfileImplCopyWith(_$GetDoctorProfileImpl value,
+          $Res Function(_$GetDoctorProfileImpl) then) =
+      __$$GetDoctorProfileImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetDoctorProfileCopyWithImpl<$Res>
-    extends _$DoctorprofileresponseEventCopyWithImpl<$Res, _$_GetDoctorProfile>
-    implements _$$_GetDoctorProfileCopyWith<$Res> {
-  __$$_GetDoctorProfileCopyWithImpl(
-      _$_GetDoctorProfile _value, $Res Function(_$_GetDoctorProfile) _then)
+class __$$GetDoctorProfileImplCopyWithImpl<$Res>
+    extends _$DoctorprofileresponseEventCopyWithImpl<$Res,
+        _$GetDoctorProfileImpl>
+    implements _$$GetDoctorProfileImplCopyWith<$Res> {
+  __$$GetDoctorProfileImplCopyWithImpl(_$GetDoctorProfileImpl _value,
+      $Res Function(_$GetDoctorProfileImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetDoctorProfile implements _GetDoctorProfile {
-  const _$_GetDoctorProfile();
+class _$GetDoctorProfileImpl implements _GetDoctorProfile {
+  const _$GetDoctorProfileImpl();
 
   @override
   String toString() {
@@ -105,7 +106,7 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetDoctorProfile);
+        (other.runtimeType == runtimeType && other is _$GetDoctorProfileImpl);
   }
 
   @override
@@ -175,24 +176,25 @@ class _$_GetDoctorProfile implements _GetDoctorProfile {
 }
 
 abstract class _GetDoctorProfile implements DoctorprofileresponseEvent {
-  const factory _GetDoctorProfile() = _$_GetDoctorProfile;
+  const factory _GetDoctorProfile() = _$GetDoctorProfileImpl;
 }
 
 /// @nodoc
-abstract class _$$_addDoctorProfileCopyWith<$Res> {
-  factory _$$_addDoctorProfileCopyWith(
-          _$_addDoctorProfile value, $Res Function(_$_addDoctorProfile) then) =
-      __$$_addDoctorProfileCopyWithImpl<$Res>;
+abstract class _$$addDoctorProfileImplCopyWith<$Res> {
+  factory _$$addDoctorProfileImplCopyWith(_$addDoctorProfileImpl value,
+          $Res Function(_$addDoctorProfileImpl) then) =
+      __$$addDoctorProfileImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String image});
 }
 
 /// @nodoc
-class __$$_addDoctorProfileCopyWithImpl<$Res>
-    extends _$DoctorprofileresponseEventCopyWithImpl<$Res, _$_addDoctorProfile>
-    implements _$$_addDoctorProfileCopyWith<$Res> {
-  __$$_addDoctorProfileCopyWithImpl(
-      _$_addDoctorProfile _value, $Res Function(_$_addDoctorProfile) _then)
+class __$$addDoctorProfileImplCopyWithImpl<$Res>
+    extends _$DoctorprofileresponseEventCopyWithImpl<$Res,
+        _$addDoctorProfileImpl>
+    implements _$$addDoctorProfileImplCopyWith<$Res> {
+  __$$addDoctorProfileImplCopyWithImpl(_$addDoctorProfileImpl _value,
+      $Res Function(_$addDoctorProfileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -200,7 +202,7 @@ class __$$_addDoctorProfileCopyWithImpl<$Res>
   $Res call({
     Object? image = null,
   }) {
-    return _then(_$_addDoctorProfile(
+    return _then(_$addDoctorProfileImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -211,8 +213,8 @@ class __$$_addDoctorProfileCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_addDoctorProfile implements _addDoctorProfile {
-  const _$_addDoctorProfile({required this.image});
+class _$addDoctorProfileImpl implements _addDoctorProfile {
+  const _$addDoctorProfileImpl({required this.image});
 
   @override
   final String image;
@@ -226,7 +228,7 @@ class _$_addDoctorProfile implements _addDoctorProfile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_addDoctorProfile &&
+            other is _$addDoctorProfileImpl &&
             (identical(other.image, image) || other.image == image));
   }
 
@@ -236,8 +238,9 @@ class _$_addDoctorProfile implements _addDoctorProfile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_addDoctorProfileCopyWith<_$_addDoctorProfile> get copyWith =>
-      __$$_addDoctorProfileCopyWithImpl<_$_addDoctorProfile>(this, _$identity);
+  _$$addDoctorProfileImplCopyWith<_$addDoctorProfileImpl> get copyWith =>
+      __$$addDoctorProfileImplCopyWithImpl<_$addDoctorProfileImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -304,11 +307,11 @@ class _$_addDoctorProfile implements _addDoctorProfile {
 
 abstract class _addDoctorProfile implements DoctorprofileresponseEvent {
   const factory _addDoctorProfile({required final String image}) =
-      _$_addDoctorProfile;
+      _$addDoctorProfileImpl;
 
   String get image;
   @JsonKey(ignore: true)
-  _$$_addDoctorProfileCopyWith<_$_addDoctorProfile> get copyWith =>
+  _$$addDoctorProfileImplCopyWith<_$addDoctorProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -358,25 +361,25 @@ class _$DoctorprofileresponseStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DoctorprofileresponseStateCopyWith<$Res>
+abstract class _$$DoctorprofileresponseStateImplCopyWith<$Res>
     implements $DoctorprofileresponseStateCopyWith<$Res> {
-  factory _$$_DoctorprofileresponseStateCopyWith(
-          _$_DoctorprofileresponseState value,
-          $Res Function(_$_DoctorprofileresponseState) then) =
-      __$$_DoctorprofileresponseStateCopyWithImpl<$Res>;
+  factory _$$DoctorprofileresponseStateImplCopyWith(
+          _$DoctorprofileresponseStateImpl value,
+          $Res Function(_$DoctorprofileresponseStateImpl) then) =
+      __$$DoctorprofileresponseStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<DoctorProfileModel> profile});
 }
 
 /// @nodoc
-class __$$_DoctorprofileresponseStateCopyWithImpl<$Res>
+class __$$DoctorprofileresponseStateImplCopyWithImpl<$Res>
     extends _$DoctorprofileresponseStateCopyWithImpl<$Res,
-        _$_DoctorprofileresponseState>
-    implements _$$_DoctorprofileresponseStateCopyWith<$Res> {
-  __$$_DoctorprofileresponseStateCopyWithImpl(
-      _$_DoctorprofileresponseState _value,
-      $Res Function(_$_DoctorprofileresponseState) _then)
+        _$DoctorprofileresponseStateImpl>
+    implements _$$DoctorprofileresponseStateImplCopyWith<$Res> {
+  __$$DoctorprofileresponseStateImplCopyWithImpl(
+      _$DoctorprofileresponseStateImpl _value,
+      $Res Function(_$DoctorprofileresponseStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -384,7 +387,7 @@ class __$$_DoctorprofileresponseStateCopyWithImpl<$Res>
   $Res call({
     Object? profile = null,
   }) {
-    return _then(_$_DoctorprofileresponseState(
+    return _then(_$DoctorprofileresponseStateImpl(
       profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -395,8 +398,8 @@ class __$$_DoctorprofileresponseStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DoctorprofileresponseState implements _DoctorprofileresponseState {
-  const _$_DoctorprofileresponseState({required this.profile});
+class _$DoctorprofileresponseStateImpl implements _DoctorprofileresponseState {
+  const _$DoctorprofileresponseStateImpl({required this.profile});
 
   @override
   final ApiResponse<DoctorProfileModel> profile;
@@ -410,7 +413,7 @@ class _$_DoctorprofileresponseState implements _DoctorprofileresponseState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoctorprofileresponseState &&
+            other is _$DoctorprofileresponseStateImpl &&
             (identical(other.profile, profile) || other.profile == profile));
   }
 
@@ -420,21 +423,21 @@ class _$_DoctorprofileresponseState implements _DoctorprofileresponseState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoctorprofileresponseStateCopyWith<_$_DoctorprofileresponseState>
-      get copyWith => __$$_DoctorprofileresponseStateCopyWithImpl<
-          _$_DoctorprofileresponseState>(this, _$identity);
+  _$$DoctorprofileresponseStateImplCopyWith<_$DoctorprofileresponseStateImpl>
+      get copyWith => __$$DoctorprofileresponseStateImplCopyWithImpl<
+          _$DoctorprofileresponseStateImpl>(this, _$identity);
 }
 
 abstract class _DoctorprofileresponseState
     implements DoctorprofileresponseState {
   const factory _DoctorprofileresponseState(
           {required final ApiResponse<DoctorProfileModel> profile}) =
-      _$_DoctorprofileresponseState;
+      _$DoctorprofileresponseStateImpl;
 
   @override
   ApiResponse<DoctorProfileModel> get profile;
   @override
   @JsonKey(ignore: true)
-  _$$_DoctorprofileresponseStateCopyWith<_$_DoctorprofileresponseState>
+  _$$DoctorprofileresponseStateImplCopyWith<_$DoctorprofileresponseStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

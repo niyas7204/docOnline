@@ -1,6 +1,8 @@
 import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,7 +25,7 @@ addRating(rating, BuildContext context, String id, String review,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            text20('Add Rating'),
+            CustomTexts.text20('Add Rating'),
             SizedBox(
               height: 40,
               child: ListView.separated(
@@ -73,8 +75,8 @@ addRating(rating, BuildContext context, String id, String review,
                           ),
                         )),
             ),
-            space1h(),
-            text20('Add Feedback'),
+            SpaceSized.space1h(),
+            CustomTexts.text20('Add Feedback'),
             TextField(
               controller: feedbackController,
               maxLines: 3,

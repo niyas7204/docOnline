@@ -1,7 +1,8 @@
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
-
-Widget textEditField(
+class TextFieldWidgets{
+static  textEditField(
   String label,
   TextEditingController controller,
 ) {
@@ -10,8 +11,9 @@ Widget textEditField(
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      labelText(label),
-      TextFormField(
+      CustomTexts.labelText(label),
+      TextField(
+      
         keyboardType: password ? TextInputType.number : TextInputType.text,
         obscureText: password,
         controller: controller,
@@ -23,4 +25,6 @@ Widget textEditField(
       ),
     ],
   );
+}
+
 }

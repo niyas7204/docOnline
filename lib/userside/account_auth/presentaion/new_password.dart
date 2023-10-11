@@ -1,12 +1,15 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/account_auth/businesslogic/bloc/forgotpassword_bloc.dart';
 import 'package:doc_online/userside/account_auth/presentaion/helpers/formfieldvalidation.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
+import 'package:doc_online/utils/alert_diologe.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ 
 
 import 'log_in.dart';
 
@@ -34,17 +37,17 @@ class NewPassword extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  header1('Reset Password'),
-                  space1h(),
-                  labelText('New Password'),
+                  CustomTexts.header1('Reset Password'),
+                  SpaceSized.space1h(),
+                  CustomTexts.labelText('New Password'),
                   textField('New Password', restcontroller),
-                  space1h(),
-                  labelText('Confirm Password'),
+                  SpaceSized.space1h(),
+                  CustomTexts.labelText('Confirm Password'),
                   textField('Confirm Password', confirmcontroller),
-                  space1h(),
+                  SpaceSized.space1h(),
                   SizedBox(
-                    width: 160.w,
-                    height: 35.h,
+                    width: 160,
+                    height: 35,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: baseColor,
@@ -60,7 +63,7 @@ class NewPassword extends StatelessWidget {
                                 ForgotpasswordEvent.getRgister(
                                     password: restcontroller.text));
                           } else {
-                            showAlertdiolog(
+                            CustomAlertDiologe.showAlertdiolog(
                                 context, 'Passwords should not match');
                           }
                         }

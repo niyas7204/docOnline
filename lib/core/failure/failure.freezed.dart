@@ -75,25 +75,25 @@ class _$MainFailureCopyWithImpl<$Res, $Val extends MainFailure>
 }
 
 /// @nodoc
-abstract class _$$_clientFailureCopyWith<$Res> {
-  factory _$$_clientFailureCopyWith(
-          _$_clientFailure value, $Res Function(_$_clientFailure) then) =
-      __$$_clientFailureCopyWithImpl<$Res>;
+abstract class _$$clientFailureImplCopyWith<$Res> {
+  factory _$$clientFailureImplCopyWith(
+          _$clientFailureImpl value, $Res Function(_$clientFailureImpl) then) =
+      __$$clientFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_clientFailureCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$_clientFailure>
-    implements _$$_clientFailureCopyWith<$Res> {
-  __$$_clientFailureCopyWithImpl(
-      _$_clientFailure _value, $Res Function(_$_clientFailure) _then)
+class __$$clientFailureImplCopyWithImpl<$Res>
+    extends _$MainFailureCopyWithImpl<$Res, _$clientFailureImpl>
+    implements _$$clientFailureImplCopyWith<$Res> {
+  __$$clientFailureImplCopyWithImpl(
+      _$clientFailureImpl _value, $Res Function(_$clientFailureImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_clientFailure implements _clientFailure {
-  const _$_clientFailure();
+class _$clientFailureImpl implements _clientFailure {
+  const _$clientFailureImpl();
 
   @override
   String toString() {
@@ -103,7 +103,7 @@ class _$_clientFailure implements _clientFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_clientFailure);
+        (other.runtimeType == runtimeType && other is _$clientFailureImpl);
   }
 
   @override
@@ -173,29 +173,29 @@ class _$_clientFailure implements _clientFailure {
 }
 
 abstract class _clientFailure implements MainFailure {
-  const factory _clientFailure() = _$_clientFailure;
+  const factory _clientFailure() = _$clientFailureImpl;
 }
 
 /// @nodoc
-abstract class _$$_serverFailureCopyWith<$Res> {
-  factory _$$_serverFailureCopyWith(
-          _$_serverFailure value, $Res Function(_$_serverFailure) then) =
-      __$$_serverFailureCopyWithImpl<$Res>;
+abstract class _$$serverFailureImplCopyWith<$Res> {
+  factory _$$serverFailureImplCopyWith(
+          _$serverFailureImpl value, $Res Function(_$serverFailureImpl) then) =
+      __$$serverFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_serverFailureCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$_serverFailure>
-    implements _$$_serverFailureCopyWith<$Res> {
-  __$$_serverFailureCopyWithImpl(
-      _$_serverFailure _value, $Res Function(_$_serverFailure) _then)
+class __$$serverFailureImplCopyWithImpl<$Res>
+    extends _$MainFailureCopyWithImpl<$Res, _$serverFailureImpl>
+    implements _$$serverFailureImplCopyWith<$Res> {
+  __$$serverFailureImplCopyWithImpl(
+      _$serverFailureImpl _value, $Res Function(_$serverFailureImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_serverFailure implements _serverFailure {
-  const _$_serverFailure();
+class _$serverFailureImpl implements _serverFailure {
+  const _$serverFailureImpl();
 
   @override
   String toString() {
@@ -205,7 +205,7 @@ class _$_serverFailure implements _serverFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_serverFailure);
+        (other.runtimeType == runtimeType && other is _$serverFailureImpl);
   }
 
   @override
@@ -275,5 +275,5 @@ class _$_serverFailure implements _serverFailure {
 }
 
 abstract class _serverFailure implements MainFailure {
-  const factory _serverFailure() = _$_serverFailure;
+  const factory _serverFailure() = _$serverFailureImpl;
 }

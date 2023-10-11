@@ -4,13 +4,16 @@ import 'package:doc_online/userside/account_auth/businesslogic/bloc/forgotpasswo
 import 'package:doc_online/userside/account_auth/businesslogic/verifyotpbloc/verifyotp_bloc.dart';
 import 'package:doc_online/userside/account_auth/presentaion/log_in.dart';
 import 'package:doc_online/userside/account_auth/presentaion/new_password.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
+import 'package:doc_online/utils/alert_diologe.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ 
 
 class VerifyEmail extends StatelessWidget {
   final bool isSignup;
@@ -75,19 +78,19 @@ class VerifyEmail extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      header1('Verify Email'),
-                      space1h(),
+                      CustomTexts.header1('Verify Email'),
+                      SpaceSized.space1h(),
                       Text('Enter the otp sent to \n ${GetAllData.email}'),
                       Column(
                         children: [
-                          labelText('OTP'),
+                          CustomTexts.labelText('OTP'),
                           textField('OTP', otpcontroller),
-                          space1h(),
+                          SpaceSized.space1h(),
                         ],
                       ),
                       SizedBox(
-                        width: 160.w,
-                        height: 35.h,
+                        width: 160,
+                        height: 35,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: baseColor,
@@ -102,7 +105,7 @@ class VerifyEmail extends StatelessWidget {
                                       .add(ForgotpasswordEvent.getVerifyRgister(
                                           otp: otpcontroller.text));
                             } else {
-                              showAlertdiolog(context, 'OTP not entered.');
+                              CustomAlertDiologe.showAlertdiolog(context, 'OTP not entered.');
                             }
                           },
                           child: const Text(

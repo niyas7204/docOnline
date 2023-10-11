@@ -1,14 +1,19 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
 
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
 import 'package:doc_online/doctorside/presentation/home.dart';
+import 'package:doc_online/utils/alert_diologe.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
+import 'package:doc_online/utils/text.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ 
 
 class DoctorLogin extends StatelessWidget {
   const DoctorLogin({super.key});
@@ -48,25 +53,25 @@ class DoctorLogin extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        header1('Login'),
+                        CustomTexts.header1('Login'),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            space1h(),
-                            labelText('Email'),
+                            SpaceSized.space1h(),
+                            CustomTexts.labelText('Email'),
                             textField('Email', emailcontroller),
-                            space1h(),
-                            labelText('Password'),
+                            SpaceSized.space1h(),
+                            CustomTexts.labelText('Password'),
                             textField('Password', passwordcontroller),
-                            space1h(),
+                            SpaceSized.space1h(),
                           ],
                         ),
                         state.logResponse!.status == ApiStatus.error
-                            ? errorText('Email and Password shouldnot match')
+                            ? CustomTexts.errorText('Email and Password shouldnot match')
                             : const SizedBox(),
                         SizedBox(
-                          width: 160.w,
-                          height: 35.h,
+                          width: 160,
+                          height: 35,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: baseColor,
@@ -82,7 +87,7 @@ class DoctorLogin extends StatelessWidget {
                             ),
                           ),
                         ),
-                        space1h(),
+                        SpaceSized.space1h(),
                       ],
                     ),
                   ),
@@ -101,6 +106,6 @@ onPress(BuildContext context, String email, String password) async {
     BlocProvider.of<DoctorBloc>(context)
         .add(DoctorEvent.getDoctorLogIn(email: email, password: password));
   } else {
-    showAlertdiolog(context, 'fields mustnot be empty');
+    CustomAlertDiologe.showAlertdiolog(context, 'fields mustnot be empty');
   }
 }

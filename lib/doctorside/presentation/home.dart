@@ -4,8 +4,11 @@ import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/doctorside/core/helpers/create_booking_list.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/doctorside/presentation/widgets/profile_icon.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/widgets/common_widgets.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,11 +56,11 @@ class DoctorHomeSc extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [logo(), profile(context)],
+                          children: [logo(),const ProfileIcon()],
                         ),
-                        space1h(),
-                        space1h(),
-                        header1('Appoinments'),
+                        SpaceSized.space1h(),
+                        SpaceSized.space1h(),
+                        CustomTexts.header1('Appoinments'),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -73,7 +76,7 @@ class DoctorHomeSc extends StatelessWidget {
                                           selection:
                                               AppointmentSelection.today));
                                 },
-                                child: text20('Todays')),
+                                child: CustomTexts.text20('Todays')),
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: state.selection ==
@@ -86,7 +89,7 @@ class DoctorHomeSc extends StatelessWidget {
                                           selection:
                                               AppointmentSelection.upcoming));
                                 },
-                                child: text20('upcoming')),
+                                child: CustomTexts.text20('upcoming')),
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: state.selection ==
@@ -99,7 +102,7 @@ class DoctorHomeSc extends StatelessWidget {
                                           selection:
                                               AppointmentSelection.completed));
                                 },
-                                child: text20('completed'))
+                                child: CustomTexts.text20('completed'))
                           ],
                         ),
                         bookingsList.isNotEmpty
@@ -109,10 +112,10 @@ class DoctorHomeSc extends StatelessWidget {
                                         patientCard(bookingsList, index,
                                             context, state.selection),
                                     separatorBuilder: (context, index) =>
-                                        space1h(),
+                                        SpaceSized.space1h(),
                                     itemCount: bookingsList.length))
                             : Center(
-                                child: errorText('No appointment available'),
+                                child: CustomTexts.errorText('No appointment available'),
                               ),
                       ],
                     ),

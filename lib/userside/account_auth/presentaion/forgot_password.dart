@@ -3,8 +3,10 @@ import 'package:doc_online/core/get_all_data.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/account_auth/businesslogic/bloc/forgotpassword_bloc.dart';
 import 'package:doc_online/userside/account_auth/presentaion/verify_email.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,15 +34,15 @@ class ForgotPassword extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  header1('Forgot Password ?'),
-                  space1h(),
+                  CustomTexts.header1('Forgot Password ?'),
+                  SpaceSized.space1h(),
                   const Text('Enter the email adress'),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      labelText('Email'),
+                      CustomTexts.labelText('Email'),
                       textField('Email', emailcontroller),
-                      space1h(),
+                      SpaceSized.space1h(),
                     ],
                   ),
                   ElevatedButton(

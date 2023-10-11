@@ -69,25 +69,25 @@ class _$UserProfileEventCopyWithImpl<$Res, $Val extends UserProfileEvent>
 }
 
 /// @nodoc
-abstract class _$$getUserprofileCopyWith<$Res> {
-  factory _$$getUserprofileCopyWith(
-          _$getUserprofile value, $Res Function(_$getUserprofile) then) =
-      __$$getUserprofileCopyWithImpl<$Res>;
+abstract class _$$getUserprofileImplCopyWith<$Res> {
+  factory _$$getUserprofileImplCopyWith(_$getUserprofileImpl value,
+          $Res Function(_$getUserprofileImpl) then) =
+      __$$getUserprofileImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$getUserprofileCopyWithImpl<$Res>
-    extends _$UserProfileEventCopyWithImpl<$Res, _$getUserprofile>
-    implements _$$getUserprofileCopyWith<$Res> {
-  __$$getUserprofileCopyWithImpl(
-      _$getUserprofile _value, $Res Function(_$getUserprofile) _then)
+class __$$getUserprofileImplCopyWithImpl<$Res>
+    extends _$UserProfileEventCopyWithImpl<$Res, _$getUserprofileImpl>
+    implements _$$getUserprofileImplCopyWith<$Res> {
+  __$$getUserprofileImplCopyWithImpl(
+      _$getUserprofileImpl _value, $Res Function(_$getUserprofileImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$getUserprofile implements getUserprofile {
-  const _$getUserprofile();
+class _$getUserprofileImpl implements getUserprofile {
+  const _$getUserprofileImpl();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$getUserprofile implements getUserprofile {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$getUserprofile);
+        (other.runtimeType == runtimeType && other is _$getUserprofileImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$getUserprofile implements getUserprofile {
 }
 
 abstract class getUserprofile implements UserProfileEvent {
-  const factory getUserprofile() = _$getUserprofile;
+  const factory getUserprofile() = _$getUserprofileImpl;
 }
 
 /// @nodoc
@@ -208,22 +208,22 @@ class _$UserProfileStateCopyWithImpl<$Res, $Val extends UserProfileState>
 }
 
 /// @nodoc
-abstract class _$$userProfileStateCopyWith<$Res>
+abstract class _$$userProfileStateImplCopyWith<$Res>
     implements $UserProfileStateCopyWith<$Res> {
-  factory _$$userProfileStateCopyWith(
-          _$userProfileState value, $Res Function(_$userProfileState) then) =
-      __$$userProfileStateCopyWithImpl<$Res>;
+  factory _$$userProfileStateImplCopyWith(_$userProfileStateImpl value,
+          $Res Function(_$userProfileStateImpl) then) =
+      __$$userProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<UserProfileModel> userProfile});
 }
 
 /// @nodoc
-class __$$userProfileStateCopyWithImpl<$Res>
-    extends _$UserProfileStateCopyWithImpl<$Res, _$userProfileState>
-    implements _$$userProfileStateCopyWith<$Res> {
-  __$$userProfileStateCopyWithImpl(
-      _$userProfileState _value, $Res Function(_$userProfileState) _then)
+class __$$userProfileStateImplCopyWithImpl<$Res>
+    extends _$UserProfileStateCopyWithImpl<$Res, _$userProfileStateImpl>
+    implements _$$userProfileStateImplCopyWith<$Res> {
+  __$$userProfileStateImplCopyWithImpl(_$userProfileStateImpl _value,
+      $Res Function(_$userProfileStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -231,7 +231,7 @@ class __$$userProfileStateCopyWithImpl<$Res>
   $Res call({
     Object? userProfile = null,
   }) {
-    return _then(_$userProfileState(
+    return _then(_$userProfileStateImpl(
       userProfile: null == userProfile
           ? _value.userProfile
           : userProfile // ignore: cast_nullable_to_non_nullable
@@ -242,8 +242,8 @@ class __$$userProfileStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$userProfileState implements userProfileState {
-  const _$userProfileState({required this.userProfile});
+class _$userProfileStateImpl implements userProfileState {
+  const _$userProfileStateImpl({required this.userProfile});
 
   @override
   final ApiResponse<UserProfileModel> userProfile;
@@ -257,7 +257,7 @@ class _$userProfileState implements userProfileState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$userProfileState &&
+            other is _$userProfileStateImpl &&
             (identical(other.userProfile, userProfile) ||
                 other.userProfile == userProfile));
   }
@@ -268,19 +268,20 @@ class _$userProfileState implements userProfileState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$userProfileStateCopyWith<_$userProfileState> get copyWith =>
-      __$$userProfileStateCopyWithImpl<_$userProfileState>(this, _$identity);
+  _$$userProfileStateImplCopyWith<_$userProfileStateImpl> get copyWith =>
+      __$$userProfileStateImplCopyWithImpl<_$userProfileStateImpl>(
+          this, _$identity);
 }
 
 abstract class userProfileState implements UserProfileState {
   const factory userProfileState(
           {required final ApiResponse<UserProfileModel> userProfile}) =
-      _$userProfileState;
+      _$userProfileStateImpl;
 
   @override
   ApiResponse<UserProfileModel> get userProfile;
   @override
   @JsonKey(ignore: true)
-  _$$userProfileStateCopyWith<_$userProfileState> get copyWith =>
+  _$$userProfileStateImplCopyWith<_$userProfileStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

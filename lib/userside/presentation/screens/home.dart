@@ -1,19 +1,19 @@
 import 'package:doc_online/core/responsehandler/status.dart';
+import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
 import 'package:doc_online/userside/bussinesslogic/departments/departments_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/userprofile/user_profile_bloc.dart';
-import 'package:doc_online/userside/presentation/widgets/drawer.dart';
-import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
-import 'package:doc_online/userside/presentation/screens/all_doctor.dart';
+import 'package:doc_online/userside/presentation/components/card_components/department_card.dart';
+import 'package:doc_online/userside/presentation/components/card_components/hospital_card.dart';
+import 'package:doc_online/userside/presentation/components/drawer.dart';
+import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/userside/presentation/screens/search.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../doctorside/presentation/core/logo.dart';
-import '../widgets/widgets.dart';
 
 class HomeSc extends StatelessWidget {
   const HomeSc({super.key});
@@ -25,7 +25,7 @@ class HomeSc extends StatelessWidget {
     callData(context);
     return Scaffold(
       key: scaffoldKey,
-      endDrawer: homeDrawer(context),
+      endDrawer: const HomeDrawer(),
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () => callData(context),
@@ -34,8 +34,8 @@ class HomeSc extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 250.h,
-                width: 360.w,
+                height: 250,
+                width: 360,
                 child: Stack(
                   children: [
                     Positioned(
@@ -44,8 +44,8 @@ class HomeSc extends StatelessWidget {
                         child: Image.asset(
                           'assets/image/home_bn.jpg',
                           fit: BoxFit.cover,
-                          width: 360.w,
-                          height: 250.h,
+                          width: 360,
+                          height: 250,
                         ),
                       ),
                     ),
@@ -57,9 +57,10 @@ class HomeSc extends StatelessWidget {
                           onTap: () {
                             scaffoldKey.currentState!.openEndDrawer();
                           },
-                          child: const CircleAvatar(
+                          child: CircleAvatar(
+                            backgroundColor: Colors.blue.shade100,
                             radius: 20,
-                            child: Icon(Icons.person_2_sharp),
+                            child: const Icon(Icons.person_2_sharp),
                           ),
                         )),
                     Positioned(
@@ -74,18 +75,18 @@ class HomeSc extends StatelessWidget {
                                 builder: (context) => const SearchScreen(),
                               ));
                             },
-                            child: cText1('Appointment')))
+                            child: CustomTexts.commonText1('Appointment')))
                   ],
                 ),
               ),
-              space1h(),
+              SpaceSized.space1h(),
               Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: heading(
+                child: CustomTexts.commonText1(
                   'Search by Department',
                 ),
               ),
-              space1h(),
+              SpaceSized.space1h(),
               BlocBuilder<DepartmentsBloc, DepartmentsState>(
                 builder: (context, state) {
                   switch (state.departmentData.status) {
@@ -99,27 +100,25 @@ class HomeSc extends StatelessWidget {
                       return SizedBox(
                         height: 190,
                         child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount:
-                              state.departmentData.data!.departments!.length,
-                          itemBuilder: (context, index) => departmentCard(
-                              state.departmentData.data!.departments![index]
-                                  .name!,
-                              state
-                                  .departmentData.data!.departments![index].id!,
-                              context),
-                        ),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount:
+                                state.departmentData.data!.departments!.length,
+                            itemBuilder: (context, index) => DepartmentCard(
+                                dpName: state.departmentData.data!
+                                    .departments![index].name!,
+                                id: state.departmentData.data!
+                                    .departments![index].id!)),
                       );
                     default:
                       return SizedBox(
                         height: 170,
-                        child: errorText('Network Not Found'),
+                        child: CustomTexts.errorText('Network Not Found'),
                       );
                   }
                 },
               ),
-              space1h(),
+              SpaceSized.space1h(),
               Container(
                 color: const Color.fromARGB(162, 176, 197, 193),
                 child: Padding(
@@ -129,11 +128,11 @@ class HomeSc extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 8),
-                        child: heading(
+                        child: CustomTexts.commonText1(
                           'Top Hospital',
                         ),
                       ),
-                      space1h(),
+                      SpaceSized.space1h(),
                       BlocBuilder<HospitalBloc, HospitalState>(
                         builder: (context, state) {
                           switch (state.hospitalData.status) {
@@ -154,17 +153,15 @@ class HomeSc extends StatelessWidget {
                                   itemCount: state
                                       .hospitalData.data!.hospitals!.length,
                                   itemBuilder: (context, index) {
-                                    return hospitalCard(
-                                      state
-                                          .hospitalData.data!.hospitals![index],
-                                      state
-                                          .hospitalData
-                                          .data!
-                                          .rating![
-                                              '${state.hospitalData.data!.hospitals![index].id}']!
-                                          .round(),
-                                      context,
-                                    );
+                                    return HospitalCard(
+                                        hospitalData: state.hospitalData.data!
+                                            .hospitals![index],
+                                        rating: state
+                                            .hospitalData
+                                            .data!
+                                            .rating![
+                                                '${state.hospitalData.data!.hospitals![index].id}']!
+                                            .round());
                                   });
                             default:
                               return const SizedBox();

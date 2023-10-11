@@ -6,9 +6,11 @@ import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/bussinesslogic/search/search_bloc.dart';
 
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 
-import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
+import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/cupertino.dart';
 
@@ -21,9 +23,12 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final debouncer = Debouncer(milliseconds: 1000);
-    BlocProvider.of<SearchBloc>(context).add(const SearchEvent.doctorSearch());
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+       BlocProvider.of<SearchBloc>(context).add(const SearchEvent.doctorSearch());
     BlocProvider.of<SearchBloc>(context)
         .add(const SearchEvent.hospitalSearch());
+     });
+   
 
     return BlocBuilder<SearchBloc, SearchState>(
       builder: (context, state) {
@@ -35,6 +40,7 @@ class SearchScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CupertinoSearchTextField(
+                    
                     backgroundColor: Colors.grey.withOpacity(.4),
                     prefixIcon: const Icon(
                       Icons.search,
@@ -43,7 +49,7 @@ class SearchScreen extends StatelessWidget {
                     suffixIcon: const Icon(CupertinoIcons.xmark_circle_fill,
                         color: Colors.grey),
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                     onChanged: (value) {
                       if (value.isEmpty) {
@@ -78,7 +84,7 @@ class SearchScreen extends StatelessWidget {
                           BlocProvider.of<SearchBloc>(context)
                               .add(const SearchEvent.doctorSearch());
                         },
-                        child: text20('Doctors')),
+                        child: CustomTexts.text20('Doctors')),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: state.searchSelection ==
@@ -89,7 +95,7 @@ class SearchScreen extends StatelessWidget {
                           BlocProvider.of<SearchBloc>(context)
                               .add(const SearchEvent.hospitalSearch());
                         },
-                        child: text20('Hospitals')),
+                        child: CustomTexts.text20('Hospitals')),
                   ],
                 ),
                 Builder(
@@ -157,7 +163,7 @@ class SearchScreen extends StatelessWidget {
                     : state.doctorsList!.data!.doctors!,
                 index,
                 context),
-            separatorBuilder: (context, index) => space1h(),
+            separatorBuilder: (context, index) => SpaceSized.space1h(),
             itemCount: state.isSearch
                 ? state.doctorResult!.data!.length
                 : state.doctorsList!.data!.doctors!.length),

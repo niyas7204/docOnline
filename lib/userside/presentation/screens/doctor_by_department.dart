@@ -1,10 +1,13 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
-import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
+import 'package:doc_online/userside/presentation/components/card_components/doctor_card.dart';
+import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../widgets/widgets.dart';
+import '../components/widgets.dart';
 
 class ByDepartment extends StatelessWidget {
   final String id;
@@ -46,13 +49,14 @@ class ByDepartment extends StatelessWidget {
                       bstate.data!.doctors!.isNotEmpty
                           ? Expanded(
                               child: ListView.separated(
-                              separatorBuilder: (context, index) => space1h(),
-                              itemCount: bstate.data!.doctors!.length,
-                              itemBuilder: (context, index) => doctersCard(
-                                  bstate.data!.doctors!, index, context),
-                            ))
+                                  separatorBuilder: (context, index) =>
+                                      SpaceSized.space1h(),
+                                  itemCount: bstate.data!.doctors!.length,
+                                  itemBuilder: (context, index) => DoctorCard(
+                                      doctors: bstate.data!.doctors!,
+                                      index: index)))
                           : Center(
-                              child: errorText("No doctors found"),
+                              child: CustomTexts.errorText("No doctors found"),
                             ),
                     ],
                   ),

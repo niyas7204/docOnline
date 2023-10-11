@@ -4,7 +4,9 @@ import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/doctorside/bloc/bloc/emr_bloc.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,7 +46,7 @@ class EmrScreen extends StatelessWidget {
                       return Scaffold(
                         appBar: AppBar(
                           backgroundColor: Colors.grey,
-                          title: header1('Medical Report'),
+                          title: CustomTexts.header1('Medical Report'),
                         ),
                         body: SafeArea(
                             child: Padding(
@@ -52,24 +54,24 @@ class EmrScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              space1h(),
-                              text20('Patient Name:${booking.patientName!}'),
-                              space1h(),
-                              text20('Age:${booking.age!}'),
-                              space1h(),
-                              text20(
+                              SpaceSized.space1h(),
+                              CustomTexts.text20('Patient Name:${booking.patientName!}'),
+                              SpaceSized.space1h(),
+                              CustomTexts.text20('Age:${booking.age!}'),
+                              SpaceSized.space1h(),
+                              CustomTexts.text20(
                                   'Date:${booking.date!.day}/${booking.date!.month}/${booking.date!.year}'),
-                              space1h(),
+                              SpaceSized.space1h(),
                               state.emrDetails.data!.emr != null
                                   ? state.emrDetails.data!.emr!.prescription!
                                           .isEmpty
-                                      ? errorText('Prescription not added.')
+                                      ? CustomTexts.errorText('Prescription not added.')
                                       : buildTextField('Medication Details',
                                           context, selection,
                                           maxLines: 10,
                                           readOnly: !state.editEmr,
                                           controller: prescriptionController)
-                                  : errorText('Prescription not added.'),
+                                  : CustomTexts.errorText('Prescription not added.'),
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: selection == AppointmentSelection.today
@@ -110,7 +112,7 @@ class EmrScreen extends StatelessWidget {
                                                             .gender!));
                                               }
                                             : null,
-                                        child: text20('Submit'))
+                                        child: CustomTexts.text20('Submit'))
                                     : const SizedBox(),
                               )
                             ],
@@ -119,7 +121,7 @@ class EmrScreen extends StatelessWidget {
                       );
                     })
                   : Center(
-                      child: text20('Emr not avaiable'),
+                      child: CustomTexts.text20('Emr not avaiable'),
                     );
             default:
               return const SizedBox();
@@ -138,7 +140,7 @@ class EmrScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            labelText(label),
+            CustomTexts.labelText(label),
             selection == AppointmentSelection.today
                 ? IconButton(
                     onPressed: () {

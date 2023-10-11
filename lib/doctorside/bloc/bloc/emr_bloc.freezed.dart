@@ -92,18 +92,20 @@ class _$EmrEventCopyWithImpl<$Res, $Val extends EmrEvent>
 }
 
 /// @nodoc
-abstract class _$$_getemrCopyWith<$Res> {
-  factory _$$_getemrCopyWith(_$_getemr value, $Res Function(_$_getemr) then) =
-      __$$_getemrCopyWithImpl<$Res>;
+abstract class _$$getemrImplCopyWith<$Res> {
+  factory _$$getemrImplCopyWith(
+          _$getemrImpl value, $Res Function(_$getemrImpl) then) =
+      __$$getemrImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String bookingId});
 }
 
 /// @nodoc
-class __$$_getemrCopyWithImpl<$Res>
-    extends _$EmrEventCopyWithImpl<$Res, _$_getemr>
-    implements _$$_getemrCopyWith<$Res> {
-  __$$_getemrCopyWithImpl(_$_getemr _value, $Res Function(_$_getemr) _then)
+class __$$getemrImplCopyWithImpl<$Res>
+    extends _$EmrEventCopyWithImpl<$Res, _$getemrImpl>
+    implements _$$getemrImplCopyWith<$Res> {
+  __$$getemrImplCopyWithImpl(
+      _$getemrImpl _value, $Res Function(_$getemrImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +113,7 @@ class __$$_getemrCopyWithImpl<$Res>
   $Res call({
     Object? bookingId = null,
   }) {
-    return _then(_$_getemr(
+    return _then(_$getemrImpl(
       bookingId: null == bookingId
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
@@ -122,8 +124,8 @@ class __$$_getemrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getemr implements _getemr {
-  const _$_getemr({required this.bookingId});
+class _$getemrImpl implements _getemr {
+  const _$getemrImpl({required this.bookingId});
 
   @override
   final String bookingId;
@@ -137,7 +139,7 @@ class _$_getemr implements _getemr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getemr &&
+            other is _$getemrImpl &&
             (identical(other.bookingId, bookingId) ||
                 other.bookingId == bookingId));
   }
@@ -148,8 +150,8 @@ class _$_getemr implements _getemr {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getemrCopyWith<_$_getemr> get copyWith =>
-      __$$_getemrCopyWithImpl<_$_getemr>(this, _$identity);
+  _$$getemrImplCopyWith<_$getemrImpl> get copyWith =>
+      __$$getemrImplCopyWithImpl<_$getemrImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -233,34 +235,34 @@ class _$_getemr implements _getemr {
 }
 
 abstract class _getemr implements EmrEvent {
-  const factory _getemr({required final String bookingId}) = _$_getemr;
+  const factory _getemr({required final String bookingId}) = _$getemrImpl;
 
   String get bookingId;
   @JsonKey(ignore: true)
-  _$$_getemrCopyWith<_$_getemr> get copyWith =>
+  _$$getemrImplCopyWith<_$getemrImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_enableEditCopyWith<$Res> {
-  factory _$$_enableEditCopyWith(
-          _$_enableEdit value, $Res Function(_$_enableEdit) then) =
-      __$$_enableEditCopyWithImpl<$Res>;
+abstract class _$$enableEditImplCopyWith<$Res> {
+  factory _$$enableEditImplCopyWith(
+          _$enableEditImpl value, $Res Function(_$enableEditImpl) then) =
+      __$$enableEditImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_enableEditCopyWithImpl<$Res>
-    extends _$EmrEventCopyWithImpl<$Res, _$_enableEdit>
-    implements _$$_enableEditCopyWith<$Res> {
-  __$$_enableEditCopyWithImpl(
-      _$_enableEdit _value, $Res Function(_$_enableEdit) _then)
+class __$$enableEditImplCopyWithImpl<$Res>
+    extends _$EmrEventCopyWithImpl<$Res, _$enableEditImpl>
+    implements _$$enableEditImplCopyWith<$Res> {
+  __$$enableEditImplCopyWithImpl(
+      _$enableEditImpl _value, $Res Function(_$enableEditImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_enableEdit implements _enableEdit {
-  const _$_enableEdit();
+class _$enableEditImpl implements _enableEdit {
+  const _$enableEditImpl();
 
   @override
   String toString() {
@@ -270,7 +272,7 @@ class _$_enableEdit implements _enableEdit {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_enableEdit);
+        (other.runtimeType == runtimeType && other is _$enableEditImpl);
   }
 
   @override
@@ -358,13 +360,14 @@ class _$_enableEdit implements _enableEdit {
 }
 
 abstract class _enableEdit implements EmrEvent {
-  const factory _enableEdit() = _$_enableEdit;
+  const factory _enableEdit() = _$enableEditImpl;
 }
 
 /// @nodoc
-abstract class _$$_addemrCopyWith<$Res> {
-  factory _$$_addemrCopyWith(_$_addemr value, $Res Function(_$_addemr) then) =
-      __$$_addemrCopyWithImpl<$Res>;
+abstract class _$$addemrImplCopyWith<$Res> {
+  factory _$$addemrImplCopyWith(
+          _$addemrImpl value, $Res Function(_$addemrImpl) then) =
+      __$$addemrImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String userId,
@@ -377,10 +380,11 @@ abstract class _$$_addemrCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_addemrCopyWithImpl<$Res>
-    extends _$EmrEventCopyWithImpl<$Res, _$_addemr>
-    implements _$$_addemrCopyWith<$Res> {
-  __$$_addemrCopyWithImpl(_$_addemr _value, $Res Function(_$_addemr) _then)
+class __$$addemrImplCopyWithImpl<$Res>
+    extends _$EmrEventCopyWithImpl<$Res, _$addemrImpl>
+    implements _$$addemrImplCopyWith<$Res> {
+  __$$addemrImplCopyWithImpl(
+      _$addemrImpl _value, $Res Function(_$addemrImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -394,7 +398,7 @@ class __$$_addemrCopyWithImpl<$Res>
     Object? weight = null,
     Object? gender = null,
   }) {
-    return _then(_$_addemr(
+    return _then(_$addemrImpl(
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -429,8 +433,8 @@ class __$$_addemrCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_addemr implements _addemr {
-  const _$_addemr(
+class _$addemrImpl implements _addemr {
+  const _$addemrImpl(
       {required this.userId,
       required this.bookingId,
       required this.prescription,
@@ -463,7 +467,7 @@ class _$_addemr implements _addemr {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_addemr &&
+            other is _$addemrImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.bookingId, bookingId) ||
                 other.bookingId == bookingId) &&
@@ -483,8 +487,8 @@ class _$_addemr implements _addemr {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_addemrCopyWith<_$_addemr> get copyWith =>
-      __$$_addemrCopyWithImpl<_$_addemr>(this, _$identity);
+  _$$addemrImplCopyWith<_$addemrImpl> get copyWith =>
+      __$$addemrImplCopyWithImpl<_$addemrImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -578,7 +582,7 @@ abstract class _addemr implements EmrEvent {
       required final String patientName,
       required final int age,
       required final int weight,
-      required final String gender}) = _$_addemr;
+      required final String gender}) = _$addemrImpl;
 
   String get userId;
   String get bookingId;
@@ -588,7 +592,7 @@ abstract class _addemr implements EmrEvent {
   int get weight;
   String get gender;
   @JsonKey(ignore: true)
-  _$$_addemrCopyWith<_$_addemr> get copyWith =>
+  _$$addemrImplCopyWith<_$addemrImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -641,20 +645,22 @@ class _$EmrStateCopyWithImpl<$Res, $Val extends EmrState>
 }
 
 /// @nodoc
-abstract class _$$emrStateCopyWith<$Res> implements $EmrStateCopyWith<$Res> {
-  factory _$$emrStateCopyWith(
-          _$emrState value, $Res Function(_$emrState) then) =
-      __$$emrStateCopyWithImpl<$Res>;
+abstract class _$$emrStateImplCopyWith<$Res>
+    implements $EmrStateCopyWith<$Res> {
+  factory _$$emrStateImplCopyWith(
+          _$emrStateImpl value, $Res Function(_$emrStateImpl) then) =
+      __$$emrStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<EmrResponseModel> emrDetails, bool editEmr});
 }
 
 /// @nodoc
-class __$$emrStateCopyWithImpl<$Res>
-    extends _$EmrStateCopyWithImpl<$Res, _$emrState>
-    implements _$$emrStateCopyWith<$Res> {
-  __$$emrStateCopyWithImpl(_$emrState _value, $Res Function(_$emrState) _then)
+class __$$emrStateImplCopyWithImpl<$Res>
+    extends _$EmrStateCopyWithImpl<$Res, _$emrStateImpl>
+    implements _$$emrStateImplCopyWith<$Res> {
+  __$$emrStateImplCopyWithImpl(
+      _$emrStateImpl _value, $Res Function(_$emrStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -663,7 +669,7 @@ class __$$emrStateCopyWithImpl<$Res>
     Object? emrDetails = null,
     Object? editEmr = null,
   }) {
-    return _then(_$emrState(
+    return _then(_$emrStateImpl(
       emrDetails: null == emrDetails
           ? _value.emrDetails
           : emrDetails // ignore: cast_nullable_to_non_nullable
@@ -678,8 +684,8 @@ class __$$emrStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$emrState implements emrState {
-  const _$emrState({required this.emrDetails, required this.editEmr});
+class _$emrStateImpl implements emrState {
+  const _$emrStateImpl({required this.emrDetails, required this.editEmr});
 
   @override
   final ApiResponse<EmrResponseModel> emrDetails;
@@ -695,7 +701,7 @@ class _$emrState implements emrState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$emrState &&
+            other is _$emrStateImpl &&
             (identical(other.emrDetails, emrDetails) ||
                 other.emrDetails == emrDetails) &&
             (identical(other.editEmr, editEmr) || other.editEmr == editEmr));
@@ -707,14 +713,14 @@ class _$emrState implements emrState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$emrStateCopyWith<_$emrState> get copyWith =>
-      __$$emrStateCopyWithImpl<_$emrState>(this, _$identity);
+  _$$emrStateImplCopyWith<_$emrStateImpl> get copyWith =>
+      __$$emrStateImplCopyWithImpl<_$emrStateImpl>(this, _$identity);
 }
 
 abstract class emrState implements EmrState {
   const factory emrState(
       {required final ApiResponse<EmrResponseModel> emrDetails,
-      required final bool editEmr}) = _$emrState;
+      required final bool editEmr}) = _$emrStateImpl;
 
   @override
   ApiResponse<EmrResponseModel> get emrDetails;
@@ -722,6 +728,6 @@ abstract class emrState implements EmrState {
   bool get editEmr;
   @override
   @JsonKey(ignore: true)
-  _$$emrStateCopyWith<_$emrState> get copyWith =>
+  _$$emrStateImplCopyWith<_$emrStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

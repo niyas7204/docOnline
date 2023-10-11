@@ -89,22 +89,22 @@ class _$VerifyotpEventCopyWithImpl<$Res, $Val extends VerifyotpEvent>
 }
 
 /// @nodoc
-abstract class _$$_checkOtpCopyWith<$Res>
+abstract class _$$checkOtpImplCopyWith<$Res>
     implements $VerifyotpEventCopyWith<$Res> {
-  factory _$$_checkOtpCopyWith(
-          _$_checkOtp value, $Res Function(_$_checkOtp) then) =
-      __$$_checkOtpCopyWithImpl<$Res>;
+  factory _$$checkOtpImplCopyWith(
+          _$checkOtpImpl value, $Res Function(_$checkOtpImpl) then) =
+      __$$checkOtpImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String otp});
 }
 
 /// @nodoc
-class __$$_checkOtpCopyWithImpl<$Res>
-    extends _$VerifyotpEventCopyWithImpl<$Res, _$_checkOtp>
-    implements _$$_checkOtpCopyWith<$Res> {
-  __$$_checkOtpCopyWithImpl(
-      _$_checkOtp _value, $Res Function(_$_checkOtp) _then)
+class __$$checkOtpImplCopyWithImpl<$Res>
+    extends _$VerifyotpEventCopyWithImpl<$Res, _$checkOtpImpl>
+    implements _$$checkOtpImplCopyWith<$Res> {
+  __$$checkOtpImplCopyWithImpl(
+      _$checkOtpImpl _value, $Res Function(_$checkOtpImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_checkOtpCopyWithImpl<$Res>
   $Res call({
     Object? otp = null,
   }) {
-    return _then(_$_checkOtp(
+    return _then(_$checkOtpImpl(
       null == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_checkOtpCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_checkOtp implements _checkOtp {
-  const _$_checkOtp(this.otp);
+class _$checkOtpImpl implements _checkOtp {
+  const _$checkOtpImpl(this.otp);
 
   @override
   final String otp;
@@ -138,7 +138,7 @@ class _$_checkOtp implements _checkOtp {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_checkOtp &&
+            other is _$checkOtpImpl &&
             (identical(other.otp, otp) || other.otp == otp));
   }
 
@@ -148,8 +148,8 @@ class _$_checkOtp implements _checkOtp {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_checkOtpCopyWith<_$_checkOtp> get copyWith =>
-      __$$_checkOtpCopyWithImpl<_$_checkOtp>(this, _$identity);
+  _$$checkOtpImplCopyWith<_$checkOtpImpl> get copyWith =>
+      __$$checkOtpImplCopyWithImpl<_$checkOtpImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +209,13 @@ class _$_checkOtp implements _checkOtp {
 }
 
 abstract class _checkOtp implements VerifyotpEvent {
-  const factory _checkOtp(final String otp) = _$_checkOtp;
+  const factory _checkOtp(final String otp) = _$checkOtpImpl;
 
   @override
   String get otp;
   @override
   @JsonKey(ignore: true)
-  _$$_checkOtpCopyWith<_$_checkOtp> get copyWith =>
+  _$$checkOtpImplCopyWith<_$checkOtpImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -262,22 +262,22 @@ class _$VerifyotpStateCopyWithImpl<$Res, $Val extends VerifyotpState>
 }
 
 /// @nodoc
-abstract class _$$_VerifyotpStateCopyWith<$Res>
+abstract class _$$VerifyotpStateImplCopyWith<$Res>
     implements $VerifyotpStateCopyWith<$Res> {
-  factory _$$_VerifyotpStateCopyWith(
-          _$_VerifyotpState value, $Res Function(_$_VerifyotpState) then) =
-      __$$_VerifyotpStateCopyWithImpl<$Res>;
+  factory _$$VerifyotpStateImplCopyWith(_$VerifyotpStateImpl value,
+          $Res Function(_$VerifyotpStateImpl) then) =
+      __$$VerifyotpStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<LogInfo> verify});
 }
 
 /// @nodoc
-class __$$_VerifyotpStateCopyWithImpl<$Res>
-    extends _$VerifyotpStateCopyWithImpl<$Res, _$_VerifyotpState>
-    implements _$$_VerifyotpStateCopyWith<$Res> {
-  __$$_VerifyotpStateCopyWithImpl(
-      _$_VerifyotpState _value, $Res Function(_$_VerifyotpState) _then)
+class __$$VerifyotpStateImplCopyWithImpl<$Res>
+    extends _$VerifyotpStateCopyWithImpl<$Res, _$VerifyotpStateImpl>
+    implements _$$VerifyotpStateImplCopyWith<$Res> {
+  __$$VerifyotpStateImplCopyWithImpl(
+      _$VerifyotpStateImpl _value, $Res Function(_$VerifyotpStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -285,7 +285,7 @@ class __$$_VerifyotpStateCopyWithImpl<$Res>
   $Res call({
     Object? verify = null,
   }) {
-    return _then(_$_VerifyotpState(
+    return _then(_$VerifyotpStateImpl(
       verify: null == verify
           ? _value.verify
           : verify // ignore: cast_nullable_to_non_nullable
@@ -296,8 +296,8 @@ class __$$_VerifyotpStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_VerifyotpState implements _VerifyotpState {
-  const _$_VerifyotpState({required this.verify});
+class _$VerifyotpStateImpl implements _VerifyotpState {
+  const _$VerifyotpStateImpl({required this.verify});
 
   @override
   final ApiResponse<LogInfo> verify;
@@ -311,7 +311,7 @@ class _$_VerifyotpState implements _VerifyotpState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VerifyotpState &&
+            other is _$VerifyotpStateImpl &&
             (identical(other.verify, verify) || other.verify == verify));
   }
 
@@ -321,18 +321,19 @@ class _$_VerifyotpState implements _VerifyotpState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VerifyotpStateCopyWith<_$_VerifyotpState> get copyWith =>
-      __$$_VerifyotpStateCopyWithImpl<_$_VerifyotpState>(this, _$identity);
+  _$$VerifyotpStateImplCopyWith<_$VerifyotpStateImpl> get copyWith =>
+      __$$VerifyotpStateImplCopyWithImpl<_$VerifyotpStateImpl>(
+          this, _$identity);
 }
 
 abstract class _VerifyotpState implements VerifyotpState {
   const factory _VerifyotpState({required final ApiResponse<LogInfo> verify}) =
-      _$_VerifyotpState;
+      _$VerifyotpStateImpl;
 
   @override
   ApiResponse<LogInfo> get verify;
   @override
   @JsonKey(ignore: true)
-  _$$_VerifyotpStateCopyWith<_$_VerifyotpState> get copyWith =>
+  _$$VerifyotpStateImplCopyWith<_$VerifyotpStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

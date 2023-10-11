@@ -6,9 +6,12 @@ import 'package:doc_online/userside/presentation/screens/bokkings.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+class HomeDrawer extends StatelessWidget {
+  const HomeDrawer({super.key});
 
-homeDrawer(BuildContext context) {
-  return Drawer(
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
     child: BlocBuilder<UserProfileBloc, UserProfileState>(
       builder: (context, state) {
         switch (state.userProfile.status) {
@@ -65,4 +68,5 @@ homeDrawer(BuildContext context) {
       },
     ),
   );
+  }
 }

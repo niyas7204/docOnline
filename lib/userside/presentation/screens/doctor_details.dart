@@ -2,13 +2,15 @@ import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
 import 'package:doc_online/userside/bussinesslogic/doctor/userside_bloc.dart';
 
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
-import 'package:doc_online/userside/presentation/widgets/addrating.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/userside/presentation/components/addrating.dart';
 
-import 'package:doc_online/userside/presentation/widgets/book_diologue.dart';
+import 'package:doc_online/userside/presentation/components/book_diologue.dart';
 
-import 'package:doc_online/userside/presentation/widgets/doctor_details.dart';
+import 'package:doc_online/userside/presentation/components/doctor_details.dart';
 import 'package:doc_online/core/helpers/user_seide.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:tuple/tuple.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +31,7 @@ class DoctorDetails extends StatelessWidget {
     });
     return BlocBuilder<UsersideBloc, UsersideState>(
       builder: (context, state) {
+        var doctorDetails = state.doctorDetails.data!;
         switch (state.doctorDetails.status) {
           case ApiStatus.error:
             return const SizedBox();
@@ -41,22 +44,21 @@ class DoctorDetails extends StatelessWidget {
                 body: CustomScrollView(
                   shrinkWrap: true,
                   slivers: [
-                    sliverAppBar(
-                        state.doctorDetails.data!.doctor!.image!.secureUrl!),
+                    sliverAppBar(doctorDetails.doctor!.image!.secureUrl!),
                     SliverPadding(
                       padding: const EdgeInsets.all(15),
                       sliver: SliverList(
                         delegate: SliverChildListDelegate(
                           [
-                            space1h(),
-                            cText1(state.doctorDetails.data!.doctor!.name!),
-                            cText1(state
+                            SpaceSized.space1h(),
+                            CustomTexts.commonText1(
+                                doctorDetails.doctor!.name!),
+                            CustomTexts.commonText1(state
                                 .doctorDetails.data!.doctor!.qualification!),
-                            cText1(state
+                            CustomTexts.commonText1(state
                                 .doctorDetails.data!.doctor!.department!.name!),
-                            cText1(
-                              state.doctorDetails.data!.doctor!.hospitalId!
-                                  .name!,
+                            CustomTexts.commonText1(
+                              doctorDetails.doctor!.hospitalId!.name!,
                             ),
                             const SizedBox(
                               height: 20,
@@ -69,14 +71,13 @@ class DoctorDetails extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            cText1(
-                              state.doctorDetails.data!.doctor!.fees!
-                                  .toString(),
+                            CustomTexts.commonText1(
+                              doctorDetails.doctor!.fees!.toString(),
                             ),
                             const SizedBox(
                               height: 20,
                             ),
-                            heading('Appointments Available'),
+                            CustomTexts.commonText1('Appointments Available'),
                             Builder(builder: (context) {
                               Tuple2<List, List> result = scheduleList(state);
                               List days = result.item1;
@@ -100,7 +101,7 @@ class DoctorDetails extends StatelessWidget {
                                     )
                                   : ListView.separated(
                                       separatorBuilder: (context, index) =>
-                                          space1h(),
+                                          SpaceSized.space1h(),
                                       physics: const ScrollPhysics(),
                                       shrinkWrap: true,
                                       itemCount: days.length,
@@ -116,24 +117,23 @@ class DoctorDetails extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            state.doctorDetails.data!.review != null
-                                ? addRating(
-                                    state.doctorDetails.data!.rating,
-                                    context,
-                                    state.doctorDetails.data!.review!.doctorId!,
-                                    state.doctorDetails.data!.review!.review!,
-                                    EditType.doctor)
+                            doctorDetails.review != null
+                                ? AddRating(
+                                    rating: doctorDetails.rating!,
+                                    id: doctorDetails.review!.doctorId!,
+                                    review: doctorDetails.review!.review!,
+                                    fieldtype: EditType.doctor)
                                 : const SizedBox(),
                             Column(
                               children: [
-                                state.doctorDetails.data!.reviews!.isNotEmpty
+                                doctorDetails.reviews!.isNotEmpty
                                     ? ListView.separated(
                                         physics: const ScrollPhysics(),
                                         shrinkWrap: true,
                                         itemCount: state.doctorDetails.data!
                                             .reviews!.length,
                                         separatorBuilder: (context, index) =>
-                                            space1h(),
+                                            SpaceSized.space1h(),
                                         itemBuilder: (context, index) => review(
                                             state.doctorDetails.data!
                                                 .reviews![index].userId!.name!,
@@ -183,10 +183,10 @@ class DoctorDetails extends StatelessWidget {
                                         state: state));
                                 showBookingDiologue(
                                     context,
-                                    state.doctorDetails.data!.doctor!.fees!,
-                                    state.doctorDetails.data!.doctor!.id!);
+                                    doctorDetails.doctor!.fees!,
+                                    doctorDetails.doctor!.id!);
                               },
-                              child: cText1('BookNow')),
+                              child: CustomTexts.commonText1('BookNow')),
                         )
                       ],
                     ),

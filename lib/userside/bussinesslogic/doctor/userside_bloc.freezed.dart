@@ -89,20 +89,22 @@ class _$UsersideEventCopyWithImpl<$Res, $Val extends UsersideEvent>
 }
 
 /// @nodoc
-abstract class _$$_getByDepartmentDoctorsCopyWith<$Res> {
-  factory _$$_getByDepartmentDoctorsCopyWith(_$_getByDepartmentDoctors value,
-          $Res Function(_$_getByDepartmentDoctors) then) =
-      __$$_getByDepartmentDoctorsCopyWithImpl<$Res>;
+abstract class _$$getByDepartmentDoctorsImplCopyWith<$Res> {
+  factory _$$getByDepartmentDoctorsImplCopyWith(
+          _$getByDepartmentDoctorsImpl value,
+          $Res Function(_$getByDepartmentDoctorsImpl) then) =
+      __$$getByDepartmentDoctorsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$_getByDepartmentDoctorsCopyWithImpl<$Res>
-    extends _$UsersideEventCopyWithImpl<$Res, _$_getByDepartmentDoctors>
-    implements _$$_getByDepartmentDoctorsCopyWith<$Res> {
-  __$$_getByDepartmentDoctorsCopyWithImpl(_$_getByDepartmentDoctors _value,
-      $Res Function(_$_getByDepartmentDoctors) _then)
+class __$$getByDepartmentDoctorsImplCopyWithImpl<$Res>
+    extends _$UsersideEventCopyWithImpl<$Res, _$getByDepartmentDoctorsImpl>
+    implements _$$getByDepartmentDoctorsImplCopyWith<$Res> {
+  __$$getByDepartmentDoctorsImplCopyWithImpl(
+      _$getByDepartmentDoctorsImpl _value,
+      $Res Function(_$getByDepartmentDoctorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +112,7 @@ class __$$_getByDepartmentDoctorsCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$_getByDepartmentDoctors(
+    return _then(_$getByDepartmentDoctorsImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -121,8 +123,8 @@ class __$$_getByDepartmentDoctorsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
-  const _$_getByDepartmentDoctors({required this.id});
+class _$getByDepartmentDoctorsImpl implements _getByDepartmentDoctors {
+  const _$getByDepartmentDoctorsImpl({required this.id});
 
   @override
   final String id;
@@ -136,7 +138,7 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getByDepartmentDoctors &&
+            other is _$getByDepartmentDoctorsImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -146,9 +148,9 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getByDepartmentDoctorsCopyWith<_$_getByDepartmentDoctors> get copyWith =>
-      __$$_getByDepartmentDoctorsCopyWithImpl<_$_getByDepartmentDoctors>(
-          this, _$identity);
+  _$$getByDepartmentDoctorsImplCopyWith<_$getByDepartmentDoctorsImpl>
+      get copyWith => __$$getByDepartmentDoctorsImplCopyWithImpl<
+          _$getByDepartmentDoctorsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -229,29 +231,29 @@ class _$_getByDepartmentDoctors implements _getByDepartmentDoctors {
 
 abstract class _getByDepartmentDoctors implements UsersideEvent {
   const factory _getByDepartmentDoctors({required final String id}) =
-      _$_getByDepartmentDoctors;
+      _$getByDepartmentDoctorsImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$_getByDepartmentDoctorsCopyWith<_$_getByDepartmentDoctors> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$getByDepartmentDoctorsImplCopyWith<_$getByDepartmentDoctorsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_getDoctorCopyWith<$Res> {
-  factory _$$_getDoctorCopyWith(
-          _$_getDoctor value, $Res Function(_$_getDoctor) then) =
-      __$$_getDoctorCopyWithImpl<$Res>;
+abstract class _$$getDoctorImplCopyWith<$Res> {
+  factory _$$getDoctorImplCopyWith(
+          _$getDoctorImpl value, $Res Function(_$getDoctorImpl) then) =
+      __$$getDoctorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String dId});
 }
 
 /// @nodoc
-class __$$_getDoctorCopyWithImpl<$Res>
-    extends _$UsersideEventCopyWithImpl<$Res, _$_getDoctor>
-    implements _$$_getDoctorCopyWith<$Res> {
-  __$$_getDoctorCopyWithImpl(
-      _$_getDoctor _value, $Res Function(_$_getDoctor) _then)
+class __$$getDoctorImplCopyWithImpl<$Res>
+    extends _$UsersideEventCopyWithImpl<$Res, _$getDoctorImpl>
+    implements _$$getDoctorImplCopyWith<$Res> {
+  __$$getDoctorImplCopyWithImpl(
+      _$getDoctorImpl _value, $Res Function(_$getDoctorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -259,7 +261,7 @@ class __$$_getDoctorCopyWithImpl<$Res>
   $Res call({
     Object? dId = null,
   }) {
-    return _then(_$_getDoctor(
+    return _then(_$getDoctorImpl(
       dId: null == dId
           ? _value.dId
           : dId // ignore: cast_nullable_to_non_nullable
@@ -270,8 +272,8 @@ class __$$_getDoctorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getDoctor implements _getDoctor {
-  const _$_getDoctor({required this.dId});
+class _$getDoctorImpl implements _getDoctor {
+  const _$getDoctorImpl({required this.dId});
 
   @override
   final String dId;
@@ -285,7 +287,7 @@ class _$_getDoctor implements _getDoctor {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getDoctor &&
+            other is _$getDoctorImpl &&
             (identical(other.dId, dId) || other.dId == dId));
   }
 
@@ -295,8 +297,8 @@ class _$_getDoctor implements _getDoctor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getDoctorCopyWith<_$_getDoctor> get copyWith =>
-      __$$_getDoctorCopyWithImpl<_$_getDoctor>(this, _$identity);
+  _$$getDoctorImplCopyWith<_$getDoctorImpl> get copyWith =>
+      __$$getDoctorImplCopyWithImpl<_$getDoctorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -376,29 +378,29 @@ class _$_getDoctor implements _getDoctor {
 }
 
 abstract class _getDoctor implements UsersideEvent {
-  const factory _getDoctor({required final String dId}) = _$_getDoctor;
+  const factory _getDoctor({required final String dId}) = _$getDoctorImpl;
 
   String get dId;
   @JsonKey(ignore: true)
-  _$$_getDoctorCopyWith<_$_getDoctor> get copyWith =>
+  _$$getDoctorImplCopyWith<_$getDoctorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_getDoctorScheduleCopyWith<$Res> {
-  factory _$$_getDoctorScheduleCopyWith(_$_getDoctorSchedule value,
-          $Res Function(_$_getDoctorSchedule) then) =
-      __$$_getDoctorScheduleCopyWithImpl<$Res>;
+abstract class _$$getDoctorScheduleImplCopyWith<$Res> {
+  factory _$$getDoctorScheduleImplCopyWith(_$getDoctorScheduleImpl value,
+          $Res Function(_$getDoctorScheduleImpl) then) =
+      __$$getDoctorScheduleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String dId});
 }
 
 /// @nodoc
-class __$$_getDoctorScheduleCopyWithImpl<$Res>
-    extends _$UsersideEventCopyWithImpl<$Res, _$_getDoctorSchedule>
-    implements _$$_getDoctorScheduleCopyWith<$Res> {
-  __$$_getDoctorScheduleCopyWithImpl(
-      _$_getDoctorSchedule _value, $Res Function(_$_getDoctorSchedule) _then)
+class __$$getDoctorScheduleImplCopyWithImpl<$Res>
+    extends _$UsersideEventCopyWithImpl<$Res, _$getDoctorScheduleImpl>
+    implements _$$getDoctorScheduleImplCopyWith<$Res> {
+  __$$getDoctorScheduleImplCopyWithImpl(_$getDoctorScheduleImpl _value,
+      $Res Function(_$getDoctorScheduleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -406,7 +408,7 @@ class __$$_getDoctorScheduleCopyWithImpl<$Res>
   $Res call({
     Object? dId = null,
   }) {
-    return _then(_$_getDoctorSchedule(
+    return _then(_$getDoctorScheduleImpl(
       dId: null == dId
           ? _value.dId
           : dId // ignore: cast_nullable_to_non_nullable
@@ -417,8 +419,8 @@ class __$$_getDoctorScheduleCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getDoctorSchedule implements _getDoctorSchedule {
-  const _$_getDoctorSchedule({required this.dId});
+class _$getDoctorScheduleImpl implements _getDoctorSchedule {
+  const _$getDoctorScheduleImpl({required this.dId});
 
   @override
   final String dId;
@@ -432,7 +434,7 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getDoctorSchedule &&
+            other is _$getDoctorScheduleImpl &&
             (identical(other.dId, dId) || other.dId == dId));
   }
 
@@ -442,8 +444,8 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getDoctorScheduleCopyWith<_$_getDoctorSchedule> get copyWith =>
-      __$$_getDoctorScheduleCopyWithImpl<_$_getDoctorSchedule>(
+  _$$getDoctorScheduleImplCopyWith<_$getDoctorScheduleImpl> get copyWith =>
+      __$$getDoctorScheduleImplCopyWithImpl<_$getDoctorScheduleImpl>(
           this, _$identity);
 
   @override
@@ -525,29 +527,29 @@ class _$_getDoctorSchedule implements _getDoctorSchedule {
 
 abstract class _getDoctorSchedule implements UsersideEvent {
   const factory _getDoctorSchedule({required final String dId}) =
-      _$_getDoctorSchedule;
+      _$getDoctorScheduleImpl;
 
   String get dId;
   @JsonKey(ignore: true)
-  _$$_getDoctorScheduleCopyWith<_$_getDoctorSchedule> get copyWith =>
+  _$$getDoctorScheduleImplCopyWith<_$getDoctorScheduleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_addFeedbackCopyWith<$Res> {
-  factory _$$_addFeedbackCopyWith(
-          _$_addFeedback value, $Res Function(_$_addFeedback) then) =
-      __$$_addFeedbackCopyWithImpl<$Res>;
+abstract class _$$addFeedbackImplCopyWith<$Res> {
+  factory _$$addFeedbackImplCopyWith(
+          _$addFeedbackImpl value, $Res Function(_$addFeedbackImpl) then) =
+      __$$addFeedbackImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int rating, String doctorId, String review});
 }
 
 /// @nodoc
-class __$$_addFeedbackCopyWithImpl<$Res>
-    extends _$UsersideEventCopyWithImpl<$Res, _$_addFeedback>
-    implements _$$_addFeedbackCopyWith<$Res> {
-  __$$_addFeedbackCopyWithImpl(
-      _$_addFeedback _value, $Res Function(_$_addFeedback) _then)
+class __$$addFeedbackImplCopyWithImpl<$Res>
+    extends _$UsersideEventCopyWithImpl<$Res, _$addFeedbackImpl>
+    implements _$$addFeedbackImplCopyWith<$Res> {
+  __$$addFeedbackImplCopyWithImpl(
+      _$addFeedbackImpl _value, $Res Function(_$addFeedbackImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -557,7 +559,7 @@ class __$$_addFeedbackCopyWithImpl<$Res>
     Object? doctorId = null,
     Object? review = null,
   }) {
-    return _then(_$_addFeedback(
+    return _then(_$addFeedbackImpl(
       rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
@@ -576,8 +578,8 @@ class __$$_addFeedbackCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_addFeedback implements _addFeedback {
-  const _$_addFeedback(
+class _$addFeedbackImpl implements _addFeedback {
+  const _$addFeedbackImpl(
       {required this.rating, required this.doctorId, required this.review});
 
   @override
@@ -596,7 +598,7 @@ class _$_addFeedback implements _addFeedback {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_addFeedback &&
+            other is _$addFeedbackImpl &&
             (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.doctorId, doctorId) ||
                 other.doctorId == doctorId) &&
@@ -609,8 +611,8 @@ class _$_addFeedback implements _addFeedback {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_addFeedbackCopyWith<_$_addFeedback> get copyWith =>
-      __$$_addFeedbackCopyWithImpl<_$_addFeedback>(this, _$identity);
+  _$$addFeedbackImplCopyWith<_$addFeedbackImpl> get copyWith =>
+      __$$addFeedbackImplCopyWithImpl<_$addFeedbackImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -693,13 +695,13 @@ abstract class _addFeedback implements UsersideEvent {
   const factory _addFeedback(
       {required final int rating,
       required final String doctorId,
-      required final String review}) = _$_addFeedback;
+      required final String review}) = _$addFeedbackImpl;
 
   int get rating;
   String get doctorId;
   String get review;
   @JsonKey(ignore: true)
-  _$$_addFeedbackCopyWith<_$_addFeedback> get copyWith =>
+  _$$addFeedbackImplCopyWith<_$addFeedbackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -764,11 +766,11 @@ class _$UsersideStateCopyWithImpl<$Res, $Val extends UsersideState>
 }
 
 /// @nodoc
-abstract class _$$_UsersideStateCopyWith<$Res>
+abstract class _$$UsersideStateImplCopyWith<$Res>
     implements $UsersideStateCopyWith<$Res> {
-  factory _$$_UsersideStateCopyWith(
-          _$_UsersideState value, $Res Function(_$_UsersideState) then) =
-      __$$_UsersideStateCopyWithImpl<$Res>;
+  factory _$$UsersideStateImplCopyWith(
+          _$UsersideStateImpl value, $Res Function(_$UsersideStateImpl) then) =
+      __$$UsersideStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -778,11 +780,11 @@ abstract class _$$_UsersideStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UsersideStateCopyWithImpl<$Res>
-    extends _$UsersideStateCopyWithImpl<$Res, _$_UsersideState>
-    implements _$$_UsersideStateCopyWith<$Res> {
-  __$$_UsersideStateCopyWithImpl(
-      _$_UsersideState _value, $Res Function(_$_UsersideState) _then)
+class __$$UsersideStateImplCopyWithImpl<$Res>
+    extends _$UsersideStateCopyWithImpl<$Res, _$UsersideStateImpl>
+    implements _$$UsersideStateImplCopyWith<$Res> {
+  __$$UsersideStateImplCopyWithImpl(
+      _$UsersideStateImpl _value, $Res Function(_$UsersideStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -792,7 +794,7 @@ class __$$_UsersideStateCopyWithImpl<$Res>
     Object? doctorDetails = null,
     Object? schedule = null,
   }) {
-    return _then(_$_UsersideState(
+    return _then(_$UsersideStateImpl(
       doctorData: null == doctorData
           ? _value.doctorData
           : doctorData // ignore: cast_nullable_to_non_nullable
@@ -811,8 +813,8 @@ class __$$_UsersideStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UsersideState implements _UsersideState {
-  const _$_UsersideState(
+class _$UsersideStateImpl implements _UsersideState {
+  const _$UsersideStateImpl(
       {required this.doctorData,
       required this.doctorDetails,
       required this.schedule});
@@ -833,7 +835,7 @@ class _$_UsersideState implements _UsersideState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UsersideState &&
+            other is _$UsersideStateImpl &&
             (identical(other.doctorData, doctorData) ||
                 other.doctorData == doctorData) &&
             (identical(other.doctorDetails, doctorDetails) ||
@@ -849,15 +851,16 @@ class _$_UsersideState implements _UsersideState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UsersideStateCopyWith<_$_UsersideState> get copyWith =>
-      __$$_UsersideStateCopyWithImpl<_$_UsersideState>(this, _$identity);
+  _$$UsersideStateImplCopyWith<_$UsersideStateImpl> get copyWith =>
+      __$$UsersideStateImplCopyWithImpl<_$UsersideStateImpl>(this, _$identity);
 }
 
 abstract class _UsersideState implements UsersideState {
   const factory _UsersideState(
-      {required final ApiResponse<DoctorByDepartment> doctorData,
-      required final ApiResponse<DocterTrial> doctorDetails,
-      required final ApiResponse<DoctorSchedule> schedule}) = _$_UsersideState;
+          {required final ApiResponse<DoctorByDepartment> doctorData,
+          required final ApiResponse<DocterTrial> doctorDetails,
+          required final ApiResponse<DoctorSchedule> schedule}) =
+      _$UsersideStateImpl;
 
   @override
   ApiResponse<DoctorByDepartment> get doctorData;
@@ -867,6 +870,6 @@ abstract class _UsersideState implements UsersideState {
   ApiResponse<DoctorSchedule> get schedule;
   @override
   @JsonKey(ignore: true)
-  _$$_UsersideStateCopyWith<_$_UsersideState> get copyWith =>
+  _$$UsersideStateImplCopyWith<_$UsersideStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

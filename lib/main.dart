@@ -1,3 +1,7 @@
+
+
+import 'dart:developer';
+
 import 'package:doc_online/doctorside/bloc/bloc/emr_bloc.dart';
 import 'package:doc_online/doctorside/bloc/doctor/docter_view/bloc/bookings_bloc.dart';
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
@@ -22,7 +26,7 @@ import 'package:doc_online/userside/data/dataprovider/userprofile_implimentation
 import 'package:doc_online/userside/presentation/screens/home.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -93,22 +97,17 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => HospitalBloc(HospitalImplimentation())),
       ],
-      child: ScreenUtilInit(
-        builder: (BuildContext context, Widget? child) {
-          return MaterialApp(
-              theme: ThemeData(useMaterial3: true),
+      child: MaterialApp(
+              theme: ThemeData(useMaterial3: true,primaryColor:const Color.fromARGB(255, 3, 43, 77)),
               debugShowCheckedModeBanner: false,
-              builder: (context, child) {
-                return ScrollConfiguration(
-                  behavior: MyBehavior(),
-                  child: child!,
-                );
-              },
+             
               home: FutureBuilder<String>(
                   future: isLoggedIn(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
+                      log('main future');
                       return const CircularProgressIndicator();
+
                     } else {
                       if (snapshot.hasData) {
                         if (snapshot.data == 'user') {
@@ -122,9 +121,8 @@ class MyApp extends StatelessWidget {
                         return const Login();
                       }
                     }
-                  }));
-        },
-      ),
+                  }))
+       
     );
   }
 
@@ -142,13 +140,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildOverscrollIndicator(
-    BuildContext context,
-    Widget child,
-    ScrollableDetails details,
-  ) {
-    return child;
-  }
-}
+

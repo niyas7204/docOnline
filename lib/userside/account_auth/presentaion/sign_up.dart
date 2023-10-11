@@ -5,18 +5,24 @@ import 'package:doc_online/userside/account_auth/businesslogic/signup/signup_blo
 import 'package:doc_online/userside/account_auth/presentaion/helpers/formfieldvalidation.dart';
 import 'package:doc_online/userside/account_auth/presentaion/verify_email.dart';
 import 'package:doc_online/userside/account_auth/presentaion/widgets/formfield.dart';
+import 'package:doc_online/utils/alert_diologe.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:doc_online/core/get_all_data.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-class SignUp extends StatelessWidget {
+import 'package:flutter_bloc/flutter_bloc.dart'; 
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailcontroller = TextEditingController();
@@ -31,9 +37,10 @@ class SignUp extends StatelessWidget {
     ];
     var labels = ['User Name', 'Email', 'Password', 'Confirm Password'];
     return Scaffold(
-      body: BlocListener<SignupBloc, SignupState>(
+     
+      body:BlocConsumer<SignupBloc, SignupState>(
         listener: (context, state) {
-          if (state.signUpResponse!.status == ApiStatus.complete) {
+         if (state.signUpResponse!.status == ApiStatus.complete) {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => const VerifyEmail(
                 isSignup: true,
@@ -41,36 +48,45 @@ class SignUp extends StatelessWidget {
             ));
           }
         },
-        child: SafeArea(child: BlocBuilder<SignupBloc, SignupState>(
-          builder: (context, state) {
-            return Stack(
-              children: [
-                state.signUpResponse!.status == ApiStatus.loading
-                    ? Container(
-                        color: const Color.fromARGB(209, 49, 49, 49),
-                        child: const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                    : const SizedBox(),
-                Positioned(left: 16, child: logo()),
-                Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Center(
+        builder: (context, state) {
+          return SafeArea(
+            child:Center(
+              child: ListView(
+              
+                shrinkWrap: true,
+                children: [
+                  SingleChildScrollView(
+                 
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                              
                         children: [
-                          header1('Sign Up'),
-                          ListView.separated(
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) => textEditField(
-                                  labels[index], controllers[index]),
-                              separatorBuilder: (context, index) => space1h(),
-                              itemCount: labels.length),
-                          space1h(),
+                          // state.signUpResponse!.status == ApiStatus.loading
+                          //     ? Container(
+                          //         color: const Color.fromARGB(209, 49, 49, 49),
+                          //         child: const Center(
+                          //           child: CircularProgressIndicator(),
+                          //         ),
+                          //       )
+                          //     : const SizedBox(),
+                        logo(),
+                        Align(
+                          alignment: Alignment.center,
+                          child:CustomTexts.header1('Sign Up') ,
+                        ),
+                        
+                        for(int index=0;index<labels.length;index++)
+                       TextFieldWidgets.textEditField(
+                                                    labels[index], controllers[index]),
+                         
+                          SpaceSized.space1h(),
+                         
                           SizedBox(
-                            width: 160.w,
-                            height: 35.h,
+                            width: 160,
+                            height: 35,
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: baseColor,
@@ -92,10 +108,10 @@ class SignUp extends StatelessWidget {
                                           ApiStatus.error) {
                                         if (state.signUpResponse!.failure ==
                                             const MainFailure.clientFailure()) {
-                                          showAlertdiolog(
+                                          CustomAlertDiologe.showAlertdiolog(
                                               context, 'network failure');
                                         } else {
-                                          showAlertdiolog(
+                                          CustomAlertDiologe.showAlertdiolog(
                                               context, 'user already exist');
                                         }
                                       } else if (state.signUpResponse!.status ==
@@ -103,7 +119,7 @@ class SignUp extends StatelessWidget {
                                         const CircularProgressIndicator();
                                       }
                                     } else {
-                                      showAlertdiolog(
+                                      CustomAlertDiologe.showAlertdiolog(
                                           context, 'password shouldnot match');
                                     }
                                   }
@@ -113,15 +129,18 @@ class SignUp extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 24, color: Colors.white),
                                 )),
-                          )
+                          ),
+                        
                         ],
                       ),
-                    ))
-              ],
-            );
-          },
-        )),
-      ),
+                    ),
+                  ),
+                ],
+              ),
+            ));
+        },
+      )
+       
     );
   }
 }

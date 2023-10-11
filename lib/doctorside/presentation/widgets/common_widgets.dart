@@ -1,9 +1,9 @@
 import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/doctorside/data/model/bookingsmodel.dart';
 import 'package:doc_online/doctorside/presentation/emr.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ 
 
 patientCard(List<Booking> state, int index, BuildContext context,
     AppointmentSelection selection) {
@@ -11,7 +11,7 @@ patientCard(List<Booking> state, int index, BuildContext context,
     onTap: () async {},
     child: Container(
       height: 160,
-      width: 340.w,
+      width: 340,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: const Color.fromARGB(255, 101, 131, 146)),

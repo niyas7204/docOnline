@@ -6,7 +6,7 @@ import 'package:doc_online/userside/data/dataprovider/booking_impl.dart';
 import 'package:doc_online/userside/data/model/booking/check_time_model.dart';
 import 'package:doc_online/userside/data/model/booking/orderresponse.dart';
 
-import 'package:doc_online/userside/presentation/widgets/book_diologue.dart';
+import 'package:doc_online/userside/presentation/components/book_diologue.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';

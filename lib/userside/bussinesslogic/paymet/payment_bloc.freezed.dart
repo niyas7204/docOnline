@@ -89,22 +89,22 @@ class _$PaymentEventCopyWithImpl<$Res, $Val extends PaymentEvent>
 }
 
 /// @nodoc
-abstract class _$$_getOrderOptionCopyWith<$Res>
+abstract class _$$getOrderOptionImplCopyWith<$Res>
     implements $PaymentEventCopyWith<$Res> {
-  factory _$$_getOrderOptionCopyWith(
-          _$_getOrderOption value, $Res Function(_$_getOrderOption) then) =
-      __$$_getOrderOptionCopyWithImpl<$Res>;
+  factory _$$getOrderOptionImplCopyWith(_$getOrderOptionImpl value,
+          $Res Function(_$getOrderOptionImpl) then) =
+      __$$getOrderOptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? fee});
 }
 
 /// @nodoc
-class __$$_getOrderOptionCopyWithImpl<$Res>
-    extends _$PaymentEventCopyWithImpl<$Res, _$_getOrderOption>
-    implements _$$_getOrderOptionCopyWith<$Res> {
-  __$$_getOrderOptionCopyWithImpl(
-      _$_getOrderOption _value, $Res Function(_$_getOrderOption) _then)
+class __$$getOrderOptionImplCopyWithImpl<$Res>
+    extends _$PaymentEventCopyWithImpl<$Res, _$getOrderOptionImpl>
+    implements _$$getOrderOptionImplCopyWith<$Res> {
+  __$$getOrderOptionImplCopyWithImpl(
+      _$getOrderOptionImpl _value, $Res Function(_$getOrderOptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_getOrderOptionCopyWithImpl<$Res>
   $Res call({
     Object? fee = freezed,
   }) {
-    return _then(_$_getOrderOption(
+    return _then(_$getOrderOptionImpl(
       fee: freezed == fee
           ? _value.fee
           : fee // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_getOrderOptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getOrderOption implements _getOrderOption {
-  const _$_getOrderOption({required this.fee});
+class _$getOrderOptionImpl implements _getOrderOption {
+  const _$getOrderOptionImpl({required this.fee});
 
   @override
   final int? fee;
@@ -138,7 +138,7 @@ class _$_getOrderOption implements _getOrderOption {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getOrderOption &&
+            other is _$getOrderOptionImpl &&
             (identical(other.fee, fee) || other.fee == fee));
   }
 
@@ -148,8 +148,9 @@ class _$_getOrderOption implements _getOrderOption {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getOrderOptionCopyWith<_$_getOrderOption> get copyWith =>
-      __$$_getOrderOptionCopyWithImpl<_$_getOrderOption>(this, _$identity);
+  _$$getOrderOptionImplCopyWith<_$getOrderOptionImpl> get copyWith =>
+      __$$getOrderOptionImplCopyWithImpl<_$getOrderOptionImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +210,14 @@ class _$_getOrderOption implements _getOrderOption {
 }
 
 abstract class _getOrderOption implements PaymentEvent {
-  const factory _getOrderOption({required final int? fee}) = _$_getOrderOption;
+  const factory _getOrderOption({required final int? fee}) =
+      _$getOrderOptionImpl;
 
   @override
   int? get fee;
   @override
   @JsonKey(ignore: true)
-  _$$_getOrderOptionCopyWith<_$_getOrderOption> get copyWith =>
+  _$$getOrderOptionImplCopyWith<_$getOrderOptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -263,22 +265,22 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
 }
 
 /// @nodoc
-abstract class _$$paymentStateCopyWith<$Res>
+abstract class _$$paymentStateImplCopyWith<$Res>
     implements $PaymentStateCopyWith<$Res> {
-  factory _$$paymentStateCopyWith(
-          _$paymentState value, $Res Function(_$paymentState) then) =
-      __$$paymentStateCopyWithImpl<$Res>;
+  factory _$$paymentStateImplCopyWith(
+          _$paymentStateImpl value, $Res Function(_$paymentStateImpl) then) =
+      __$$paymentStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<OrderResponseModel>? orderResponse});
 }
 
 /// @nodoc
-class __$$paymentStateCopyWithImpl<$Res>
-    extends _$PaymentStateCopyWithImpl<$Res, _$paymentState>
-    implements _$$paymentStateCopyWith<$Res> {
-  __$$paymentStateCopyWithImpl(
-      _$paymentState _value, $Res Function(_$paymentState) _then)
+class __$$paymentStateImplCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$paymentStateImpl>
+    implements _$$paymentStateImplCopyWith<$Res> {
+  __$$paymentStateImplCopyWithImpl(
+      _$paymentStateImpl _value, $Res Function(_$paymentStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -286,7 +288,7 @@ class __$$paymentStateCopyWithImpl<$Res>
   $Res call({
     Object? orderResponse = freezed,
   }) {
-    return _then(_$paymentState(
+    return _then(_$paymentStateImpl(
       orderResponse: freezed == orderResponse
           ? _value.orderResponse
           : orderResponse // ignore: cast_nullable_to_non_nullable
@@ -297,8 +299,8 @@ class __$$paymentStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$paymentState implements paymentState {
-  const _$paymentState({required this.orderResponse});
+class _$paymentStateImpl implements paymentState {
+  const _$paymentStateImpl({required this.orderResponse});
 
   @override
   final ApiResponse<OrderResponseModel>? orderResponse;
@@ -312,7 +314,7 @@ class _$paymentState implements paymentState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$paymentState &&
+            other is _$paymentStateImpl &&
             (identical(other.orderResponse, orderResponse) ||
                 other.orderResponse == orderResponse));
   }
@@ -323,19 +325,19 @@ class _$paymentState implements paymentState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$paymentStateCopyWith<_$paymentState> get copyWith =>
-      __$$paymentStateCopyWithImpl<_$paymentState>(this, _$identity);
+  _$$paymentStateImplCopyWith<_$paymentStateImpl> get copyWith =>
+      __$$paymentStateImplCopyWithImpl<_$paymentStateImpl>(this, _$identity);
 }
 
 abstract class paymentState implements PaymentState {
   const factory paymentState(
           {required final ApiResponse<OrderResponseModel>? orderResponse}) =
-      _$paymentState;
+      _$paymentStateImpl;
 
   @override
   ApiResponse<OrderResponseModel>? get orderResponse;
   @override
   @JsonKey(ignore: true)
-  _$$paymentStateCopyWith<_$paymentState> get copyWith =>
+  _$$paymentStateImplCopyWith<_$paymentStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

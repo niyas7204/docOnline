@@ -1,4 +1,5 @@
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/utils/alert_diologe.dart';
 import 'package:flutter/material.dart';
 
 validateFieldEdit(List<TextEditingController> controllers, List<String> labels,
@@ -9,7 +10,7 @@ validateFieldEdit(List<TextEditingController> controllers, List<String> labels,
       isValid = true;
     } else {
       isValid = false;
-      showAlertdiolog(context, '${labels[i]} is empty ');
+      CustomAlertDiologe.showAlertdiolog(context, '${labels[i]} is empty ');
       break;
     }
   }

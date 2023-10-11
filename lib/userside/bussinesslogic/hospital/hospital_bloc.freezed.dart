@@ -82,20 +82,20 @@ class _$HospitalEventCopyWithImpl<$Res, $Val extends HospitalEvent>
 }
 
 /// @nodoc
-abstract class _$$_getHospitalDetailsCopyWith<$Res> {
-  factory _$$_getHospitalDetailsCopyWith(_$_getHospitalDetails value,
-          $Res Function(_$_getHospitalDetails) then) =
-      __$$_getHospitalDetailsCopyWithImpl<$Res>;
+abstract class _$$getHospitalDetailsImplCopyWith<$Res> {
+  factory _$$getHospitalDetailsImplCopyWith(_$getHospitalDetailsImpl value,
+          $Res Function(_$getHospitalDetailsImpl) then) =
+      __$$getHospitalDetailsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String hospitalId});
 }
 
 /// @nodoc
-class __$$_getHospitalDetailsCopyWithImpl<$Res>
-    extends _$HospitalEventCopyWithImpl<$Res, _$_getHospitalDetails>
-    implements _$$_getHospitalDetailsCopyWith<$Res> {
-  __$$_getHospitalDetailsCopyWithImpl(
-      _$_getHospitalDetails _value, $Res Function(_$_getHospitalDetails) _then)
+class __$$getHospitalDetailsImplCopyWithImpl<$Res>
+    extends _$HospitalEventCopyWithImpl<$Res, _$getHospitalDetailsImpl>
+    implements _$$getHospitalDetailsImplCopyWith<$Res> {
+  __$$getHospitalDetailsImplCopyWithImpl(_$getHospitalDetailsImpl _value,
+      $Res Function(_$getHospitalDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$_getHospitalDetailsCopyWithImpl<$Res>
   $Res call({
     Object? hospitalId = null,
   }) {
-    return _then(_$_getHospitalDetails(
+    return _then(_$getHospitalDetailsImpl(
       hospitalId: null == hospitalId
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
@@ -114,8 +114,8 @@ class __$$_getHospitalDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getHospitalDetails implements _getHospitalDetails {
-  const _$_getHospitalDetails({required this.hospitalId});
+class _$getHospitalDetailsImpl implements _getHospitalDetails {
+  const _$getHospitalDetailsImpl({required this.hospitalId});
 
   @override
   final String hospitalId;
@@ -129,7 +129,7 @@ class _$_getHospitalDetails implements _getHospitalDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getHospitalDetails &&
+            other is _$getHospitalDetailsImpl &&
             (identical(other.hospitalId, hospitalId) ||
                 other.hospitalId == hospitalId));
   }
@@ -140,8 +140,8 @@ class _$_getHospitalDetails implements _getHospitalDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getHospitalDetailsCopyWith<_$_getHospitalDetails> get copyWith =>
-      __$$_getHospitalDetailsCopyWithImpl<_$_getHospitalDetails>(
+  _$$getHospitalDetailsImplCopyWith<_$getHospitalDetailsImpl> get copyWith =>
+      __$$getHospitalDetailsImplCopyWithImpl<_$getHospitalDetailsImpl>(
           this, _$identity);
 
   @override
@@ -216,34 +216,34 @@ class _$_getHospitalDetails implements _getHospitalDetails {
 
 abstract class _getHospitalDetails implements HospitalEvent {
   const factory _getHospitalDetails({required final String hospitalId}) =
-      _$_getHospitalDetails;
+      _$getHospitalDetailsImpl;
 
   String get hospitalId;
   @JsonKey(ignore: true)
-  _$$_getHospitalDetailsCopyWith<_$_getHospitalDetails> get copyWith =>
+  _$$getHospitalDetailsImplCopyWith<_$getHospitalDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_getHospitalDataCopyWith<$Res> {
-  factory _$$_getHospitalDataCopyWith(
-          _$_getHospitalData value, $Res Function(_$_getHospitalData) then) =
-      __$$_getHospitalDataCopyWithImpl<$Res>;
+abstract class _$$getHospitalDataImplCopyWith<$Res> {
+  factory _$$getHospitalDataImplCopyWith(_$getHospitalDataImpl value,
+          $Res Function(_$getHospitalDataImpl) then) =
+      __$$getHospitalDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getHospitalDataCopyWithImpl<$Res>
-    extends _$HospitalEventCopyWithImpl<$Res, _$_getHospitalData>
-    implements _$$_getHospitalDataCopyWith<$Res> {
-  __$$_getHospitalDataCopyWithImpl(
-      _$_getHospitalData _value, $Res Function(_$_getHospitalData) _then)
+class __$$getHospitalDataImplCopyWithImpl<$Res>
+    extends _$HospitalEventCopyWithImpl<$Res, _$getHospitalDataImpl>
+    implements _$$getHospitalDataImplCopyWith<$Res> {
+  __$$getHospitalDataImplCopyWithImpl(
+      _$getHospitalDataImpl _value, $Res Function(_$getHospitalDataImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getHospitalData implements _getHospitalData {
-  const _$_getHospitalData();
+class _$getHospitalDataImpl implements _getHospitalData {
+  const _$getHospitalDataImpl();
 
   @override
   String toString() {
@@ -253,7 +253,7 @@ class _$_getHospitalData implements _getHospitalData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getHospitalData);
+        (other.runtimeType == runtimeType && other is _$getHospitalDataImpl);
   }
 
   @override
@@ -330,24 +330,24 @@ class _$_getHospitalData implements _getHospitalData {
 }
 
 abstract class _getHospitalData implements HospitalEvent {
-  const factory _getHospitalData() = _$_getHospitalData;
+  const factory _getHospitalData() = _$getHospitalDataImpl;
 }
 
 /// @nodoc
-abstract class _$$_addFeedbackCopyWith<$Res> {
-  factory _$$_addFeedbackCopyWith(
-          _$_addFeedback value, $Res Function(_$_addFeedback) then) =
-      __$$_addFeedbackCopyWithImpl<$Res>;
+abstract class _$$addFeedbackImplCopyWith<$Res> {
+  factory _$$addFeedbackImplCopyWith(
+          _$addFeedbackImpl value, $Res Function(_$addFeedbackImpl) then) =
+      __$$addFeedbackImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int rating, String doctorId, String review});
 }
 
 /// @nodoc
-class __$$_addFeedbackCopyWithImpl<$Res>
-    extends _$HospitalEventCopyWithImpl<$Res, _$_addFeedback>
-    implements _$$_addFeedbackCopyWith<$Res> {
-  __$$_addFeedbackCopyWithImpl(
-      _$_addFeedback _value, $Res Function(_$_addFeedback) _then)
+class __$$addFeedbackImplCopyWithImpl<$Res>
+    extends _$HospitalEventCopyWithImpl<$Res, _$addFeedbackImpl>
+    implements _$$addFeedbackImplCopyWith<$Res> {
+  __$$addFeedbackImplCopyWithImpl(
+      _$addFeedbackImpl _value, $Res Function(_$addFeedbackImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -357,7 +357,7 @@ class __$$_addFeedbackCopyWithImpl<$Res>
     Object? doctorId = null,
     Object? review = null,
   }) {
-    return _then(_$_addFeedback(
+    return _then(_$addFeedbackImpl(
       rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
@@ -376,8 +376,8 @@ class __$$_addFeedbackCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_addFeedback implements _addFeedback {
-  _$_addFeedback(
+class _$addFeedbackImpl implements _addFeedback {
+  _$addFeedbackImpl(
       {required this.rating, required this.doctorId, required this.review});
 
   @override
@@ -396,7 +396,7 @@ class _$_addFeedback implements _addFeedback {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_addFeedback &&
+            other is _$addFeedbackImpl &&
             (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.doctorId, doctorId) ||
                 other.doctorId == doctorId) &&
@@ -409,8 +409,8 @@ class _$_addFeedback implements _addFeedback {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_addFeedbackCopyWith<_$_addFeedback> get copyWith =>
-      __$$_addFeedbackCopyWithImpl<_$_addFeedback>(this, _$identity);
+  _$$addFeedbackImplCopyWith<_$addFeedbackImpl> get copyWith =>
+      __$$addFeedbackImplCopyWithImpl<_$addFeedbackImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -486,13 +486,13 @@ abstract class _addFeedback implements HospitalEvent {
   factory _addFeedback(
       {required final int rating,
       required final String doctorId,
-      required final String review}) = _$_addFeedback;
+      required final String review}) = _$addFeedbackImpl;
 
   int get rating;
   String get doctorId;
   String get review;
   @JsonKey(ignore: true)
-  _$$_addFeedbackCopyWith<_$_addFeedback> get copyWith =>
+  _$$addFeedbackImplCopyWith<_$addFeedbackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -549,11 +549,11 @@ class _$HospitalStateCopyWithImpl<$Res, $Val extends HospitalState>
 }
 
 /// @nodoc
-abstract class _$$_HospitalStateCopyWith<$Res>
+abstract class _$$HospitalStateImplCopyWith<$Res>
     implements $HospitalStateCopyWith<$Res> {
-  factory _$$_HospitalStateCopyWith(
-          _$_HospitalState value, $Res Function(_$_HospitalState) then) =
-      __$$_HospitalStateCopyWithImpl<$Res>;
+  factory _$$HospitalStateImplCopyWith(
+          _$HospitalStateImpl value, $Res Function(_$HospitalStateImpl) then) =
+      __$$HospitalStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -562,11 +562,11 @@ abstract class _$$_HospitalStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HospitalStateCopyWithImpl<$Res>
-    extends _$HospitalStateCopyWithImpl<$Res, _$_HospitalState>
-    implements _$$_HospitalStateCopyWith<$Res> {
-  __$$_HospitalStateCopyWithImpl(
-      _$_HospitalState _value, $Res Function(_$_HospitalState) _then)
+class __$$HospitalStateImplCopyWithImpl<$Res>
+    extends _$HospitalStateCopyWithImpl<$Res, _$HospitalStateImpl>
+    implements _$$HospitalStateImplCopyWith<$Res> {
+  __$$HospitalStateImplCopyWithImpl(
+      _$HospitalStateImpl _value, $Res Function(_$HospitalStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -575,7 +575,7 @@ class __$$_HospitalStateCopyWithImpl<$Res>
     Object? hospitalDetails = null,
     Object? hospitalData = null,
   }) {
-    return _then(_$_HospitalState(
+    return _then(_$HospitalStateImpl(
       hospitalDetails: null == hospitalDetails
           ? _value.hospitalDetails
           : hospitalDetails // ignore: cast_nullable_to_non_nullable
@@ -590,8 +590,8 @@ class __$$_HospitalStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HospitalState implements _HospitalState {
-  const _$_HospitalState(
+class _$HospitalStateImpl implements _HospitalState {
+  const _$HospitalStateImpl(
       {required this.hospitalDetails, required this.hospitalData});
 
   @override
@@ -608,7 +608,7 @@ class _$_HospitalState implements _HospitalState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HospitalState &&
+            other is _$HospitalStateImpl &&
             (identical(other.hospitalDetails, hospitalDetails) ||
                 other.hospitalDetails == hospitalDetails) &&
             (identical(other.hospitalData, hospitalData) ||
@@ -621,15 +621,15 @@ class _$_HospitalState implements _HospitalState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HospitalStateCopyWith<_$_HospitalState> get copyWith =>
-      __$$_HospitalStateCopyWithImpl<_$_HospitalState>(this, _$identity);
+  _$$HospitalStateImplCopyWith<_$HospitalStateImpl> get copyWith =>
+      __$$HospitalStateImplCopyWithImpl<_$HospitalStateImpl>(this, _$identity);
 }
 
 abstract class _HospitalState implements HospitalState {
   const factory _HospitalState(
           {required final ApiResponse<SingleHospital> hospitalDetails,
           required final ApiResponse<HospitalData> hospitalData}) =
-      _$_HospitalState;
+      _$HospitalStateImpl;
 
   @override
   ApiResponse<SingleHospital> get hospitalDetails;
@@ -637,6 +637,6 @@ abstract class _HospitalState implements HospitalState {
   ApiResponse<HospitalData> get hospitalData;
   @override
   @JsonKey(ignore: true)
-  _$$_HospitalStateCopyWith<_$_HospitalState> get copyWith =>
+  _$$HospitalStateImplCopyWith<_$HospitalStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

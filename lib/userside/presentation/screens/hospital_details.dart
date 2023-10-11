@@ -1,12 +1,16 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
+import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';
+import 'package:doc_online/userside/presentation/components/card_components/department_card.dart';
 
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
-import 'package:doc_online/userside/presentation/widgets/addrating.dart';
-import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/userside/presentation/components/addrating.dart';
+import 'package:doc_online/userside/presentation/components/common_widget.dart';
 
-import 'package:doc_online/userside/presentation/widgets/doctor_details.dart';
+import 'package:doc_online/userside/presentation/components/doctor_details.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,6 +27,7 @@ class HospitalDetailsScreen extends StatelessWidget {
     });
     return BlocBuilder<HospitalBloc, HospitalState>(
       builder: (context, state) {
+        SingleHospital hospitalDetails = state.hospitalDetails.data!;
         switch (state.hospitalDetails.status) {
           case ApiStatus.error:
             return const SizedBox();
@@ -35,19 +40,19 @@ class HospitalDetailsScreen extends StatelessWidget {
                 body: CustomScrollView(
               shrinkWrap: true,
               slivers: [
-                sliverAppBar(
-                    state.hospitalDetails.data!.hospital!.image!.secureUrl!),
+                sliverAppBar(hospitalDetails.hospital!.image!.secureUrl!),
                 SliverPadding(
                   padding: const EdgeInsets.all(15),
                   sliver: SliverList(
                     delegate: SliverChildListDelegate(
                       [
-                        space1h(),
-                        cText1(state.hospitalDetails.data!.hospital!.name!),
-                        space1h(),
-                        labelText('Place'),
-                        cText1(
-                          state.hospitalDetails.data!.hospital!.place!,
+                        SpaceSized.space1h(),
+                        CustomTexts.commonText1(
+                            hospitalDetails.hospital!.name!),
+                        SpaceSized.space1h(),
+                        CustomTexts.labelText('Place'),
+                        CustomTexts.commonText1(
+                          hospitalDetails.hospital!.place!,
                         ),
                         const SizedBox(
                           height: 20,
@@ -70,12 +75,12 @@ class HospitalDetailsScreen extends StatelessWidget {
                                   itemCount: state.hospitalDetails.data!
                                       .departments!.length,
                                   itemBuilder: (context, index) =>
-                                      departmentCard(
-                                          state.hospitalDetails.data!
-                                              .departments![index].name!,
-                                          state.hospitalDetails.data!
-                                              .departments![index].id!,
-                                          context),
+                                      DepartmentCard(
+                                    dpName: state.hospitalDetails.data!
+                                        .departments![index].name!,
+                                    id: state.hospitalDetails.data!
+                                        .departments![index].id!,
+                                  ),
                                 ),
                               ),
                             ],
@@ -91,23 +96,21 @@ class HospitalDetailsScreen extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            state.hospitalDetails.data!.review != null
-                                ? addRating(
-                                    state.hospitalDetails.data!.rating,
-                                    context,
-                                    state.hospitalDetails.data!.review!
-                                        .hospitalId!,
-                                    state.hospitalDetails.data!.review!.review!,
-                                    EditType.hospital)
+                            hospitalDetails.review != null
+                                ? AddRating(
+                                    rating: hospitalDetails.rating!,
+                                    id: hospitalDetails.review!.hospitalId!,
+                                    review: hospitalDetails.review!.review!,
+                                    fieldtype: EditType.hospital)
                                 : const SizedBox(),
-                            state.hospitalDetails.data!.reviews!.isNotEmpty
+                            hospitalDetails.reviews!.isNotEmpty
                                 ? ListView.separated(
                                     physics: const ScrollPhysics(),
                                     shrinkWrap: true,
                                     itemCount: state
                                         .hospitalDetails.data!.reviews!.length,
                                     separatorBuilder: (context, index) =>
-                                        space1h(),
+                                        SpaceSized.space1h(),
                                     itemBuilder: (context, index) => review(
                                         state.hospitalDetails.data!
                                             .reviews![index].userId!.name!,
@@ -115,7 +118,7 @@ class HospitalDetailsScreen extends StatelessWidget {
                                             .reviews![index].rating!,
                                         state.hospitalDetails.data!
                                             .reviews![index].review!))
-                                : header1('no review')
+                                : CustomTexts.header1('no review')
                           ],
                         )
                       ],

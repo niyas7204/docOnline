@@ -1,19 +1,22 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/account_auth/businesslogic/login/login_bloc.dart';
+import 'package:doc_online/userside/account_auth/presentaion/demo.dart';
 import 'package:doc_online/userside/account_auth/presentaion/forgot_password.dart';
 import 'package:doc_online/userside/account_auth/presentaion/helpers/formfieldvalidation.dart';
 import 'package:doc_online/userside/account_auth/presentaion/sign_up.dart';
 import 'package:doc_online/userside/account_auth/presentaion/widgets/formfield.dart';
 
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
 import 'package:doc_online/doctorside/presentation/core/logo.dart';
 
 import 'package:doc_online/doctorside/presentation/log_in/log_in.dart';
 import 'package:doc_online/userside/presentation/screens/home.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -41,14 +44,14 @@ class Login extends StatelessWidget {
             builder: (context, state) {
               return Stack(
                 children: [
-                  state.loginData.status == ApiStatus.loading
-                      ? Container(
-                          color: const Color.fromARGB(209, 49, 49, 49),
-                          child: const Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        )
-                      : const SizedBox(),
+                  // state.loginData.status == ApiStatus.loading
+                  //     ? Container(
+                  //         color: const Color.fromARGB(209, 49, 49, 49),
+                  //         child: const Center(
+                  //           child: CircularProgressIndicator(),
+                  //         ),
+                  //       )
+                  //     : const SizedBox(),
                   Positioned(
                     left: 16.0,
                     child: logo(),
@@ -67,22 +70,17 @@ class Login extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        header1('Login'),
+                        CustomTexts.header1('Login'),
                         Padding(
                           padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ListView.separated(
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) =>
-                                      textEditField(
-                                          labels[index], controllers[index]),
-                                  separatorBuilder: (context, index) =>
-                                      space1h(),
-                                  itemCount: labels.length),
-                            ],
-                          ),
+                          child: ListView.separated(
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) =>
+                              TextFieldWidgets.textEditField(
+                                      labels[index], controllers[index]),
+                              separatorBuilder: (context, index) =>
+                                  SpaceSized.space1h(),
+                              itemCount: labels.length),
                         ),
                         TextButton(
                             onPressed: () async {
@@ -95,8 +93,8 @@ class Login extends StatelessWidget {
                               style: TextStyle(color: Colors.blue),
                             )),
                         SizedBox(
-                          width: 160.w,
-                          height: 35.h,
+                          width: 120,
+                          height: 35,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: baseColor,
@@ -118,10 +116,11 @@ class Login extends StatelessWidget {
                             ),
                           ),
                         ),
+                       
                         state.loginData.status == ApiStatus.error
-                            ? errorText('Email and password not match!.')
+                            ? CustomTexts.errorText('Email and password not match!.')
                             : const SizedBox(),
-                        space1h(),
+                        SpaceSized.space1h(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

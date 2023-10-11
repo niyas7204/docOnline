@@ -1,13 +1,15 @@
 import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
+import 'package:doc_online/userside/presentation/components/card_components/booking_card.dart';
 
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
-import 'package:doc_online/userside/presentation/widgets/cards.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/userside/presentation/components/cards.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookingDetails extends StatelessWidget {
   const BookingDetails({super.key});
@@ -19,13 +21,12 @@ class BookingDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 101, 131, 146),
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Bookings',
-              style: TextStyle(
-                  fontSize: ScreenUtil().setSp(20), color: Colors.white),
+              style: TextStyle(fontSize: 25, color: Colors.white),
             ),
           ],
         ),
@@ -47,18 +48,19 @@ class BookingDetails extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    header1('Bookings'),
-                    space1h(),
+                    CustomTexts.header1('Bookings'),
+                    SpaceSized.space1h(),
                     state.bookings.data!.bookings!.isEmpty
                         ? Center(
-                            child: errorText('No bookings found'),
+                            child: CustomTexts.errorText('No bookings found'),
                           )
                         : const SizedBox(),
                     Expanded(
                       child: ListView.separated(
-                          itemBuilder: (context, index) => bookingCard(
-                              state.bookings.data!.bookings![index]),
-                          separatorBuilder: (context, index) => space1h(),
+                          itemBuilder: (context, index) => BookingCard(
+                              bookings: state.bookings.data!.bookings![index]),
+                          separatorBuilder: (context, index) =>
+                              SpaceSized.space1h(),
                           itemCount: state.bookings.data!.bookings!.length),
                     ),
                   ],

@@ -1,5 +1,7 @@
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
-import 'package:doc_online/userside/presentation/widgets/common_widget.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/userside/presentation/components/common_widget.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
 
@@ -49,7 +51,7 @@ scheduleTile(List<Mon> time, String day) {
             color: const Color.fromARGB(255, 139, 158, 192),
             child: Column(
               children: [
-                cText1(day),
+                CustomTexts.commonText1(day),
                 ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -63,13 +65,13 @@ scheduleTile(List<Mon> time, String day) {
                                 Positioned(
                                   top: 5,
                                   left: 10,
-                                  child: text20(
+                                  child: CustomTexts.text20(
                                       ' Start Time ${time[index].startDate!.hour}:${time[index].endDate!.minute}'),
                                 ),
                                 Positioned(
                                   top: 5,
                                   right: 10,
-                                  child: text20(
+                                  child: CustomTexts.text20(
                                       ' End Time ${time[index].endDate!.hour}:${time[index].endDate!.minute}'),
                                 ),
                               ],
@@ -99,13 +101,13 @@ review(String profile, int rating, String review) {
             radius: 30,
             child: Icon(Icons.person_2_sharp),
           ),
-          space1w(),
+          SpaceSized.space1h(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              text20(profile),
+              CustomTexts.text20(profile),
               starRating(rating),
-              text20(review),
+              CustomTexts.text20(review),
             ],
           )
         ],

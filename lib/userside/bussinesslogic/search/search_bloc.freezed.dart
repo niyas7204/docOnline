@@ -91,25 +91,25 @@ class _$SearchEventCopyWithImpl<$Res, $Val extends SearchEvent>
 }
 
 /// @nodoc
-abstract class _$$DoctorSearchCopyWith<$Res> {
-  factory _$$DoctorSearchCopyWith(
-          _$DoctorSearch value, $Res Function(_$DoctorSearch) then) =
-      __$$DoctorSearchCopyWithImpl<$Res>;
+abstract class _$$DoctorSearchImplCopyWith<$Res> {
+  factory _$$DoctorSearchImplCopyWith(
+          _$DoctorSearchImpl value, $Res Function(_$DoctorSearchImpl) then) =
+      __$$DoctorSearchImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DoctorSearchCopyWithImpl<$Res>
-    extends _$SearchEventCopyWithImpl<$Res, _$DoctorSearch>
-    implements _$$DoctorSearchCopyWith<$Res> {
-  __$$DoctorSearchCopyWithImpl(
-      _$DoctorSearch _value, $Res Function(_$DoctorSearch) _then)
+class __$$DoctorSearchImplCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$DoctorSearchImpl>
+    implements _$$DoctorSearchImplCopyWith<$Res> {
+  __$$DoctorSearchImplCopyWithImpl(
+      _$DoctorSearchImpl _value, $Res Function(_$DoctorSearchImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DoctorSearch implements DoctorSearch {
-  const _$DoctorSearch();
+class _$DoctorSearchImpl implements DoctorSearch {
+  const _$DoctorSearchImpl();
 
   @override
   String toString() {
@@ -119,7 +119,7 @@ class _$DoctorSearch implements DoctorSearch {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DoctorSearch);
+        (other.runtimeType == runtimeType && other is _$DoctorSearchImpl);
   }
 
   @override
@@ -205,29 +205,29 @@ class _$DoctorSearch implements DoctorSearch {
 }
 
 abstract class DoctorSearch implements SearchEvent {
-  const factory DoctorSearch() = _$DoctorSearch;
+  const factory DoctorSearch() = _$DoctorSearchImpl;
 }
 
 /// @nodoc
-abstract class _$$HospitalSearchCopyWith<$Res> {
-  factory _$$HospitalSearchCopyWith(
-          _$HospitalSearch value, $Res Function(_$HospitalSearch) then) =
-      __$$HospitalSearchCopyWithImpl<$Res>;
+abstract class _$$HospitalSearchImplCopyWith<$Res> {
+  factory _$$HospitalSearchImplCopyWith(_$HospitalSearchImpl value,
+          $Res Function(_$HospitalSearchImpl) then) =
+      __$$HospitalSearchImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HospitalSearchCopyWithImpl<$Res>
-    extends _$SearchEventCopyWithImpl<$Res, _$HospitalSearch>
-    implements _$$HospitalSearchCopyWith<$Res> {
-  __$$HospitalSearchCopyWithImpl(
-      _$HospitalSearch _value, $Res Function(_$HospitalSearch) _then)
+class __$$HospitalSearchImplCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$HospitalSearchImpl>
+    implements _$$HospitalSearchImplCopyWith<$Res> {
+  __$$HospitalSearchImplCopyWithImpl(
+      _$HospitalSearchImpl _value, $Res Function(_$HospitalSearchImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HospitalSearch implements HospitalSearch {
-  const _$HospitalSearch();
+class _$HospitalSearchImpl implements HospitalSearch {
+  const _$HospitalSearchImpl();
 
   @override
   String toString() {
@@ -237,7 +237,7 @@ class _$HospitalSearch implements HospitalSearch {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HospitalSearch);
+        (other.runtimeType == runtimeType && other is _$HospitalSearchImpl);
   }
 
   @override
@@ -323,24 +323,24 @@ class _$HospitalSearch implements HospitalSearch {
 }
 
 abstract class HospitalSearch implements SearchEvent {
-  const factory HospitalSearch() = _$HospitalSearch;
+  const factory HospitalSearch() = _$HospitalSearchImpl;
 }
 
 /// @nodoc
-abstract class _$$OnDoctorSearchCopyWith<$Res> {
-  factory _$$OnDoctorSearchCopyWith(
-          _$OnDoctorSearch value, $Res Function(_$OnDoctorSearch) then) =
-      __$$OnDoctorSearchCopyWithImpl<$Res>;
+abstract class _$$OnDoctorSearchImplCopyWith<$Res> {
+  factory _$$OnDoctorSearchImplCopyWith(_$OnDoctorSearchImpl value,
+          $Res Function(_$OnDoctorSearchImpl) then) =
+      __$$OnDoctorSearchImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Doctors> doctorList, String query});
 }
 
 /// @nodoc
-class __$$OnDoctorSearchCopyWithImpl<$Res>
-    extends _$SearchEventCopyWithImpl<$Res, _$OnDoctorSearch>
-    implements _$$OnDoctorSearchCopyWith<$Res> {
-  __$$OnDoctorSearchCopyWithImpl(
-      _$OnDoctorSearch _value, $Res Function(_$OnDoctorSearch) _then)
+class __$$OnDoctorSearchImplCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$OnDoctorSearchImpl>
+    implements _$$OnDoctorSearchImplCopyWith<$Res> {
+  __$$OnDoctorSearchImplCopyWithImpl(
+      _$OnDoctorSearchImpl _value, $Res Function(_$OnDoctorSearchImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -349,7 +349,7 @@ class __$$OnDoctorSearchCopyWithImpl<$Res>
     Object? doctorList = null,
     Object? query = null,
   }) {
-    return _then(_$OnDoctorSearch(
+    return _then(_$OnDoctorSearchImpl(
       doctorList: null == doctorList
           ? _value._doctorList
           : doctorList // ignore: cast_nullable_to_non_nullable
@@ -364,8 +364,8 @@ class __$$OnDoctorSearchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnDoctorSearch implements OnDoctorSearch {
-  const _$OnDoctorSearch(
+class _$OnDoctorSearchImpl implements OnDoctorSearch {
+  const _$OnDoctorSearchImpl(
       {required final List<Doctors> doctorList, required this.query})
       : _doctorList = doctorList;
 
@@ -389,7 +389,7 @@ class _$OnDoctorSearch implements OnDoctorSearch {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnDoctorSearch &&
+            other is _$OnDoctorSearchImpl &&
             const DeepCollectionEquality()
                 .equals(other._doctorList, _doctorList) &&
             (identical(other.query, query) || other.query == query));
@@ -402,8 +402,9 @@ class _$OnDoctorSearch implements OnDoctorSearch {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnDoctorSearchCopyWith<_$OnDoctorSearch> get copyWith =>
-      __$$OnDoctorSearchCopyWithImpl<_$OnDoctorSearch>(this, _$identity);
+  _$$OnDoctorSearchImplCopyWith<_$OnDoctorSearchImpl> get copyWith =>
+      __$$OnDoctorSearchImplCopyWithImpl<_$OnDoctorSearchImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -487,30 +488,30 @@ class _$OnDoctorSearch implements OnDoctorSearch {
 abstract class OnDoctorSearch implements SearchEvent {
   const factory OnDoctorSearch(
       {required final List<Doctors> doctorList,
-      required final String query}) = _$OnDoctorSearch;
+      required final String query}) = _$OnDoctorSearchImpl;
 
   List<Doctors> get doctorList;
   String get query;
   @JsonKey(ignore: true)
-  _$$OnDoctorSearchCopyWith<_$OnDoctorSearch> get copyWith =>
+  _$$OnDoctorSearchImplCopyWith<_$OnDoctorSearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OnHospitalSearchCopyWith<$Res> {
-  factory _$$OnHospitalSearchCopyWith(
-          _$OnHospitalSearch value, $Res Function(_$OnHospitalSearch) then) =
-      __$$OnHospitalSearchCopyWithImpl<$Res>;
+abstract class _$$OnHospitalSearchImplCopyWith<$Res> {
+  factory _$$OnHospitalSearchImplCopyWith(_$OnHospitalSearchImpl value,
+          $Res Function(_$OnHospitalSearchImpl) then) =
+      __$$OnHospitalSearchImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<HospitalDeatails> hospitalList, String query});
 }
 
 /// @nodoc
-class __$$OnHospitalSearchCopyWithImpl<$Res>
-    extends _$SearchEventCopyWithImpl<$Res, _$OnHospitalSearch>
-    implements _$$OnHospitalSearchCopyWith<$Res> {
-  __$$OnHospitalSearchCopyWithImpl(
-      _$OnHospitalSearch _value, $Res Function(_$OnHospitalSearch) _then)
+class __$$OnHospitalSearchImplCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$OnHospitalSearchImpl>
+    implements _$$OnHospitalSearchImplCopyWith<$Res> {
+  __$$OnHospitalSearchImplCopyWithImpl(_$OnHospitalSearchImpl _value,
+      $Res Function(_$OnHospitalSearchImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -519,7 +520,7 @@ class __$$OnHospitalSearchCopyWithImpl<$Res>
     Object? hospitalList = null,
     Object? query = null,
   }) {
-    return _then(_$OnHospitalSearch(
+    return _then(_$OnHospitalSearchImpl(
       hospitalList: null == hospitalList
           ? _value._hospitalList
           : hospitalList // ignore: cast_nullable_to_non_nullable
@@ -534,8 +535,8 @@ class __$$OnHospitalSearchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnHospitalSearch implements OnHospitalSearch {
-  const _$OnHospitalSearch(
+class _$OnHospitalSearchImpl implements OnHospitalSearch {
+  const _$OnHospitalSearchImpl(
       {required final List<HospitalDeatails> hospitalList, required this.query})
       : _hospitalList = hospitalList;
 
@@ -559,7 +560,7 @@ class _$OnHospitalSearch implements OnHospitalSearch {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnHospitalSearch &&
+            other is _$OnHospitalSearchImpl &&
             const DeepCollectionEquality()
                 .equals(other._hospitalList, _hospitalList) &&
             (identical(other.query, query) || other.query == query));
@@ -572,8 +573,9 @@ class _$OnHospitalSearch implements OnHospitalSearch {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnHospitalSearchCopyWith<_$OnHospitalSearch> get copyWith =>
-      __$$OnHospitalSearchCopyWithImpl<_$OnHospitalSearch>(this, _$identity);
+  _$$OnHospitalSearchImplCopyWith<_$OnHospitalSearchImpl> get copyWith =>
+      __$$OnHospitalSearchImplCopyWithImpl<_$OnHospitalSearchImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -657,12 +659,12 @@ class _$OnHospitalSearch implements OnHospitalSearch {
 abstract class OnHospitalSearch implements SearchEvent {
   const factory OnHospitalSearch(
       {required final List<HospitalDeatails> hospitalList,
-      required final String query}) = _$OnHospitalSearch;
+      required final String query}) = _$OnHospitalSearchImpl;
 
   List<HospitalDeatails> get hospitalList;
   String get query;
   @JsonKey(ignore: true)
-  _$$OnHospitalSearchCopyWith<_$OnHospitalSearch> get copyWith =>
+  _$$OnHospitalSearchImplCopyWith<_$OnHospitalSearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -749,11 +751,11 @@ class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
 }
 
 /// @nodoc
-abstract class _$$searchStateCopyWith<$Res>
+abstract class _$$searchStateImplCopyWith<$Res>
     implements $SearchStateCopyWith<$Res> {
-  factory _$$searchStateCopyWith(
-          _$searchState value, $Res Function(_$searchState) then) =
-      __$$searchStateCopyWithImpl<$Res>;
+  factory _$$searchStateImplCopyWith(
+          _$searchStateImpl value, $Res Function(_$searchStateImpl) then) =
+      __$$searchStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -766,11 +768,11 @@ abstract class _$$searchStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$searchStateCopyWithImpl<$Res>
-    extends _$SearchStateCopyWithImpl<$Res, _$searchState>
-    implements _$$searchStateCopyWith<$Res> {
-  __$$searchStateCopyWithImpl(
-      _$searchState _value, $Res Function(_$searchState) _then)
+class __$$searchStateImplCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$searchStateImpl>
+    implements _$$searchStateImplCopyWith<$Res> {
+  __$$searchStateImplCopyWithImpl(
+      _$searchStateImpl _value, $Res Function(_$searchStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -783,7 +785,7 @@ class __$$searchStateCopyWithImpl<$Res>
     Object? doctorResult = freezed,
     Object? hospitalResult = freezed,
   }) {
-    return _then(_$searchState(
+    return _then(_$searchStateImpl(
       searchSelection: null == searchSelection
           ? _value.searchSelection
           : searchSelection // ignore: cast_nullable_to_non_nullable
@@ -814,8 +816,8 @@ class __$$searchStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$searchState implements searchState {
-  _$searchState(
+class _$searchStateImpl implements searchState {
+  _$searchStateImpl(
       {required this.searchSelection,
       required this.doctorsList,
       required this.hospitalList,
@@ -845,7 +847,7 @@ class _$searchState implements searchState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$searchState &&
+            other is _$searchStateImpl &&
             (identical(other.searchSelection, searchSelection) ||
                 other.searchSelection == searchSelection) &&
             (identical(other.doctorsList, doctorsList) ||
@@ -867,8 +869,8 @@ class _$searchState implements searchState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$searchStateCopyWith<_$searchState> get copyWith =>
-      __$$searchStateCopyWithImpl<_$searchState>(this, _$identity);
+  _$$searchStateImplCopyWith<_$searchStateImpl> get copyWith =>
+      __$$searchStateImplCopyWithImpl<_$searchStateImpl>(this, _$identity);
 }
 
 abstract class searchState implements SearchState {
@@ -879,7 +881,7 @@ abstract class searchState implements SearchState {
           required final bool isSearch,
           required final ApiResponse<List<Doctors>>? doctorResult,
           required final ApiResponse<List<HospitalDeatails>>? hospitalResult}) =
-      _$searchState;
+      _$searchStateImpl;
 
   @override
   SearchSelection get searchSelection;
@@ -895,6 +897,6 @@ abstract class searchState implements SearchState {
   ApiResponse<List<HospitalDeatails>>? get hospitalResult;
   @override
   @JsonKey(ignore: true)
-  _$$searchStateCopyWith<_$searchState> get copyWith =>
+  _$$searchStateImplCopyWith<_$searchStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

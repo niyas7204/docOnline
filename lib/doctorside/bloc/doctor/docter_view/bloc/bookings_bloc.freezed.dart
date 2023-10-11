@@ -75,25 +75,25 @@ class _$BookingsEventCopyWithImpl<$Res, $Val extends BookingsEvent>
 }
 
 /// @nodoc
-abstract class _$$_getTodaysBookingsCopyWith<$Res> {
-  factory _$$_getTodaysBookingsCopyWith(_$_getTodaysBookings value,
-          $Res Function(_$_getTodaysBookings) then) =
-      __$$_getTodaysBookingsCopyWithImpl<$Res>;
+abstract class _$$getTodaysBookingsImplCopyWith<$Res> {
+  factory _$$getTodaysBookingsImplCopyWith(_$getTodaysBookingsImpl value,
+          $Res Function(_$getTodaysBookingsImpl) then) =
+      __$$getTodaysBookingsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getTodaysBookingsCopyWithImpl<$Res>
-    extends _$BookingsEventCopyWithImpl<$Res, _$_getTodaysBookings>
-    implements _$$_getTodaysBookingsCopyWith<$Res> {
-  __$$_getTodaysBookingsCopyWithImpl(
-      _$_getTodaysBookings _value, $Res Function(_$_getTodaysBookings) _then)
+class __$$getTodaysBookingsImplCopyWithImpl<$Res>
+    extends _$BookingsEventCopyWithImpl<$Res, _$getTodaysBookingsImpl>
+    implements _$$getTodaysBookingsImplCopyWith<$Res> {
+  __$$getTodaysBookingsImplCopyWithImpl(_$getTodaysBookingsImpl _value,
+      $Res Function(_$getTodaysBookingsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getTodaysBookings implements _getTodaysBookings {
-  const _$_getTodaysBookings();
+class _$getTodaysBookingsImpl implements _getTodaysBookings {
+  const _$getTodaysBookingsImpl();
 
   @override
   String toString() {
@@ -103,7 +103,7 @@ class _$_getTodaysBookings implements _getTodaysBookings {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getTodaysBookings);
+        (other.runtimeType == runtimeType && other is _$getTodaysBookingsImpl);
   }
 
   @override
@@ -173,24 +173,24 @@ class _$_getTodaysBookings implements _getTodaysBookings {
 }
 
 abstract class _getTodaysBookings implements BookingsEvent {
-  const factory _getTodaysBookings() = _$_getTodaysBookings;
+  const factory _getTodaysBookings() = _$getTodaysBookingsImpl;
 }
 
 /// @nodoc
-abstract class _$$_changeSelectionCopyWith<$Res> {
-  factory _$$_changeSelectionCopyWith(
-          _$_changeSelection value, $Res Function(_$_changeSelection) then) =
-      __$$_changeSelectionCopyWithImpl<$Res>;
+abstract class _$$changeSelectionImplCopyWith<$Res> {
+  factory _$$changeSelectionImplCopyWith(_$changeSelectionImpl value,
+          $Res Function(_$changeSelectionImpl) then) =
+      __$$changeSelectionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AppointmentSelection selection});
 }
 
 /// @nodoc
-class __$$_changeSelectionCopyWithImpl<$Res>
-    extends _$BookingsEventCopyWithImpl<$Res, _$_changeSelection>
-    implements _$$_changeSelectionCopyWith<$Res> {
-  __$$_changeSelectionCopyWithImpl(
-      _$_changeSelection _value, $Res Function(_$_changeSelection) _then)
+class __$$changeSelectionImplCopyWithImpl<$Res>
+    extends _$BookingsEventCopyWithImpl<$Res, _$changeSelectionImpl>
+    implements _$$changeSelectionImplCopyWith<$Res> {
+  __$$changeSelectionImplCopyWithImpl(
+      _$changeSelectionImpl _value, $Res Function(_$changeSelectionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -198,7 +198,7 @@ class __$$_changeSelectionCopyWithImpl<$Res>
   $Res call({
     Object? selection = null,
   }) {
-    return _then(_$_changeSelection(
+    return _then(_$changeSelectionImpl(
       selection: null == selection
           ? _value.selection
           : selection // ignore: cast_nullable_to_non_nullable
@@ -209,8 +209,8 @@ class __$$_changeSelectionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_changeSelection implements _changeSelection {
-  const _$_changeSelection({required this.selection});
+class _$changeSelectionImpl implements _changeSelection {
+  const _$changeSelectionImpl({required this.selection});
 
   @override
   final AppointmentSelection selection;
@@ -224,7 +224,7 @@ class _$_changeSelection implements _changeSelection {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_changeSelection &&
+            other is _$changeSelectionImpl &&
             (identical(other.selection, selection) ||
                 other.selection == selection));
   }
@@ -235,8 +235,9 @@ class _$_changeSelection implements _changeSelection {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_changeSelectionCopyWith<_$_changeSelection> get copyWith =>
-      __$$_changeSelectionCopyWithImpl<_$_changeSelection>(this, _$identity);
+  _$$changeSelectionImplCopyWith<_$changeSelectionImpl> get copyWith =>
+      __$$changeSelectionImplCopyWithImpl<_$changeSelectionImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -303,11 +304,11 @@ class _$_changeSelection implements _changeSelection {
 
 abstract class _changeSelection implements BookingsEvent {
   const factory _changeSelection(
-      {required final AppointmentSelection selection}) = _$_changeSelection;
+      {required final AppointmentSelection selection}) = _$changeSelectionImpl;
 
   AppointmentSelection get selection;
   @JsonKey(ignore: true)
-  _$$_changeSelectionCopyWith<_$_changeSelection> get copyWith =>
+  _$$changeSelectionImplCopyWith<_$changeSelectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -370,11 +371,11 @@ class _$BookingsStateCopyWithImpl<$Res, $Val extends BookingsState>
 }
 
 /// @nodoc
-abstract class _$$bookingsStateCopyWith<$Res>
+abstract class _$$bookingsStateImplCopyWith<$Res>
     implements $BookingsStateCopyWith<$Res> {
-  factory _$$bookingsStateCopyWith(
-          _$bookingsState value, $Res Function(_$bookingsState) then) =
-      __$$bookingsStateCopyWithImpl<$Res>;
+  factory _$$bookingsStateImplCopyWith(
+          _$bookingsStateImpl value, $Res Function(_$bookingsStateImpl) then) =
+      __$$bookingsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -384,11 +385,11 @@ abstract class _$$bookingsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$bookingsStateCopyWithImpl<$Res>
-    extends _$BookingsStateCopyWithImpl<$Res, _$bookingsState>
-    implements _$$bookingsStateCopyWith<$Res> {
-  __$$bookingsStateCopyWithImpl(
-      _$bookingsState _value, $Res Function(_$bookingsState) _then)
+class __$$bookingsStateImplCopyWithImpl<$Res>
+    extends _$BookingsStateCopyWithImpl<$Res, _$bookingsStateImpl>
+    implements _$$bookingsStateImplCopyWith<$Res> {
+  __$$bookingsStateImplCopyWithImpl(
+      _$bookingsStateImpl _value, $Res Function(_$bookingsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -398,7 +399,7 @@ class __$$bookingsStateCopyWithImpl<$Res>
     Object? todaysbookings = null,
     Object? selection = null,
   }) {
-    return _then(_$bookingsState(
+    return _then(_$bookingsStateImpl(
       bookings: null == bookings
           ? _value.bookings
           : bookings // ignore: cast_nullable_to_non_nullable
@@ -417,8 +418,8 @@ class __$$bookingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$bookingsState implements bookingsState {
-  const _$bookingsState(
+class _$bookingsStateImpl implements bookingsState {
+  const _$bookingsStateImpl(
       {required this.bookings,
       required this.todaysbookings,
       required this.selection});
@@ -439,7 +440,7 @@ class _$bookingsState implements bookingsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$bookingsState &&
+            other is _$bookingsStateImpl &&
             (identical(other.bookings, bookings) ||
                 other.bookings == bookings) &&
             (identical(other.todaysbookings, todaysbookings) ||
@@ -455,15 +456,15 @@ class _$bookingsState implements bookingsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$bookingsStateCopyWith<_$bookingsState> get copyWith =>
-      __$$bookingsStateCopyWithImpl<_$bookingsState>(this, _$identity);
+  _$$bookingsStateImplCopyWith<_$bookingsStateImpl> get copyWith =>
+      __$$bookingsStateImplCopyWithImpl<_$bookingsStateImpl>(this, _$identity);
 }
 
 abstract class bookingsState implements BookingsState {
   const factory bookingsState(
       {required final ApiResponse<BookingsModel> bookings,
       required final ApiResponse<BookingsModel> todaysbookings,
-      required final AppointmentSelection selection}) = _$bookingsState;
+      required final AppointmentSelection selection}) = _$bookingsStateImpl;
 
   @override
   ApiResponse<BookingsModel> get bookings;
@@ -473,6 +474,6 @@ abstract class bookingsState implements BookingsState {
   AppointmentSelection get selection;
   @override
   @JsonKey(ignore: true)
-  _$$bookingsStateCopyWith<_$bookingsState> get copyWith =>
+  _$$bookingsStateImplCopyWith<_$bookingsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

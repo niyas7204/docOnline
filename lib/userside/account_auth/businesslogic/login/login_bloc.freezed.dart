@@ -75,20 +75,20 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
 }
 
 /// @nodoc
-abstract class _$$_AuthLogInCopyWith<$Res> {
-  factory _$$_AuthLogInCopyWith(
-          _$_AuthLogIn value, $Res Function(_$_AuthLogIn) then) =
-      __$$_AuthLogInCopyWithImpl<$Res>;
+abstract class _$$AuthLogInImplCopyWith<$Res> {
+  factory _$$AuthLogInImplCopyWith(
+          _$AuthLogInImpl value, $Res Function(_$AuthLogInImpl) then) =
+      __$$AuthLogInImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$_AuthLogInCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$_AuthLogIn>
-    implements _$$_AuthLogInCopyWith<$Res> {
-  __$$_AuthLogInCopyWithImpl(
-      _$_AuthLogIn _value, $Res Function(_$_AuthLogIn) _then)
+class __$$AuthLogInImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$AuthLogInImpl>
+    implements _$$AuthLogInImplCopyWith<$Res> {
+  __$$AuthLogInImplCopyWithImpl(
+      _$AuthLogInImpl _value, $Res Function(_$AuthLogInImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_AuthLogInCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$_AuthLogIn(
+    return _then(_$AuthLogInImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -112,8 +112,8 @@ class __$$_AuthLogInCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AuthLogIn implements _AuthLogIn {
-  const _$_AuthLogIn({required this.email, required this.password});
+class _$AuthLogInImpl implements _AuthLogIn {
+  const _$AuthLogInImpl({required this.email, required this.password});
 
   @override
   final String email;
@@ -129,7 +129,7 @@ class _$_AuthLogIn implements _AuthLogIn {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthLogIn &&
+            other is _$AuthLogInImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -141,8 +141,8 @@ class _$_AuthLogIn implements _AuthLogIn {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AuthLogInCopyWith<_$_AuthLogIn> get copyWith =>
-      __$$_AuthLogInCopyWithImpl<_$_AuthLogIn>(this, _$identity);
+  _$$AuthLogInImplCopyWith<_$AuthLogInImpl> get copyWith =>
+      __$$AuthLogInImplCopyWithImpl<_$AuthLogInImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,35 +210,35 @@ class _$_AuthLogIn implements _AuthLogIn {
 abstract class _AuthLogIn implements LoginEvent {
   const factory _AuthLogIn(
       {required final String email,
-      required final String password}) = _$_AuthLogIn;
+      required final String password}) = _$AuthLogInImpl;
 
   String get email;
   String get password;
   @JsonKey(ignore: true)
-  _$$_AuthLogInCopyWith<_$_AuthLogIn> get copyWith =>
+  _$$AuthLogInImplCopyWith<_$AuthLogInImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_getSignUphCopyWith<$Res> {
-  factory _$$_getSignUphCopyWith(
-          _$_getSignUph value, $Res Function(_$_getSignUph) then) =
-      __$$_getSignUphCopyWithImpl<$Res>;
+abstract class _$$getSignUphImplCopyWith<$Res> {
+  factory _$$getSignUphImplCopyWith(
+          _$getSignUphImpl value, $Res Function(_$getSignUphImpl) then) =
+      __$$getSignUphImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getSignUphCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$_getSignUph>
-    implements _$$_getSignUphCopyWith<$Res> {
-  __$$_getSignUphCopyWithImpl(
-      _$_getSignUph _value, $Res Function(_$_getSignUph) _then)
+class __$$getSignUphImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$getSignUphImpl>
+    implements _$$getSignUphImplCopyWith<$Res> {
+  __$$getSignUphImplCopyWithImpl(
+      _$getSignUphImpl _value, $Res Function(_$getSignUphImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getSignUph implements _getSignUph {
-  const _$_getSignUph();
+class _$getSignUphImpl implements _getSignUph {
+  const _$getSignUphImpl();
 
   @override
   String toString() {
@@ -248,7 +248,7 @@ class _$_getSignUph implements _getSignUph {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getSignUph);
+        (other.runtimeType == runtimeType && other is _$getSignUphImpl);
   }
 
   @override
@@ -318,7 +318,7 @@ class _$_getSignUph implements _getSignUph {
 }
 
 abstract class _getSignUph implements LoginEvent {
-  const factory _getSignUph() = _$_getSignUph;
+  const factory _getSignUph() = _$getSignUphImpl;
 }
 
 /// @nodoc
@@ -364,22 +364,22 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
 }
 
 /// @nodoc
-abstract class _$$_LoginStateCopyWith<$Res>
+abstract class _$$LoginStateImplCopyWith<$Res>
     implements $LoginStateCopyWith<$Res> {
-  factory _$$_LoginStateCopyWith(
-          _$_LoginState value, $Res Function(_$_LoginState) then) =
-      __$$_LoginStateCopyWithImpl<$Res>;
+  factory _$$LoginStateImplCopyWith(
+          _$LoginStateImpl value, $Res Function(_$LoginStateImpl) then) =
+      __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<LogInfo> loginData});
 }
 
 /// @nodoc
-class __$$_LoginStateCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_LoginState>
-    implements _$$_LoginStateCopyWith<$Res> {
-  __$$_LoginStateCopyWithImpl(
-      _$_LoginState _value, $Res Function(_$_LoginState) _then)
+class __$$LoginStateImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginStateImpl>
+    implements _$$LoginStateImplCopyWith<$Res> {
+  __$$LoginStateImplCopyWithImpl(
+      _$LoginStateImpl _value, $Res Function(_$LoginStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -387,7 +387,7 @@ class __$$_LoginStateCopyWithImpl<$Res>
   $Res call({
     Object? loginData = null,
   }) {
-    return _then(_$_LoginState(
+    return _then(_$LoginStateImpl(
       loginData: null == loginData
           ? _value.loginData
           : loginData // ignore: cast_nullable_to_non_nullable
@@ -398,8 +398,8 @@ class __$$_LoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoginState implements _LoginState {
-  const _$_LoginState({required this.loginData});
+class _$LoginStateImpl implements _LoginState {
+  const _$LoginStateImpl({required this.loginData});
 
   @override
   final ApiResponse<LogInfo> loginData;
@@ -413,7 +413,7 @@ class _$_LoginState implements _LoginState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoginState &&
+            other is _$LoginStateImpl &&
             (identical(other.loginData, loginData) ||
                 other.loginData == loginData));
   }
@@ -424,18 +424,18 @@ class _$_LoginState implements _LoginState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
-      __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
+  _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
+      __$$LoginStateImplCopyWithImpl<_$LoginStateImpl>(this, _$identity);
 }
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState({required final ApiResponse<LogInfo> loginData}) =
-      _$_LoginState;
+      _$LoginStateImpl;
 
   @override
   ApiResponse<LogInfo> get loginData;
   @override
   @JsonKey(ignore: true)
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
+  _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

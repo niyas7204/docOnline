@@ -5,8 +5,10 @@ import 'package:doc_online/core/authentication/email_auth.dart';
 import 'package:doc_online/doctorside/bloc/profile/doctorprofileresponse_bloc.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/userside/account_auth/presentaion/log_in.dart';
-import 'package:doc_online/userside/presentation/widgets/widgets.dart';
-import 'package:doc_online/userside/presentation/widgets/doctor_details.dart';
+import 'package:doc_online/userside/presentation/components/widgets.dart';
+import 'package:doc_online/userside/presentation/components/doctor_details.dart';
+import 'package:doc_online/utils/space_sized.dart';
+import 'package:doc_online/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -77,22 +79,22 @@ class DoctorProfile extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 10),
-                      text20(state.profile.data!.doctor!.name),
-                      text20(state.profile.data!.doctor!.qualification),
+                      CustomTexts.text20(state.profile.data!.doctor!.name),
+                      CustomTexts.text20(state.profile.data!.doctor!.qualification),
 
                       const SizedBox(height: 20),
 
                       const SizedBox(height: 30),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: heading('Rating and Reviews'),
+                        child: CustomTexts.commonText1('Rating and Reviews'),
                       ),
                       const SizedBox(height: 10),
                       ListView.separated(
                           physics: const ScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: state.profile.data!.reviews!.length,
-                          separatorBuilder: (context, index) => space1h(),
+                          separatorBuilder: (context, index) => SpaceSized.space1h(),
                           itemBuilder: (context, index) => review(
                               state.profile.data!.reviews![index].userId!.name!,
                               state.profile.data!.reviews![index].rating!,

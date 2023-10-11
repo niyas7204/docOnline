@@ -69,25 +69,25 @@ class _$SignupEventCopyWithImpl<$Res, $Val extends SignupEvent>
 }
 
 /// @nodoc
-abstract class _$$_getSignUphCopyWith<$Res> {
-  factory _$$_getSignUphCopyWith(
-          _$_getSignUph value, $Res Function(_$_getSignUph) then) =
-      __$$_getSignUphCopyWithImpl<$Res>;
+abstract class _$$getSignUphImplCopyWith<$Res> {
+  factory _$$getSignUphImplCopyWith(
+          _$getSignUphImpl value, $Res Function(_$getSignUphImpl) then) =
+      __$$getSignUphImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getSignUphCopyWithImpl<$Res>
-    extends _$SignupEventCopyWithImpl<$Res, _$_getSignUph>
-    implements _$$_getSignUphCopyWith<$Res> {
-  __$$_getSignUphCopyWithImpl(
-      _$_getSignUph _value, $Res Function(_$_getSignUph) _then)
+class __$$getSignUphImplCopyWithImpl<$Res>
+    extends _$SignupEventCopyWithImpl<$Res, _$getSignUphImpl>
+    implements _$$getSignUphImplCopyWith<$Res> {
+  __$$getSignUphImplCopyWithImpl(
+      _$getSignUphImpl _value, $Res Function(_$getSignUphImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getSignUph implements _getSignUph {
-  const _$_getSignUph();
+class _$getSignUphImpl implements _getSignUph {
+  const _$getSignUphImpl();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$_getSignUph implements _getSignUph {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getSignUph);
+        (other.runtimeType == runtimeType && other is _$getSignUphImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$_getSignUph implements _getSignUph {
 }
 
 abstract class _getSignUph implements SignupEvent {
-  const factory _getSignUph() = _$_getSignUph;
+  const factory _getSignUph() = _$getSignUphImpl;
 }
 
 /// @nodoc
@@ -208,22 +208,22 @@ class _$SignupStateCopyWithImpl<$Res, $Val extends SignupState>
 }
 
 /// @nodoc
-abstract class _$$_SignupStateCopyWith<$Res>
+abstract class _$$SignupStateImplCopyWith<$Res>
     implements $SignupStateCopyWith<$Res> {
-  factory _$$_SignupStateCopyWith(
-          _$_SignupState value, $Res Function(_$_SignupState) then) =
-      __$$_SignupStateCopyWithImpl<$Res>;
+  factory _$$SignupStateImplCopyWith(
+          _$SignupStateImpl value, $Res Function(_$SignupStateImpl) then) =
+      __$$SignupStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<SignupInfo>? signUpResponse});
 }
 
 /// @nodoc
-class __$$_SignupStateCopyWithImpl<$Res>
-    extends _$SignupStateCopyWithImpl<$Res, _$_SignupState>
-    implements _$$_SignupStateCopyWith<$Res> {
-  __$$_SignupStateCopyWithImpl(
-      _$_SignupState _value, $Res Function(_$_SignupState) _then)
+class __$$SignupStateImplCopyWithImpl<$Res>
+    extends _$SignupStateCopyWithImpl<$Res, _$SignupStateImpl>
+    implements _$$SignupStateImplCopyWith<$Res> {
+  __$$SignupStateImplCopyWithImpl(
+      _$SignupStateImpl _value, $Res Function(_$SignupStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -231,7 +231,7 @@ class __$$_SignupStateCopyWithImpl<$Res>
   $Res call({
     Object? signUpResponse = freezed,
   }) {
-    return _then(_$_SignupState(
+    return _then(_$SignupStateImpl(
       signUpResponse: freezed == signUpResponse
           ? _value.signUpResponse
           : signUpResponse // ignore: cast_nullable_to_non_nullable
@@ -242,8 +242,8 @@ class __$$_SignupStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SignupState implements _SignupState {
-  const _$_SignupState({this.signUpResponse});
+class _$SignupStateImpl implements _SignupState {
+  const _$SignupStateImpl({this.signUpResponse});
 
   @override
   final ApiResponse<SignupInfo>? signUpResponse;
@@ -257,7 +257,7 @@ class _$_SignupState implements _SignupState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignupState &&
+            other is _$SignupStateImpl &&
             (identical(other.signUpResponse, signUpResponse) ||
                 other.signUpResponse == signUpResponse));
   }
@@ -268,18 +268,18 @@ class _$_SignupState implements _SignupState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SignupStateCopyWith<_$_SignupState> get copyWith =>
-      __$$_SignupStateCopyWithImpl<_$_SignupState>(this, _$identity);
+  _$$SignupStateImplCopyWith<_$SignupStateImpl> get copyWith =>
+      __$$SignupStateImplCopyWithImpl<_$SignupStateImpl>(this, _$identity);
 }
 
 abstract class _SignupState implements SignupState {
   const factory _SignupState({final ApiResponse<SignupInfo>? signUpResponse}) =
-      _$_SignupState;
+      _$SignupStateImpl;
 
   @override
   ApiResponse<SignupInfo>? get signUpResponse;
   @override
   @JsonKey(ignore: true)
-  _$$_SignupStateCopyWith<_$_SignupState> get copyWith =>
+  _$$SignupStateImplCopyWith<_$SignupStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

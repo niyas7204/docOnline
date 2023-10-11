@@ -69,25 +69,25 @@ class _$DepartmentsEventCopyWithImpl<$Res, $Val extends DepartmentsEvent>
 }
 
 /// @nodoc
-abstract class _$$_getDepartmentdataCopyWith<$Res> {
-  factory _$$_getDepartmentdataCopyWith(_$_getDepartmentdata value,
-          $Res Function(_$_getDepartmentdata) then) =
-      __$$_getDepartmentdataCopyWithImpl<$Res>;
+abstract class _$$getDepartmentdataImplCopyWith<$Res> {
+  factory _$$getDepartmentdataImplCopyWith(_$getDepartmentdataImpl value,
+          $Res Function(_$getDepartmentdataImpl) then) =
+      __$$getDepartmentdataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getDepartmentdataCopyWithImpl<$Res>
-    extends _$DepartmentsEventCopyWithImpl<$Res, _$_getDepartmentdata>
-    implements _$$_getDepartmentdataCopyWith<$Res> {
-  __$$_getDepartmentdataCopyWithImpl(
-      _$_getDepartmentdata _value, $Res Function(_$_getDepartmentdata) _then)
+class __$$getDepartmentdataImplCopyWithImpl<$Res>
+    extends _$DepartmentsEventCopyWithImpl<$Res, _$getDepartmentdataImpl>
+    implements _$$getDepartmentdataImplCopyWith<$Res> {
+  __$$getDepartmentdataImplCopyWithImpl(_$getDepartmentdataImpl _value,
+      $Res Function(_$getDepartmentdataImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getDepartmentdata implements _getDepartmentdata {
-  const _$_getDepartmentdata();
+class _$getDepartmentdataImpl implements _getDepartmentdata {
+  const _$getDepartmentdataImpl();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$_getDepartmentdata implements _getDepartmentdata {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getDepartmentdata);
+        (other.runtimeType == runtimeType && other is _$getDepartmentdataImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$_getDepartmentdata implements _getDepartmentdata {
 }
 
 abstract class _getDepartmentdata implements DepartmentsEvent {
-  const factory _getDepartmentdata() = _$_getDepartmentdata;
+  const factory _getDepartmentdata() = _$getDepartmentdataImpl;
 }
 
 /// @nodoc
@@ -208,22 +208,22 @@ class _$DepartmentsStateCopyWithImpl<$Res, $Val extends DepartmentsState>
 }
 
 /// @nodoc
-abstract class _$$_DepartmentsStateCopyWith<$Res>
+abstract class _$$DepartmentsStateImplCopyWith<$Res>
     implements $DepartmentsStateCopyWith<$Res> {
-  factory _$$_DepartmentsStateCopyWith(
-          _$_DepartmentsState value, $Res Function(_$_DepartmentsState) then) =
-      __$$_DepartmentsStateCopyWithImpl<$Res>;
+  factory _$$DepartmentsStateImplCopyWith(_$DepartmentsStateImpl value,
+          $Res Function(_$DepartmentsStateImpl) then) =
+      __$$DepartmentsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ApiResponse<DepartmentsInfo> departmentData});
 }
 
 /// @nodoc
-class __$$_DepartmentsStateCopyWithImpl<$Res>
-    extends _$DepartmentsStateCopyWithImpl<$Res, _$_DepartmentsState>
-    implements _$$_DepartmentsStateCopyWith<$Res> {
-  __$$_DepartmentsStateCopyWithImpl(
-      _$_DepartmentsState _value, $Res Function(_$_DepartmentsState) _then)
+class __$$DepartmentsStateImplCopyWithImpl<$Res>
+    extends _$DepartmentsStateCopyWithImpl<$Res, _$DepartmentsStateImpl>
+    implements _$$DepartmentsStateImplCopyWith<$Res> {
+  __$$DepartmentsStateImplCopyWithImpl(_$DepartmentsStateImpl _value,
+      $Res Function(_$DepartmentsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -231,7 +231,7 @@ class __$$_DepartmentsStateCopyWithImpl<$Res>
   $Res call({
     Object? departmentData = null,
   }) {
-    return _then(_$_DepartmentsState(
+    return _then(_$DepartmentsStateImpl(
       departmentData: null == departmentData
           ? _value.departmentData
           : departmentData // ignore: cast_nullable_to_non_nullable
@@ -242,8 +242,8 @@ class __$$_DepartmentsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DepartmentsState implements _DepartmentsState {
-  const _$_DepartmentsState({required this.departmentData});
+class _$DepartmentsStateImpl implements _DepartmentsState {
+  const _$DepartmentsStateImpl({required this.departmentData});
 
   @override
   final ApiResponse<DepartmentsInfo> departmentData;
@@ -257,7 +257,7 @@ class _$_DepartmentsState implements _DepartmentsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DepartmentsState &&
+            other is _$DepartmentsStateImpl &&
             (identical(other.departmentData, departmentData) ||
                 other.departmentData == departmentData));
   }
@@ -268,19 +268,20 @@ class _$_DepartmentsState implements _DepartmentsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DepartmentsStateCopyWith<_$_DepartmentsState> get copyWith =>
-      __$$_DepartmentsStateCopyWithImpl<_$_DepartmentsState>(this, _$identity);
+  _$$DepartmentsStateImplCopyWith<_$DepartmentsStateImpl> get copyWith =>
+      __$$DepartmentsStateImplCopyWithImpl<_$DepartmentsStateImpl>(
+          this, _$identity);
 }
 
 abstract class _DepartmentsState implements DepartmentsState {
   const factory _DepartmentsState(
           {required final ApiResponse<DepartmentsInfo> departmentData}) =
-      _$_DepartmentsState;
+      _$DepartmentsStateImpl;
 
   @override
   ApiResponse<DepartmentsInfo> get departmentData;
   @override
   @JsonKey(ignore: true)
-  _$$_DepartmentsStateCopyWith<_$_DepartmentsState> get copyWith =>
+  _$$DepartmentsStateImplCopyWith<_$DepartmentsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
