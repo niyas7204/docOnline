@@ -6,7 +6,7 @@ class CustomTexts {
       style: const TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: baseColor),
       overflow: TextOverflow.ellipsis,
-      maxLines: 3);
+      maxLines: null);
   static header1(String text) => Text(
         text,
         style: const TextStyle(

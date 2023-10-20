@@ -63,8 +63,8 @@ class NewPassword extends StatelessWidget {
                                 ForgotpasswordEvent.getRgister(
                                     password: restcontroller.text));
                           } else {
-                            CustomAlertDiologe.showAlertdiolog(
-                                context, 'Passwords should not match');
+                            const ShowAlert(
+                                errorText: 'Passwords should not match');
                           }
                         }
                       },

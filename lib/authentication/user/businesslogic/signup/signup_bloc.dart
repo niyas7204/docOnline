@@ -4,6 +4,7 @@ import 'package:doc_online/authentication/user/data/model/signup_model.dart';
 import 'package:doc_online/authentication/user/data/repository/sign_up_service.dart';
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/core/responsehandler/api_response.dart';
+import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -20,7 +21,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   final SignUpService signUpService;
 
   SignupBloc(this.signUpService) : super(SignupState.intial()) {
-    log('init');
+   on<_getSignUph>(getSignup);
     on<_getSignUph>((event, emit) async {
       emit(state.copyWith(signUpResponse: ApiResponse.loading()));
       final Either<MainFailure, SignupInfo> response =
@@ -32,5 +33,8 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           (success) =>
               state.copyWith(signUpResponse: ApiResponse.complete(success))));
     });
+  }
+ Future <void> getSignup(event,emit)async{
+
   }
 }

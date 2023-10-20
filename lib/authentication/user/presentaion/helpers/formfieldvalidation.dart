@@ -9,7 +9,7 @@ validateFieldEdit(List<TextEditingController> controllers, List<String> labels,
       isValid = true;
     } else {
       isValid = false;
-      CustomAlertDiologe.showAlertdiolog(context, '${labels[i]} is empty ');
+      ShowAlert(errorText: '${labels[i]} is empty ');
       break;
     }
   }

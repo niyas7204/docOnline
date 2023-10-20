@@ -27,7 +27,6 @@ class HospitalDetailsScreen extends StatelessWidget {
     });
     return BlocBuilder<HospitalBloc, HospitalState>(
       builder: (context, state) {
-        SingleHospital hospitalDetails = state.hospitalDetails.data!;
         switch (state.hospitalDetails.status) {
           case ApiStatus.error:
             return const SizedBox();
@@ -36,6 +35,7 @@ class HospitalDetailsScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           case ApiStatus.complete:
+            SingleHospital hospitalDetails = state.hospitalDetails.data!;
             return Scaffold(
                 body: CustomScrollView(
               shrinkWrap: true,
@@ -93,33 +93,29 @@ class HospitalDetailsScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Column(
-                          children: [
-                            hospitalDetails.review != null
-                                ? AddRating(
-                                    rating: hospitalDetails.rating!.toInt(),
-                                    id: hospitalDetails.review!.hospitalId!,
-                                    review: hospitalDetails.review!.review!,
-                                    fieldtype: EditType.hospital)
-                                : const SizedBox(),
-                            hospitalDetails.reviews!.isNotEmpty
-                                ? ListView.separated(
-                                    physics: const ScrollPhysics(),
-                                    shrinkWrap: true,
-                                    itemCount: state
-                                        .hospitalDetails.data!.reviews!.length,
-                                    separatorBuilder: (context, index) =>
-                                        SpaceSized.space1h,
-                                    itemBuilder: (context, index) => ViewReview(
-                                        profile: hospitalDetails
-                                            .reviews![index].userId!.name!,
-                                        rating: hospitalDetails
-                                            .reviews![index].rating!,
-                                        review: hospitalDetails
-                                            .reviews![index].review!))
-                                : CustomTexts.header1('no review')
-                          ],
-                        )
+                        hospitalDetails.review != null
+                            ? AddRating(
+                                rating: hospitalDetails.rating!.toInt(),
+                                id: hospitalDetails.review!.hospitalId!,
+                                review: hospitalDetails.review!.review!,
+                                fieldtype: EditType.hospital)
+                            : const SizedBox(),
+                        hospitalDetails.reviews!.isNotEmpty
+                            ? ListView.separated(
+                                physics: const ScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount:
+                                    state.hospitalDetails.data!.reviews!.length,
+                                separatorBuilder: (context, index) =>
+                                    SpaceSized.space1h,
+                                itemBuilder: (context, index) => ViewReview(
+                                    profile: hospitalDetails
+                                        .reviews![index].userId!.name!,
+                                    rating:
+                                        hospitalDetails.reviews![index].rating!,
+                                    review: hospitalDetails
+                                        .reviews![index].review!))
+                            : CustomTexts.header1('no review')
                       ],
                     ),
                   ),

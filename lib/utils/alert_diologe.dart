@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 
-class CustomAlertDiologe{
- static Future<dynamic> showAlertdiolog(BuildContext context, String? errorText) {
-  return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-            content: Text(errorText!),
-            actions: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('close'))
-            ],
-          ));
-}
+
+class ShowAlert extends StatelessWidget {
+final  String errorText;
+  const ShowAlert({super.key, required this.errorText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) {
+        
+        return AlertDialog(
+                content: Text(errorText),
+                actions: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('close'))
+                ],
+              );
+      }
+    );
+  }
 }

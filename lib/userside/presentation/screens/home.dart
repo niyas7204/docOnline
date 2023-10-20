@@ -34,8 +34,8 @@ class HomeSc extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 250,
-                width: 360,
+                height: 300,
+                width: double.infinity,
                 child: Stack(
                   children: [
                     Positioned(
@@ -44,8 +44,6 @@ class HomeSc extends StatelessWidget {
                         child: Image.asset(
                           'assets/image/home_bn.jpg',
                           fit: BoxFit.cover,
-                          width: 360,
-                          height: 250,
                         ),
                       ),
                     ),

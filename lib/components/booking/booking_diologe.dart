@@ -164,12 +164,13 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                                   BlocProvider.of<PaymentBloc>(context).add(
                                       PaymentEvent.getOrderOption(fee: fee));
                                 } else {
-                                  CustomAlertDiologe.showAlertdiolog(
-                                      context, 'name and age must fill');
+                                  const ShowAlert(
+                                      errorText: 'name and age must fill');
                                 }
                               } else {
-                                CustomAlertDiologe.showAlertdiolog(context,
-                                    'date and time should be selected');
+                                const ShowAlert(
+                                    errorText:
+                                        'date and time should be selected');
                               }
                             },
                             child: CustomTexts.commonText1('BookNow')),

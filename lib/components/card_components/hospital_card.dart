@@ -36,8 +36,6 @@ class HospitalCard extends StatelessWidget {
                 child: prefix.Image.network(
                   hospitalData.image!.secureUrl!,
                   fit: BoxFit.cover,
-                  width: 166,
-                  height: 120,
                 ),
               ),
               SpaceSized.space1h,

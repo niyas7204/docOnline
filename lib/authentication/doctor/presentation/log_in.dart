@@ -104,6 +104,6 @@ onPress(BuildContext context, String email, String password) async {
     BlocProvider.of<DoctorBloc>(context)
         .add(DoctorEvent.getDoctorLogIn(email: email, password: password));
   } else {
-    CustomAlertDiologe.showAlertdiolog(context, 'fields mustnot be empty');
+    const ShowAlert(errorText: 'fields mustnot be empty');
   }
 }

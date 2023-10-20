@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:doc_online/authentication/user/businesslogic/forgotpassword/forgotpassword_bloc.dart';
 import 'package:doc_online/authentication/user/businesslogic/verifyotpbloc/verifyotp_bloc.dart';
 import 'package:doc_online/authentication/user/presentaion/log_in.dart';
@@ -20,6 +22,7 @@ class VerifyEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log('verify');
     TextEditingController otpcontroller = TextEditingController();
 
     return Scaffold(
@@ -104,8 +107,7 @@ class VerifyEmail extends StatelessWidget {
                                       .add(ForgotpasswordEvent.getVerifyRgister(
                                           otp: otpcontroller.text));
                             } else {
-                              CustomAlertDiologe.showAlertdiolog(
-                                  context, 'OTP not entered.');
+                              const ShowAlert(errorText: 'OTP not entered.');
                             }
                           },
                           child: const Text(

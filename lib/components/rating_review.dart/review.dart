@@ -16,8 +16,7 @@ class ViewReview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: 100,
+      constraints: BoxConstraints(minHeight: 100, maxWidth: 300),
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 231, 233, 236),
         borderRadius: BorderRadius.circular(15),
@@ -27,16 +26,20 @@ class ViewReview extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CircleAvatar(
+            CircleAvatar(
+              backgroundColor:
+                  const Color.fromARGB(255, 131, 149, 163).withOpacity(.2),
               radius: 30,
-              child: Icon(Icons.person_2_sharp),
+              child: const Icon(Icons.person_2_sharp),
             ),
-            SpaceSized.space1h,
+            SpaceSized.space1w,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                CustomTexts.text20(
+                    'ls hlfsdkjfhglkjdgh skjghlgjsdglsdjkgsd gjklggl'),
                 CustomTexts.text20(profile),
-                StarRating(rating: rating),
+                SizedBox(child: StarRating(rating: rating)),
                 CustomTexts.text20(review),
               ],
             )

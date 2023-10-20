@@ -30,7 +30,7 @@ class ByDepartment extends StatelessWidget {
           case ApiStatus.complete:
             return Scaffold(
               appBar: AppBar(
-                backgroundColor: const Color.fromARGB(255, 104, 146, 138),
+                backgroundColor: const Color.fromARGB(255, 101, 131, 146),
                 title: const Text(
                   'Doctors',
                   style: TextStyle(

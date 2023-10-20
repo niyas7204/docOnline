@@ -31,7 +31,6 @@ class DoctorDetails extends StatelessWidget {
     });
     return BlocBuilder<UsersideBloc, UsersideState>(
       builder: (context, state) {
-        var doctorDetails = state.doctorDetails.data!;
         switch (state.doctorDetails.status) {
           case ApiStatus.error:
             return const SizedBox();
@@ -40,6 +39,7 @@ class DoctorDetails extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           case ApiStatus.complete:
+            var doctorDetails = state.doctorDetails.data!;
             return Scaffold(
                 body: CustomScrollView(
                   shrinkWrap: true,
@@ -124,39 +124,38 @@ class DoctorDetails extends StatelessWidget {
                                     review: doctorDetails.review!.review!,
                                     fieldtype: EditType.doctor)
                                 : const SizedBox(),
-                            Column(
-                              children: [
-                                doctorDetails.reviews!.isNotEmpty
-                                    ? ListView.separated(
-                                        physics: const ScrollPhysics(),
-                                        shrinkWrap: true,
-                                        itemCount: state.doctorDetails.data!
-                                            .reviews!.length,
-                                        separatorBuilder: (context, index) =>
-                                            SpaceSized.space1h,
-                                        itemBuilder:
-                                            (context, index) =>
-                                                ViewReview(
-                                                    profile: doctorDetails
-                                                        .reviews![index]
-                                                        .userId!
-                                                        .name!,
-                                                    rating: doctorDetails
-                                                        .reviews![index]
-                                                        .rating!,
-                                                    review: doctorDetails
-                                                        .reviews![index]
-                                                        .review!))
-                                    : const Center(
-                                        child: Text(
-                                          'No Review',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 25,
-                                              color: Colors.red),
-                                        ),
-                                      )
-                              ],
+                            SizedBox(
+                              child: Column(
+                                children: [
+                                  doctorDetails.reviews!.isNotEmpty
+                                      ? ListView.separated(
+                                          physics: const ScrollPhysics(),
+                                          shrinkWrap: true,
+                                          itemCount: state.doctorDetails.data!
+                                              .reviews!.length,
+                                          separatorBuilder: (context, index) =>
+                                              SpaceSized.space1h,
+                                          itemBuilder: (context, index) =>
+                                              ViewReview(
+                                                  profile: doctorDetails
+                                                      .reviews![index]
+                                                      .userId!
+                                                      .name!,
+                                                  rating: doctorDetails
+                                                      .reviews![index].rating!,
+                                                  review: doctorDetails
+                                                      .reviews![index].review!))
+                                      : const Center(
+                                          child: Text(
+                                            'No Review',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25,
+                                                color: Colors.red),
+                                          ),
+                                        )
+                                ],
+                              ),
                             )
                           ],
                         ),

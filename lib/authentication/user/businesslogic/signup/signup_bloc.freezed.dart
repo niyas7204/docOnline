@@ -16,19 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SignupEvent {
+  GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getSignUp,
+    required TResult Function(GlobalKey<FormState> formKey) getSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getSignUp,
+    TResult? Function(GlobalKey<FormState> formKey)? getSignUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getSignUp,
+    TResult Function(GlobalKey<FormState> formKey)? getSignUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +49,10 @@ mixin _$SignupEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignupEventCopyWith<SignupEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +60,8 @@ abstract class $SignupEventCopyWith<$Res> {
   factory $SignupEventCopyWith(
           SignupEvent value, $Res Function(SignupEvent) then) =
       _$SignupEventCopyWithImpl<$Res, SignupEvent>;
+  @useResult
+  $Res call({GlobalKey<FormState> formKey});
 }
 
 /// @nodoc
@@ -66,13 +73,30 @@ class _$SignupEventCopyWithImpl<$Res, $Val extends SignupEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formKey = null,
+  }) {
+    return _then(_value.copyWith(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$getSignUphImplCopyWith<$Res> {
+abstract class _$$getSignUphImplCopyWith<$Res>
+    implements $SignupEventCopyWith<$Res> {
   factory _$$getSignUphImplCopyWith(
           _$getSignUphImpl value, $Res Function(_$getSignUphImpl) then) =
       __$$getSignUphImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({GlobalKey<FormState> formKey});
 }
 
 /// @nodoc
@@ -82,51 +106,75 @@ class __$$getSignUphImplCopyWithImpl<$Res>
   __$$getSignUphImplCopyWithImpl(
       _$getSignUphImpl _value, $Res Function(_$getSignUphImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formKey = null,
+  }) {
+    return _then(_$getSignUphImpl(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$getSignUphImpl implements _getSignUph {
-  const _$getSignUphImpl();
+  const _$getSignUphImpl({required this.formKey});
+
+  @override
+  final GlobalKey<FormState> formKey;
 
   @override
   String toString() {
-    return 'SignupEvent.getSignUp()';
+    return 'SignupEvent.getSignUp(formKey: $formKey)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$getSignUphImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$getSignUphImpl &&
+            (identical(other.formKey, formKey) || other.formKey == formKey));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, formKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$getSignUphImplCopyWith<_$getSignUphImpl> get copyWith =>
+      __$$getSignUphImplCopyWithImpl<_$getSignUphImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getSignUp,
+    required TResult Function(GlobalKey<FormState> formKey) getSignUp,
   }) {
-    return getSignUp();
+    return getSignUp(formKey);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getSignUp,
+    TResult? Function(GlobalKey<FormState> formKey)? getSignUp,
   }) {
-    return getSignUp?.call();
+    return getSignUp?.call(formKey);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getSignUp,
+    TResult Function(GlobalKey<FormState> formKey)? getSignUp,
     required TResult orElse(),
   }) {
     if (getSignUp != null) {
-      return getSignUp();
+      return getSignUp(formKey);
     }
     return orElse();
   }
@@ -161,7 +209,15 @@ class _$getSignUphImpl implements _getSignUph {
 }
 
 abstract class _getSignUph implements SignupEvent {
-  const factory _getSignUph() = _$getSignUphImpl;
+  const factory _getSignUph({required final GlobalKey<FormState> formKey}) =
+      _$getSignUphImpl;
+
+  @override
+  GlobalKey<FormState> get formKey;
+  @override
+  @JsonKey(ignore: true)
+  _$$getSignUphImplCopyWith<_$getSignUphImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

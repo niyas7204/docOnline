@@ -16,8 +16,8 @@ class DoctorCard extends StatelessWidget {
             builder: (context) => DoctorDetails(doctorId: doctors[index].id!)));
       },
       child: Container(
-        height: 95,
-        width: 340,
+        height: 120,
+        width: double.infinity,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: const Color.fromARGB(255, 101, 131, 146)),

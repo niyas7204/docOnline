@@ -34,13 +34,18 @@ class _SignUpState extends State<SignUp> {
     TextEditingController passwordcontroller = TextEditingController();
     TextEditingController confirmPasswordcontroller = TextEditingController();
     List<TextEditingController> controllers = [
-      usernamecontroller,
       emailcontroller,
+      usernamecontroller,
       passwordcontroller,
       confirmPasswordcontroller
     ];
+    List<String> labels = [
+      'Email',
+      'User Name',
+      'Password',
+      'Confirm Password'
+    ];
     final formKey = GlobalKey<FormState>();
-    var labels = ['User Name', 'Email', 'Password', 'Confirm Password'];
     return Scaffold(
         body: BlocConsumer<SignupBloc, SignupState>(
       listener: (context, state) {
@@ -107,26 +112,29 @@ class _SignUpState extends State<SignUp> {
                               if (valid) {
                                 if (GetAllData.password ==
                                     confirmPasswordcontroller.text) {
-                                  BlocProvider.of<SignupBloc>(context)
-                                      .add(const SignupEvent.getSignUp());
+                                  BlocProvider.of<SignupBloc>(context).add(
+                                      SignupEvent.getSignUp(formKey: formKey));
 
                                   if (state.signUpResponse!.status ==
                                       ApiStatus.error) {
                                     if (state.signUpResponse!.failure ==
                                         const MainFailure.clientFailure()) {
-                                      CustomAlertDiologe.showAlertdiolog(
-                                          context, 'network failure');
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) => const ShowAlert(
+                                            errorText: 'network failure'),
+                                      );
                                     } else {
-                                      CustomAlertDiologe.showAlertdiolog(
-                                          context, 'user already exist');
+                                      const ShowAlert(
+                                          errorText: 'user already exist');
                                     }
                                   } else if (state.signUpResponse!.status ==
                                       ApiStatus.loading) {
                                     const CircularProgressIndicator();
                                   }
                                 } else {
-                                  CustomAlertDiologe.showAlertdiolog(
-                                      context, 'password shouldnot match');
+                                  const ShowAlert(
+                                      errorText: 'password shouldnot match');
                                 }
                               }
                             }
