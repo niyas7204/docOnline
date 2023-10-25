@@ -1,5 +1,3 @@
-import 'dart:developer';
-import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 
 import 'package:dio/dio.dart';
@@ -31,11 +29,9 @@ class DoctorViewImplimentation implements DoctorviewSevice {
         final data = bookingsModelFromJson(response.data);
         return right(data);
       } else {
-        log('failure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -56,11 +52,9 @@ class DoctorViewImplimentation implements DoctorviewSevice {
         final data = doctorProfileModelFromJson(response.data);
         return right(data);
       } else {
-        log('failure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -85,11 +79,9 @@ class DoctorViewImplimentation implements DoctorviewSevice {
       if (!response.data['err']) {
         return right(response.data['err']);
       } else {
-        log('failure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -109,11 +101,9 @@ class DoctorViewImplimentation implements DoctorviewSevice {
         final data = bookingsModelFromJson(response.data);
         return right(data);
       } else {
-        log('failure');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
   }

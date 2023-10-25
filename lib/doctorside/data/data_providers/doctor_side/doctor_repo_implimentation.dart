@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 
 import 'package:doc_online/core/failure/failure.dart';
@@ -25,7 +23,6 @@ class DoctorRepoImplimentation implements DoctorService {
       );
 
       if (respone.data['err'] == false) {
-        log('hello');
         final data = respone.data['err'];
 
         String headSTr = respone.headers['set-cookie'].toString();
@@ -37,7 +34,6 @@ class DoctorRepoImplimentation implements DoctorService {
 
         return right(data);
       } else {
-        log(respone.data);
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {

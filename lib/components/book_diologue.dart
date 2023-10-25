@@ -66,6 +66,7 @@ timeSchedule(Schedule time, int? timeSelected, int index) {
               .add(PatientBookingEvent.checkTimeselection(timeindex: index));
         },
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "start time ${startTime.hour}:${startTime.minute}",

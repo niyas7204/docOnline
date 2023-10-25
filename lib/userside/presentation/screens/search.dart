@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doc_online/core/debouncer.dart';
 import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
@@ -121,15 +119,12 @@ class SearchScreen extends StatelessWidget {
                           builder: (context) {
                             switch (state.hospitalList!.status) {
                               case ApiStatus.loading:
-                                log('loading');
                                 return const Center(
                                   child: CircularProgressIndicator(),
                                 );
                               case ApiStatus.error:
-                                log('error');
                                 return const SizedBox();
                               case ApiStatus.complete:
-                                log(state.toString());
                                 return hospitals(state);
                               default:
                                 return const SizedBox();
@@ -150,7 +145,6 @@ class SearchScreen extends StatelessWidget {
   }
 
   Expanded doctors(SearchState state) {
-    log(state.isSearch.toString());
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(8.0),

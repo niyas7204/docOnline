@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -22,17 +21,15 @@ class EmrImplimentation implements EmrService {
       final response = await dio.get(url,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-      log(response.toString());
+
       if (!response.data['err']) {
         final data = emrResponseModelFromJson(response.data);
 
         return right(data);
       } else {
-        log('server');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('emr err: $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -65,12 +62,9 @@ class EmrImplimentation implements EmrService {
           data: requestBody,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-      log('${postResponse.data}');
+
       if (!postResponse.data['err']) {
-        log('false');
-      } else {
-        log('true');
-      }
+      } else {}
       final response = await dio.get(getUrl,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
@@ -80,11 +74,9 @@ class EmrImplimentation implements EmrService {
 
         return right(data);
       } else {
-        log('server');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('emr err: $e');
       return left(const MainFailure.clientFailure());
     }
   }

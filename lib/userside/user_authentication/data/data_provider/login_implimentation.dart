@@ -55,17 +55,17 @@ class LogInImplimentation implements LogInService {
 
     try {
       final response = await Dio().post(url, data: requestBody);
-      log(response.toString());
+
       if (response.data['err']) {
         return left(const MainFailure.serverFailure());
       } else {
         final data = LogInfo.fromJson(response.data);
         GetAllData.tempToken = data.token;
-        log(data.toString());
+
         return right(data);
       }
     } catch (e) {
-      log(e.toString());
+      log('Sign up error $e');
       return left(const MainFailure.clientFailure());
     }
   }

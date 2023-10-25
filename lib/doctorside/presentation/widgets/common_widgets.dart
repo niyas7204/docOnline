@@ -7,13 +7,12 @@ import 'package:flutter/material.dart';
 patientCard(List<Booking> state, int index, BuildContext context,
     AppointmentSelection selection) {
   return GestureDetector(
-    onTap: () async {},
     child: Container(
       height: 160,
       width: 340,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: const Color.fromARGB(255, 101, 131, 146)),
+          color: Color.fromARGB(255, 101, 131, 146).withOpacity(.8)),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(

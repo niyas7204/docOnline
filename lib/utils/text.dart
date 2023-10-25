@@ -5,7 +5,6 @@ class CustomTexts {
   static text20(text) => Text(text,
       style: const TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: baseColor),
-      overflow: TextOverflow.ellipsis,
       maxLines: null);
   static header1(String text) => Text(
         text,
@@ -16,6 +15,11 @@ class CustomTexts {
         text,
         style: const TextStyle(
             fontSize: 20, fontWeight: FontWeight.bold, color: baseColor),
+      );
+  static buttonText(String text) => Text(
+        text,
+        style: const TextStyle(
+            fontSize: 18, fontWeight: FontWeight.bold, color: baseColor),
       );
   static commonText1(String text) => Text(
         text,

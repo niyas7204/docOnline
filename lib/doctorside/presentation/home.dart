@@ -20,12 +20,16 @@ class DoctorHomeSc extends StatelessWidget {
         .add(const BookingsEvent.getTodaysBookings());
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(132, 164, 135, 1),
-      body: BlocBuilder<BookingsBloc, BookingsState>(
+        body: Container(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/image/sethescope.jpg"),
+              fit: BoxFit.cover)),
+      child: BlocBuilder<BookingsBloc, BookingsState>(
         builder: (context, state) {
           switch (state.bookings.status) {
             case ApiStatus.loading:
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
 
             case ApiStatus.error:
               return const SizedBox();
@@ -75,7 +79,7 @@ class DoctorHomeSc extends StatelessWidget {
                                           selection:
                                               AppointmentSelection.today));
                                 },
-                                child: CustomTexts.text20('Todays')),
+                                child: CustomTexts.buttonText('Todays')),
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: state.selection ==
@@ -88,7 +92,7 @@ class DoctorHomeSc extends StatelessWidget {
                                           selection:
                                               AppointmentSelection.upcoming));
                                 },
-                                child: CustomTexts.text20('upcoming')),
+                                child: CustomTexts.buttonText('upcoming')),
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: state.selection ==
@@ -101,7 +105,7 @@ class DoctorHomeSc extends StatelessWidget {
                                           selection:
                                               AppointmentSelection.completed));
                                 },
-                                child: CustomTexts.text20('completed'))
+                                child: CustomTexts.buttonText('completed'))
                           ],
                         ),
                         bookingsList.isNotEmpty
@@ -127,7 +131,7 @@ class DoctorHomeSc extends StatelessWidget {
           }
         },
       ),
-    );
+    ));
   }
 
   onCall(context) {

@@ -40,13 +40,13 @@ class DoctorProfile extends StatelessWidget {
           ]),
       body: BlocBuilder<DoctorprofileresponseBloc, DoctorprofileresponseState>(
         builder: (context, state) {
-          var profile = state.profile.data!;
           switch (state.profile.status) {
             case ApiStatus.loading:
               return const Center(child: CircularProgressIndicator());
             case ApiStatus.error:
               return const SizedBox();
             case ApiStatus.complete:
+              var profile = state.profile.data!;
               return SingleChildScrollView(
                 child: Container(
                   padding: const EdgeInsets.all(10),

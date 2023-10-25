@@ -46,47 +46,50 @@ class DoctorLogin extends StatelessWidget {
                     child: logo(),
                   ),
                   Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CustomTexts.header1('Login'),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SpaceSized.space1h,
-                            CustomTexts.labelText('Email'),
-                            textField('Email', emailcontroller),
-                            SpaceSized.space1h,
-                            CustomTexts.labelText('Password'),
-                            textField('Password', passwordcontroller),
-                            SpaceSized.space1h,
-                          ],
-                        ),
-                        state.logResponse!.status == ApiStatus.error
-                            ? CustomTexts.errorText(
-                                'Email and Password shouldnot match')
-                            : const SizedBox(),
-                        SizedBox(
-                          width: 160,
-                          height: 35,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: baseColor,
-                            ),
-                            onPressed: () async {
-                              await onPress(context, emailcontroller.text,
-                                  passwordcontroller.text);
-                            },
-                            child: const Text(
-                              'Login',
-                              style:
-                                  TextStyle(fontSize: 24, color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CustomTexts.header1('Login'),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SpaceSized.space1h,
+                              CustomTexts.labelText('Email'),
+                              textField('Email', emailcontroller),
+                              SpaceSized.space1h,
+                              CustomTexts.labelText('Password'),
+                              textField('Password', passwordcontroller),
+                              SpaceSized.space1h,
+                            ],
+                          ),
+                          state.logResponse!.status == ApiStatus.error
+                              ? CustomTexts.errorText(
+                                  'Email and Password shouldnot match')
+                              : const SizedBox(),
+                          SizedBox(
+                            width: 160,
+                            height: 35,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: baseColor,
+                              ),
+                              onPressed: () async {
+                                await onPress(context, emailcontroller.text,
+                                    passwordcontroller.text);
+                              },
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(
+                                    fontSize: 24, color: Colors.white),
+                              ),
                             ),
                           ),
-                        ),
-                        SpaceSized.space1h,
-                      ],
+                          SpaceSized.space1h,
+                        ],
+                      ),
                     ),
                   ),
                 ],
