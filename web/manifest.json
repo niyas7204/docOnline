@@ -1,6 +1,6 @@
 {
-    "name": "doc_online",
-    "short_name": "doc_online",
+    "name": "com.doc_online",
+    "short_name": "com.doc_online",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="doc_online">
+    package="com.doc_online">
    <application
         android:requestLegacyExternalStorage="true"
-        android:label="doc_online"
+        android:label="com.doc_online"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

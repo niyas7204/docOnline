@@ -4,7 +4,7 @@ project(doc_online LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "doc_online")
+set(BINARY_NAME "com.doc_online")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
