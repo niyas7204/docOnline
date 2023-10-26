@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
@@ -49,13 +51,15 @@ class SearchImplimentation implements SearchService {
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
 
       if (!response.data['err']) {
+        log('rsp');
         final data = hospitalDataFromJson(response.data);
-
+        log('${data.hospitals}');
         return right(data);
       } else {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
+      log('err $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -73,11 +77,12 @@ class SearchImplimentation implements SearchService {
   @override
   List<HospitalDeatails>? onHospitalSearch(
       {required List<HospitalDeatails> hospitals, required String query}) {
+    log('on search');
     List<HospitalDeatails> result = hospitals
         .where((element) =>
             element.name!.trim().toLowerCase().contains(query.toLowerCase()))
         .toList();
-
+    log(result.length.toString());
     return result;
   }
 }

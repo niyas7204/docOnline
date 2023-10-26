@@ -3,7 +3,6 @@ import 'package:doc_online/authentication/user/businesslogic/login/login_bloc.da
 import 'package:doc_online/authentication/user/businesslogic/signup/signup_bloc.dart';
 import 'package:doc_online/authentication/user/businesslogic/verifyotpbloc/verifyotp_bloc.dart';
 import 'package:doc_online/authentication/user/data/data_provider/forgotpassword_implimentation.dart';
-import 'package:doc_online/authentication/user/data/data_provider/login_implimentation.dart';
 import 'package:doc_online/authentication/user/data/data_provider/signup_implimentation.dart';
 import 'package:doc_online/authentication/user/data/data_provider/verify_email_implimentation.dart';
 import 'package:doc_online/authentication/user/presentaion/log_in.dart';
@@ -25,6 +24,7 @@ import 'package:doc_online/userside/data/dataprovider/booking_impl.dart';
 import 'package:doc_online/userside/data/dataprovider/search_impl.dart';
 import 'package:doc_online/userside/data/dataprovider/userprofile_implimentation.dart';
 import 'package:doc_online/userside/presentation/screens/home.dart';
+import 'package:doc_online/userside/user_authentication/data/data_provider/login_implimentation.dart';
 
 import 'package:flutter/material.dart';
 

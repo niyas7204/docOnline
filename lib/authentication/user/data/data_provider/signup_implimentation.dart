@@ -22,7 +22,7 @@ class SignUpImplimentation implements SignUpService {
 
     try {
       final response = await Dio().post(url, data: requestBody);
-
+      log(response.toString());
       if (response.data['err']) {
         return left(const MainFailure.serverFailure());
       } else {

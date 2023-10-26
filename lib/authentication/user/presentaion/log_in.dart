@@ -28,11 +28,11 @@ class Login extends StatelessWidget {
       emailcontroller,
       passwordcontroller
     ];
-    final formKey = GlobalKey<FormState>();
     return Scaffold(
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.loginData.status == ApiStatus.complete) {
+            controllers.clear();
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => const HomeSc(),
             ));
@@ -71,22 +71,18 @@ class Login extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomTexts.header1('Login'),
-                          Form(
-                            key: formKey,
-                            child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: ListView.separated(
-                                itemCount: 2,
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: ListView.separated(
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) =>
                                     TextFieldWidgets.textEditField(
                                         labels[index],
                                         controllers[index],
-                                        formKey),
+                                        GlobalKey<FormState>()),
                                 separatorBuilder: (context, index) =>
                                     SpaceSized.space1h,
-                              ),
-                            ),
+                                itemCount: labels.length),
                           ),
                           TextButton(
                               onPressed: () async {
@@ -111,7 +107,8 @@ class Login extends StatelessWidget {
                                 if (valid) {
                                   BlocProvider.of<LoginBloc>(context).add(
                                       LoginEvent.authLogIn(
-                                          email: emailcontroller.text.trim(),
+                                          email:
+                                              emailcontroller.text.trimRight(),
                                           password: passwordcontroller.text));
                                 }
                               },

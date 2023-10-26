@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/authentication/user/data/model/login.dart';
+import 'package:doc_online/authentication/user/data/repository/login_service.dart';
 
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/core/shared_preferences.dart';
@@ -11,8 +12,6 @@ import 'package:doc_online/doctorside/presentation/core/url.dart';
 import 'package:doc_online/core/get_all_data.dart';
 
 import 'package:dio/dio.dart';
-
-import '../repository/login_service.dart';
 
 class LogInImplimentation implements LogInService {
   @override

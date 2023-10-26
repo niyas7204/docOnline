@@ -1,4 +1,3 @@
-import 'package:doc_online/authentication/user/presentaion/log_in.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 import 'package:doc_online/doctorside/bloc/doctor/log_in/doctor_bloc.dart';
 
@@ -45,15 +44,6 @@ class DoctorLogin extends StatelessWidget {
                   Positioned(
                     left: 16.0,
                     child: logo(),
-                  ),
-                  Positioned(
-                    right: 16.0,
-                    child: TextButton(
-                        onPressed: () => Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const Login(),
-                            )),
-                        child: const Text('Doctor Login')),
                   ),
                   Center(
                     child: Padding(

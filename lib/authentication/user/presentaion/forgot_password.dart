@@ -31,24 +31,22 @@ class ForgotPassword extends StatelessWidget {
             child: Stack(
           children: [
             Positioned(top: 40, left: 16, child: logo()),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomTexts.header1('Forgot Password ?'),
-                    SpaceSized.space1h,
-                    const Text('Enter the email adress'),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomTexts.labelText('Email'),
-                        textField('Email', emailcontroller),
-                        SpaceSized.space1h,
-                      ],
-                    ),
-                    ElevatedButton(
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomTexts.header1('Forgot Password ?'),
+                  SpaceSized.space1h,
+                  const Text('Enter the email adress'),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomTexts.labelText('Email'),
+                      textField('Email', emailcontroller),
+                      SpaceSized.space1h,
+                    ],
+                  ),
+                  ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: baseColor,
                       ),
@@ -60,13 +58,8 @@ class ForgotPassword extends StatelessWidget {
                                   email: emailcontroller.text));
                         }
                       },
-                      child: const Text(
-                        'Next',
-                        style: TextStyle(fontSize: 24, color: Colors.white),
-                      ),
-                    )
-                  ],
-                ),
+                      child: const Text('Next'))
+                ],
               ),
             )
           ],

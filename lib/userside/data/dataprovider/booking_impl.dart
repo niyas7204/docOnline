@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -43,10 +44,12 @@ class BookingImplimentation implements BookingService {
               options: Options(
                   headers: {'cookie': '${cookie.name}=${cookie.value}'}));
           if (!response.data['err']) {
+            log(response.data.toString());
             final data = checkTimeslotFromJson(response.data);
 
             finanlSchedule.add(data.result!);
           } else {
+            log(response.toString());
             return left(const MainFailure.serverFailure());
           }
         }
@@ -54,6 +57,7 @@ class BookingImplimentation implements BookingService {
 
       return right(finanlSchedule);
     } catch (e) {
+      log('error h:$e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -73,12 +77,13 @@ class BookingImplimentation implements BookingService {
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
       if (!response.data['err']) {
         final data = orderResponseModelFromJson(response.data);
-
+        log("${data.order!.amount!}");
         return right(data);
       } else {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
+      log('errror :$e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -92,6 +97,7 @@ class BookingImplimentation implements BookingService {
     const url = '$baseUrl/user/payment/verify';
 
     try {
+      log('enter imp');
       final response = await dio.post(url,
           data: requestBody,
           options:
@@ -99,6 +105,7 @@ class BookingImplimentation implements BookingService {
 
       return right(response.data['err']);
     } catch (e) {
+      log('errr $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -111,18 +118,22 @@ class BookingImplimentation implements BookingService {
     const url = '$baseUrl/user/booking';
 
     try {
+      log('enter imp');
       final response = await dio.get(url,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-
+      log(response.data.toString());
       if (!response.data['err']) {
-        final data = userBookingsModelFromJson(response.data);
+        log('ef');
 
+        final data = userBookingsModelFromJson(response.data);
+        log('ad');
         return right(data);
       } else {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
+      log('errr $e');
       return left(const MainFailure.clientFailure());
     }
   }
