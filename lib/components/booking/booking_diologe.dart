@@ -14,7 +14,6 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
     int fee, context, String doctorId) {
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
-  bool isPaymentCall = false;
   return Dialog(
     backgroundColor: const Color.fromARGB(255, 101, 131, 146).withOpacity(.9),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -121,7 +120,7 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: CustomTexts.commonText1('cancel')),
+                          child: CustomTexts.labelText('cancel')),
                     ),
                   ),
                   Center(
@@ -135,8 +134,6 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                               CircularProgressIndicator;
                               break;
                             case ApiStatus.complete:
-                              isPaymentCall = true;
-
                               return await getRazorPay(
                                   context,
                                   fee,
@@ -173,7 +170,7 @@ diologue(List<Result>? scheduleList, int? isdateSeleted, int? istimeSelected,
                                         'date and time should be selected');
                               }
                             },
-                            child: CustomTexts.commonText1('BookNow')),
+                            child: CustomTexts.labelText('BookNow')),
                       ),
                     ),
                   ),

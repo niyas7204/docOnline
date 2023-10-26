@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/core/responsehandler/api_response.dart';
 import 'package:doc_online/doctorside/data/repository/doctor/doctor_repo.dart';
@@ -19,7 +17,7 @@ class DoctorBloc extends Bloc<DoctorEvent, DoctorState> {
       emit(state.copyWith(logResponse: ApiResponse.loading()));
       final Either<MainFailure, bool> response = await doctorService
           .getDoctorLogIn(email: event.email, password: event.password);
-      log('bloc response$response');
+
       emit(response.fold(
           (failure) => state.copyWith(logResponse: ApiResponse.error(failure)),
           (success) =>

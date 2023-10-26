@@ -9,7 +9,9 @@ validateFieldEdit(List<TextEditingController> controllers, List<String> labels,
       isValid = true;
     } else {
       isValid = false;
-      ShowAlert(errorText: '${labels[i]} is empty ');
+      showDialog(
+          context: context,
+          builder: (context) => ShowAlert(errorText: '${labels[i]} is empty '));
       break;
     }
   }

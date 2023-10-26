@@ -1,5 +1,4 @@
 import 'package:doc_online/core/responsehandler/status.dart';
-import 'package:doc_online/doctorside/data/model/doctorprofilemodel.dart';
 
 import 'package:doc_online/userside/bussinesslogic/hospital/hospital_bloc.dart';
 import 'package:doc_online/userside/data/model/hopital/single_hospital.dart';

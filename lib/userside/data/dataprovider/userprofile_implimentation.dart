@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -26,11 +25,9 @@ class UserProfileImplimentation implements UserProfileService {
 
         return right(data);
       } else {
-        log('ser');
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('eeee $e');
       return left(const MainFailure.clientFailure());
     }
   }

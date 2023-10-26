@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -41,7 +39,6 @@ class UserSideImplimentation implements UserSideService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error=  $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -67,7 +64,6 @@ class UserSideImplimentation implements UserSideService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error=  $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -92,7 +88,6 @@ class UserSideImplimentation implements UserSideService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('errot  $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -123,7 +118,6 @@ class UserSideImplimentation implements UserSideService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('errot feed $e');
       return left(const MainFailure.clientFailure());
     }
   }

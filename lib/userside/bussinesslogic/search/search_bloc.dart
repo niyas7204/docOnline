@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/core/responsehandler/api_response.dart';
 
@@ -52,7 +50,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
       final response = searchService.onDoctorSearch(
           doctors: event.doctorList, query: event.query);
-      log('doctor${response.toString()}');
+
       emit(state.copyWith(
           doctorResult: ApiResponse.complete(response), isSearch: true));
     });

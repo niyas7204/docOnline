@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 
@@ -36,7 +35,7 @@ class OtpImplimentation implements OtpService {
           data: requestBody,
           options:
               Options(headers: {'cookie': '${cookie.name}=${cookie.value}'}));
-      log(response.data.toString());
+
       if (response.data['err']) {
         return left(const MainFailure.clientFailure());
       } else {

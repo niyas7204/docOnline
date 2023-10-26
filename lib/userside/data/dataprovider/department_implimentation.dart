@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -31,7 +30,6 @@ class DepartmentImplimentation implements DepartmentService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error d$e');
       return left(const MainFailure.clientFailure());
     }
   }

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doc_online/core/helpers/enum.dart';
 import 'package:doc_online/doctorside/bloc/bloc/emr_bloc.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
@@ -44,8 +42,9 @@ class EmrScreen extends StatelessWidget {
                       }
                       return Scaffold(
                         appBar: AppBar(
-                          backgroundColor: Color.fromARGB(255, 116, 184, 193)
-                              .withOpacity(.1),
+                          backgroundColor:
+                              const Color.fromARGB(255, 116, 184, 193)
+                                  .withOpacity(.1),
                           title: CustomTexts.header1('Medical Report'),
                         ),
                         body: Container(
@@ -87,8 +86,6 @@ class EmrScreen extends StatelessWidget {
                                       ? ElevatedButton(
                                           onPressed: state.editEmr
                                               ? () {
-                                                  log(prescriptionController
-                                                      .text);
                                                   BlocProvider.of<EmrBloc>(context)
                                                       .add(EmrEvent.addEmr(
                                                           userId: state

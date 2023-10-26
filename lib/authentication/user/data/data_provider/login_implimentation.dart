@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:doc_online/authentication/user/data/model/login.dart';
+import 'package:doc_online/authentication/user/data/repository/login_service.dart';
 
 import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/core/shared_preferences.dart';
@@ -11,8 +12,6 @@ import 'package:doc_online/doctorside/presentation/core/url.dart';
 import 'package:doc_online/core/get_all_data.dart';
 
 import 'package:dio/dio.dart';
-
-import '../repository/login_service.dart';
 
 class LogInImplimentation implements LogInService {
   @override
@@ -29,7 +28,7 @@ class LogInImplimentation implements LogInService {
         url,
         data: requestBody,
       );
-      log('imp$respone');
+
       if (respone.statusCode == 200 || respone.statusCode == 201) {
         if (respone.data['err'] == false) {
           final data = LogInfo.fromJson(respone.data);
@@ -56,13 +55,13 @@ class LogInImplimentation implements LogInService {
 
     try {
       final response = await Dio().post(url, data: requestBody);
-      log(response.toString());
+
       if (response.data['err']) {
         return left(const MainFailure.serverFailure());
       } else {
         final data = LogInfo.fromJson(response.data);
         GetAllData.tempToken = data.token;
-        log(data.toString());
+
         return right(data);
       }
     } catch (e) {

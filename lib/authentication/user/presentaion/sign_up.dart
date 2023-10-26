@@ -9,7 +9,6 @@ import 'package:doc_online/core/failure/failure.dart';
 import 'package:doc_online/core/responsehandler/status.dart';
 
 import 'package:doc_online/utils/alert_diologe.dart';
-import 'package:doc_online/utils/space_sized.dart';
 import 'package:doc_online/utils/text.dart';
 
 import 'package:flutter/material.dart';
@@ -49,7 +48,6 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
         body: BlocConsumer<SignupBloc, SignupState>(
       listener: (context, state) {
-        log('listener');
         if (state.signUpResponse!.status == ApiStatus.complete) {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (context) => const VerifyEmail(
@@ -125,19 +123,24 @@ class _SignUpState extends State<SignUp> {
                                             errorText: 'network failure'),
                                       );
                                     } else {
-                                      const ShowAlert(
-                                          errorText: 'user already exist');
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) => const ShowAlert(
+                                              errorText: 'user already exist'));
                                     }
                                   } else if (state.signUpResponse!.status ==
                                       ApiStatus.loading) {
                                     const CircularProgressIndicator();
                                   }
                                 } else {
-                                  const ShowAlert(
-                                      errorText: 'password shouldnot match');
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => const ShowAlert(
+                                          errorText:
+                                              'password shouldnot match'));
                                 }
                               }
-                            }
+                            } else {}
                           },
                           child: const Text(
                             'Sign Up',

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -33,7 +32,6 @@ class HospitalImplimentation implements HospitalService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error $e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -58,7 +56,6 @@ class HospitalImplimentation implements HospitalService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('error h$e');
       return left(const MainFailure.clientFailure());
     }
   }
@@ -89,7 +86,6 @@ class HospitalImplimentation implements HospitalService {
         return left(const MainFailure.serverFailure());
       }
     } catch (e) {
-      log('errot feed $e');
       return left(const MainFailure.clientFailure());
     }
   }

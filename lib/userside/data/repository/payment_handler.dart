@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:doc_online/core/razerpay_key.dart';
 import 'package:doc_online/userside/bussinesslogic/booking/booking_bloc.dart';
 
@@ -24,11 +25,8 @@ Future<void> getRazorPay(
     String docterId) async {
   final BookingImplimentation bookingImpl = BookingImplimentation();
   final Razorpay razorPay = Razorpay();
-  log('enter');
 
   handlePaymentSuccess(PaymentSuccessResponse response) {
-    log('handleSuccess');
-    log('handele');
     final requestBody = {
       'response': {
         "razorpay_payment_id": response.paymentId,
@@ -48,7 +46,6 @@ Future<void> getRazorPay(
 
     bookingImpl.paymentVerify(requestBody: requestBody);
 
-    log('success');
     Fluttertoast.showToast(
       msg: "succes${response.paymentId!}",
     );
@@ -62,7 +59,6 @@ Future<void> getRazorPay(
   }
 
   void handlePaymentError(PaymentFailureResponse response) {
-    log('fail');
     Fluttertoast.showToast(
       msg: "fail: ${response.message}",
     );
@@ -80,7 +76,6 @@ Future<void> getRazorPay(
     razorPay.on(Razorpay.EVENT_EXTERNAL_WALLET, handleExternalWallet);
   }
 
-  log(state.id!.toString());
   if (state.id!.isNotEmpty) {
     var options = {
       'key': razorApikey,
@@ -94,7 +89,7 @@ Future<void> getRazorPay(
       razorPay.open(options);
       intiateRazorPay();
     } catch (e) {
-      log('error$e');
+      log('payment error $e');
     }
   }
 }
